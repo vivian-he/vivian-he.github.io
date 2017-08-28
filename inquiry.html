@@ -1,0 +1,148 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+<!--The HEAD section has (mostly) items that are not directly seen by the user-->
+	<meta charset = "utf-8"/>
+    <meta name="author" content="Vivian He">
+    <meta name="keywords" content="Carnegie Mellon University">
+    <meta name="description" content="Vivian He Professional Website">
+    <title>Prantl’s</title>
+	
+	<link rel="stylesheet" media="all" type="text/css" href="css/styles.css" /> 
+
+    <script type = 'text/javascript' src = 'js/jquery-3.2.0.min.js'></script>
+    <script type = 'text/javascript' src = 'js/scripts.js'></script>
+
+    <script type = 'text/javascript' src = 'js/highcharts.js'></script>
+    <script type = 'text/javascript' src = 'js/modules/exporting.js'></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+<div id="container">
+	<div id ="top_row">
+		<header>
+			<img src ="images/logo.png" alt = "logo"  >
+			<!-- <h1>Vivian He</h1> -->
+			<!-- <h2>Carnegie Mellon University, Information Systems</h2> -->
+		</header>
+
+		<nav id = "nav">
+			<a href = "index.html">Home</a>
+			<a href = "about.html">About</a>
+			<a href = "feature.html" >Feature</a>
+			<a href = "menu.html">Menu</a>
+			<a href = "events.html" >Occasions</a>
+			<a href = "stores.html">Store Info</a>
+			<a href = "inquiry.html" class="selected">Inquiry</a>
+			<a href = "data.html">Sales Data</a>
+		</nav>
+	</div>  <!-- Close top_row -->
+
+
+
+
+
+	<div id = "content">
+	<br><br>
+	<h1>Inquiry</h1>
+
+	 <img id = "inquiry_pic" src ="images/inquiry_spread.jpg" alt = "inquiry_spread"/>
+		
+
+	<p>Please use the below form to get in touch with me.</p>
+
+
+	<form onsubmit="return validate()">
+	<form>
+	  <fieldset>
+		  <legend>Tell me more about yourself</legend>
+		  <label for="uname">Name:</label> <br/>
+		  <input type="text" id="uname" name="uname" value="Your Name" size="20" maxlength ="250"><br/><br/>
+		  <label for="txtDate">Your date of birth:</label> <br>
+		  <input type="date" id="txtDate" name="txtDate" value="" size="20" maxlength ="250"><br/><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+		  <legend>Tell me about your preferences</legend>
+		  <label for="flower">Your favorite flower color:</label> <br/>
+		  <input type="color" id="flower" name="flower" value="Your favorite flower color" ><br/><br/>
+		  <label fr="message">Message:</label> <br/>
+		  <textarea id="message" name="message" value="Type your Message" rows="10" cols="50" maxlength="1000"> </textarea><br/><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+		  <legend>Let's stay in touch</legend>
+		  <label for="source">How did you find out about me?</label>
+		  <select name="source">
+			  <option value="Google" selected>Google</option>
+			  <option value="news">News article</option>
+			  <option value="friend">Friend</option>
+			  <option value="other">Other</option><br/>
+		  </select><br/><br/>
+
+		  <label>Please indicate if you want to receive updates via email:</label><br/>
+		  <input type="checkbox" id="signup" name="signup" value="yes">Yes, please update me!<br/><br/>
+		  <label for="email">Please provide your email address:</label><br/>
+		  <input type="email" id="email" name="email" value="" Placeholder = "abc@defg.com" required ><br/><br/>
+		  <input type="text" id="phone" name="phone" value="" Placeholder = "1291234322" required ><br/><br/>
+		  <label for="pswrd">Choose a password:</label><br/>
+		  <input type="password" id="pswrd" name="pswrd" value="" size="20" maxlength="20"><br/>
+	  </fieldset>
+	  
+	  <fieldset>
+	  	  <input id = "footer_submit" type ="image" src="images/submit.jpg" alt="Submit" name= "btnimage" value ="Submit">
+	  </fieldset>
+	  
+	  </form>
+	  
+
+
+	  </div>
+
+</div> <!-- Close content -->
+
+<!--     <div id="sidebar">
+        <h3>Find Me</h3>
+        Vivian He <br/>
+        <a href="http://cmu.edu" target="_blank">Carnegie Mellon University</a><br/>
+        5000 Forbes Avenue<br/>
+        Pittsburgh, PA 15213<br/>
+        650-283-3802 (c)<br/>
+        <a href="mailto:vhe1@andrew.cmu.edu"><img src="images/email.png"></a>
+        <a href="https://www.facebook.com/veveanhe"><img src="images/facebook.png"></a>
+    </div> --> <!-- Close sidebar -->
+
+
+    <footer>
+    	<div id = "footer_sus">
+		  <label for="email">Email sign up!</label>
+		  <input type="email" id="email" name="email" value="" Placeholder = "abc@defg.com" required >
+	  	  <input id = "footer_submit" type ="image" src="images/submit.jpg" alt="Submit" name= "btnimage" value ="Submit">
+	  	  <a class="social-media" href="https://www.facebook.com/PrantlsBakery/?fref=ts"><img src="images/facebook.png"></a>
+	  	  <a class="social-media" href="mailto:info@prantlsbakery.com"><img src="images/email.png"></a>
+	      
+	    </div>
+
+	  <div id = "copyright">
+        &copy; 2017 by Prantl’s Bakery in Pittsburgh Pennsylvania<br/>
+	    
+       </div>
+    </footer>
+
+</div> <!-- Close container -->
+</body>
+</html> 
+
+
+
+

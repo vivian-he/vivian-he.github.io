@@ -1,0 +1,490 @@
+/* CSS Document */
+/* Slash-Star begins a comment, and then Star-Slash ends a comment */
+
+
+/* Set all font in the page to Helvetica with font formating */
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 100%; /* Generally set the font-size to 100% in the body - you can then change with em in the other areas */
+	line-height: 1.7em; /* The line-height property in CSS controls the space between lines of text. It is often set in a unitless value (e.g. line-height: 1.4; ) */
+	color: #000000;
+}
+
+a {	
+	color: #0F4970;
+	text-decoration: none;
+}
+
+a:hover {	
+	color: #0F4970;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+/* The container ID will hold our full webpage together */
+#container {
+	width: 70%;
+	margin: 10px auto; /* Sets 10px to the top and the the browser will center with auto */
+	/* border: 1px solid gray; */
+}
+
+/* The top row - spans all columns for header and nav */
+
+#top_row img {
+	display:block;
+	width:100%;
+	/*float:center;*/
+	margin:auto;
+	padding:0;
+}
+
+#top_row header {
+	/*margin-bottom: -2.5em;*/
+	/*border-top: 1px dotted #ccc;*/
+}
+
+#top_row h1 {
+	color: #0F4970; /* Blue color for header */
+	font-size: 3.75em; /* http://pxtoem.com/ */
+	letter-spacing: -2px; /* The letter-spacing property increases or decreases the space between characters in a text. */
+}
+
+#top_row h3 {
+	font-size: 1.125em;
+	font-weight: 200; /* The font-weight property sets how thick or thin characters in text should be displayed. */
+}
+
+#top_row nav {
+    float: right;
+  
+    border-top: 3px solid #adacac;
+
+    border-bottom: 3px solid #adacac;
+
+    padding: .3em .7em .5em .9em;
+}
+
+#top_row nav li {
+    display: inline-block;
+    padding: 20px 20px;
+}
+#top_row nav ul{
+	  list-style: none;
+	  /*margin: 0 2px;*/
+	  /*padding: 2;*/
+	  text-align: center;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+
+#top_row nav a {
+	text-decoration: none;
+	font-size: 1.125em;
+	font-weight: 400;
+	padding: 20px;
+	text-align: center;
+	color: #000000;
+}
+
+#top_row nav a.selected {
+	font: #f6f6f6;
+	color: #bbbbbb;	
+
+}
+
+
+	
+#top_row nav a.selected:hover {
+	font: #f6f6f6;
+	color: #bbbbbb;	
+}
+
+#top_row nav a:hover {	
+	font: #f6f6f6;
+	color: #0F4970;
+}
+
+#Index_content {
+	float: left;
+	width: 50%;
+	margin-right: 2em
+
+}
+
+#Index_content h3 {
+	font-family: Georgia, serif;
+	font-size: 1.5em;
+	margin: 30px 0 10px 0;
+	font-weight: normal;
+}
+
+.event_easter:hover {
+	opacity:0.7;
+}
+
+
+
+#bio {
+	margin-left: 3em;
+	font-size: .875em;
+	display: inline;
+}
+
+#bio a {
+	text-decoration: none;
+	border-bottom: 1px dotted #000;
+	color: #000;
+	
+}
+
+#bio  a:hover {	
+	color: #0F4970;
+}
+
+#Index_content img {
+	float: left; 
+	/*margin: 1em;*/
+	display:inline;
+	width:100%;
+}
+
+#Index_content p {
+	/*float: left;*/
+	text-align: justify; 
+	margin: 1em;
+}
+
+
+
+#content
+{
+	text-align: middle;
+	width:100%;
+}
+
+#feature_articles img
+{
+
+	width: 49.5%;
+	height: 500px;
+	margin: auto;
+	padding: 0;
+
+}
+
+#feature_articles img:hover {
+	opacity:0.7;
+}
+
+
+
+#feature_des img{
+
+	width:100%;
+
+}
+
+#getOne img{
+	width:100%;
+}
+
+#Bday_main img{
+	float:left;
+	width:100%;
+	margin-right: 2.5em;
+
+}
+
+p{
+
+	text-align: justify;
+    text-justify: inter-word;
+
+	margin-right: 2em;
+
+}
+
+
+
+#Wedding_main {
+	width:100%;
+}
+
+#theKnot {
+	float:left ;
+	
+}
+
+
+#home_content
+{
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+#home_easter img {
+	width:35%;
+	float:left;
+	margin-right: 0.5%;
+	height: 400px;
+
+}
+
+
+#home_content iframe {
+	width:64.5%;
+	height:400px;
+	float:left;
+	display:inline-block;
+	overflow: hidden;
+}
+
+footer {
+	clear: both; /* The clear property specifies which side(s) of an element other floating elements are not allowed. */
+	margin: 0;
+	padding: .5em;
+	color: #333333;
+	font-variant: small-caps; 
+	font-size: .813em;
+
+    border-top: 3px solid #adacac;
+
+    border-bottom: 3px solid #adacac;
+
+}
+
+#footer_sus{
+	vertical-align: middle;
+	width: 65%;
+	display: inline-block;
+}
+
+#footer_submit{
+	width:8%;
+	height:8%;
+	vertical-align: text-bottom;
+}
+
+
+
+#copyright {
+	width:40%;
+	text-align: right;
+	display:inline;
+}
+
+.social-media img {
+	width: 5%;
+	height: 5%;
+	vertical-align: middle;
+
+}
+
+
+table {
+	width: 75%;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #075F8A;
+	border-spacing: 3px;
+	margin: auto;
+	table-layout: auto;
+	border-collapse: collapse;
+}
+th {
+	height: 40px;
+	font-weight: bold;
+}
+th, td {
+	padding: 2px;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+}
+
+
+
+form {
+	width: 75%;
+	margin: auto;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #075F8A;
+	padding: 10px;	
+}
+
+legend {
+	font-weight: bold;
+	text-align: center;
+	color: #666666;
+	margin-bottom: 5px;
+}
+
+label {
+	font-weight: bold;
+	text-align: center;
+}
+
+html { overflow-y: scroll; }
+
+iframe {
+  display:block;
+  margin:auto;
+}
+
+.slideshow img{
+	height:550px;
+	width:100%;
+}
+
+.slideshow_wedding
+{
+	pointer-events: none;
+}
+
+.slideshow_wedding img{
+	height:400px;
+	width:100%;
+}
+
+
+
+/*------------------*/
+
+#location1 iframe {
+
+    margin-left: 90px;
+    margin-top: 50px;
+
+    width: 48%;
+    height: 345px;
+}
+
+#location1 table {
+	float:left;
+	width:50%;
+
+	display:inline-block;
+	font-size: 0.25em
+	margin-right:0em;
+}
+
+
+#location2 table {
+
+	width:48%;
+
+	display:inline-block;
+	font-size: 0.25em
+	margin-right:0;
+}
+
+#location2 iframe {
+    float: left;
+
+    display: inline-block;
+
+    width: 50%;
+    height: 332px;
+}
+.stores {
+	width:100%;
+}
+
+#event_bday {
+	width:50%;
+	float:left;
+	display: inline-block;
+	height:242px;
+
+ }
+#holi_left {
+	width:50%;
+	float:left;
+	display: inline-block;
+	height:242px;
+
+ }
+ #event_wedding{
+ 	width:50%;
+ 	height:242px;
+ }
+
+  #holi_right{
+ 	width:50%;
+ 	height:242px;
+ }
+
+ .event_easter {
+ 	width:100%;
+ }
+#holi_spread {
+
+ 	width:100%;
+ }
+
+}
+ #feature_almond {
+ 	width:20%;
+ }
+
+ #inquiry_pic {
+
+ 	width:100%;
+ }
+
+#textMenu {
+	text-align:center;
+}
+
+#textMenu ol,
+#textMenu ul
+{
+	width: 50%;
+	margin: 0 auto;
+}
+
+.ui-accordion-header.ui-state-active { 
+	font:black;
+	background-color: #bdecbd;
+	} 
+
+#knotLogo {
+	width:48%;
+	text-align:left;
+	height: 573px;
+}
+
+
+#knotLogo:hover {
+	opacity:0.7;
+}
+#knotMag {
+	width:50%;
+	text-align:right;
+}
+
+#knotMag:hover {
+	opacity:0.7;
+}
+
+#menu_spread {
+	width:100%;
+}
+
+#event_bday:hover{
+	opacity:0.7;
+}
+
+#event_wedding:hover{
+	opacity:0.7;
+}
+
+
+

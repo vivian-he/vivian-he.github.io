@@ -1,0 +1,156 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+<!--The HEAD section has (mostly) items that are not directly seen by the user-->
+	<meta charset = "utf-8"/>
+    <meta name="author" content="Vivian He">
+    <meta name="keywords" content="Prantl's Bakery Web Dev Project">
+    <meta name="description" content="Vivian He's Prantl's Bakery Web Dev Project">
+
+    <title>Prantl’s</title>
+	
+	<link rel="stylesheet" media="all" type="text/css" href="css/styles.css" /> 
+
+    <script type = 'text/javascript' src = 'js/jquery-3.2.0.min.js'></script>
+    <script type = 'text/javascript' src = 'js/scripts.js'></script>
+
+
+ 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+
+    <script type = 'text/javascript' src = 'js/highcharts.js'></script>
+    <script type = 'text/javascript' src = 'js/modules/exporting.js'></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	
+</head>
+
+
+
+<body>
+
+<div id="container">
+	<div id ="top_row">
+		<header>
+			<img src ="images/logo.png" alt = "logo"  >
+			<!-- <h1>Vivian He</h1> -->
+			<!-- <h2>Carnegie Mellon University, Information Systems</h2> -->
+		</header>
+
+		<nav id = "nav">
+			<a href = "index.html">Home</a>
+			<a href = "about.html">About</a>
+			<a href = "feature.html" >Feature</a>
+			<a href = "menu.html">Menu</a>
+			<a href = "events.html" >Occasions</a>
+			<a href = "stores.html">Store Info</a>
+			<a href = "inquiry.html">Inquiry</a>
+			<a href = "data.html" class="selected">Sales Data</a>
+		</nav>
+	</div> <!-- Close top_row -->
+
+
+
+
+	<div id = "content">
+		<!-- <div id = "articles"> -->
+			<br>
+			<br>
+		 	<h1>Sales Data</h1>
+	 		<h2>Check out how many in each categories we have sold!</h2>
+
+	 		<div id = "container-graph">
+	 		<script type="text/javascript">
+
+		$(function(){
+			$('#container-graph').highcharts( {
+
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares January, 2015 to May, 2015'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+
+	   series: [{
+            name: 'Sales Categories',
+            colorByPoint: true,
+            data: [{
+                name: 'Burnt Almond Torte',
+                y: 56
+            }, {
+                name: 'Coffee Cupcakes',
+                y: 24,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Rabbit Cupcakes',
+                y: 10
+            }, {
+                name: 'Blueberry Muffin',
+                y: 15
+            }, {
+                name: 'Sugar Cookies',
+                y: 5
+            }, {
+                name: 'Key Lime Pie',
+                y: 17
+            }]
+        }]
+        	});
+});
+		</script></div>
+
+
+</div>
+
+
+    <footer>
+    	<div id = "footer_sus">
+		  <label for="email">Email sign up!</label>
+		  <input type="email" id="email" name="email" value="" Placeholder = "abc@defg.com" required >
+
+	  <!-- </fieldset> -->
+	  
+	  <!-- <fieldset> -->
+	  	  <input id = "footer_submit" type ="image" src="images/submit.jpg" alt="Submit" name= "btnimage" value ="Submit">
+	  	  <a class="social-media" href="https://www.facebook.com/PrantlsBakery/?fref=ts"><img src="images/facebook.png"></a>
+	  	  <a class="social-media" href="mailto:info@prantlsbakery.com"><img src="images/email.png"></a>
+	      
+	    </div>
+	  <!-- </fieldset> -->
+	  
+<!-- 	  </form> -->
+	  <div id = "copyright">
+        &copy; 2017 by Prantl’s Bakery in Pittsburgh Pennsylvania<br/>
+	    
+       </div>
+    </footer>
+
+</div> <!-- Close container -->
+</body>
+</html> 
+
+
+
+
