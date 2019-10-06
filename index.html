@@ -1,92 +1,94 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en"> 
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script src="js/main.js"></script>
 
-<head>
-<!--The HEAD section has (mostly) items that are not directly seen by the user-->
-	<meta charset = "utf-8"/>
-    <meta name="author" content="Vivian He">
-    <meta name="keywords" content="Prantl's Bakery Web Dev Project">
-    <meta name="description" content="Vivian He's Prantl's Bakery Web Dev Project">
-
-    <title>Prantl’s</title>
-	
-	<link rel="stylesheet" media="all" type="text/css" href="css/styles.css" /> 
-
-    <script type = 'text/javascript' src = 'js/jquery-3.2.0.min.js'></script>
-    <script type = 'text/javascript' src = 'js/scripts.js'></script>
-
-
-
-	
-</head>
+<!-- Starter template and stylesheet referenced from W3schools  -->
 
 <body>
 
-<div id="container">
-	<div id ="top_row">
-		<header>
-			<img src ="images/logo.png" alt = "logo"  >
-			<!-- <h1>Vivian He</h1> -->
-			<!-- <h2>Carnegie Mellon University, Information Systems</h2> -->
-		</header>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" >
+    <a href="index.html" class="w3-bar-item w3-button">BunBunBake</a>
+    <div class="w3-right">
+      <a href="#" class="w3-bar-item w3-button">About</a>
+      <a href="#" class="w3-bar-item w3-button">Cart</a>
+    </div>
+  </div>
+</div>
 
-		<nav id = "nav">
-			<a href = "index.html" class="selected">Home</a>
-			<a href = "about.html">About</a>
-			<a href = "feature.html" >Feature</a>
-			<a href = "menu.html">Menu</a>
-			<a href = "events.html" >Occasions</a>
-			<a href = "stores.html">Store Info</a>
-			<a href = "inquiry.html">Inquiry</a>
-			<a href = "data.html">Sales Data</a>
-		</nav>
-	</div> 
-
-	 <!-- Close top_row -->
-	<a href = "holiday.html"><img class = "event_easter" src ="images/events_easter.jpg"> </a>
-
-	<!-- <h3>About</h3> -->
-	<div id = "home_content">
-	
-   		<div id = "home_easter">
-   		<a href = "holiday.html"><img class = "event_easter" src ="images/home_easter.jpg" alt = "home_easter"/></a>
-   		</div>
-
-		<iframe src="https://www.youtube.com/embed/iLhlZciMfoQ" frameborder="0" allowfullscreen></iframe>
+<!-- Landing page portion -->
+<header>
+  <img src="images/bg img.png" alt="Cinnamon bun shop">
+  <div class="text-middle w3-center">
+    <img src="images/cover texts.png" alt="bun bun bake">
+    <br></br></br><br>
+    <a href="#allproducts">
+      <img id="browse" src="images/browse button.png" alt="browse">
+    </a>
+  </div>
+</header>
 
 
+<!-- All types of cinnamon buns -->
+<div class="w3-main w3-content w3-padding margin-top" id="allproducts">
 
-	</div>
-	
+  <!-- First Photo Grid-->
+  <div>
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Hazelnut</h3>
+        <h3 class = "alignright">$4</h3>
+      </a>
+    </div>
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Blackberry</h3>
+        <h3 class = "alignright">$5</h3>
+      </a>
+    </div>
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Chocolate</h3>
+        <h3 class = "alignright">$4</h3>
+      </a>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 " >
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Orignal</h3>
+        <h3 class = "alignright">$4</h3>
+      </a>
+    </div>
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Original (GF)</h3>
+        <h3 class = "alignright">$5</h3>
+      </a>
+    </div>
+    <div class="grid-three">
+      <a href="single-bun.html">
+        <img src="images/single bun2.jpg" alt="Cinnamon bun">
+        <h3 class = "alignleft">Caramel Pecan</h3>
+        <h3 class = "alignright">$5</h3>
+      </a>
+    </div>
+  </div>
+
+<!-- End All types of cinnamon buns -->
+</div>
 
 
-    <footer>
-    	<div id = "footer_sus">
-		  <label for="email">Email sign up!</label>
-		  <input type="email" id="email" name="email" value="" Placeholder = "abc@defg.com" required >
-
-	  <!-- </fieldset> -->
-	  
-	  <!-- <fieldset> -->
-	  	  <input id = "footer_submit" type ="image" src="images/submit.jpg" alt="Submit" name= "btnimage" value ="Submit">
-	  	  <a class="social-media" href="https://www.facebook.com/PrantlsBakery/?fref=ts"><img src="images/facebook.png"></a>
-	  	  <a class="social-media" href="mailto:info@prantlsbakery.com"><img src="images/email.png"></a>
-	      
-	    </div>
-	  <!-- </fieldset> -->
-	  
-<!-- 	  </form> -->
-	  <div id = "copyright">
-        &copy; 2017 by Prantl’s Bakery in Pittsburgh Pennsylvania<br/>
-	    
-       </div>
-    </footer>
-
-</div> <!-- Close container -->
 </body>
-</html> 
-
-
-
-
+</html>

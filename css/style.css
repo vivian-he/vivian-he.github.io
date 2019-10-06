@@ -1,0 +1,91 @@
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+
+.menu {display: none}
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  	width:100%;
+	height: 100%;
+}
+
+#single{
+	height: 200%
+}
+.whitetexts {
+	color: white;
+}
+
+.text-white {
+	color:#fff!important
+}
+
+.text-middle {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-ms-transform:translate(-50%,-50%)
+}
+
+.text-big {
+	font-size:64px!important
+}
+
+.grid-three{
+	float:left;
+
+	width:33.33333%;
+	padding:0 8px
+}
+
+
+.input-hidden {
+  position: absolute;
+  left: -9999px;
+
+}
+
+
+fieldset,form { 
+	border:none; 
+}
+
+/*These 2 input css functions referenced from Stack Over Flow
+Trying to make the radio button just be images*/
+input[type=radio]:checked + label>img {
+  box-shadow: 0 0 3px 3px #FFD700;
+}
+
+input[type=radio] + label>img {
+  width: 70px;
+  height: 70px;
+  transition: 500ms all;
+}
+
+
+#browse{
+	width:30%;
+}
+
+.alignright{
+	float: right;
+}
+
+.alignleft{
+    float: left;  
+}
+
+.margin-top{
+	margin-top:100px;
+}
+
+.center{
+	vertical-align: middle;
+}
+
+#totalPrice{
+	font-size: 20px;
+}

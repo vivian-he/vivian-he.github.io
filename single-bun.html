@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script src="js/main.js"></script>
+
+<!-- Starter template and stylesheet referenced from W3schools  -->
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" >
+    <a href="index.html" class="w3-bar-item w3-button">BunBunBake</a>
+    <div class="w3-right">
+      <a href="#" class="w3-bar-item w3-button">About</a>
+      <a href="#" class="w3-bar-item w3-button">Cart</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="w3-content w3-padding margin-top " >
+	<h5><a href="index.html">Back to home</a></h5>
+
+	<!-- Cinnabun detail -->
+  <div class="w3-padding-64">
+  	<!-- picture of Cinnabun -->
+    <div class="w3-col m7 ">   	
+    	<img id = "single" src="images/single bun2.jpg" alt="cinnabun">
+    </div>
+
+    <!-- Cinnabun choices-->
+    <div class="w3-col m5 w3-padding-large">
+      <h1 >Blackberry Cinnabun</h1>
+
+      <!-- chose a glaze-->
+      <h5>Glaze flavor</h5>
+			<input type="radio" name="glaze" id="vanilla" class="input-hidden"/>
+			<label for="vanilla">
+				<img class ="w3-round" src="images/vanilla glaze.png" alt="vanilla" />
+	    </label>
+
+			<input type="radio" name="glaze" id="milk" class="input-hidden"  />
+			<label for="milk">
+				<img class ="w3-round" src="images/milk glaze.png" alt="milk" />
+			</label>
+
+			<input type="radio" name="glaze" id="chocolate" class="input-hidden"  />
+			<label for="chocolate">
+				<img class ="w3-round" src="images/choco glaze.png" alt="chocolate" />
+			</label>
+
+			<input type="radio" name="glaze" id="none" class="input-hidden test"  />
+			<label for="none">
+				<img class ="w3-round" src="images/none glaze.png" alt="none" />
+			</label>
+
+			<br><br>
+			
+			<!-- chose the amount-->
+			<h5>Amount of cinnabuns</h5>
+      <form id="bunform">       
+	      <!-- <div class="cont_order"> -->	        
+        <input type="radio" name="selectedamount" id = "one" value="one" class="input-hidden"/>
+				<label for="one" onclick="calculateTotal()" >
+					<img class ="w3-round" src="images/1.png" alt="1"/>
+				</label>
+
+				 <input type="radio" name="selectedamount" id = "three" value="three" class="input-hidden"/>
+				<label for="three" onclick="calculateTotal()">
+					<img class ="w3-round" src="images/3.png" alt="3"/>
+				</label>
+
+				 <input type="radio" name="selectedamount" id = "six" value="six" class="input-hidden"/>
+				<label for="six" onclick="calculateTotal()">
+					<img class ="w3-round" src="images/6.png" alt="6"/>
+				</label>
+
+				 <input type="radio" name="selectedamount" id = "twelve" value="twelve" class="input-hidden"/>
+				<label for="twelve" onclick="calculateTotal()">
+					<img class ="w3-round" src="images/12.png" alt="12"/>
+				</label>
+
+        <br>
+          
+        <!-- showing price -->	
+        <div id="totalPrice">
+        	<h6>Choose an amount to show price</h6>
+        </div>
+	
+     	</form>
+
+	    <!-- Add to cart button -->	
+	    <h3><button class="w3-button w3-black">Add to cart</button></h3>
+
+		</div>
+
+  </div>
+
+
+
+<!-- <div class="w3-content w3-padding margin-top"> -->
+	<h3>Other flavors you may like</h3>
+  <div class="grid-three">
+    <a href="single-bun.html">
+      <img src="images/single bun2.jpg" alt="Cinnamon bun">
+      <h3 class = "alignleft">Orignal</h3>
+      <h3 class = "alignright">$4</h3>
+    </a>
+  </div>
+  <div class="grid-three">
+    <a href="single-bun.html">
+      <img src="images/single bun2.jpg" alt="Cinnamon bun">
+      <h3 class = "alignleft">Original (GF)</h3>
+      <h3 class = "alignright">$5</h3>
+    </a>
+  </div>
+  <div class="grid-three">
+    <a href="single-bun.html">
+      <img src="images/single bun2.jpg" alt="Cinnamon bun">
+      <h3 class = "alignleft">Caramel Pecan</h3>
+      <h3 class = "alignright">$5</h3>
+    </a>
+	</div>
+</div>
+    
+
+
+</body>
+</html>
