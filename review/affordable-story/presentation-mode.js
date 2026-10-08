@@ -13,7 +13,7 @@
     document.body.classList.add('presentation-mode', 'no-outline');
     const back=document.createElement('a');
     back.className='presentation-back';
-    back.href='/variants/horizontal-portfolio/';
+    back.href='/';
     back.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to portfolio</span>';
     document.body.append(back);
 
