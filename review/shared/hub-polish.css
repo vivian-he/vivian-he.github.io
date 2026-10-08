@@ -1,0 +1,3 @@
+/* All meals: merchant names align directly with their meal-photo rail. */
+#mbt-at-allmeals .mbt-uber__head > .mbt-uber__logo { display:none!important; }
+#mbt-at-allmeals .mbt-uber__head { gap:0; }

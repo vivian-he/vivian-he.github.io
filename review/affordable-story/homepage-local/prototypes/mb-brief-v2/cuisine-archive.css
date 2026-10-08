@@ -1,0 +1,285 @@
+/* MB VALUE PROP round 6 (2026-09-08) — GALLERY OPTION 2 (mbo2- prefix).
+ * See MbOpt2.tsx for the full brief. Short version, designer, round 6,
+ * 2026-09-08: "the 2nd one use the screenshot i giving u - which is $33. for
+ * that one make the $12 bigger and align to the bottom of the dish photo. and
+ * have the dish name go first on top of the store name."
+ *
+ * WHY THIS FILE EXISTS RATHER THAN OVERRIDES ON .mbq-
+ * Option 2's base is storemix=33 (MbQuietHeaderLink, mb-quiet.css), which is
+ * the approved MEDIUM rung the designer signed off on in round 5b ("M prob
+ * works well"). Three sibling options are being built in parallel for one
+ * gallery row, so each one owns its own stylesheet: overriding .mbq-* here
+ * would let this option silently change the rung it is being measured
+ * against, and would couple the three siblings to each other. The geometry
+ * below is therefore a deliberate VERBATIM re-declaration of the medium
+ * spec — 240px panel, 14px 12px padding, 96px square radius-12 photo, 12px
+ * row gap — and only the three row deltas differ.
+ *
+ * THE THREE DELTAS FROM 33, all inside .mbo2-row:
+ *   1. dish name is the primary line (14px/700 primary), store name is the
+ *      secondary line (12px/500 secondary) — the two type specs swap, not
+ *      just the DOM order. This INVERTS the house merchant-first rule on
+ *      purpose; the WHY is on Mbo2Row in MbOpt2.tsx.
+ *   2. the price steps from MbxPrice size="xs" to size="md" (13px integer to
+ *      18px, the spec size) — "make the $12 bigger".
+ *   3. the price bottom-aligns to the photo's bottom edge, via
+ *      min-height:96px on the info column plus margin-top:auto on the price.
+ * Everything else — header, count, chevron, see-all, content — is 33.
+ */
+
+/* ---- drag rail ----------------------------------------------------------
+   Same rail as the medium rung. align-items:stretch equalises panel heights
+   so the two rows in a short-named panel and a long-named panel still land on
+   the same baselines across the rail. */
+.mbo2-rail {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mbo2-rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- panel (frozen at the approved MEDIUM spec) ------------------------- */
+
+.mbo2-panel {
+  box-sizing: border-box;
+  flex: 0 0 240px;
+  min-width: 0;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--stroke-tertiary, #e4e4e4);
+/* ROUND 8f (designer): "use the same corner radius and side padding as
+     [sangwoo's lcm-v3]". 12px radius / 16px side padding.
+     ⚠️ HOW THESE WERE OBTAINED, because it matters if they get questioned: his
+     prototype could NOT be read from this machine. compass.doordash.studio and
+     prototypes.doordash.studio are both blocked by policy in the browser, and
+     `compass prototype list` returns Forbidden for another author's prototypes,
+     so there was no way to inspect his CSS. These are measured off the card
+     screenshot she pasted (the Safeway "Dessert delight" card) and rounded to the
+     nearest DoorDash token — 12px is the standard card radius and 16px the
+     standard card gutter, and both match the screenshot. If he gives exact
+     numbers they are a one-line change here.
+     This also supersedes round 8d's "both should match the store card radius"
+     (8px, the Figma-exact msx6 value) — she has since named his file as the
+     reference instead, so 12px now applies to BOTH cards. */
+  border-radius: 12px;
+  background: var(--surface-primary, #fff);
+}
+
+/* ---- panel head: the shipped section-header idiom, carried over from 33 --
+   Label, grey count, trailing chevron, whole row tappable — the same anatomy
+   every DoorDash section header on this surface has, and exactly what her
+   screenshot shows ("Mexican (16)" with a chevron). 10px of air below the
+   head before the first row, held on the wrapper so it stays 10px regardless
+   of how the head wraps. */
+.mbo2-panel__head {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.mbo2-panel__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+  color: var(--foreground-primary, #191919);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The title shrinks and ellipsises so the count and chevron are never pushed
+   off the 240px panel — they are what make the row read as tappable, so they
+   must survive a long cuisine label. */
+
+/* Count spec, unchanged from 33: 14px (2px under the title), weight 500 (two
+   steps under the title's 700), secondary grey. Precedent is the designer's
+   round-14c note — "add a grey, thinner count next to the sub carousels...
+   showing the count". Letter-spacing reset to normal because the title's
+   -0.01em display tracking reads cramped on digits. */
+.mbo2-panel__count {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: normal;
+  color: var(--foreground-secondary, #606060);
+}
+
+/* ---- row ---------------------------------------------------------------- */
+
+.mbo2-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.mbo2-row + .mbo2-row {
+  margin-top: 12px;
+}
+
+.mbo2-row__img {
+  position: relative; /* anchors the sm floating quantity stepper */
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--background-secondary, #f1f1f1);
+}
+
+.mbo2-row__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- DELTA 3: the info column is exactly as tall as the photo -----------
+   "align to the bottom of the dish photo". min-height is 96px — the SAME
+   number as .mbo2-row__img's height, not a coincidence and not a magic
+   number: the row is align-items:flex-start, so both columns start on the
+   row's top edge, and giving the text column the photo's exact height makes
+   the two columns END on the same line. The price then takes margin-top:auto
+   and sits on that shared bottom edge.
+
+   ⚠️ DO NOT "FIX" THE GAP ABOVE THE PRICE. Round 14e in this repo
+   deliberately REMOVED margin-top:auto from a price line, because there the
+   tiles were free-height and the auto margin opened a DIFFERENT gap on every
+   tile — which read as accidental slack rather than as alignment. It is
+   reintroduced here on purpose, and the fixed 96px is what makes it safe:
+   every row in this unit is the same height whether its dish name wraps to
+   one line or two, so the space above the price is always the same intended
+   photo-alignment offset. Remove either the min-height or the auto margin and
+   the explicit ask breaks.
+
+   THE FIT ARITHMETIC, so the auto margin always has slack to give (if the
+   content exceeded 96px there would be nothing to distribute and the price
+   would overflow BELOW the photo instead of aligning to it):
+     dish   14px text, 18px line-height, clamped to 2 lines   = 36px
+     store  12px text, 15px line-height, 1 line, +1px margin  = 16px
+     price  MbxPrice md, 22px integer line-box, +2px pad-top   = 24px
+                                                          sum  = 76px
+   76px against a 96px box leaves 20px of slack for margin-top:auto, so the
+   dish clamp did NOT have to be reduced to 1 line — it stays at 2. Headroom
+   at the other price rungs, if she asks for it quieter later: sm is 21px
+   (73px total, 23px slack), xs is 19px (71px total, 25px slack). Every rung
+   fits; only md was chosen (reasoning on MbOpt2.tsx). A one-line dish name
+   drops the sum to 58px and the auto margin simply absorbs the extra 18px —
+   the price does not move, which is the whole point of the fixed height. */
+.mbo2-row__info {
+  flex: 1;
+  min-width: 0;
+  min-height: 96px; /* === .mbo2-row__img height. Keep these two in sync. */
+  display: flex;
+  flex-direction: column;
+}
+
+/* DELTA 1, line 1 — the DISH in the primary slot: 14px/700 at
+   --foreground-primary, i.e. exactly the spec the STORE name held in 33.
+   Clamped to 2 lines because dish names are the longer string of the two and
+   240px panels wrap them; 2 lines is the number the 96px arithmetic above is
+   computed against. */
+.mbo2-row__dish {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: var(--foreground-primary, #191919);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* DELTA 1, line 2 — the STORE in the secondary slot: 12px/500 at
+   --foreground-secondary, exactly the spec the DISH name held in 33. One line
+   with an ellipsis: `storeName` from mbBank is already the display brand with
+   emoji and the address suffix stripped, so one line covers nearly every
+   merchant in the Miami bank, and holding it to one line is what keeps the
+   96px sum honest. */
+.mbo2-row__store {
+  margin-top: 1px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: var(--foreground-secondary, #606060);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* DELTA 3's mechanism, and the home of DELTA 2's taller price box.
+   margin-top:auto pushes the price to the bottom of the 96px column (see the
+   arithmetic and the round-14e warning above). min-height 24px is the md
+   price's own measured height — 22px integer line box plus the component's
+   2px padding-top — declared so the column reserves the right space even on
+   the first paint before the webfont settles. */
+.mbo2-row__price {
+  margin-top: auto;
+  display: block;
+  min-height: 24px;
+}
+
+/* ---- see-all CTA -------------------------------------------------------
+   The shipped full-width tertiary button, carried over from 33 unchanged —
+   she likes this element by name ("i like the see all x button to show
+   there's a lot more"). Wrapper geometry only; the button itself is
+   .btn-tertiary-full from home-components.css. */
+.mbo2-seeall {
+  padding: 16px 16px 0;
+}
+
+
+/* ROUND 8f: local unit header (replaced the shared MbxSectionHeader) so this
+   unit can carry Sangwoo's circular arrow button instead of an inline chevron.
+   Type specs are copied from .section-header / .section-subtitle so the header
+   still reads exactly as the shared one did — only the affordance changed. */
+.mbo2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+.mbo2-header__titles {
+  min-width: 0;
+}
+.mbo2-header__title {
+  margin: 0;
+  font-family: "DD Norms", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--title-2-size, 20px);
+  font-weight: var(--title-2-weight, 700);
+  line-height: var(--title-2-lh, 26px);
+  color: var(--foreground-primary, #191919);
+}
+.mbo2-header__sub {
+  margin: 2px 0 0;
+  font-family: "DD Norms", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--foreground-secondary, #606060);
+}
+.mbo2-header__arrow {
+  flex-shrink: 0;
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head><meta name="robots" content="noindex, nofollow, noarchive">
+    <meta charset="UTF-8" />
+    <!-- Sept 18, 2026 — TRAILING-SLASH GUARD. Runs first, synchronously, before
+         the module script below is fetched.
+
+         Vite builds this repo with `base: './'`, so the built HTML loads its
+         bundle as `../../assets/…` — resolved against the DIRECTORY of the
+         current URL. At `…/prototypes/mb-brief-v2/` that is the deploy root's
+         /assets ✓. At `…/prototypes/mb-brief-v2` (no slash) the directory is
+         `…/prototypes/`, so under a hosted BASE PATH (compass serves this at
+         /<author>/<project>/…) the bundle URL climbs out of the project and the
+         page half-loads. Her report: "it's flashing right, and then immediately
+         jump back".
+
+         Canonicalising to the slash form here fixes every shape of the link at
+         once, instead of relying on whoever shares it to type the slash.
+         Guards: only when there is no slash AND no filename extension, and
+         `replace` (not assign) so it leaves no history entry to bounce on. -->
+    <script>
+      (function () {
+        /* No regex literals on purpose: this snippet is written into the HTML
+           by a script, and an escaped `/` or `$` that survives one layer but
+           not the next silently turns the condition into a comment. Plain
+           string ops cannot be mangled that way. */
+        var p = location.pathname;
+        var last = p.slice(p.lastIndexOf('/') + 1);
+        if (last !== '' && last.indexOf('.') === -1) {
+          location.replace(p + '/' + location.search + location.hash);
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E2E brief review v2</title>
+  <script src="https://compass.doordash.studio/comments-sdk.js" defer data-studio-comments-sdk></script>  <script type="module" crossorigin src="../../assets/mb-brief-v2-Dn4pQVPy.js"></script>
+  <link rel="modulepreload" crossorigin href="../../assets/client-DZQgGimn.js">
+  <link rel="modulepreload" crossorigin href="../../assets/StarHalf16-fJ7qp2VD.js">
+  <link rel="modulepreload" crossorigin href="../../assets/IconButton-CSeyGTJP.js">
+  <link rel="modulepreload" crossorigin href="../../assets/DealTag-Dyg1XDJy.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Rating-i201vgqw.js">
+  <link rel="modulepreload" crossorigin href="../../assets/SectionHeader-DYv-veHi.js">
+  <link rel="modulepreload" crossorigin href="../../assets/ChevronDown16-CZ8SlfLG.js">
+  <link rel="modulepreload" crossorigin href="../../assets/PillFilter-Ex3T3btR.js">
+  <link rel="modulepreload" crossorigin href="../../assets/FavoriteFill16-CA5xKuT8.js">
+  <link rel="modulepreload" crossorigin href="../../assets/StoreCard-CoIEaAie.js">
+  <link rel="modulepreload" crossorigin href="../../assets/SearchLine24-BWIemhOE.js">
+  <link rel="modulepreload" crossorigin href="../../assets/ThumbsUpLine16-DPmEm-v9.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Close16-CjhLNuiS.js">
+  <link rel="modulepreload" crossorigin href="../../assets/FavoriteLine24-BSMMcT3x.js">
+  <link rel="modulepreload" crossorigin href="../../assets/ThumbsUpFill16-C32_uT6F.js">
+  <link rel="modulepreload" crossorigin href="../../assets/VehicleScooterLine24-DvzncfHV.js">
+  <link rel="modulepreload" crossorigin href="../../assets/MealBoxLine24-qwgtvUuX.js">
+  <link rel="modulepreload" crossorigin href="../../assets/CartLine24-DV4pQDyq.js">
+  <link rel="modulepreload" crossorigin href="../../assets/StarFill24-xH65S96E.js">
+  <link rel="modulepreload" crossorigin href="../../assets/DealsFill24-CyMlI1MS.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Separator-JQCr27fW.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Button-C5kAeUFe.js">
+  <link rel="modulepreload" crossorigin href="../../assets/TrashLine16-DCsmhPe7.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Subtract16-Db4skAMb.js">
+  <link rel="modulepreload" crossorigin href="../../assets/GiftLine24-Dq-8rZKn.js">
+  <link rel="modulepreload" crossorigin href="../../assets/Add24-9qj3He7I.js">
+  <link rel="stylesheet" crossorigin href="../../assets/mb-brief-v2-XuUvBuwG.css">
+  <link rel="stylesheet" crossorigin href="../../assets/design-tokens-DmqDiLqq.css">
+  <link rel="stylesheet" crossorigin href="../../assets/fonts-CNOYLDUV.css">
+<style>body{background:white!important}.ge-device{width:393px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}.ge-switch{display:none!important}::-webkit-scrollbar{width:0}</style><script>if(new URLSearchParams(location.search).get('storemix')==='43'){document.write('<link rel="stylesheet" href="cuisine-archive.css?v=1">')}</script></head>
+  <body>
+    <div id="root"></div>
+  <script src="/review/shared/mealbox-home-entry.js?v=2"></script></body>
+</html>

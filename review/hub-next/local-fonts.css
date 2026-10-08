@@ -1,0 +1,6 @@
+/* A dedicated family avoids collision with the saved build's remote faces. */
+@font-face{font-family:HubNorms;src:url('/review/hub-next/fonts/DDNorms-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:HubNorms;src:url('/review/hub-next/fonts/DDNorms-Medium.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:HubNorms;src:url('/review/hub-next/fonts/DDNorms-Bold.woff2') format('woff2');font-style:normal;font-weight:600 900;font-display:swap}
+html,body,body>div:not([hidden]),body>div:not([hidden]) *{font-family:HubNorms,Arial,sans-serif!important;font-synthesis:none}
+body [style*="font-weight: 800"],body [style*="font-weight: 900"]{font-weight:700!important;letter-spacing:-.02em!important}

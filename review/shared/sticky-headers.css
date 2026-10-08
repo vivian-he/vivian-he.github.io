@@ -1,0 +1,26 @@
+/* App sticky surfaces sit below the one shared device status region. */
+.shared-hub-sticky{position:absolute;inset:0 0 auto;z-index:40;background:#fff;padding:var(--app-control-top,67px) 16px 8px;display:flex;align-items:center;gap:12px;box-shadow:0 3px 10px #19191912;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 120ms ease;box-sizing:border-box}
+.shared-hub-sticky.is-scrolled{opacity:1;visibility:visible;pointer-events:auto}
+.shared-hub-sticky button{flex:0 0 40px;width:40px;height:40px;border:0;border-radius:50%;background:#f1f1f1;display:grid;place-items:center;color:#191919}
+.shared-hub-sticky strong{font:700 20px/24px 'DD Norms',sans-serif;position:absolute;left:65px;right:65px;text-align:center}
+.shared-search-sticky{position:sticky!important;top:0;z-index:30;background:#fff;flex-shrink:0}
+.shared-search-sticky.is-scrolled{box-shadow:0 3px 10px #19191912}
+.ge-device:has(> .gx-search){overflow-y:auto!important;overflow-x:hidden!important;scrollbar-width:none}
+.gx-search>.gxs-status-bar,.gx-search>.gxs-search-row,.gx-search>.gxs-tabs,.gx-search>.gxs-chip-row{position:sticky!important;z-index:35;background:#fff!important}
+.gx-search>.gxs-status-bar{top:0;visibility:visible!important;opacity:1!important}
+.gx-search>.gxs-status-bar>*{visibility:hidden!important}
+.gx-search>.gxs-search-row{top:59px}
+.gx-search>.gxs-tabs{top:var(--sticky-tabs-top,141px);margin-bottom:0!important;padding-bottom:12px!important}
+.gx-search>.gxs-chip-row{top:var(--sticky-filters-top,190px)}
+.gx-search.is-scrolled>.gxs-chip-row{box-shadow:0 4px 8px #19191912}
+.ge-device:has(> .gx-search){height:100vh!important;max-height:100vh!important}
+
+
+/* One opaque stack: no margins or seams for scrolling cards to show through. */
+.gx-search>.gxs-status-bar{height:59px!important;min-height:59px!important;margin:0!important;background:#fff!important}
+.gx-search>.gxs-search-row{height:50px!important;min-height:50px!important;padding:0 12px!important;margin:0!important;box-shadow:0 1px 0 #fff}
+.gx-search>.gxs-tabs{margin:0!important;padding-top:0!important;box-shadow:0 1px 0 #fff}
+.gx-search>.gxs-chip-row{margin:0!important;box-shadow:0 1px 0 #fff}
+.rxi-nav{display:none!important}
+/* Retain the original working close control without the item title bar. */
+html body .rxi-hero-actions{position:fixed!important;opacity:1!important;pointer-events:auto!important;z-index:40!important}

@@ -1,0 +1,8 @@
+/* Screens reserve system space; the enclosing shared phone draws the chrome. */
+.status,.gxc-status-bar,.scroll-header__status-bar,.gxk-status-bar,.gxs-status-bar,
+.status-bar,.ios-status-bar,.p1-status-bar,.mbt-status,#fixed-phone-status,
+.lock-signals,.island,.dynamic-island,.master-island{visibility:hidden!important;pointer-events:none!important}
+.status-bar{height:59px!important;min-height:59px!important;flex-shrink:0!important}
+/* Native store's inline photo status row is also owned by the outer shell. */
+.store-page > div[style*="height: 54px"][style*="position: absolute"]{visibility:hidden!important;pointer-events:none!important}
+.home-indicator,.mbt-home-indicator,.ge-home-indicator,.pedregal-fab__home-indicator,.mbt-home{visibility:hidden!important}

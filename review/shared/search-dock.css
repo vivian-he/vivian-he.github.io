@@ -1,0 +1,28 @@
+/* One floating-search surface. Inputs stay above their keyboards; docks share
+   the Home geometry and soft bottom scrim. */
+:root{--search-dock-height:50px;--search-dock-bottom:22px;--search-dock-gutter:16px;--search-dock-font:700 16px/22px 'DD Norms',sans-serif}
+html body .app-footer .search-pill,html body #results-search-dock,html body #deck-search-dock,html body .sp-fab__search,html body .shared-hub-search,html body #searchForm .searchbox{box-sizing:border-box!important;height:var(--search-dock-height)!important;min-height:var(--search-dock-height)!important;border:1px solid #dedede!important;border-radius:28px!important;background:#fff!important;color:#191919!important;box-shadow:0 4px 16px #0000001a!important;font:var(--search-dock-font)!important}
+html body #results-search-dock,html body #deck-search-dock,html body .shared-hub-search{position:absolute;left:var(--search-dock-gutter)!important;right:var(--search-dock-gutter)!important;bottom:var(--search-dock-bottom)!important;display:flex;align-items:center;gap:12px;padding:0 12px 0 16px!important;z-index:25;cursor:pointer}
+html body .sp-fab{bottom:0!important}
+html body .sp-fab__bar{padding:0 16px 22px!important;gap:0!important}
+html body .sp-fab__search{width:100%!important;flex:1!important;display:flex;align-items:center;gap:12px;padding:0 12px 0 16px!important;text-align:left}
+html body .sp-fab__cart{display:none!important}
+html body .sp-fab__search-label,html body .dock-query,html body .shared-hub-search-label{font:var(--search-dock-font)!important;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+html body .shared-hub-search>svg,html body .sp-fab__search>svg,html body #results-search-dock>svg{width:24px!important;height:24px!important;flex:0 0 24px}
+html body .dock-ask,html body .shared-search-ask{height:34px;display:flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;background:#f1f1f1;border-radius:22px;padding:0 12px!important;font:var(--search-dock-font)!important}
+.shared-search-scrim{position:absolute;bottom:0;left:0;right:0;height:112px;z-index:24;pointer-events:none;background:linear-gradient(to bottom,#ffffff00,#ffffffa6 60%,#ffffffed);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);mask-image:linear-gradient(to bottom,transparent,#000 50%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 50%)}
+html body .sp-fab__backdrop,html body .app-footer-blur{background:linear-gradient(to bottom,#ffffff00,#ffffffa6 60%,#ffffffed)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}
+html body .sp-fab{padding:0!important}
+html body .shared-hub-search,html body .shared-search-scrim{position:fixed}
+html body .sp-fab__bar{margin:0!important}
+/* Fade the blur itself—not just its white tint—so the top has no hard seam. */
+html body .shared-search-scrim,html body .sp-fab__backdrop,html body .app-footer-blur{background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.08) 25%,rgba(255,255,255,.44) 58%,rgba(255,255,255,.92) 100%)!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 18%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.78) 70%,#000 100%)!important;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 18%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.78) 70%,#000 100%)!important}
+
+/* Home's original label token, including native inputs and loading clones. */
+html body .search-pill__label,html body .search-pill__input,html body #searchForm #query,html body .sp-fab__search-label,html body .dock-query,html body .shared-hub-search-label,html body .searchdock{font:var(--search-dock-font)!important;letter-spacing:-.14px!important;-webkit-font-smoothing:antialiased}
+html body .shared-search-ask,html body .dock-ask,html body .search-pill__ask,html body #searchForm .ask{box-sizing:border-box!important;border:0!important;height:32px!important;min-height:32px!important;display:inline-flex!important;align-items:center;justify-content:center;gap:4px!important;flex:0 0 auto!important;padding:0 14px!important;margin-left:auto;border-radius:16px!important;background:#f1f1f1!important;color:#191919!important;font:700 14px/20px 'DD Norms',sans-serif!important;letter-spacing:-.14px!important;cursor:pointer}
+html body .shared-search-ask svg,html body .dock-ask svg,html body .search-pill__ask svg,html body #searchForm .ask svg{width:16px!important;height:16px!important;flex:0 0 16px!important}
+html body .searchdock>b{display:none!important}
+
+html body [data-search-inactive],html body [data-search-inactive]:disabled{opacity:1!important;cursor:default!important}
+html body .search-pill[data-search-inactive] .search-pill__label,html body .sp-fab__search-label{text-align:left!important;justify-content:flex-start!important}

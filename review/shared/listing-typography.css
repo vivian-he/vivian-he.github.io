@@ -1,0 +1,39 @@
+/* Hub is the reference: DD Norms medium 16/22 for rating, ETA and delivery. */
+:root{--listing-meta-size:16px;--listing-meta-line:22px;--listing-meta-weight:500;--listing-meta-color:#606060;--listing-title-weight:800;--listing-price-size:18px;--listing-price-line:24px;--listing-price-weight:700;--listing-price-color:#eb1700}
+.gxs-store .listing-meta,.gxs-mb-card__meta,.mbt-root .mbt-meta,.listing-delivery{
+ font-family:'DD Norms',sans-serif!important;font-size:var(--listing-meta-size)!important;line-height:var(--listing-meta-line)!important;font-weight:var(--listing-meta-weight)!important;letter-spacing:0!important;color:var(--listing-meta-color)!important;
+}
+.gxs-store .listing-meta-wrap{height:auto!important;min-height:var(--listing-meta-line)}
+.gxs-mb-card__meta{white-space:normal!important}
+.gxs-mb-section__title{font-family:'DD Norms',sans-serif!important;font-weight:var(--listing-title-weight)!important;font-size:20px!important;line-height:24px!important;letter-spacing:-.2px!important}
+.gxs-mb-section__see-all{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;width:32px!important;height:32px!important;padding:4px!important;color:#191919!important}
+.gxs-mb-section__see-all svg{width:16px!important;height:16px!important}
+
+/* Item prices only; totals, fees and purchase-button amounts are excluded. */
+.listing-item-price,.listing-item-price *{font-family:'DD Norms',sans-serif!important;font-weight:var(--listing-price-weight)!important;color:#191919!important}
+.listing-item-price{font-size:var(--listing-price-size)!important;line-height:var(--listing-price-line)!important}
+.listing-item-price[data-mealbox-price="true"],.listing-item-price[data-mealbox-price="true"] *{color:var(--listing-price-color)!important}
+.listing-item-price :is(.assistant-nudges-meal-box-card__price-dollars,.sp-price__integer,.mbt-price__dollars,.mbx-price__integer,.gxs-mb-price__int,.rxi-price__integer,.mbvp-rail-card__price-dollars){font-size:18px!important;line-height:24px!important}
+.listing-item-price :is(.assistant-nudges-meal-box-card__price-symbol,.sp-price__currency,.mbt-price__sym,.mbx-price__currency,.rxi-price__symbol,.mbvp-rail-card__price-sym),.listing-item-price .gxs-mb-price__sup:first-child{font-size:12px!important;line-height:18px!important;padding-top:0!important}
+.listing-item-price :is(.assistant-nudges-meal-box-card__price-cents,.sp-price__decimal,.mbt-price__cents,.mbx-price__decimal,.rxi-price__decimal,.mbvp-rail-card__price-cents),.listing-item-price .gxs-mb-price__sup:last-child{font-size:14px!important;line-height:20px!important;padding-top:0!important}
+/* Search photo pills are compact annotations, matching their item-title text. */
+.gxs-store__pill-price > .listing-item-price,.gxs-store__pill-price > .listing-item-price *{font-size:12px!important;line-height:16px!important}
+
+/* Rating threshold shared by Home, hub, search, and restaurant metadata. */
+.home-store-metadata,.gxs-mb-card__meta,.mbt-meta{color:#606060!important}
+.listing-rating-number.listing-rating-number,.listing-rating-star.listing-rating-star{color:#606060!important}
+.listing-rating-number[data-rating-high="true"],.listing-rating-star[data-rating-high="true"]{color:#191919!important}
+.listing-rating-star svg,.listing-rating-star path{fill:currentColor!important}
+svg.listing-rating-star{fill:currentColor!important;vertical-align:-2px!important;flex-shrink:0}
+span.listing-rating-star{display:inline-block;margin-left:3px;vertical-align:baseline}
+.home-store-metadata [dir="auto"]{height:auto!important;min-height:22px;line-height:22px!important}
+.home-store-metadata [dir="auto"]:has(.listing-rating-number){display:inline-flex!important;align-items:center!important;gap:3px}
+.home-store-metadata svg.listing-rating-star{width:14px!important;height:14px!important;align-self:center!important;vertical-align:middle!important}
+.home-store-metadata div[style*="height: 20px"]{height:22px!important;min-height:22px!important;align-items:center!important}
+/* Superscript prices share the hub's top-aligned three-part anatomy. */
+.listing-item-price:is(.assistant-nudges-meal-box-card__price,.sp-price,.mbt-price,.mbx-price,.gxs-mb-price,.rxi-price,.mbvp-rail-card__price){display:inline-flex!important;align-items:flex-start!important;gap:0!important;vertical-align:top!important}
+.listing-item-price:is(.assistant-nudges-meal-box-card__price,.sp-price,.mbt-price,.mbx-price,.gxs-mb-price,.rxi-price,.mbvp-rail-card__price)>span{position:static!important;transform:none!important;align-self:flex-start!important;vertical-align:top!important;margin-top:0!important;padding-top:0!important}
+svg.listing-rating-star{width:14px!important;height:14px!important;min-width:14px!important;min-height:14px!important;flex:0 0 14px!important}
+
+/* White-on-photo merchant hero is intentionally distinct from listing metadata. */
+.store-header__badge--rating .listing-rating-number,.store-header__badge--rating .listing-rating-star{color:#fff!important}

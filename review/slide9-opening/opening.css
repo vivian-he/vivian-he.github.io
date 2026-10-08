@@ -1,0 +1,58 @@
+*{box-sizing:border-box}body{margin:0;background:#f6f7f9;font:14px -apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#181818;display:grid;justify-items:center;padding:24px}button{font:inherit;cursor:pointer}#device{position:relative;width:393px;height:852px;overflow:hidden;border-radius:46px;background:white;box-shadow:0 2px 3px #0006,0 12px 22px #0002;border:8px solid #252629;box-sizing:content-box}#home,section{position:absolute;inset:0;width:393px;height:852px;border:0;background:white}section[hidden]{display:none}.status{height:52px;padding:15px 27px 0;font-size:14px;font-weight:600}.status span{float:right;font-size:12px}.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:115px;height:31px;border-radius:22px;background:black;pointer-events:none}.home-indicator{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:130px;height:5px;border-radius:8px;background:#161616;pointer-events:none}#launcher{background:radial-gradient(ellipse at 85% 65%,#6b797b,transparent 50%),radial-gradient(ellipse at 10% 20%,#929397,transparent 60%),#545857;color:white}#launcher>p{font-size:13px;padding:10px 16px 0;margin:0 0 8px}.apps{margin:0 16px;padding:16px 4px;height:120px;background:#ffffff14;border-radius:22px}#launch{border:0;background:none;color:white;width:75px;font-size:11px;display:grid;gap:7px;justify-items:center}#launch span{width:60px;height:60px;border-radius:14px;background:white;box-shadow:0 2px 5px #0003;display:grid;place-items:center}#launch img{width:54px}.keyboard{position:absolute;bottom:0;left:0;right:0;padding:10px 5px 28px;background:#252d2cd9}.query{background:#121b1980;margin:0 4px 17px;border-radius:22px;padding:13px 12px;font-size:16px}.query span{float:right}.keyrow{display:flex;justify-content:center;gap:5px;margin:0 0 9px}.key{display:grid;place-items:center;border-radius:5px;background:#5b6262;height:42px;min-width:32px;box-shadow:0 1px 1px #0008;font-size:20px}.key.wide{min-width:44px;background:#404747}.key.space{width:185px;font-size:15px}.key.blue{background:#087dff;width:70px}.keybottom{padding:15px 20px 0;font-size:24px}.keybottom span{float:right}#splash>img{position:absolute;top:40%;left:calc(50% - 62px);width:124px}#splash i{position:absolute;top:58%;left:calc(50% - 10px);width:20px;height:20px;border:1.5px dashed #eb1700;border-radius:50%;animation:spin 1s linear infinite}.homebar{padding:12px 16px;font-weight:700}.homebar span{float:right}.bones{padding:16px}.bone-title{width:57%;height:25px;margin-bottom:18px}.bone-row{display:flex;gap:8px;margin-bottom:20px}.bone-card{height:105px;flex:1}.bone-title,.bone-card{background:linear-gradient(95deg,#ededed 20%,#fafafa 45%,#ededed 70%);background-size:220% 100%;animation:shine 1.1s linear infinite}.searchdock{position:absolute;bottom:30px;left:14px;right:14px;box-shadow:0 2px 12px #0002;border-radius:30px;background:white;padding:13px}.searchdock b{float:right}#controls{max-width:430px;padding:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}#controls button{border:1px solid #ddd;border-radius:20px;padding:10px 15px;background:white}small{width:100%;text-align:center;color:#777}.embed body{display:block;padding:0;background:white}.embed #device{border:0;border-radius:0;box-shadow:none}.embed #controls{display:none}.embed .island,.embed .home-indicator{display:none}@keyframes spin{to{transform:rotate(360deg)}}@keyframes shine{to{background-position:-220% 0}}@media(prefers-reduced-motion:reduce){*{animation:none!important}} 
+/* Rounded loading geometry matching the supplied Home recording. */
+.bone-title{height:22px;border-radius:7px;margin-bottom:15px}
+.bone-card{height:112px;border-radius:14px}
+.bone-row{gap:12px;margin-bottom:26px}
+#shimmer .bones{padding:18px 16px}
+
+/* iOS Spotlight composition — shared by standalone and the deck. */
+#launcher{background:radial-gradient(ellipse at 82% 42%,#82685199,transparent 28%),radial-gradient(ellipse at 18% 65%,#765251aa,transparent 38%),radial-gradient(ellipse at 68% 77%,#3a5145aa,transparent 40%),linear-gradient(150deg,#85898b,#555c62 54%,#36372f);}
+.status{height:60px;padding:22px 26px 0;font-size:16px;line-height:20px;display:flex;justify-content:space-between;align-items:flex-start;}
+.status b{font-weight:600;}.status-icons{width:69px;float:none!important;}.status-icons svg{width:69px;height:18px;display:block;}
+#launcher>p{font-size:17px;line-height:22px;font-weight:650;padding:12px 16px 0;margin-bottom:8px;letter-spacing:-.3px;}
+.apps{margin:0 16px;padding:14px 10px;height:112px;border-radius:30px;background:linear-gradient(135deg,#ffffff30,#ffffff18);box-shadow:inset 0 1px 0 #ffffff15;backdrop-filter:blur(22px);}
+#launch{width:82px;font-size:13px;line-height:18px;gap:7px;padding:0;}
+#launch span{width:65px;height:65px;border-radius:17px;background:linear-gradient(145deg,#fff,#e8e9e8);border:2px solid #ffffffd9;box-shadow:0 0 0 3px #ffffff40,0 5px 12px #0002,inset 0 -2px 3px #0001;}
+#launch img{width:52px;filter:drop-shadow(0 2px 1px #8f100025);}
+#launch:active{transform:scale(.96)}#launch:focus-visible{outline:2px solid white;outline-offset:6px;border-radius:18px;}
+.keyboard{padding:20px 6px 26px;border-radius:34px 34px 0 0;background:#141613b3;backdrop-filter:blur(24px);border-top:1px solid #ffffff12;}
+.query{position:absolute;bottom:calc(100% + 9px);left:8px;right:8px;margin:0;display:flex;align-items:center;gap:12px;height:50px;border-radius:27px;padding:0 14px;background:#20212099;border:1px solid #ffffff28;box-shadow:inset 0 1px 0 #ffffff0c;font-size:19px;}
+.query>svg{width:21px;height:21px;fill:none;stroke:white;stroke-width:2;flex-shrink:0}.query-term{flex:1;float:none!important;}.query em{font-style:normal;color:#ffffff55;font-size:17px;}.query-clear{display:grid;place-items:center;width:18px;height:18px;background:#fff;color:#414443;border-radius:50%;font-size:19px;font-weight:600;}
+.keyrow{gap:6px;margin-bottom:10px;}.key{min-width:32px;flex:0 0 32px;height:43px;border-radius:9px;background:#77787377;box-shadow:0 1px 0 #0003;font-size:25px;font-weight:400;}.key.wide{min-width:42px;background:#77787377;font-size:23px;}.key.space{flex-basis:197px;width:auto;font-size:0;background:#85898477;}.key.blue{flex-basis:87px;width:auto;background:#0784ff;font-size:28px;}
+.keybottom{display:flex;align-items:center;justify-content:space-between;padding:16px 21px 0;}.keybottom svg{width:27px;height:27px;fill:none;stroke:white;stroke-width:1.7;}
+#launcher~.home-indicator{background:#fff;}
+/* Supplied screenshot's first app icon; one tappable result only. */
+#launch span{background-image:url('spotlight-reference.png');background-size:393px auto;background-position:-29px -112px;border:0;box-shadow:none;border-radius:19px;width:68px;height:68px;}
+#launch img{visibility:hidden;}
+#launch{font-size:13px;position:relative;}
+#launch::after{content:'';width:7px;height:7px;border-radius:50%;background:#ffcd00;position:absolute;bottom:5px;left:0;}
+.apps{height:112px;padding:14px 8px;}
+.keyboard .keyrow:first-child .key{flex-basis:32.7px;}
+.keyboard .keyrow:last-child{gap:6px;}
+.key.emoji{flex-basis:46px;font-size:23px;}
+.key.space{flex-basis:187px;}
+.key.blue{flex-basis:91px;}
+.key.space{flex-basis:180px;}
+/* Clean screen preview: no simulated hardware or beta-app dot. */
+#device{border:0;border-radius:24px;box-shadow:0 8px 30px #0000000d;}
+.island,.home-indicator{display:none;}
+#launch::after{display:none;}
+.query-clear{flex:0 0 18px;width:18px;height:18px;padding:4px;display:grid;place-items:center;background:#f6f6f6;color:#464949;}
+.query-clear svg{width:10px;height:10px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round;display:block;}
+.embed #device{border-radius:0;box-shadow:none;}
+
+#launcher{z-index:2}#splash{z-index:3}#shimmer{z-index:4}
+#hub-push{position:absolute;inset:0;z-index:5;background:#fff;overflow:hidden;will-change:transform;box-shadow:-10px 0 30px #0002}
+#hub-push[hidden]{display:none}
+#hub-push iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:white}
+/* Loading mirrors Home geometry, without placeholder glyphs masquerading as UI. */
+#shimmer .homebar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;height:52px}
+#shimmer .header-bone{width:142px;height:18px;background:#ededed;border-radius:6px}
+#shimmer .action-bones{display:flex;gap:8px}
+#shimmer .action-bones i{display:block;width:34px;height:34px;border-radius:50%;background:#ededed}
+#shimmer .bone-card{flex:0 0 248px;height:140px;border-radius:16px}
+.static-phase *, .static-phase *::before,.static-phase *::after{animation-play-state:paused!important}
+
+#launch{transform-origin:center center}#launch:active{transform:scale(.92)}
+#shimmer .searchdock{bottom:22px;left:16px;right:16px;height:50px;padding:0;box-shadow:none;background:transparent;border-radius:28px;visibility:hidden}
+#shimmer .searchdock[data-ready="true"]{visibility:visible}

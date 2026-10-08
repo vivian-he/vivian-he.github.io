@@ -1,0 +1,67 @@
+/* Shared, restrained opening typography. Loaded after the historic slide styles. */
+#workspace #slide.opening-polish{background:#f6f7f9;color:#202124;display:grid;position:relative;isolation:isolate;padding:7%;gap:0;align-items:center;overflow:hidden;font-family:JourneyNorms,DDNorms,Arial,sans-serif;font-synthesis:none;border:0;box-shadow:0 12px 35px #00000008;aspect-ratio:16/9}
+#slide.opening-polish h1,#slide.opening-polish h2,#slide.opening-polish h3,#slide.opening-polish p,#slide.opening-polish figure{margin:0}
+#slide.opening-polish h2{font-size:3.4cqw;line-height:1.16;font-weight:500;letter-spacing:-.095cqw;color:inherit}
+#slide.opening-polish h3{font-size:2.2cqw;line-height:1.22;font-weight:500;letter-spacing:-.035cqw;color:inherit}
+#slide.opening-polish .op-label{font-size:1cqw;line-height:1.4;font-weight:500;color:#767a80;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2.5cqw}
+#slide.opening-polish p{font-size:1.35cqw;line-height:1.45;font-weight:400;color:#777b81}
+#workspace #slide.op-split{grid-template-columns:45% 49%;gap:6%}
+#slide.opening-polish .op-number{font-size:1.1cqw;font-weight:500;color:#9b9fa6;letter-spacing:.015em;line-height:1.5;flex:none;padding-top:.35cqw}
+#slide.opening-polish .op-list{display:flex;flex-direction:column;gap:3.4cqw}
+#slide.opening-polish .op-list article{display:flex;align-items:flex-start;gap:1.7cqw}
+#slide.opening-polish .op-list p{margin-top:1cqw}
+#slide.op-problem .op-answer{padding-left:3cqw;border-left:1px solid #d8dbe0}
+#slide.op-problem .op-answer h3{font-size:3cqw;line-height:1.22;font-weight:500;color:#777d85;letter-spacing:-.06cqw}
+#workspace #slide.op-cover{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;padding:6% 7%}
+#slide.op-cover .op-cover-brand{font-size:1.45cqw;font-weight:600;color:#ed2b13;letter-spacing:-.02cqw}
+#slide.op-cover .op-cover-brand span{color:#8b8e93;font-weight:400;margin-left:.8cqw}
+#slide.op-cover h1{font-size:6.5cqw;line-height:1.03;letter-spacing:-.23cqw;font-weight:500;color:#202124}
+#slide.op-cover .op-cover-title p{margin-top:2cqw;font-size:1.8cqw;letter-spacing:-.03cqw}
+#slide.op-cover .op-cover-byline{display:flex;align-items:center;justify-content:space-between;font-size:1.1cqw;color:#858990;line-height:1.5}
+#slide.op-cover .op-cover-byline span:first-child{color:#32353a;font-weight:500}
+#slide.op-bets .op-bet-stack{display:flex;flex-direction:column;gap:1.1cqw}
+#slide.op-bets .op-bet-stack article{display:flex;align-items:flex-start;gap:1.6cqw;padding:2cqw 2.2cqw;background:#fff;border-radius:1.2cqw;border:1px solid #e7e9ed}
+#slide.op-bets .op-bet-stack h3{font-size:1.95cqw}
+#slide.op-bets .op-bet-stack p{font-size:1.2cqw;margin-top:.7cqw}
+#slide.op-bets .op-bet-stack article:first-child{background:#fff6f2;border-color:#f1dfd6}
+#slide.op-bets .op-bet-stack article:first-child .op-number{color:#d64a34}
+#workspace #slide.op-chapter{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;background:#292e36!important;color:#fff;padding:7%}
+#slide.op-chapter .op-label{color:#bec2ca;margin:0}
+#slide.op-chapter section{display:flex;align-items:center;gap:4.5cqw}
+#slide.op-chapter .op-price{display:flex;align-items:center;justify-content:center;width:15cqw;height:15cqw;border-radius:50%;background:#ef3c25;color:white;font-size:5.1cqw;font-weight:600;letter-spacing:-.22cqw;flex-shrink:0}
+#slide.op-chapter h2{font-size:4.5cqw;line-height:1.1;letter-spacing:-.13cqw;font-weight:500}
+#slide.op-chapter .op-chapter-foot{color:#bdc0c7;font-size:1.35cqw}
+#workspace #slide.op-collaboration{grid-template-columns:57% 34%;gap:9%;padding:7%}
+#slide.op-collaboration h2{font-size:3.1cqw;line-height:1.22;letter-spacing:-.065cqw;font-weight:500;max-width:100%}
+#slide.op-collaboration .op-support{margin-top:2.2cqw;font-size:1.35cqw;color:#797d84}
+#slide.op-collaboration .op-merchant-photo{height:100%;max-height:38cqw;overflow:hidden;border-radius:1.3cqw;box-shadow:none}
+#slide.op-collaboration .op-merchant-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scaleX(-1);display:block}
+#slide.op-consumer-scope .op-list{gap:2.5cqw}
+#slide.op-consumer-scope .op-list article{padding-bottom:2.2cqw;border-bottom:1px solid #dfe2e7;align-items:center}
+#slide.op-consumer-scope .op-list article:last-child{border:0;padding-bottom:0}
+#slide.op-consumer-scope .op-number{padding:0}
+#slide.op-consumer-scope .op-list h3{font-size:2.1cqw}
+
+/* Restore context and visual bets; keep a stronger, consistent title weight. */
+#slide.opening-polish h1,#slide.opening-polish h2,#slide.opening-polish h3{font-weight:650}
+#slide .op-context-stats{display:grid;gap:3cqw}
+#slide.opening-polish .op-context-stats h3{font-size:4.5cqw;line-height:1;color:#525962;letter-spacing:-.12cqw}
+#slide .op-context-stats h3 span{font-size:.55em}
+#slide.opening-polish .op-context-stats p{margin-top:.9cqw;color:#646a72;font-size:1.5cqw}
+#slide.opening-polish .op-proof{color:#555d67;font-size:1.3cqw}
+#slide.opening-polish .op-proof strong{font-weight:650;color:#30363e}
+#slide.opening-polish .op-list small{display:block;margin-top:.7cqw;font-size:.85cqw;color:#8a8f96}
+#workspace>main.op-visual-bets{display:grid;grid-template-columns:35% 61%;gap:4%;padding:6%;overflow:hidden;align-items:center}
+#slide.op-visual-bets .op-bets-title h2{font-family:JourneyNorms,DDNorms,Arial,sans-serif;font-size:3.4cqw;line-height:1.16;font-weight:650;letter-spacing:-.095cqw;margin:0}
+#slide.op-visual-bets .glass-bets{width:100%;gap:2.3cqw;padding:1cqw;max-width:none}
+#slide.op-visual-bets .glass-bet{height:19cqw;padding:1.3cqw;border-radius:1.8cqw}
+#slide.op-visual-bets .value-card{width:calc((100% - 2.3cqw)/2)}
+#slide.op-visual-bets .card-label{font-size:1.25cqw;white-space:normal}
+#slide.op-visual-bets .bet-number{font-size:.65cqw;color:#92979d;margin-bottom:.5cqw}
+#slide.op-visual-bets .card-foods img,#slide.op-visual-bets .ready-stack{height:12cqw}
+#slide.op-visual-bets .logo-pile{padding-top:1cqw}
+#workspace #slide.mealbox-divider{background:#e8eeeb!important;color:#243d35;gap:3.2cqw;padding:5% 7%}
+#slide.mealbox-divider .mealbox-divider-copy p{color:#73877c;font-size:1cqw;margin-bottom:1.4cqw}
+#slide.mealbox-divider h2{font-size:4.3cqw;font-weight:650}
+#slide.mealbox-divider .mealbox-divider-meals{gap:4cqw}
+#slide.mealbox-divider .mealbox-divider-meals figure{width:16cqw;height:16cqw}

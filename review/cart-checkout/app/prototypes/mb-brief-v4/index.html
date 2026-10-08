@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head><meta name="robots" content="noindex, nofollow, noarchive"><script src="/review/shared/master-bridge.js"></script>
+    <meta charset="UTF-8" />
+    <!-- Sept 18, 2026 — TRAILING-SLASH GUARD. Runs first, synchronously, before
+         the module script below is fetched.
+
+         Vite builds this repo with `base: './'`, so the built HTML loads its
+         bundle as `../../assets/…` — resolved against the DIRECTORY of the
+         current URL. At `…/prototypes/mb-brief-v2/` that is the deploy root's
+         /assets ✓. At `…/prototypes/mb-brief-v2` (no slash) the directory is
+         `…/prototypes/`, so under a hosted BASE PATH (compass serves this at
+         /<author>/<project>/…) the bundle URL climbs out of the project and the
+         page half-loads. Her report: "it's flashing right, and then immediately
+         jump back".
+
+         Canonicalising to the slash form here fixes every shape of the link at
+         once, instead of relying on whoever shares it to type the slash.
+         Guards: only when there is no slash AND no filename extension, and
+         `replace` (not assign) so it leaves no history entry to bounce on. -->
+    <script>
+      (function () {
+        /* No regex literals on purpose: this snippet is written into the HTML
+           by a script, and an escaped `/` or `$` that survives one layer but
+           not the next silently turns the condition into a comment. Plain
+           string ops cannot be mangled that way. */
+        var p = location.pathname;
+        var last = p.slice(p.lastIndexOf('/') + 1);
+        if (last !== '' && last.indexOf('.') === -1) {
+          location.replace(p + '/' + location.search + location.hash);
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Box · Cart & Checkout</title>
+  <script src="https://compass.doordash.studio/comments-sdk.js" defer data-studio-comments-sdk></script>  <script type="module" crossorigin src="../../assets/index-IOCBoE3E.js"></script>
+  <link rel="stylesheet" crossorigin href="../../assets/index-Be3LBTXX.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script src="/review/shared/mealbox-home-entry.js?v=5"></script></body>
+</html>

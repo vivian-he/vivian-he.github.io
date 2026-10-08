@@ -1,0 +1,46 @@
+.pedregal-p1-header{display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-internal1) var(--spacing-secondary) var(--spacing-tertiary)}
+.pedregal-p1-header__mode{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pedregal-p1-header__now{margin:0;font-family:var(--font-body);font-size:14px;font-weight:400;line-height:20px;color:var(--foreground-secondary)}
+.pedregal-p1-header__location-row{display:flex;align-items:center;gap:8px}
+.pedregal-p1-header__location{font-family:var(--font);font-size:16px;font-weight:700;line-height:22px;color:var(--foreground-primary)}
+.pedregal-p1-header__chevron{display:flex;align-items:center;color:var(--foreground-primary)}
+.pedregal-p1-header__actions{display:flex;align-items:center;gap:8px}
+.pedregal-p1-header__icon-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:9999px;background:#f1f1f1;cursor:pointer;color:var(--foreground-primary)}
+.pedregal-p1-header__icon-btn:hover{opacity:.85}
+.pedregal-p1-header__icon-btn img{width:24px;height:24px}
+.pedregal-p1-header__icon-btn svg{width:24px;height:24px}
+.pedregal-verticals{display:flex;gap:4px;padding:0 16px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pedregal-verticals::-webkit-scrollbar{display:none}
+.pedregal-verticals--icons{gap:0;padding-bottom:0;border-bottom:1px solid var(--stroke-tertiary, #d5dddd)}
+.pedregal-verticals__tab{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px 8px;cursor:pointer;flex-shrink:0;border-bottom:2px solid transparent;transition:border-color .15s ease,color .15s ease;position:relative}
+.pedregal-verticals__tab img,.pedregal-verticals__tab svg{width:24px;height:24px;opacity:.55;transition:opacity .15s ease}
+.pedregal-verticals__tab--active img,.pedregal-verticals__tab--active svg{opacity:1}
+.pedregal-verticals__label{font-family:var(--font-body);font-size:11px;font-weight:600;line-height:16px;letter-spacing:-.01em;white-space:nowrap;color:var(--foreground-secondary);transition:color .15s ease}
+.pedregal-verticals__tab--active{border-bottom-color:var(--accent-primary, var(--foreground-primary))}
+.pedregal-verticals__tab--active .pedregal-verticals__label{color:var(--foreground-primary)}
+.pedregal-verticals__new-tag{display:inline-flex;align-items:center;justify-content:center;height:16px;padding:0 8px;border-radius:9999px;font-family:var(--font-body);font-size:10px;font-weight:700;line-height:16px;letter-spacing:-.01em;white-space:nowrap;background:var(--background-deal-subtle, #fff0ed);color:var(--foreground-deal, #d91400);position:absolute;top:2px;left:50%;transform:translate(-50%);z-index:1}
+.pedregal-verticals__new-tag--wolt{position:absolute;top:2px;left:50%;transform:translate(-50%);z-index:1;background:#85de5e;color:#000}
+.pedregal-verticals--tiles{gap:4px;padding-bottom:12px}
+.pedregal-verticals__tile{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:80px;flex-shrink:0;cursor:pointer}
+.pedregal-verticals__tile-img{position:relative;width:80px;height:48px;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pedregal-verticals__tile-img img{width:62px;height:62px;object-fit:cover}
+.pedregal-verticals__tile-label{font-family:var(--font-body);font-size:12px;font-weight:700;line-height:18px;letter-spacing:-.01em;color:var(--foreground-primary);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:100%;width:min-content}
+.shared-home-header{background:white;--spacing-internal1:8px;--spacing-secondary:16px;--spacing-tertiary:12px;--font:'DD Norms',Arial,sans-serif;--font-body:var(--font);--foreground-primary:#191919;--foreground-secondary:#606060;--accent-primary:#191919}
+.shared-home-header .pedregal-p1-header{height:70px;padding:8px 16px 12px}
+.shared-home-header .pedregal-verticals{height:64px}
+.shared-home-header .pedregal-verticals__label{font-size:12px;font-weight:500}
+.shared-home-header .pedregal-verticals__tab--active .pedregal-verticals__label{font-weight:700}
+[data-shared-header-source]{display:none!important}
+/* Shared header polish: one location line, consistent inactive category tone. */
+.pedregal-p1-header__now{display:none!important}
+.shared-home-header .pedregal-p1-header{height:54px;align-items:center}
+.pedregal-verticals__tab[data-mealbox-entry] svg{opacity:1;color:#606060}
+.pedregal-verticals__tab[data-mealbox-entry] .pedregal-verticals__label{color:#606060}
+
+/* All category icons share the same source tone and inactive opacity. */
+.shared-home-header .pedregal-verticals__tab img,.shared-home-header .pedregal-verticals__tab svg{color:#191919!important;opacity:.55!important}
+.shared-home-header .pedregal-verticals__tab--active img,.shared-home-header .pedregal-verticals__tab--active svg{opacity:1!important}
+
+/* Location scrolls away; the vertical navigation remains below device chrome. */
+.assistant-nudges-screen--home > .shared-home-header { position:sticky;top:-54px;z-index:50;background:#fff; }
+.assistant-nudges-screen--home > .shared-home-header.is-scrolled { box-shadow:0 3px 8px rgba(0,0,0,.08); }

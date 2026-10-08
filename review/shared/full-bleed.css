@@ -1,0 +1,28 @@
+/* Shared presentation canvas: full-bleed surface, bounded centered content. */
+body{background:#fff}
+#workspace{padding:0;min-height:100svh;background:#fff;display:flex;flex-direction:column}
+#workspace>header{height:58px;min-height:58px;padding:0 24px;margin:0;flex-shrink:0}
+#workspace>main,body.no-outline #workspace>main{width:100%;max-width:1440px;max-height:none;min-height:calc(100svh - 120px);height:auto;aspect-ratio:auto;margin:0 auto;padding:clamp(30px,4vw,64px);box-shadow:none;flex:1;overflow:visible}
+#workspace>main>.stage{height:min(62svh,660px);min-height:260px}
+#workspace>footer{min-height:62px;margin:0;padding:12px 20px;flex-shrink:0}
+#workspace>#notes{width:calc(100% - 48px);margin:12px auto 24px}
+h2.headline{font-size:clamp(28px,3.05cqw,44px)}.body{font-size:clamp(14px,1.35cqw,19px)}.eyebrow{font-size:clamp(10px,.8cqw,12px)}
+.object{font-size:clamp(11px,1.03cqw,15px)}
+.slide-foot{font-size:10px;bottom:12px}.scope-note{font-size:clamp(10px,.8cqw,12px)}
+.actual-asset{height:min(60svh,620px)}
+#workspace>main.consumer-minimal,body.no-outline #workspace>main.consumer-minimal{height:auto;min-height:calc(100svh - 120px);padding:36px clamp(24px,5vw,80px)}
+#workspace>main.consumer-minimal>.stage{height:calc(100svh - 192px);min-height:400px;max-height:800px}
+.consumer-minimal .motion-phone{height:86%;max-width:70%;top:7%}.consumer-index{left:calc(50% + min(18svh,170px));right:auto}.consumer-label{font-size:13px}
+#workspace>main.divider{min-height:calc(100svh - 120px)}
+@media(min-width:761px) and (max-height:650px){#workspace>main>.stage{height:390px}#workspace>main{min-height:490px}}
+@media(max-width:760px){
+#workspace>header{padding:0 16px;gap:8px}header button{padding:8px 11px}.asset-link{font-size:10px}
+#workspace>main,body.no-outline #workspace>main{min-height:calc(100svh - 120px);padding:28px 24px 45px;gap:26px;justify-content:center}
+#workspace>main>.stage{height:auto;min-height:300px;max-height:none;flex:0 0 auto;margin:0}
+.actual-asset{height:min(60svh,520px)}.actual-asset img{max-height:calc(100% - 24px)}
+#workspace>main.consumer-minimal,body.no-outline #workspace>main.consumer-minimal{padding:30px 24px 40px;min-height:calc(100svh - 120px)}
+#workspace>main.consumer-minimal>.stage{height:calc(100svh - 190px);min-height:430px;max-height:680px}
+.consumer-minimal .motion-phone{height:86%;top:7%;max-width:76%}.consumer-minimal .consumer-index{left:calc(50% + min(19svh,135px));right:auto;top:50%}
+#workspace>main.divider .headline{font-size:36px}.scope-note{max-width:90%}
+}
+@media print{#workspace>main,body.no-outline #workspace>main{min-height:0;height:auto;aspect-ratio:16/9;width:100%;padding:5%}}

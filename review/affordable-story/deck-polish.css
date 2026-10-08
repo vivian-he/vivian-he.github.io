@@ -1,0 +1,78 @@
+/* Final presentation typography. Prototype typography remains inside its iframe. */
+@font-face{font-family:DeckNorms;src:url('picnic-local/fonts/DDNorms-Regular.woff2') format('woff2');font-weight:400;font-display:swap}@font-face{font-family:DeckNorms;src:url('picnic-local/fonts/DDNorms-Medium.woff2') format('woff2');font-weight:500 600;font-display:swap}@font-face{font-family:DeckNorms;src:url('picnic-local/fonts/DDNorms-Bold.woff2') format('woff2');font-weight:650 900;font-display:swap}
+body{font-family:DeckNorms,Arial,sans-serif;background:#f6f7f9}
+#workspace,#workspace>header{background:#f6f7f9}
+#workspace>main h2,#workspace>main h3{font-family:DeckNorms,Arial,sans-serif}
+#workspace>main.closing-results{grid-template-columns:38% 56%;gap:6%;padding:7%}
+.closing-results .closing-title h2{font-size:clamp(32px,3.4vw,48px);font-weight:500;line-height:1.12}
+.closing-results .closing-title>p{display:none}
+.results-groups h3{font-size:18px;font-weight:500}.results-groups .result-pair strong{font-weight:500}
+#workspace>main.closing-hub .hub-heading h2{font-size:34px;font-weight:500}
+#workspace>main.closing-hub .hub-heading small{font-size:11px;letter-spacing:.12em}
+#consumer-walk[data-step="item"] .walk-heading h2{will-change:opacity}
+#outline .active{border-radius:8px}#outline h2{font-weight:500;letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){#slide *{animation:none!important;transition:none!important}}
+
+/* Opening slides use the same local typefaces, alignment and spacing. */
+#workspace #slide.opening-polish,#workspace #slide.mealbox-divider{font-family:DeckNorms,Arial,sans-serif}
+#slide.opening-polish h1,#slide.opening-polish h2,#slide.opening-polish h3{font-family:inherit;font-weight:700}
+#workspace #slide.op-cover{justify-content:center}
+#slide.op-cover .op-cover-byline{position:absolute;left:7%;bottom:6%}
+#slide.op-cover .op-inline-brand{display:inline-flex;align-items:center;gap:.35em;color:#eb1700;font-weight:700;white-space:nowrap;vertical-align:baseline}
+#slide.op-cover .op-inline-brand img{display:block;width:1.25em;height:1.25em;align-self:center}
+#slide.op-cover h1 .op-inline-brand{gap:.17em;letter-spacing:inherit}
+#slide.op-cover h1 .op-inline-brand img{width:1.5em;height:.8em;object-fit:cover;object-position:center}
+#slide.op-cover .op-cover-mission{display:flex;align-items:center;gap:.3em;color:#555d67}
+#slide.op-cover .op-cover-role{font-size:1.35cqw;line-height:1.5;margin-top:1.5cqw;color:#777b81;letter-spacing:0}
+#workspace #slide.op-problem,#workspace #slide.op-ambition{align-items:center;padding:7%}
+#slide.op-problem>section:first-child,#slide.op-ambition>section:first-child{display:flex;flex-direction:column;align-items:flex-start}
+#slide.opening-polish .op-label,#slide .eyebrow{position:static;margin:0 0 1.5cqw;padding:0;text-align:left;transform:none}
+#slide.op-problem .op-context-stats,#slide.op-ambition .op-list{padding-top:0}
+#slide.op-consumer-scope .op-list article{border:0}
+#workspace #slide:is(.mp-consumer-divider,.mp-merchant-divider){background:#fbd6c5!important;color:#352a27}
+#slide.mp-consumer-divider h2{max-width:80%;text-align:center}
+#slide .mp-process article,#slide.mp-details .unified-metric{border:0}
+#slide.mp-details .unified-metric{padding-top:0}
+#slide.mp-details .unified-metric small:empty{display:none}
+#slide .mp-close-brand{font-size:17px;gap:5px;color:#eb1700}
+.mp-close-brand img{width:38px;height:38px;object-fit:contain;filter:none;box-shadow:none}
+#slide .mp-close-copy h2{font-size:clamp(28px,3.05cqw,44px);line-height:1.18;margin:22px 0 36px}
+#slide .mp-close-copy>p{font-size:21px;line-height:1.35;margin:0 0 32px;color:#626b76}
+.mp-browser-tabs{height:40px;display:flex;align-items:end;gap:20px;padding:0 14px;background:#e1e3e7}
+.mp-window-controls{display:flex;gap:7px;align-self:center}
+.mp-window-controls i{width:11px;height:11px;border-radius:50%;background:#ff6058;box-shadow:inset 0 0 0 1px #0001}
+.mp-window-controls i:nth-child(2){background:#ffbd2e}.mp-window-controls i:nth-child(3){background:#28c840}
+.mp-browser-tab{display:flex;align-items:center;gap:10px;height:32px;max-width:70%;padding:0 12px;border-radius:9px 9px 0 0;background:#f7f8fa;font-size:11px;color:#34383d}
+.mp-browser-tab>span:last-child{margin-left:18px;color:#72767c}.mp-tab-icon{font-weight:700;color:#eb1700}
+#slide .mp-enrollment-toolbar{height:40px;gap:12px;background:#f7f8fa;padding:0 12px}
+#slide .mp-enrollment-toolbar .mp-browser-nav{font-size:17px;letter-spacing:0;color:#62676f;white-space:nowrap}
+.mp-address-bar{display:flex;align-items:center;gap:10px;flex:1;height:27px;background:#e9ebef;border-radius:16px;padding:0 12px;font-size:10px;color:#636871}
+.mp-address-bar>span{font-size:13px}.mp-browser-menu{font-size:23px;line-height:1;color:#555d66}
+#consumer-walk[data-step="suggest"] .walk-heading{width:310px}
+@media(max-width:760px){#consumer-walk[data-step="suggest"] .walk-heading{width:34vw}#consumer-walk:is([data-step="suggest"],[data-step="store"]) .walk-heading h2{font-size:clamp(11px,2.3vw,18px)}}
+#slide.op-bets .op-bet-stack{gap:3cqw}
+#slide.op-bets .op-bet-stack article,#slide.op-bets .op-bet-stack article:first-child{padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+#slide.op-bets .op-bet-stack p{font-size:1.35cqw;line-height:1.45}
+#workspace #slide.mealbox-divider{background:#fbd6c5!important;color:#352a27}
+#slide.mealbox-divider .mealbox-divider-copy p{color:#87695b}
+#slide.mealbox-divider .supplied-bowls{gap:0;max-width:900px;isolation:isolate;padding-top:2cqw}
+#slide.mealbox-divider .supplied-bowls figure{width:24cqw;height:26cqw;max-width:300px;max-height:330px;flex:none;border-radius:0;overflow:visible;filter:none;transform:translateY(1.5cqw) rotate(-8deg)}
+#slide.mealbox-divider .supplied-bowls figure+figure{margin-left:-2cqw}
+#slide.mealbox-divider .supplied-bowls .meal-1{z-index:2;transform:translateY(-1cqw);width:26cqw;height:28cqw}
+#slide.mealbox-divider .supplied-bowls .meal-2{transform:translateY(1.5cqw) rotate(8deg)}
+#slide.mealbox-divider .supplied-bowls svg{display:block;width:100%;height:100%;overflow:visible}
+@media(max-width:760px){#slide.mealbox-divider .supplied-bowls figure{width:27cqw;height:30cqw}#slide.mealbox-divider .supplied-bowls .meal-1{width:29cqw;height:32cqw}}
+
+/* Closing sequence: stronger metrics and three aligned formats. */
+#workspace>main.closing-results,#workspace>main.closing-hub{font-family:DeckNorms,Arial,sans-serif}
+.closing-results .closing-title h2,.closing-results .result-pair strong{font-weight:700}
+.closing-results .results-groups h3{color:#82868d;font-weight:500}
+.closing-results .result-pair p{font-weight:500}
+.closing-results .results-groups article+article{border:0;padding-top:0}
+#workspace>main.closing-hub{display:grid!important;grid-template-columns:30% 65%;gap:5%;align-items:center;padding:7%!important}
+#workspace>main.closing-hub .hub-heading h2{font-family:DeckNorms,Arial,sans-serif;font-weight:700;font-size:3.2cqw;line-height:1.15;margin:0}
+.closing-hub .hub-screen-row{width:100%;gap:3%;margin:0;align-items:start}
+.closing-hub .hub-screen-row figure:nth-child(2),.closing-hub .hub-screen-row figure:nth-child(3){padding-top:0}
+.closing-hub .hub-screen-row figcaption{font-family:DeckNorms,Arial,sans-serif;font-weight:500;font-size:1cqw;min-height:2.5em;margin-bottom:.8cqw}
+#workspace>main.closing-hub .hub-heading h2{letter-spacing:-.02em;line-height:1.2}
+@media(max-width:760px){#workspace>main.closing-hub{grid-template-columns:1fr;gap:28px}#workspace>main.closing-hub .hub-heading h2{font-size:30px}.closing-hub .hub-screen-row figcaption{font-size:10px}}

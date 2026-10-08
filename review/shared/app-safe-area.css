@@ -1,0 +1,54 @@
+/* App layout contract: chrome owns 59px; controls breathe 8px below it.
+   Apply only to app controls, never to the shared iPhone shell. */
+:root{--app-status-space:59px;--app-control-breather:8px;--app-control-top:calc(var(--app-status-space) + var(--app-control-breather));--app-search-bottom:22px;--app-search-height:50px}
+html body .gxc-status-bar,html body .gxk-status-bar,html body .gxs-status-bar,html body .scroll-header__status-bar,html body #entry>.status{height:var(--app-status-space)!important;min-height:var(--app-status-space)!important;box-sizing:border-box;flex-shrink:0}
+html body .rxi-hero-actions{top:var(--app-control-top)!important}
+html body .rxi-nav{padding-top:var(--app-control-top)!important}
+html body .store-header__nav{top:var(--app-status-space)!important;padding-top:var(--app-control-breather)!important}
+html body .scroll-header__bar,html body .gxc-nav,html body .gxk-nav-header,html body .gxs-search-row{padding-top:var(--app-control-breather)!important}
+html body #entry>form{padding-top:var(--app-control-breather)!important}
+html body .app-footer{padding-bottom:0!important}
+html body .app-footer .footer-inner{bottom:var(--app-search-bottom)!important;padding-left:16px!important;padding-right:16px!important}
+html body .app-footer .search-pill{height:var(--app-search-height)!important;min-height:var(--app-search-height)!important;flex:1!important}
+html body #results-search-dock{bottom:var(--app-search-bottom)!important;height:var(--app-search-height)!important}
+/* The floating search is the only action in this dock; cart remains in its flow. */
+html body .app-footer .cart-button,html body .app-footer .cart-btn,html body .app-footer .footer-cart,html body .app-footer [aria-label="Cart"],html body .app-footer [aria-label="View cart"]{display:none!important}
+html body .rxi-hero-actions [aria-label="Share"]{display:none!important}
+/* Rounded store sheet overlaps 20px; preserve a 16px gap below hero pills. */
+html body .store-page__body>.store-header__info{padding-bottom:36px!important}
+/* Cart: the utensils row already supplies the 16px section gap. */
+html body .gxc-sxgy-group>.gxc-item:last-child{padding-bottom:0!important}
+html body .gxc-tile[data-duplicate-cart-addon]{display:none!important}
+/* Delivery selection must not depend on measuring a hidden iframe at mount. */
+html body .time-slider{display:none!important}
+html body .time-row:has(svg circle[fill="var(--foreground-primary)"]){box-shadow:inset 0 0 0 2px #191919;background:#fff}
+/* One predictable rhythm for the applied meal pricing and its qualifier. */
+html body .checkout-section:has(>.mealbox-exclusion){display:flex;flex-direction:column;gap:12px}
+html body .checkout-section:has(>.mealbox-exclusion)>.checkout-section__title{margin:0!important;order:0}
+html body .checkout-section:has(>.mealbox-exclusion)>.offer-row{order:1;padding:0;gap:16px;align-items:center}
+html body .checkout-section:has(>.mealbox-exclusion)>.mealbox-exclusion{order:2;margin:0!important;font-size:13px;line-height:18px}
+/* Store mode selector: use the selected button's real box, not a zero-width
+   indicator measured while the master iframe was hidden. */
+html body .store-page .delivery-toggle__pill{display:none!important}
+html body .store-page .delivery-toggle__segment--active{background:var(--surface-primary,#fff)!important;box-shadow:inset 0 0 0 1px var(--stroke-tertiary,#e4e4e4),0 2px 6px #19191914!important}
+/* Keep Most Ordered and the Meal Box menu; omit the redundant spotlight. */
+html body .store-page #sec-spotlight{display:none!important}
+/* Cart rails use a stable one-line name and clear the entire footer scrim. */
+html body .gxc-tile__name{display:block!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;-webkit-line-clamp:unset!important;max-width:100%;min-width:0}
+html body .gxc-scroll{padding-bottom:176px!important;scroll-padding-bottom:176px}
+html body .gxc-stepper{box-sizing:border-box!important;width:auto!important;min-width:112px!important;padding:0 20px!important;gap:12px!important;height:36px!important;justify-content:space-between}
+html body .mealbox-exclusion{display:none!important}
+html body .scroll-header__tab[data-removed-spotlight]{display:none!important}
+/* Bottom actions share one baseline with floating search across every flow. */
+:root{--app-bottom-action-font:700 16px/22px 'DD Norms',sans-serif}
+html body .rxi-footer-inner,html body .gxc-footer,html body .cta-bar__inner{padding-bottom:var(--app-search-bottom)!important}
+html body .rxi-atc,html body .gxc-cta,html body .cta-bar__btn{height:var(--app-search-height)!important;min-height:var(--app-search-height)!important;box-sizing:border-box!important;font:var(--app-bottom-action-font)!important}
+html body .gxc-cta__label,html body .cta-bar__label,html body .cta-bar__price,html body .rxi-atc{font:var(--app-bottom-action-font)!important}
+html body .rxi-footer-inner:has(>.shared-item-quantity){display:flex;flex-direction:row;align-items:center;gap:8px}
+html body .shared-item-quantity{display:flex;align-items:center;justify-content:center;width:var(--app-search-height);height:var(--app-search-height);flex:0 0 var(--app-search-height);border-radius:50%;background:#fff;color:#191919;font:var(--app-bottom-action-font);box-shadow:0 2px 8px #1919191f}
+html body .rxi-footer-inner:has(>.shared-item-quantity)>.rxi-atc{flex:1;min-width:0}
+/* Match the quantity column to the widened control: its right edge is the
+   same 16px page inset as Add items, rather than overflowing an 88px column. */
+html body .gxc-item{grid-template-columns:64px minmax(0,1fr) 112px!important}
+html body .gxc-stepper-wrap{width:112px!important;min-width:0;justify-self:end}
+html body .gxc-stepper{width:100%!important;max-width:100%!important}

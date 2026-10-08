@@ -1,0 +1,1 @@
+import{j as o}from"./client-DZQgGimn.js";import{S as a,P as s}from"./StarHalf16-fJ7qp2VD.js";const e=r=>o.jsx(a,{fill:"none",viewBox:"0 0 24 24",...r,children:o.jsx(s,{fill:"currentColor",d:"M11 21v-8H3a1 1 0 1 1 0-2h8V3a1 1 0 1 1 2 0v8h8a1 1 0 1 1 0 2h-8v8a1 1 0 1 1-2 0"})});export{e as A};

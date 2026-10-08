@@ -1,0 +1,485 @@
+{
+  "version": 1,
+  "flows": [
+    {
+      "name": "Open DoorDash \u2192 Home \u2192 Meal Box hub",
+      "walk": [
+        "home",
+        "introPhone"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "#launch",
+          "delay": 1200
+        },
+        {
+          "action": "tap",
+          "selector": "[data-mealbox-entry]",
+          "document": "slide11-browse/app",
+          "delay": 2600
+        },
+        {
+          "action": "hold",
+          "delay": 2000
+        },
+        {
+          "action": "tap",
+          "selector": "button[aria-label=\"Back\"]",
+          "document": "mb-hub-v4"
+        },
+        {
+          "action": "scrollTo",
+          "selector": ".mbl-rail",
+          "document": "slide11-browse/app",
+          "delay": 1500
+        },
+        {
+          "action": "scrollHorizontal",
+          "selector": ".mbl-rail",
+          "document": "slide11-browse/app",
+          "amount": 180
+        },
+        {
+          "action": "hold",
+          "delay": 2000
+        }
+      ]
+    },
+    {
+      "name": "Hub selection \u2192 meal",
+      "walk": [
+        "hub"
+      ],
+      "steps": [
+        {
+          "action": "scrollPage",
+          "amount": 320
+        },
+        {
+          "action": "tap",
+          "selector": ".mbt-card"
+        },
+        {
+          "action": "hold",
+          "delay": 2200
+        }
+      ]
+    },
+    {
+      "name": "Burgers then Pho \u2192 store \u2192 return \u2192 $12 suggestion",
+      "walk": [
+        "suggest"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "[data-demo-store=\"burger\"]",
+          "delay": 1800
+        },
+        {
+          "action": "tap",
+          "selector": ".assistant-nudges-store-top-nav button[aria-label=\"Back\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo-refinement=\"burger\"]"
+        },
+        {
+          "action": "hold",
+          "delay": 2000
+        },
+        {
+          "action": "scrollTo",
+          "selector": "[data-demo-insertion=\"burger\"]"
+        },
+        {
+          "action": "scrollTo",
+          "selector": "[data-demo-cuisine=\"pho\"]",
+          "delay": 1600
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo-store=\"pho\"]",
+          "delay": 1800
+        },
+        {
+          "action": "tap",
+          "selector": ".assistant-nudges-store-top-nav button[aria-label=\"Back\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo-refinement=\"pho\"]"
+        },
+        {
+          "action": "hold",
+          "delay": 2200
+        }
+      ]
+    },
+    {
+      "name": "Search Thai \u2192 Pad Thai results \u2192 Meal Box carousel",
+      "walk": [
+        "search"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": ".search-pill",
+          "document": "slide11-browse/app"
+        },
+        {
+          "action": "input",
+          "selector": "#query",
+          "value": "Thai"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo-pad-thai]",
+          "delay": 1500
+        },
+        {
+          "action": "scrollTo",
+          "selector": ".gxs-mb-section",
+          "document": "mb-brief-v4",
+          "delay": 2000
+        },
+        {
+          "action": "scrollHorizontal",
+          "selector": ".gxs-mb-scroll",
+          "document": "mb-brief-v4",
+          "amount": 160
+        },
+        {
+          "action": "hold",
+          "delay": 2200
+        }
+      ]
+    },
+    {
+      "name": "NAYA search \u2192 store \u00b7 pause for Next",
+      "walk": [
+        "store"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "#result"
+        },
+        {
+          "action": "hold",
+          "delay": 1800
+        }
+      ]
+    },
+    {
+      "name": "Store section \u2192 meal",
+      "walk": [
+        "encounter"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "[data-demo=\"store-usi-open\"]",
+          "delay": 1600
+        },
+        {
+          "action": "hold",
+          "delay": 1800
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo=\"store-usi-close\"]"
+        },
+        {
+          "action": "scrollTo",
+          "selector": "[data-demo=\"store-most-ordered\"]",
+          "delay": 1000
+        },
+        {
+          "action": "hold",
+          "delay": 2400
+        },
+        {
+          "action": "scrollTo",
+          "selector": "[data-demo=\"store-mealbox-menu\"]",
+          "delay": 500
+        },
+        {
+          "action": "hold",
+          "delay": 2000
+        }
+      ],
+      "preserveState": true
+    },
+    {
+      "name": "Item \u2192 cart",
+      "walk": [
+        "item"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "[data-demo=\"item-explainer-open\"]"
+        },
+        {
+          "action": "hold",
+          "delay": 1800
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo=\"item-explainer-close\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo=\"item-add-cart\"]",
+          "delay": 1800
+        }
+      ]
+    },
+    {
+      "name": "Program explanation",
+      "walk": [
+        "usi"
+      ],
+      "steps": [
+        {
+          "action": "hold",
+          "delay": 3000
+        }
+      ]
+    },
+    {
+      "name": "Checkout \u2192 processing",
+      "walk": [
+        "checkout"
+      ],
+      "steps": [
+        {
+          "action": "tap",
+          "selector": ".gxc-cta"
+        },
+        {
+          "action": "hold",
+          "delay": 2600
+        },
+        {
+          "action": "tap",
+          "selector": "[data-demo-checkout-action=\"place-order\"]"
+        },
+        {
+          "action": "hold",
+          "delay": 3200
+        }
+      ]
+    },
+    {
+      "name": "Confirmation animation",
+      "walk": [
+        "celebration"
+      ],
+      "steps": [
+        {
+          "action": "hold",
+          "delay": 5000
+        }
+      ]
+    },
+    {
+      "name": "Notification \u2192 hub",
+      "walk": ["notificationHub"],
+      "path": "/notification-hub/",
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "#notification",
+          "delay": 2400
+        },
+        {
+          "action": "hold",
+          "delay": 3400
+        },
+        {
+          "action": "scrollHorizontal",
+          "selector": "[data-demo-hub-rail]",
+          "amount": 220
+        },
+        {
+          "action": "scrollPage",
+          "amount": 260,
+          "document": "mb-hub-v4"
+        },
+        {
+          "action": "scrollTo",
+          "selector": "[data-demo-all-meals]",
+          "delay": 1800
+        },
+        {
+          "action": "hold",
+          "delay": 2400
+        }
+      ]
+    },
+    {
+      "name": "Meal feedback \u2192 photo \u2192 submit",
+      "path": "state=tracking",
+      "steps": [
+        {
+          "action": "tap",
+          "selector": "[data-action=\"form\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-vote=\"0:up\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-vote=\"1:up\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-vote=\"2:up\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"guidance\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"camera\"]",
+          "delay": 2200
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"capture\"]",
+          "delay": 2600
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"use\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"submit\"]"
+        },
+        {
+          "action": "tap",
+          "selector": "[data-action=\"dismiss-review\"]",
+          "delay": 2600
+        }
+      ]
+    },
+    {
+      "name": "Merchant enrollment page",
+      "path": "/meal-box-local/",
+      "pointer": "arrow",
+      "steps": [
+        {
+          "action": "scrollPage",
+          "amount": 500,
+          "delay": 1800
+        },
+        {
+          "action": "hold",
+          "delay": 1200
+        },
+        {
+          "action": "scrollPage",
+          "amount": 560,
+          "delay": 600
+        },
+        {
+          "action": "hold",
+          "delay": 1600
+        }
+      ]
+    },
+    {
+      "name": "Performance email \u2192 portal \u2192 table",
+      "path": "/merchant-report/",
+      "pointer": "arrow",
+      "steps": [
+        {
+          "action": "scrollElement",
+          "selector": "#email-scroll",
+          "amount": 220,
+          "delay": 2200
+        },
+        {
+          "action": "tap",
+          "selector": "#focus-email"
+        },
+        {
+          "action": "scrollElement",
+          "selector": "#email-scroll",
+          "amount": 540,
+          "delay": 1600
+        },
+        {
+          "action": "scrollElement",
+          "selector": "#email-scroll",
+          "amount": 620,
+          "delay": 1800
+        },
+        {
+          "action": "scrollEnd",
+          "selector": "#email-scroll",
+          "delay": 1800
+        },
+        {
+          "action": "tap",
+          "selector": "#open",
+          "delay": 2200
+        },
+        {
+          "action": "tap",
+          "selector": "#zoom",
+          "delay": 2400
+        },
+        {
+          "action": "scrollElement",
+          "selector": ".template-unified-document",
+          "amount": 300,
+          "document": "koji-customer-reviews",
+          "delay": 2000
+        },
+        {
+          "action": "hold",
+          "delay": 2400
+        }
+      ]
+    },
+    {
+      "name": "Future affordability hub",
+      "path": "/hub-next/",
+      "steps": [
+        {
+          "action": "hold",
+          "delay": 2200
+        },
+        {
+          "action": "scrollPage",
+          "amount": 370
+        },
+        {
+          "action": "hold",
+          "delay": 2200
+        },
+        {
+          "action": "scrollPage",
+          "amount": 280
+        },
+        {
+          "action": "hold",
+          "delay": 2200
+        }
+      ]
+    }
+  ],
+  "unsupported": [
+    {
+      "slide": "Prepared meals",
+      "reason": "The active slide embeds a static supplied screen."
+    }
+  ]
+}

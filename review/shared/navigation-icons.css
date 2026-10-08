@@ -1,0 +1,10 @@
+/* One Prism Back24 glyph for app navigation; Close remains a separate action. */
+button[data-shared-back-icon] > svg {
+  width:24px!important;height:24px!important;min-width:24px!important;
+  flex:none;display:block;color:#191919;
+}
+/* Photo-overlay navigation stays white; separate sticky bars retain black. */
+.store-hero-v2-nav button[data-shared-back-icon]>svg,
+.store-header__nav button[data-shared-back-icon]>svg{color:#fff!important}
+.assistant-nudges-store-top-nav:not(.assistant-nudges-store-top-nav--scrolled) button[data-shared-back-icon]>svg{color:#fff!important}
+.assistant-nudges-store-top-nav--scrolled button[data-shared-back-icon]>svg{color:#191919!important}

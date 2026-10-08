@@ -1,0 +1,14 @@
+/* Single reusable iPhone shell. Figma reference 64:24022. */
+.phone-bezel-seal{position:absolute;inset:-1px;z-index:10001;border:1px solid #d9d9dc;border-radius:35px;box-sizing:border-box;pointer-events:none}
+.shared-system-phone::before,.shared-system-phone::after{display:none!important}
+.device-system-ui{position:absolute;left:0;top:0;width:393px;height:852px;transform:scale(var(--device-scale,1));transform-origin:top left;pointer-events:none;z-index:10000;color:#191919}
+.device-status{position:absolute;top:0;left:0;width:100%;height:59px;box-sizing:border-box;display:grid;grid-template-columns:1fr 125px 1fr;align-items:center;font:600 16px/21px -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-.32px}
+.device-status b{grid-column:1;justify-self:center;padding-left:10px;padding-bottom:3px;font-weight:600}
+.device-status .device-signals{grid-column:3;justify-self:center;margin-right:11px;display:block}
+.device-island{position:absolute;top:11px;left:134px;width:125px;height:37px;border-radius:100px;background:#000}
+.device-home-bar{position:absolute;bottom:8px;left:121px;width:151px;height:5px;border-radius:8px;background:currentColor}
+.shared-system-phone[data-chrome-tone="light"] .device-system-ui{color:white}
+.shared-system-phone[data-chrome-tone="light"] .device-signals{filter:brightness(0) invert(1)}
+.shared-system-phone[data-locked="true"] .device-status b{visibility:hidden}
+/* The safe area remains, but the presentation omits the home indicator. */
+.device-home-bar{visibility:hidden!important}

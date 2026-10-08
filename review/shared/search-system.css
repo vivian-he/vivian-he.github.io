@@ -1,0 +1,10 @@
+/* Shared phone search geometry: 16px page gutter, 31px icon, 13px text gap. */
+#searchForm{gap:16px;padding:6px 16px 10px}
+#searchForm .searchbox{height:48px;border-radius:30px}
+#query,#query::placeholder{font-weight:500}
+#clear[hidden]{display:none!important}
+#browse h2{margin-left:16px;margin-right:16px}
+#browse .recent{padding-left:16px;padding-right:16px;gap:16px;font-weight:500}
+#autocomplete .suggest,#autocomplete .autocomplete-store,#suggestions .suggest,.result{padding-left:16px;padding-right:16px;display:grid;grid-template-columns:31px minmax(0,1fr);column-gap:13px;text-align:left}
+#autocomplete .suggest .magnify,#suggestions .suggest .magnify{justify-self:center}
+.result .meta{font-weight:500}

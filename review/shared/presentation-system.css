@@ -1,0 +1,24 @@
+@import url("device-chrome.css");
+/* Shared presentation finish. One place for canvas, typography and device treatment. */
+:root{--presentation-paper:#f6f7f9;--deck-paper:#f6f7f9;--presentation-ink:#202124;--presentation-muted:#73767c;--presentation-shadow:2px 3px 4px #0003,7px 12px 15px -7px #0004;--presentation-ease:cubic-bezier(.22,.7,.2,1)}
+body{color:var(--presentation-ink)}h2.headline{font-weight:700;letter-spacing:-.045em;line-height:1.08}#slide{background:var(--presentation-paper)}
+#slide.food-cover{background:radial-gradient(ellipse at 72% 45%,#fafafa 0,#e9eaec 52%,#dddfe2 100%);color:var(--presentation-ink);isolation:isolate}.food-cover::before,.food-cover::after{display:none!important}.food-cover .cover-copy{position:absolute;left:8%;top:50%;transform:translateY(-50%);z-index:2;width:54%;text-shadow:none}.food-cover .cover-copy h1{font-size:clamp(45px,6.4cqw,100px);font-weight:700;line-height:1.02;letter-spacing:-.055em;color:#202124;margin:0 0 36px}.food-cover .cover-copy p{color:#74777d;font-size:14px}.cover-dish{position:absolute;right:-22%;top:13%;width:70%;height:85%;overflow:hidden;transform:rotate(-16deg);mix-blend-mode:multiply}.cover-dish img{height:100%;width:auto;max-width:none;filter:drop-shadow(5px 14px 10px #0002)}
+#consumer-walk .walk-entry-stat{left:calc(50% + 182px);right:auto;top:calc(50% - 48px);width:230px;text-align:left;pointer-events:none}#consumer-walk .walk-entry-stat strong{font-size:24px;font-weight:700;color:#999ea5}#consumer-walk .walk-entry-stat span{font-size:14px}
+.object.phone{border:8px solid #242528;border-radius:34px;box-shadow:var(--presentation-shadow);background:#f7f7f7}.slide-foot{color:#999}#slide.consumer-divider,#slide.merchant-divider{background:#191a1c;color:white}
+@media(max-width:760px){.food-cover .cover-copy{width:80%}.cover-dish{opacity:.35;right:-35%}.food-cover .cover-copy h1{font-size:48px}#consumer-walk .walk-entry-stat{left:calc(50% + 150px);width:110px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+#consumer-walk .walk-entry-stat strong{display:flex;justify-content:flex-start;text-align:left}#consumer-walk .walk-entry-stat{left:calc(50% + 182px);text-align:left}
+@media(max-width:1100px){#consumer-walk .walk-entry-stat{left:calc(50% + 172px)}}
+
+/* Background sampled from Vivian’s October 6 reference. */
+body,#workspace,#workspace>header,#consumer-walk,#go-walk{background:var(--presentation-paper)}
+#workspace>#slide:not(.consumer-divider):not(.merchant-divider){background:var(--presentation-paper)}
+/* Text-only consumer opening. Device enters on the following Home beat. */
+#consumer-walk[data-step="intro"] .walk-phone{display:none!important}
+#consumer-walk[data-step="intro"] .walk-heading{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important;width:min(85vw,700px)!important;height:180px!important}
+#consumer-walk[data-step="intro"] .walk-heading h2{justify-content:center!important;text-align:center!important}
+
+/* Opaque bezel beneath fractional iframe edges prevents white inner seams. */
+.walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,.object.phone,.m-phone,.ops-demo.phone{background-color:#22252a!important;background-clip:border-box;isolation:isolate}
+.walk-phone>iframe,.one-p-phone>iframe,.prepared-phone>iframe,.homepage-phone>iframe,.motion-phone>iframe,.m-phone>iframe{outline:1px solid #22252a;outline-offset:-1px;display:block}
+/* Stationary, shared iPhone system layer; app transitions run underneath. */
