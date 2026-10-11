@@ -131,7 +131,7 @@ main{width:100%;margin:0}
 .card .meals-devices,.card .video-phones{padding-top:56px;padding-bottom:28px;gap:9%}
 .card .portfolio-phone{width:38%;box-shadow:0 8px 14px -8px #0003,0 2px 4px #00000014}
 .card .meals-devices .portfolio-phone{margin-left:3%;transform:rotate(-5deg)}
-.card .meals-devices .portfolio-phone{width:34%}
+.card .meals-devices .portfolio-phone{width:38%}
 .card .video-phones{padding-left:3%;justify-content:center}
  .card .recording-phone{transform:none}
  .card .recording-phone.second{transform:none}
@@ -179,7 +179,11 @@ dialog.workflow-modal{width:min(1060px,94vw);max-height:92svh;padding:32px;backg
 .workflow-open .workflow-image p{font-size:10px;margin:10px 0 0;text-align:center}
 @media(hover:hover){.ai-workflow-grid figure:not(.workflow-open):hover .workflow-image{box-shadow:0 6px 16px #00000010}}
 @media(max-width:700px){.card.workflow .ai-workflow-grid{gap:16px 12px;padding-top:30px}.ai-workflow-grid figcaption{font-size:10px}}
+.card.meals .meals-devices{padding-left:3%}
 .card.meals .meals-devices .portfolio-phone{transform:none;margin-left:0;clip-path:inset(0 round 24px)}
+.phone-screen-viewport{position:absolute;inset:0;overflow:hidden;border-radius:18px;clip-path:inset(0 round 18px);isolation:isolate}
+.portfolio-phone .phone-screen-viewport iframe{transform:scale(var(--preview-scale),var(--preview-scale-y))}
+@media(max-width:700px){.phone-screen-viewport{border-radius:15px;clip-path:inset(0 round 15px)}}
 @media(max-width:700px){.card.meals .meals-devices .portfolio-phone{clip-path:inset(0 round 20px)}}
 .portfolio-status{display:flex;align-items:center;gap:8px;margin:22px 0 0;color:#602be8;font-size:11px;line-height:1.5}
 .status-dots{display:inline-flex;gap:3px;align-items:center}

@@ -73,7 +73,7 @@ document.querySelectorAll('.portfolio-phone,.laptop-display').forEach(device=>{
     device.style.setProperty('--preview-scale',scale);
     // The 393×852 ratio belongs to the screen, not the screen plus its bezel.
     // Applying it to the border box leaves an exposed strip below the iframe.
-    if(device.querySelector('#meals-phone'))device.style.height=(852*scale+(css.boxSizing==='border-box'?borderY:0))+'px';
+    if(device.querySelector('#meals-phone'))device.style.setProperty('--preview-scale-y',(parseFloat(css.height)-borderY)/852);
   }).observe(device);
 });
 
