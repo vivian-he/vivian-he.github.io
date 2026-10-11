@@ -192,8 +192,8 @@ dialog.workflow-modal{width:min(1060px,94vw);max-height:92svh;padding:32px;backg
 .card .messenger-preview{display:flex;align-items:center;justify-content:center;gap:9%;padding:56px 0 28px 3%}
 .card .messenger-phone{position:relative;transform:none;align-self:center}
 .messenger-preview .messenger-phone img{inset:0;width:100%!important;height:100%;max-height:none;object-fit:contain;transform-origin:center}
-.messenger-phone .messenger-chat-screen{transform:rotate(-10deg) scale(1.42)}
-.messenger-phone .messenger-admin-screen{transform:rotate(5deg) scale(1.25)}
+.messenger-phone .messenger-chat-screen{transform:translateY(1.5%) scaleY(1.035) rotate(-10deg) scale(1.44)}
+.messenger-phone .messenger-admin-screen{transform:translateY(1.5%) scaleY(1.035) rotate(5deg) scale(1.27)}
 .messenger-phone::after{content:"";position:absolute;z-index:3;top:1.3%;left:34%;width:32%;height:4%;border-radius:20px;background:#111}
 @media(max-width:700px){.card .messenger-preview{padding:52px 0 28px 3%}}
 @media(max-width:700px){.card.meals .meals-devices .portfolio-laptop{width:76%;right:-2%;top:54%}}
