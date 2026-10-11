@@ -76,3 +76,5 @@ body{font-family:DeckNorms,Arial,sans-serif;background:#f6f7f9}
 .closing-hub .hub-screen-row figcaption{font-family:DeckNorms,Arial,sans-serif;font-weight:500;font-size:1cqw;min-height:2.5em;margin-bottom:.8cqw}
 #workspace>main.closing-hub .hub-heading h2{letter-spacing:-.02em;line-height:1.2}
 @media(max-width:760px){#workspace>main.closing-hub{grid-template-columns:1fr;gap:28px}#workspace>main.closing-hub .hub-heading h2{font-size:30px}.closing-hub .hub-screen-row figcaption{font-size:10px}}
+:is(#workspace,body) :is(.walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,.object.phone,.m-phone,.ops-demo.phone){box-shadow:1px 4px 3px #00000032,3px 12px 10px -5px #00000028,8px 25px 26px -12px #00000020!important;outline:none!important}
+:is(#workspace,body) .phone-bezel-seal{border-color:#242526!important;box-shadow:none!important}
