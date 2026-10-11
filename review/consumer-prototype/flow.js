@@ -18,7 +18,26 @@
    hubOverlay=window.ConsumerMotion.createHubSkeleton();hubOverlay.style.zIndex='8';host.append(hubOverlay);
    hubBeat=window.ConsumerMotion.playHubPush(hubOverlay).finished.then(()=>new Promise(r=>setTimeout(r,reduced?0:450)));
   }
-  const reveal=async()=>{if(hubBeat)await hubBeat;if(active?.frame!==f){hubOverlay?.remove();return}f.hidden=false;f.style.zIndex='2';if(previous&&previous.frame!==f){if(animate&&!reduced&&!hubOverlay){f.animate([{transform:`translateX(${back?'-20%':'100%'})`,opacity:back?.8:1},{transform:'translateX(0)',opacity:1}],{duration:back?280:380,easing:'cubic-bezier(.22,.75,.2,1)'}).finished.then(()=>{if(active?.frame===f)previous.frame.hidden=true})}else previous.frame.hidden=true;previous.frame.style.zIndex='1';}bind(f.contentDocument);if(hubOverlay){await hubOverlay.animate([{opacity:1},{opacity:0}],{duration:reduced?0:180}).finished;hubOverlay.remove()}};
+  const reveal=async()=>{
+   if(hubBeat)await hubBeat;
+   if(active?.frame!==f){hubOverlay?.remove();return}
+   f.hidden=false;f.style.zIndex='2';
+   if(previous&&previous.frame!==f){
+    if(animate&&!reduced&&!hubOverlay){
+     if(back&&previous.state==='item'){
+      // Dismiss the item sheet downward, revealing the retained screen below.
+      f.style.zIndex='1';previous.frame.style.zIndex='2';
+      previous.frame.animate([{transform:'translateY(0)'},{transform:'translateY(100%)'}],{duration:300,easing:'cubic-bezier(.4,0,1,1)'}).finished.then(()=>{if(active?.frame===f){previous.frame.hidden=true;f.style.zIndex='2'}});
+     }else{
+      const from=state==='item'&&!back?'translateY(100%)':`translateX(${back?'-20%':'100%'})`;
+      f.animate([{transform:from,opacity:back?.8:1},{transform:'translate(0,0)',opacity:1}],{duration:back?280:380,easing:'cubic-bezier(.22,.75,.2,1)'}).finished.then(()=>{if(active?.frame===f)previous.frame.hidden=true});
+      previous.frame.style.zIndex='1';
+     }
+    }else{previous.frame.hidden=true;previous.frame.style.zIndex='1';}
+   }
+   bind(f.contentDocument);
+   if(hubOverlay){await hubOverlay.animate([{opacity:1},{opacity:0}],{duration:reduced?0:180}).finished;hubOverlay.remove()}
+  };
   if(f.contentDocument?.readyState==='complete'&&f.contentDocument.location.href!=='about:blank')reveal();else f.addEventListener('load',reveal,{once:true});
  }
  function back(){const previous=stack.pop();if(!previous){show('home',{back:true});return}show(previous.state,{back:true});}
