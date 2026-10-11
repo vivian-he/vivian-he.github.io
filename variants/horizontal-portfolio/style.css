@@ -181,8 +181,10 @@ dialog.workflow-modal{width:min(1060px,94vw);max-height:92svh;padding:32px;backg
 @media(max-width:700px){.card.workflow .ai-workflow-grid{gap:16px 12px;padding-top:30px}.ai-workflow-grid figcaption{font-size:10px}}
 .card.meals .meals-devices{padding-left:3%}
 .card.meals .meals-devices .portfolio-phone{transform:none;margin-left:0;clip-path:inset(0 round 24px)}
-.phone-screen-viewport{position:absolute;inset:0;overflow:hidden;border-radius:18px;clip-path:inset(0 round 18px);isolation:isolate}
-.portfolio-phone .phone-screen-viewport iframe{transform:scale(var(--preview-scale),var(--preview-scale-y))}
+.phone-screen-viewport{position:absolute;inset:0;overflow:hidden;border-radius:18px;clip-path:inset(0 round 18px);isolation:isolate;transform:translateZ(0);-webkit-mask-image:linear-gradient(#000,#000);mask-image:linear-gradient(#000,#000)}
+.card.meals .portfolio-hardware-rim{position:absolute;inset:-6px;border:6px solid #27282a;border-radius:24px;box-sizing:border-box;z-index:2147483647;pointer-events:none;transform:translateZ(0)}
+@media(max-width:700px){.card.meals .portfolio-hardware-rim{inset:-5px;border-width:5px;border-radius:20px}}
+.portfolio-phone .phone-screen-viewport iframe{transform:scale(var(--preview-scale),var(--preview-scale-y));clip-path:inset(0 round 60px);border-radius:60px}
 @media(max-width:700px){.phone-screen-viewport{border-radius:15px;clip-path:inset(0 round 15px)}}
 @media(max-width:700px){.card.meals .meals-devices .portfolio-phone{clip-path:inset(0 round 20px)}}
 .portfolio-status{display:flex;align-items:center;gap:8px;margin:22px 0 0;color:#602be8;font-size:11px;line-height:1.5}

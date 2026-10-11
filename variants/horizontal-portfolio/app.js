@@ -62,6 +62,11 @@ dialog.addEventListener('click', event => {
 update();
 
 // Native phone/laptop coordinates preserve the deck's screen proportions.
+const mealsHardware=document.querySelector('.meals .portfolio-phone');
+const hardwareRim=document.createElement('span');
+hardwareRim.className='portfolio-hardware-rim';
+hardwareRim.setAttribute('aria-hidden','true');
+mealsHardware?.append(hardwareRim);
 document.querySelectorAll('.portfolio-phone,.laptop-display').forEach(device=>{
   const nativeWidth=device.classList.contains('laptop-display')?1440:393;
   new ResizeObserver(()=>{
