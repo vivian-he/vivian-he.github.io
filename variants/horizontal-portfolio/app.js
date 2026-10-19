@@ -33,23 +33,43 @@ rail.addEventListener('keydown', event => {
 });
 
 const dialog = document.querySelector('dialog');
-document.querySelectorAll('.case-study').forEach(button => {
-  button.addEventListener('click', () => {
-    if(button.dataset.enlarge==='workflow'){
-      dialog.classList.add('workflow-modal');
-      dialog.setAttribute('aria-labelledby','detail-title');
-      document.querySelector('#detail-title').textContent='My AI workflow';
-      dialog.querySelector('.ai-workflow-grid')?.remove();
-      dialog.append(document.querySelector('.card.workflow .ai-workflow-grid').cloneNode(true));
-      dialog.showModal();return;
-    }
-    if (button.dataset.href) {
-      if(button.closest('.card.vr,.card.messenger')){window.open(button.dataset.href,'_blank','noopener,noreferrer');return;}
-      window.location.href = button.dataset.href;
-      return;
-    }
-    document.querySelector('#detail-title').textContent = button.dataset.project;
-    dialog.showModal();
+function openWorkflow() {
+  dialog.classList.add('workflow-modal');
+  dialog.setAttribute('aria-labelledby', 'detail-title');
+  document.querySelector('#detail-title').textContent = 'My AI workflow';
+  dialog.querySelector('.ai-workflow-grid')?.remove();
+  dialog.append(document.querySelector('.card.workflow .ai-workflow-grid').cloneNode(true));
+  dialog.showModal();
+}
+
+document.querySelectorAll('.card-link,.card-action').forEach(card => {
+  let pointerStart = null;
+  let dragged = false;
+  card.addEventListener('pointerdown', event => {
+    pointerStart = { x: event.clientX, y: event.clientY, scroll: rail.scrollLeft };
+    dragged = false;
+  });
+  card.addEventListener('pointerup', event => {
+    if (!pointerStart) return;
+    dragged = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y) > 8 ||
+      Math.abs(rail.scrollLeft - pointerStart.scroll) > 5;
+    pointerStart = null;
+  });
+  card.addEventListener('pointercancel', () => { pointerStart = null; dragged = true; });
+  function activate() {
+    if (card.dataset.enlarge === 'workflow') openWorkflow();
+    else if (card.dataset.href) window.location.href = card.dataset.href;
+  }
+  card.addEventListener('click', event => {
+    const interactive = event.target.closest('button,a,[role="button"],[role="link"]');
+    if (dragged) { event.preventDefault(); return; }
+    if (card.matches('a[href]') || (interactive && interactive !== card)) return;
+    activate();
+  });
+  card.addEventListener('keydown', event => {
+    if (card.matches('a[href]') || event.target !== card || !['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    activate();
   });
 });
 document.querySelector('.close').addEventListener('click', () => dialog.close());
