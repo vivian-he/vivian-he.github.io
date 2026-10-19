@@ -206,3 +206,13 @@ dialog.workflow-modal{width:min(1060px,94vw);max-height:92svh;padding:32px;backg
 
 /* Whole project cards are native links; previews stay decorative. */
 a.card{color:inherit;text-decoration:none}.card-link .screens{pointer-events:none}.card-link:focus-visible{outline:2px solid #635f69;outline-offset:4px}
+
+/* Native anchor states keep the original card typography. */
+a.card:link,a.card:visited,a.card:hover,a.card:active{color:#252525;text-decoration:none;font-family:inherit}
+a.card .copy,a.card .case-study{text-decoration:none}
+@media(hover:hover){
+ .card-link:hover,.card-action:hover{transform:translateY(-5px);background:linear-gradient(150deg,#f0f0f0,#e9e9e9);box-shadow:0 16px 30px -14px #0003,inset 0 0 0 1px #d8d8d8}
+ .card-link:hover .case-study{background:white;box-shadow:0 4px 12px #00000012}
+ .card-link:hover .case-arrow{transform:translateX(4px)}
+}
+@media(prefers-reduced-motion:no-preference){.card-link,.card-action{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.case-arrow{transition:transform .18s ease}}
