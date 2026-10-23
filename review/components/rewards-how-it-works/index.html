@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewards How It Works component</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #f7f7f7; color: #242424; }
+    main { max-width: 960px; padding: 40px 24px 64px; margin: auto; }
+    h1 { font-size: 24px; margin: 0 0 8px; }
+    p { color: #555; margin: 0 0 36px; line-height: 1.5; }
+    .specimens { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+    section { flex: 0 1 auto; }
+    h2 { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+    .desktop, .phone { box-sizing: border-box; background: #fff; border: 1px solid #ddd; border-radius: 16px; padding: 16px; }
+    .desktop { width: 520px; max-width: 100%; }
+    .phone { width: 320px; max-width: 100%; }
+    rewards-how-it-works { margin-inline: auto; }
+    @media (max-width: 600px) { main { padding: 24px 12px 40px; } .specimens { gap: 28px; } .desktop, .phone { width: min(100%, 375px); padding: 8px; } }
+  </style>
+  <script type="module" src="./component.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Rewards How It Works</h1>
+    <p>The supplied 375 × 190 artwork is shown at its natural size and in a narrower phone container.</p>
+    <div class="specimens">
+      <section aria-label="Desktop specimen">
+        <h2>Desktop container</h2>
+        <div class="desktop"><rewards-how-it-works></rewards-how-it-works></div>
+      </section>
+      <section aria-label="Phone specimen">
+        <h2>Phone container</h2>
+        <div class="phone"><rewards-how-it-works></rewards-how-it-works></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // The presentation device owns system UI. Embedded app screens contain only app UI.
 (()=>{
  const devices='.walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,.m-phone,.ops-demo.phone';
- const deviceStyles=document.createElement('link');deviceStyles.rel='stylesheet';deviceStyles.href='/review/shared/device-chrome.css?v=figma-2';document.head.append(deviceStyles);
+ const deviceStyles=document.createElement('link');deviceStyles.rel='stylesheet';deviceStyles.href='/review/shared/device-chrome.css?v=surface33';document.head.append(deviceStyles);
  const systemUI='.status,.gxc-status-bar,.scroll-header__status-bar,.gxk-status-bar,.gxs-status-bar,.status-bar,.ios-status-bar,.p1-status-bar,.mbt-status,#fixed-phone-status,.lock-signals,.island,.dynamic-island,.home-indicator,.mbt-home-indicator,.ge-home-indicator,.pedregal-fab__home-indicator';
  const signals='<img class="device-signals" src="/review/shared/iphone-signals.svg" alt="" width="75.0473" height="13.084">';
  const observed=new WeakSet(),frames=new WeakSet(),syncers=new WeakMap();

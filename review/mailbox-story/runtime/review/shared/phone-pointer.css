@@ -1,0 +1,19 @@
+/* Functional tap marker, matched to references/iphone-tap-dot.png. */
+.deck-autoplay-touch,.phone-tap-cursor {
+  position:fixed;
+  z-index:2147483647;
+  width:84px;
+  height:84px;
+  box-sizing:border-box;
+  margin:-42px 0 0 -42px;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.58);
+  box-shadow:0 1px 7px rgba(0,0,0,.22);
+  pointer-events:none;
+}
+.phone-tap-cursor[hidden]{display:none!important}
+.phone-pointer-active,.phone-pointer-active *{cursor:none!important}
+.deck-autoplay-running .phone-tap-cursor{display:none!important}
+.deck-pointer-layer{position:fixed;z-index:2147483646;overflow:hidden;pointer-events:none;border-radius:20px}
+.deck-pointer-layer .deck-autoplay-touch{position:absolute;animation:none!important;opacity:1!important;display:block!important}

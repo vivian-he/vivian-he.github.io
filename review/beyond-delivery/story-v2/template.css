@@ -1,0 +1,305 @@
+/* In-Store Rewards adapter for the Affordable Meals presentation shell. */
+:root{
+  --deck-paper:#f6f7f9;
+  --paper:var(--deck-paper);
+  --ink:#24272b;
+  --muted:#7b828b;
+}
+html{overflow-x:hidden}
+body{min-width:0;background:var(--deck-paper);overflow-x:hidden}
+#workspace{min-width:0;background:var(--deck-paper)}
+body.presentation-mode #workspace>main,
+body.review-mode #workspace>main{
+  box-sizing:border-box;
+  background:var(--deck-paper);
+  overflow:visible;
+}
+body.presentation-mode #workspace>main{min-height:100svh!important}
+#slide .phone{background:#fff;border-color:#22252a;box-shadow:var(--device-depth)}
+#slide .phone img,#slide .phone video{display:block;width:100%;height:100%;object-fit:cover}
+
+/* The imported chapter list uses the same grouped outline vocabulary as Meals. */
+#outline{box-sizing:border-box;background:#fafafa;border-color:#e4e6e9}
+#outline>h1{margin:0 8px 7px;font-size:16px;line-height:1.25;font-weight:700;letter-spacing:-.025em}
+#outline h2{margin:21px 8px 7px;font-size:10px;line-height:1.4;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888e96}
+#outline p{margin:0 8px 24px;line-height:1.5}
+#outline nav h2{margin-top:22px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888e96}
+#outline nav button{align-items:baseline;gap:10px;min-height:32px;padding:8px 9px;line-height:1.4}
+#outline nav button small,#outline nav button .num{flex:none;min-width:20px;color:#9ba1aa;font-size:10px;font-variant-numeric:tabular-nums}
+#outline nav button.active{background:#e8eaed;color:#252a30}
+body.presentation-mode #outline{padding-inline:14px;box-shadow:20px 0 60px #0002}
+body.presentation-mode #outline h2:first-child{margin-top:0}
+
+/* Keep the supplied copy and prototype in a stable question / device / answer row. */
+body.presentation-mode #slide:is(.meal-phone,.meal-transition),
+body.review-mode #slide:is(.meal-phone,.meal-transition){
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,300px) minmax(0,1fr);
+  align-items:center;
+  justify-items:stretch;
+  column-gap:clamp(20px,3.2vw,52px);
+  width:100%;
+  min-width:0;
+  height:auto;
+  min-height:100svh;
+  max-width:1600px;
+  padding:72px clamp(32px,5vw,84px) 68px;
+  overflow:visible;
+}
+#slide.meal-phone>.persistent-prompt,
+#slide.meal-phone>.copy,
+#slide.meal-phone>.stage{
+  position:static;
+  inset:auto;
+  left:auto;
+  right:auto;
+  top:auto;
+  bottom:auto;
+  transform:none;
+  margin:0;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  height:auto;
+  padding:0;
+}
+#slide.meal-phone>.persistent-prompt{grid-column:1;grid-row:1;text-align:right;color:#9ca2aa;overflow-wrap:normal}
+#slide.meal-phone>.stage{grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:0}
+#slide.meal-phone>.copy{grid-column:3;grid-row:1;align-self:center;overflow:visible;text-align:left}
+#slide.meal-phone>.copy{position:relative}
+#slide.meal-phone>.copy .playback-anchor{position:absolute;top:100%;left:0;margin-top:22px}
+#slide.meal-phone h1,#slide.meal-phone>.persistent-prompt{font-size:clamp(20px,2vw,30px);line-height:1.22;letter-spacing:-.04em;font-weight:700;text-wrap:balance}
+#slide.meal-phone h1{padding:0;margin:0;text-align:left}
+#slide.meal-phone .phone,
+body.present #slide.meal-phone .phone{
+  width:min(100%,calc((100svh - 165px)*393/852));
+  height:auto;
+  max-height:calc(100svh - 165px);
+  aspect-ratio:393/852;
+  margin:0;
+  border:7px solid #22252a;
+  border-radius:clamp(25px,3vw,42px);
+  box-sizing:border-box;
+}
+#slide.meal-phone .phone iframe{width:393px;height:852px}
+#slide.meal-phone .prototype-controls{position:static;grid-column:3;grid-row:2;justify-self:start;margin-top:16px}
+
+/* Section questions occupy the same left-hand title slot as the phone scenes. */
+#slide.meal-transition>.copy{position:static;inset:auto;transform:none;grid-column:1;grid-row:1;width:100%;height:auto;margin:0;padding:0;max-width:none;text-align:right}
+#slide.meal-transition h1{padding:0;margin:0;text-align:right;text-wrap:balance}
+
+/* Playback buttons belong to the caption, including after media has completed. */
+#slide .playback-anchor{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;min-height:36px}
+body.presentation-mode #slide .playback-anchor .contextual-playing,
+body.presentation-mode #slide .playback-anchor #deck-autoplay-replay.contextual-replay,
+body.review-mode #slide .playback-anchor .contextual-playing,
+body.review-mode #slide .playback-anchor #deck-autoplay-replay.contextual-replay{
+  position:static!important;
+  inset:auto!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:auto!important;
+  transform:none!important;
+  margin:0;
+  white-space:normal;
+}
+#slide .playback-anchor [hidden]{display:none!important}
+
+/* Preserve source screen comparisons and concept films without shrinking captions. */
+body.presentation-mode #slide.future-videos,
+body.review-mode #slide.future-videos{
+  box-sizing:border-box;
+  height:auto;
+  min-height:100svh;
+  max-width:1600px;
+  overflow:visible;
+}
+#slide.future-videos .future-video-grid{grid-template-columns:repeat(var(--columns,3),minmax(0,1fr));max-width:100%;gap:clamp(14px,2vw,32px)}
+#slide.future-videos .future-video-grid figure{min-width:0}
+#slide.future-videos .future-video-grid figcaption{white-space:normal;overflow-wrap:anywhere}
+#slide.experiment-comparison .asset-panel img{max-width:100%}
+
+/* Results read as two large paired rows in the Meals deck. */
+body.presentation-mode #slide.results-summary,
+body.review-mode #slide.results-summary{box-sizing:border-box;min-height:100svh;max-width:1600px}
+#slide.results-summary .results-groups{gap:clamp(30px,4vw,58px)}
+#slide.results-summary .results-groups article+article{border:0;padding-top:0}
+#slide.results-summary .results-groups h3{color:#858b93;font-weight:500}
+#slide.results-summary .result-pair{gap:clamp(18px,2vw,32px)}
+#slide.results-summary .result-pair strong{font-weight:700}
+#slide.results-summary .result-pair p{font-weight:500;white-space:normal}
+
+/* Review exposes the familiar shell controls and speaker notes. */
+body.review-mode #workspace>header,body.review-mode #workspace>footer{display:flex!important}
+body.review-mode #workspace>#notes:not([hidden]){display:block!important}
+body.review-mode .presentation-tools{display:flex;align-items:center;gap:8px;position:relative;z-index:10;padding:12px 24px 0;justify-content:flex-end}
+body.review-mode .presentation-tools button{min-height:34px;border-radius:20px;background:#ffffffb8}
+body.review-mode .presentation-tools [hidden]{display:none!important}
+body.review-mode .presentation-navigation{display:flex;justify-content:center;gap:14px;padding:12px}
+body.review-mode .presentation-navigation button{pointer-events:auto;opacity:1}
+body.review-mode .presentation-back{position:relative;top:auto;left:auto;margin:12px 0 0 24px;width:max-content}
+
+@media(max-width:1100px) and (min-width:761px){
+  body.presentation-mode #slide:is(.meal-phone,.meal-transition),body.review-mode #slide:is(.meal-phone,.meal-transition){grid-template-columns:minmax(0,1fr) minmax(0,260px) minmax(0,1fr);column-gap:20px;padding-inline:28px}
+  #slide.meal-phone h1,#slide.meal-phone>.persistent-prompt{font-size:clamp(19px,2vw,25px)}
+}
+
+@media(max-width:760px){
+  body.presentation-mode #workspace,body.review-mode #workspace{width:100%!important;margin-left:0!important;padding:0!important}
+  body.presentation-mode #slide:is(.meal-phone,.meal-transition),body.review-mode #slide:is(.meal-phone,.meal-transition){
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:18px;
+    min-height:100svh;
+    height:auto;
+    padding:74px 24px 90px;
+    overflow:visible;
+  }
+  #slide.meal-phone>.persistent-prompt{order:0;width:100%;height:auto;text-align:left;font-size:22px;line-height:1.2;padding:0}
+  #slide.meal-phone>.stage{order:1;width:100%;height:auto;min-height:0;flex:none!important;padding:0}
+  #slide.meal-phone>.copy{order:2;width:100%;height:auto;text-align:left;padding:0}
+  #slide.meal-phone>.copy .playback-anchor{position:static;inset:auto;margin-top:16px}
+  #slide.meal-phone h1{font-size:23px;line-height:1.22;text-align:left;padding:0}
+  #slide.meal-phone .phone,body.present #slide.meal-phone .phone{
+    height:min(55svh,505px);
+    max-height:none;
+    width:auto;
+    max-width:min(82vw,300px);
+    margin:0 auto;
+    border-width:6px;
+    border-radius:32px;
+  }
+  #slide.meal-phone .prototype-controls{order:3;align-self:flex-start;max-width:100%;margin-top:0;flex-wrap:wrap}
+  #slide.meal-phone .prototype-controls button{min-height:38px;padding:9px 12px}
+  #slide .playback-anchor{margin-top:16px;gap:8px}
+  #slide.meal-transition>.copy{width:100%;margin:0;flex:none;text-align:left}
+  #slide.meal-transition h1{text-align:left}
+
+  body.presentation-mode #slide.future-videos,body.review-mode #slide.future-videos{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:24px;
+    min-height:100svh;
+    padding:76px 22px 90px;
+    overflow:visible;
+  }
+  #slide.future-videos>.copy{width:100%;text-align:left}
+  #slide.future-videos h1{font-size:clamp(28px,8vw,38px)}
+  #slide.future-videos .body{font-size:14px;line-height:1.45;margin-top:12px}
+  #slide.future-videos>.stage{display:block;width:100%;height:auto;min-height:0;flex:none!important}
+  #slide.future-videos .future-video-grid,
+  #slide.experiment-comparison .visual-grid{grid-template-columns:1fr;justify-items:center;gap:30px}
+  #slide.future-videos .future-video-grid figure{width:100%;max-width:290px;gap:12px}
+  #slide.future-videos .concept-screen{width:min(72vw,260px);max-height:none;aspect-ratio:750/1624}
+  #slide.future-videos .future-video-grid figcaption{width:100%;max-width:290px;text-align:center;font-size:16px}
+  #slide.future-videos .future-video-grid figcaption span{font-size:13px}
+  #slide.experiment-comparison .asset-panel img{height:auto;max-height:none;width:min(72vw,270px)}
+  #slide.experiment-comparison figcaption{font-size:16px}
+  #slide.experiment-comparison .panel-reason{font-size:13px}
+
+  body.presentation-mode #slide.results-summary,body.review-mode #slide.results-summary{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+    gap:32px;
+    min-height:100svh;
+    padding:76px 26px 90px;
+  }
+  #slide.results-summary .copy,#slide.results-summary .stage{width:100%;height:auto;min-height:0;flex:none!important}
+  #slide.results-summary h1{font-size:clamp(32px,8vw,42px)}
+  #slide.results-summary .results-groups{gap:32px}
+  #slide.results-summary .results-groups h3{font-size:15px;margin:0 0 16px}
+  #slide.results-summary .result-pair{gap:16px;min-width:0}
+  #slide.results-summary .result-pair>div{min-width:0}
+  #slide.results-summary .result-pair strong{font-size:clamp(28px,9vw,42px);overflow-wrap:anywhere}
+  #slide.results-summary .result-pair p{font-size:13px;line-height:1.35;margin:9px 0 0}
+  #slide.results-summary .result-pair em{font-size:11px;line-height:1.35;margin-top:5px}
+  body.review-mode .presentation-tools{padding:8px 12px 0;flex-wrap:wrap}
+  body.review-mode .presentation-back{margin-left:12px}
+}
+
+@media(max-width:460px){
+  #slide .visual-grid,#slide .future-grid{grid-template-columns:1fr}
+  #slide.sheet-details .sheet-annotated{flex-direction:column;height:auto}
+  #slide.sheet-details .annotated-capture{height:auto;width:min(78vw,280px);aspect-ratio:390/844}
+  #slide.sheet-details .sheet-annotated ol{width:100%;margin:0}
+  #slide.cover-phone>.copy{position:static;transform:none;width:100%}
+  #slide.cover-phone>.stage{position:static;width:100%;height:auto;min-height:0}
+  #slide.cover-phone .phone{height:min(55svh,505px);width:auto;max-width:82vw}
+  body.presentation-mode #slide.cover-phone,body.review-mode #slide.cover-phone{display:flex;flex-direction:column;align-items:stretch;gap:22px;min-height:100svh;height:auto;padding:84px 26px 88px}
+  #slide.cover-phone h1,#slide.membership-phone h1{font-size:clamp(35px,10vw,48px)}
+}
+
+/* Ordinary slide changes cut directly; movement stays inside the prototypes. */
+#slide>.copy,#slide>.stage,#slide>.persistent-prompt{animation:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* Use the same upright cover composition through the full narrow breakpoint. */
+@media(max-width:760px){
+  #slide.cover-phone>.copy{position:static;transform:none;width:100%}
+  #slide.cover-phone>.stage{position:static;inset:auto;width:100%;height:auto;min-height:0;flex:none}
+  #slide.cover-phone .phone{height:min(55svh,505px);width:auto;max-width:82vw;aspect-ratio:393/852;margin:auto}
+  body.presentation-mode #slide.cover-phone,body.review-mode #slide.cover-phone{display:flex;flex-direction:column;align-items:stretch;gap:22px;min-height:100svh;height:auto;padding:84px 26px 88px}
+  #slide.cover-phone h1,#slide.membership-phone h1{font-size:clamp(35px,8vw,48px)}
+}
+
+
+/* Rewards content uses the same visual roles as Affordable Meals. */
+body.deck-template #slide.rewards-cover{display:flex;align-items:center;padding:7%;min-height:100svh;container-type:inline-size}
+#slide.rewards-cover>.copy{width:100%;max-width:none;position:static;transform:none}
+#slide.rewards-cover h1{margin:0;color:#24272b}
+#slide.rewards-cover .rewards-brand{display:inline-flex;align-items:center;gap:1.3cqw;color:#6037c4;white-space:nowrap}
+#slide.rewards-cover .rewards-brand img{width:8cqw;height:5.5cqw;object-fit:contain}
+#slide.rewards-cover .body{margin:2cqw 0 0;max-width:92%;color:#777b81}
+#slide .copy h1{margin-bottom:1.6cqw}
+#slide.starting-screens .asset-panel figcaption{margin-top:16px}
+#slide .future-video-grid figcaption strong{font:inherit}
+@media(max-width:760px){
+ body.deck-template #slide.rewards-cover{padding:88px 26px 90px}
+ #slide.rewards-cover .rewards-brand{gap:12px}
+ #slide.rewards-cover .rewards-brand img{width:52px;height:38px}
+ #slide.rewards-cover .body{max-width:100%;margin-top:28px}
+ #slide.rewards-cover .body br{display:none}
+}
+#slide.meal-transition>.copy h1{margin:0;padding:0}
+
+/* Dormant phone scenes remain mounted so their nested app does not reload. */
+#workspace>main[data-live-scene][hidden]{display:none!important}
+#slide.results-summary .results-groups{gap:2.6cqw}
+#slide.results-summary .results-groups h3{margin:0 0 1.4cqw;color:#777d85}
+#slide.results-summary .result-pair{gap:2cqw}
+#slide.results-summary .result-pair p{margin:.8cqw 0 0}
+#slide.results-summary .result-pair em{display:block;font-style:normal;margin-top:.7cqw;color:#858b94}
+#slide.future-videos .body{max-width:100%}
+@media(max-width:760px){
+ #slide.results-summary .results-groups{gap:34px}
+ #slide.results-summary .result-pair{gap:20px}
+ #slide.results-summary .result-pair p{margin-top:12px}
+ #slide.results-summary .result-pair em{margin-top:10px}
+}
+
+#slide.rewards-cover .body{margin-top:3cqw}
+#slide.rewards-cover .rewards-brand{gap:.17em}
+#slide.rewards-cover .rewards-brand img{width:1.3em;height:.8em}
+/* Let the image box follow the phone's own ratio, without contain-fit side gutters. */
+#slide.experiment-comparison .visual-grid{justify-items:center;align-items:start}
+#slide.experiment-comparison .asset-panel{width:100%;align-items:center}
+#slide.experiment-comparison .asset-panel img{width:auto!important;height:calc(100svh - 300px);max-height:calc(100svh - 300px);max-width:100%;object-fit:contain}
+#slide.experiment-comparison .asset-panel figcaption[data-deck-type]{width:100%;text-align:center;font-weight:650!important}
+#slide.experiment-comparison .asset-panel .panel-reason{font-weight:400;text-align:center}
+
+body.presentation-mode #slide.master-results{display:grid;grid-template-columns:38% 56%;gap:6%;padding:7%}
+#slide.master-results>.copy,#slide.master-results>.stage{width:100%;min-width:0;height:auto}
+#slide.master-results .master-result-grid{display:grid;gap:42px}
+#slide.master-results .result-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+#slide.master-results .result-pair p{max-width:none;line-height:1.5;white-space:nowrap}
+#slide.master-results .result-draft-note{display:block;margin:0;font-style:normal}
+
+/* Keep playback actions close to the phone response caption. */
+#slide.meal-phone>.copy .playback-anchor,#slide .playback-anchor{margin-top:8px}
+#slide.meal-phone>.copy h1{margin:0}

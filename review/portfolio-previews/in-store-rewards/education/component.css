@@ -1,0 +1,58 @@
+:host { display: block; min-width: 0; }
+
+.how-banner-art {
+  position: relative;
+  display: block;
+  width: min(100%, 400px);
+  aspect-ratio: 343 / 118;
+  margin-inline: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px #00000018, 0 1px 4px #00000012;
+  overflow: hidden;
+}
+.how-banner {
+  position: absolute;
+  display: block;
+  top: -47.4576%;
+  left: -4.6647%;
+  width: 109.3294%;
+  height: auto;
+  aspect-ratio: 375 / 190;
+}
+
+.education-pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--deck-preview-pair-gap);
+  width: min(100%, calc(var(--deck-preview-phone-width) + var(--deck-preview-phone-width) + var(--deck-preview-pair-gap)));
+  margin-inline: auto;
+}
+
+.education-screen {
+  box-sizing: border-box;
+  position: relative;
+  flex: 0 1 var(--deck-preview-phone-width);
+  min-width: 0;
+  aspect-ratio: var(--deck-preview-phone-aspect);
+  border: 0;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: var(--deck-phone-cast-shadow, 2px 4px 5px -1px #00000033, 10px 17px 17px -5px #00000038, 17px 30px 32px -9px #0000002b);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.home-map-screen,
+.historical-screen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 440px) {
+  .education-screen { border-radius: 24px; }
+}

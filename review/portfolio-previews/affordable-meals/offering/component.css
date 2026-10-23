@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 490px;
+  min-width: 0;
+  justify-self: center;
+  background: #f7f7f7;
+}
+
+.bowls {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 560 / 270;
+  isolation: isolate;
+}
+
+.bowl {
+  position: absolute;
+  top: 12%;
+  width: 39%;
+  height: 87%;
+  margin: 0;
+  filter: drop-shadow(0 10px 9px #00000018);
+}
+
+.bowl svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.bowl-0 {
+  left: 0;
+  transform: translateY(5%) rotate(-8deg);
+}
+
+.bowl-1 {
+  z-index: 2;
+  left: 30.5%;
+  top: 3%;
+  width: 42%;
+  height: 94%;
+}
+
+.bowl-2 {
+  right: 0;
+  transform: translateY(5%) rotate(8deg);
+}
+
+@media (max-width: 850px) {
+  :host { justify-self: center; }
+}

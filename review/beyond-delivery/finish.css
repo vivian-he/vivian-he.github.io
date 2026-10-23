@@ -20,6 +20,18 @@ body.no-outline main{width:min(100%,calc((100vh - 155px)*16/9));max-height:none}
 @media print{body{background:#fff}main,body.no-outline main{width:100%;aspect-ratio:16/9;min-height:0;box-shadow:none}#slide{break-inside:avoid}}
 @media(max-width:760px){.stage[data-objects="3"]{flex-wrap:wrap;align-content:center}.stage[data-objects="3"] .object:not(.phone){flex:1 1 38%;max-height:150px}.stage[data-objects="3"] .object.phone{flex:0 1 38%;max-height:300px}}
 
+/* The original Beyond Delivery scenes use the same shared presentation phone. */
+#workspace > main:has(:is(.object.phone,.motion-phone)),
+#go-walk {
+  background: var(--deck-canvas-background) !important;
+}
+#workspace :is(.object.phone,.motion-phone,.go-phone) {
+  border: var(--deck-phone-border-width) solid var(--deck-phone-edge) !important;
+  border-radius: var(--deck-phone-radius) !important;
+  box-shadow: var(--deck-phone-shadow) !important;
+  overflow: hidden;
+}
+
 .asset-link{color:#777780;text-decoration:none;font-size:11px;white-space:nowrap}.asset-link:hover{text-decoration:underline}
 
 .actual-asset{height:100%;max-width:100%;margin:0;display:flex;flex-direction:column;align-items:center;gap:12px}.actual-asset img{max-height:calc(100% - 30px);max-width:100%;object-fit:contain;border-radius:22px;box-shadow:0 20px 40px #0000000e}.actual-asset figcaption{font-size:10px;color:#999}.source-notes{border-top:1px solid #eee;margin-top:16px}.source-notes a{color:#47675d}.source-notes small{color:#888}

@@ -1,0 +1,6 @@
+/* Local HTML adapter; not the React Native Picnic component implementation. */
+@font-face{font-family:DDNorms;src:url('./fonts/DDNorms-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:DDNorms;src:url('./fonts/DDNorms-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:DDNorms;src:url('./fonts/DDNorms-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+.picnic-demo{font-family:DDNorms,Arial,sans-serif;--surface:#ffffff;--subdued:#f7f7f7;--strong:#f1f1f1;--ink:#191919;background:var(--surface);color:var(--ink)}
+.picnic-demo button{font:700 16px DDNorms,Arial,sans-serif;border:0;border-radius:24px;padding:13px 22px;background:var(--ink);color:white;cursor:pointer}.picnic-demo button:hover{background:#313131}.picnic-demo button.secondary{background:var(--strong);color:var(--ink)}.picnic-demo button:focus-visible{outline:3px solid #767676;outline-offset:3px}.picnic-demo .sample-card{background:var(--subdued);padding:24px;border-radius:20px}.picnic-demo input{font:inherit;padding:14px;border:1px solid #c4c4c4;border-radius:12px;width:100%}

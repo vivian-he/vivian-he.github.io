@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>In-Store Rewards · V3 updated final</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="intro" aria-label="Prototype controls">
+        <p class="eyebrow">V3 · updated final</p>
+        <h1>In-Store Rewards</h1>
+        <p>Start on DoorDash Home, find a dining reward, and follow it through the store experience.</p>
+        <nav aria-label="Start point">
+          <a href="?start=home" data-start="home">Start at Home</a>
+          <a href="?start=go" data-start="go">Open In-Store Rewards</a>
+        </nav>
+        <p class="note">Two starting points in the same journey, with the same store page.</p>
+      </section>
+      <div class="phone" aria-label="Interactive prototype">
+        <iframe id="home-frame" title="DoorDash Home" src="./home-dist/?v=spacing-6"></iframe>
+        <iframe id="go-frame" title="In-Store Rewards" src="./dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&amp;view=go&amp;header=isr&amp;au=0&amp;v=spacing-6"></iframe>
+      </div>
+    </main>
+    <script src="./rewards-dashboard.js?v=round61-spacing"></script>
+    <script src="./journey.js?v=round61-spacing"></script>
+  </body>
+</html>

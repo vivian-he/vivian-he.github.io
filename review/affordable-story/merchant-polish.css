@@ -20,6 +20,8 @@
 .mp-enrollment-toolbar>span:first-child{font-size:9px;letter-spacing:3px;color:#b9c0c8}
 .mp-enrollment-viewport{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden}
 .mp-enrollment-viewport iframe{position:absolute;inset:0;width:200%;height:200%;border:0;transform:scale(.5);transform-origin:top left;background:#fff}
+.quality-photo-wall .mp-photo-evidence{display:grid;place-items:center;z-index:2;pointer-events:none;cursor:default}
+body.presentation-mode:has(#slide.mp-details .quality-photo-wall) :is(#deck-autoplay-replay.contextual-replay,.contextual-playing){width:160px;justify-content:center}
 
 /* Matching chapter breaks and a single, animated scale statement. */
 #workspace>main.experience-divider{display:flex!important;align-items:center;justify-content:center;padding:8%!important;text-align:center;background:#e9ecf0!important}
@@ -32,3 +34,37 @@
 .mp-merchant-scale .mp-market-count>.mp-market-unit{font-size:1.8cqw;font-weight:500;letter-spacing:-.02em}
 .mp-merchant-scale .mp-reps{border:0;padding-top:0;margin-top:3cqw}
 @media(max-width:760px){#workspace>main.mp-merchant-scale{grid-template-columns:1fr}.mp-merchant-scale .mp-market-count>span,.mp-merchant-scale .mp-market-count>strong{font-size:15cqw}.mp-merchant-scale .mp-market-count>i{font-size:7cqw}.mp-merchant-scale .mp-market-count>.mp-market-unit{font-size:5cqw}}
+
+/* Typography roles follow the shared Deck Template; these rules only arrange them. */
+.mp-merchant-process .mp-process{gap:clamp(14px,2.1cqw,28px)}
+.mp-merchant-process .mp-process article{align-items:flex-start;gap:1.8cqw;padding-bottom:clamp(14px,2cqw,26px)}
+.mp-merchant-process .mp-process article>div{min-width:0}
+.mp-merchant-process .mp-process p{margin:5px 0 0;max-width:24ch}
+.mp-merchant-scale .mp-market-count{flex-wrap:wrap;row-gap:.4cqw}
+.mp-merchant-scale .mp-market-count>.mp-market-unit{white-space:normal}
+.mp-merchant-scale .mp-reps{align-items:baseline;gap:1.4cqw}
+.mp-merchant-scale .mp-reps p{margin:0}
+.mp-details .unified-expanded{max-width:none}
+.mp-details .unified-expanded ol{max-width:26ch}
+.mp-details .unified-expanded li{margin-bottom:8px}
+.mp-details .unified-metric{margin-top:12px;padding-top:10px}
+.mp-details .unified-metric strong{display:flex;align-items:baseline;gap:.35cqw}
+.mp-details .mp-metric-suffix{font-size:.42em;line-height:1;letter-spacing:-.02em}
+.mp-details .unified-metric>p{margin:5px 0 0;max-width:26ch}
+.mp-details .unified-step:not(.expanded) h3{max-width:15ch}
+.mp-details .unified-step.expanded h3{margin-bottom:12px}
+.mp-details .unified-step:not(.expanded){padding:6px 0}
+.mp-details .unified-step.expanded{padding-top:8px;padding-bottom:9px}
+#workspace>main.mp-details{padding:5% 6%}
+#workspace>main.mp-details:has(.report-prototype){grid-template-columns:minmax(300px,42%) minmax(0,1fr);gap:4%}
+.mp-closing-thanks .mp-close-photos figcaption{line-height:1.2;max-width:26ch;margin-inline:auto}
+@media(max-width:760px){
+ #workspace>main.mp-merchant-process{gap:22px}
+ .mp-merchant-process .mp-process{gap:14px}
+ .mp-merchant-process .mp-process article{gap:16px;padding-bottom:14px}
+ .mp-merchant-scale .mp-market-count{gap:8px}
+ .mp-merchant-scale .mp-reps{gap:12px}
+ #workspace>main.mp-details{overflow:auto;align-content:start}
+ .mp-details .unified-metric>p{max-width:20ch}
+ .mp-closing-thanks .mp-close-photos{width:100%}
+}

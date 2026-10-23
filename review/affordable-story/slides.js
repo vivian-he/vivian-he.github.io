@@ -55,7 +55,7 @@ const SLIDES = [
   {
     "section": "01 · Ambition",
     "title": "Make affordability an everyday habit",
-    "body": "1. Build sustainable affordability—not a dependence on coupons.\n\n2. Expand eating occasions: from an occasional indulgence to everyday meals.",
+    "body": "The opportunity: make everyday meals worth ordering more often, with value that works for customers and sustainable economics for merchants.\n\n1. Build sustainable affordability—not a dependence on coupons.\n\n2. Expand eating occasions: from an occasional indulgence to everyday meals.",
     "visuals": [
       {
         "kind": "crop",

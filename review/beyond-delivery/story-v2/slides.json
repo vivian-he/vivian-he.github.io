@@ -1,0 +1,359 @@
+[
+  {
+    "id": "1",
+    "title": "DashPass\nIn-store rewards",
+    "layout": "rewards-cover",
+    "body": "Owned DashPass benefit awareness \nand discovery for In-store rewards",
+    "chapter": "In-Store Rewards",
+    "label": "",
+    "notes": "Owned DashPass benefit awareness and surfacing benefits in discovery. Role moved from the original role slide to the cover.",
+    "originalSlide": 1
+  },
+  {
+    "id": "2",
+    "title": "Membership Beyond\nJust Delivery",
+    "layout": "cover-phone membership-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "image": "assets/dashpass-membership-source.png",
+    "notes": "Brief DashPass benefits-home context, then In-Store Rewards. October 2026\u2019s 2027 DashOS vision expands the ambition toward a trusted local decision guide. Keep this strategic context in the talk track, without adding a slide or implying the later vision resulted from this work.",
+    "originalSlide": 2,
+    "phoneImage": true,
+    "cleanStatus": true
+  },
+  {
+    "id": "3",
+    "title": "Claim. Pay. Earn.",
+    "layout": "deck-numbered",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "steps": [
+      {
+        "title": "Claim a deal"
+      },
+      {
+        "title": "Pay with a linked card"
+      },
+      {
+        "title": "Get DoorDash credit"
+      }
+    ],
+    "notes": "Explain the product simply. Credit eligibility and timing depend on the offer. Show the high-level mechanism before the historical experience.",
+    "contextItems": [
+      "Claim a deal",
+      "Pay with a linked card",
+      "Get DoorDash credit"
+    ],
+    "originalSlide": 3
+  },
+  {
+    "id": "4",
+    "title": "Where we started",
+    "layout": "future-videos experiment-comparison starting-screens",
+    "chapter": "",
+    "body": "",
+    "panels": [
+      {
+        "label": "Home",
+        "image": "assets/where-we-started/home.png"
+      },
+      {
+        "label": "Landing",
+        "image": "assets/where-we-started/landing.png"
+      },
+      {
+        "label": "Mx detail",
+        "image": "assets/where-we-started/mx-detail.png"
+      }
+    ],
+    "notes": "Original starting experience, using the three screens supplied by Vivian: Home \u2192 Landing \u2192 merchant detail."
+  },
+  {
+    "id": "6",
+    "title": "Discovery Gaps",
+    "layout": "deck-numbered",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "cards": [
+      {
+        "title": "A delivery mindset",
+        "body": "Why go out with DoorDash?"
+      },
+      {
+        "title": "Unclear mechanics",
+        "body": "How does this work?"
+      },
+      {
+        "title": "Little relevance",
+        "body": "Why is this for me?"
+      }
+    ],
+    "notes": "Use research receipts for mental model, comprehension and personal relevance. These concise questions summarize the user-supplied problem; exact quotes remain in source material, not invented on slide.",
+    "contextItems": [
+      "Delivery-first mindset",
+      "Unclear mechanics",
+      "Little personal relevance"
+    ],
+    "originalSlide": 6
+  },
+  {
+    "id": "7",
+    "title": "What didn't work",
+    "layout": "future-videos experiment-comparison",
+    "body": "",
+    "chapter": "",
+    "panels": [
+      {
+        "label": "Map first",
+        "image": "assets/experiment-map-source.png",
+        "reason": "No reason to care yet."
+      },
+      {
+        "label": "Guided onboarding",
+        "reason": "Too much, too soon.",
+        "image": "assets/experiment-education-source.png"
+      },
+      {
+        "label": "First-visit $5 boost",
+        "reason": "Value without relevance.",
+        "image": "assets/experiment-first-visit-source.png"
+      }
+    ],
+    "notes": "Existing source-native prototype screens: map-first, guided onboarding and first-visit $5 boost. These are design references; exact historical tested-variant equivalence remains unverified. All three entry tests were worse or unchanged overall per Vivian. Short reasons are design interpretations, not measured causal findings.",
+    "originalSlide": 7
+  },
+  {
+    "id": "8",
+    "title": "The consumer\nmental model",
+    "layout": "deck-numbered",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "notes": "The turning point is progressive disclosure and timing. First establish interest, then explain how at action, then show breadth and reasons to repeat. This is the exact three-part sequence in the user\u2019s v4 outline.",
+    "contextItems": [
+      "How do I know?",
+      "Why should I care?",
+      "How do I use it?",
+      "Where can I use this?"
+    ],
+    "originalSlide": 8
+  },
+  {
+    "id": "9",
+    "title": "How do I know?",
+    "layout": "meal-transition",
+    "body": "",
+    "chapter": "",
+    "notes": "Section transition. Let the next three product moments answer the question through familiar browsing, the store, waiting for an order, and the Going Out sheet.",
+    "originalSlide": 9
+  },
+  {
+    "id": "10",
+    "title": "Meet them naturally",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "demo": "oct-embed.html?flow=store",
+    "label": "",
+    "notes": "Store slide. Start with a restaurant people recognize and connect delivery familiarity to an in-person reward. Shared USI source is journey context; its template menu and merchant details are fixtures. Demonstration uses Go Base October. Autoplay is an assembled walkthrough; the prototype remains interactive.",
+    "originalSlide": 10,
+    "autoplay": true,
+    "persistentPrompt": "How do I know?"
+  },
+  {
+    "id": "11",
+    "title": "From benefit home",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "notes": "Original supplied benefits recording, autoplaying and looping at source quality. Status bar normalized to 9:41 to match the deck.",
+    "originalSlide": 11,
+    "persistentPrompt": "How do I know?",
+    "phoneVideo": "assets/dashpass-benefits-source.mp4",
+    "cleanStatus": true
+  },
+  {
+    "title": "Why should I care?",
+    "layout": "meal-transition",
+    "body": "",
+    "chapter": "",
+    "notes": "Transition into familiarity and relevance.",
+    "id": "12"
+  },
+  {
+    "id": "13",
+    "title": "Catch attention\nwith familiarity",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "demo": "oct-embed.html?flow=sheet",
+    "label": "",
+    "notes": "Going Out sheet. Call out only a few elements: taller first-visit sheet, familiar merchant/food imagery, timely deals, National Favorites and prominent Claim. New-user vs returner preferences are directional user-supplied signals; shared prototype is not the exact experiment variant. Demonstration uses Go Base October. Autoplay is an assembled walkthrough; the prototype remains interactive.",
+    "originalSlide": 12,
+    "autoplay": true,
+    "persistentPrompt": "Why should I care?"
+  },
+  {
+    "title": "How does it work?",
+    "layout": "meal-transition",
+    "chapter": "",
+    "body": "",
+    "notes": "Section transition. Pause before the following demonstration.",
+    "id": "14"
+  },
+  {
+    "id": "15",
+    "title": "Explain after they\nare interested",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "demo": "oct-embed.html?flow=claim",
+    "label": "",
+    "notes": "Click Claim to open the explainer sheet, then go to the restaurant page. Show linked-card payment guidance at the moment someone has a reason to act. Vivian\u2019s specific production contribution includes linked-card onboarding step 2. Shared journey controls remain interactive. Demonstration uses Go Base October. Autoplay is an assembled walkthrough; the prototype remains interactive.",
+    "originalSlide": 13,
+    "autoplay": true,
+    "persistentPrompt": "How does it work?"
+  },
+  {
+    "title": "Where can I use this?",
+    "layout": "meal-transition",
+    "chapter": "",
+    "body": "",
+    "notes": "Section transition. Pause before the following demonstration.",
+    "originalSlide": 14,
+    "id": "16"
+  },
+  {
+    "id": "17",
+    "title": "Browse the options",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "demo": "oct-embed.html?flow=feed",
+    "label": "",
+    "notes": "Expand the feed, scroll down a little, select Open now and Italian, then stop. Do not open a store.",
+    "originalSlide": 17,
+    "autoplay": true,
+    "persistentPrompt": "Where can I use this?"
+  },
+  {
+    "id": "18",
+    "title": "Celebrate and\nreinforce",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "notes": "Section transition. Next show the reward becoming tangible, then how collected signals can make future discovery more relevant.",
+    "originalSlide": 18,
+    "demo": "after-embed.html?flow=review&v=touch-1",
+    "autoplay": true
+  },
+  {
+    "id": "19",
+    "title": "A more personal\nnext visit",
+    "layout": "meal-phone",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "notes": "AI for You uses profile/context signals to make discovery more relevant. Discuss Vivian\u2019s design contribution and collaboration with engineering on personalization and fine tuning; do not invent implementation details. Crop to the For You carousel because timer and DashPass colors were incidental screenshot artifacts. Review/feedback informing future discovery remains a proposal where launch is unverified.",
+    "originalSlide": 20,
+    "demo": "after-embed.html?flow=for-you&v=touch-1",
+    "autoplay": true
+  },
+  {
+    "id": "20",
+    "title": "What changed",
+    "layout": "results-summary",
+    "body": "",
+    "chapter": "In-Store Rewards",
+    "notes": "Program-level historical results from Going_Out_Q1_Review 2026: first-time conversion 0.7% Oct 6 to 2.2% Mar 9; returning conversion approximately 44\u201349% throughout Oct\u2013Mar. These are historical program trends, not causal lift from this prototype or solely Vivian\u2019s work. Claim rate and active order rate remain explicit TBD placeholders: available claim conversion lifts and active order conversion lifts are different metrics and were not substituted. Source: https://docs.google.com/presentation/d/1G8WpCGc2UBOSwnqtUVDO6gBrDCfAmUDwEGj40bxKf0k .",
+    "originalSlide": 21,
+    "resultGroups": [
+      {
+        "title": "Activation & engagement",
+        "stats": [
+          {
+            "value": "TBD",
+            "label": "Claim rate",
+            "detail": "Verified result pending"
+          },
+          {
+            "value": "TBD",
+            "label": "Active order rate",
+            "detail": "Verified result pending"
+          }
+        ]
+      },
+      {
+        "title": "Customer conversion \u00b7 Oct\u2013Mar",
+        "stats": [
+          {
+            "value": "2.2%",
+            "label": "First-time user conversion",
+            "detail": "From 0.7% \u00b7 Oct 6 \u2192 Mar 9"
+          },
+          {
+            "value": "44\u201349%",
+            "label": "Returning user conversion",
+            "detail": "Held steady \u00b7 Oct\u2013Mar"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "A map-first\nDoorDash?",
+    "layout": "future-videos",
+    "chapter": "IA explorations",
+    "body": "Three directions \u00b7 IA sprint\nHover to play video",
+    "videos": [
+      {
+        "label": "A \u00b7 Contextual maps",
+        "src": "assets/slide-25-figma/44-435/model-a-contextual-maps.mp4",
+        "poster": "assets/slide-25-figma/44-435/poster.jpg",
+        "island": true
+      },
+      {
+        "label": "B \u00b7 Map / list toggle",
+        "src": "assets/slide-25-figma/44-453/model-b-map-list-toggle.mp4",
+        "poster": "assets/slide-25-figma/44-453/poster.jpg",
+        "island": true
+      },
+      {
+        "label": "C \u00b7 Location first",
+        "src": "assets/slide-25-figma/44-473/model-c-location-foundation.mp4",
+        "poster": "assets/slide-25-figma/44-473/poster.jpg",
+        "island": false
+      }
+    ],
+    "notes": "Original Atlas IA explorations. Source frames 44:435, 44:453, 44:473. Original source text and tradeoffs are saved alongside each video in README.md. These are explorations, not shipped outcomes.",
+    "id": "21"
+  },
+  {
+    "title": "Map use cases",
+    "layout": "future-videos hide-home-bars",
+    "chapter": "Future concepts",
+    "body": "On the roadmap \u00b7 Hover to play video",
+    "videos": [
+      {
+        "label": "Visual Search",
+        "src": "assets/slide-25-figma/44-513/matcha-map.mp4",
+        "poster": "assets/slide-25-figma/44-513/poster.jpg",
+        "island": false
+      },
+      {
+        "label": "Find a place along your route",
+        "src": "assets/slide-25-figma/44-559/en-route.mp4",
+        "poster": "assets/slide-25-figma/44-559/poster.jpg",
+        "island": false
+      }
+    ],
+    "notes": "Original high-quality concept animations extracted from Figma frames 44:513 and 44:559. Matcha Map explores visual discovery; EnRoute explores stops along a route. Concept work, not shipped outcomes.",
+    "id": "22"
+  },
+  {
+    "id": "23",
+    "title": "Thank you",
+    "layout": "thank-you",
+    "body": "Vivian He",
+    "chapter": "",
+    "notes": "Thank the audience and open the conversation."
+  }
+]

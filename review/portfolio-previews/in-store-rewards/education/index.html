@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewards education · component specimen</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f7f7f7; color: #191919; font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 1160px; margin: auto; padding: clamp(20px, 4vw, 48px); }
+    h1 { margin: 0 0 8px; font-size: clamp(25px, 3vw, 38px); }
+    h2 { margin: 0 0 16px; font-size: 18px; }
+    p { max-width: 75ch; margin: 0 0 32px; color: #595959; }
+    section { margin: 0 0 64px; }
+    .banner-stage { width: min(100%, 650px); margin-left: auto; }
+    .comparison-stage { width: min(100%, 700px); margin-left: auto; }
+    @media (max-width: 760px) { .banner-stage, .comparison-stage { margin-inline: auto; } }
+  </style>
+  <script type="module" src="./component.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Rewards education assets</h1>
+    <p>Section 2 uses the supplied How it works SVG as one rounded visual. Section 3 compares a composed Map on Home view with an earlier Going Out view</p>
+    <section aria-labelledby="section2-heading">
+      <h2 id="section2-heading">Section 2 · How it works</h2>
+      <div class="banner-stage"><rewards-how-banner></rewards-how-banner></div>
+    </section>
+    <section aria-labelledby="section3-heading">
+      <h2 id="section3-heading">Section 3 · Historical comparison</h2>
+      <div class="comparison-stage"><rewards-education-comparison></rewards-education-comparison></div>
+    </section>
+  </main>
+</body>
+</html>

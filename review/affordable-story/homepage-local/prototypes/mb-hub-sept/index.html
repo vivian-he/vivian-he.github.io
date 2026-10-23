@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head><meta name="robots" content="noindex, nofollow, noarchive">
+    <meta charset="UTF-8" />
+    <!-- Sept 18, 2026 — TRAILING-SLASH GUARD. Runs first, synchronously, before
+         the module script below is fetched.
+
+         Vite builds this repo with `base: './'`, so the built HTML loads its
+         bundle as `../../assets/…` — resolved against the DIRECTORY of the
+         current URL. At `…/prototypes/mb-brief-v2/` that is the deploy root's
+         /assets ✓. At `…/prototypes/mb-brief-v2` (no slash) the directory is
+         `…/prototypes/`, so under a hosted BASE PATH (compass serves this at
+         /<author>/<project>/…) the bundle URL climbs out of the project and the
+         page half-loads. Her report: "it's flashing right, and then immediately
+         jump back".
+
+         Canonicalising to the slash form here fixes every shape of the link at
+         once, instead of relying on whoever shares it to type the slash.
+         Guards: only when there is no slash AND no filename extension, and
+         `replace` (not assign) so it leaves no history entry to bounce on. -->
+    <script>
+      (function () {
+        /* No regex literals on purpose: this snippet is written into the HTML
+           by a script, and an escaped `/` or `$` that survives one layer but
+           not the next silently turns the condition into a comment. Plain
+           string ops cannot be mangled that way. */
+        var p = location.pathname;
+        var last = p.slice(p.lastIndexOf('/') + 1);
+        if (last !== '' && last.indexOf('.') === -1) {
+          location.replace(p + '/' + location.search + location.hash);
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$12 Meal Box Hub · CX Affordability Design</title>
+    <script type="module" crossorigin src="../../assets/mb-hub-sept-CtsJGSgn.js"></script>
+    <link rel="modulepreload" crossorigin href="../../assets/client-DZQgGimn.js">
+    <link rel="modulepreload" crossorigin href="../../assets/StarHalf16-fJ7qp2VD.js">
+    <link rel="modulepreload" crossorigin href="../../assets/ChevronDown16-CZ8SlfLG.js">
+    <link rel="modulepreload" crossorigin href="../../assets/SearchLine24-BWIemhOE.js">
+    <link rel="modulepreload" crossorigin href="../../assets/FavoriteLine24-BSMMcT3x.js">
+    <link rel="modulepreload" crossorigin href="../../assets/StarFill24-xH65S96E.js">
+    <link rel="modulepreload" crossorigin href="../../assets/MealBoxLine24-qwgtvUuX.js">
+    <link rel="modulepreload" crossorigin href="../../assets/DealsFill24-CyMlI1MS.js">
+    <link rel="modulepreload" crossorigin href="../../assets/Rating-i201vgqw.js">
+    <link rel="stylesheet" crossorigin href="../../assets/mb-hub-sept-B7QvTcos.css">
+    <link rel="stylesheet" crossorigin href="../../assets/fonts-CNOYLDUV.css">
+    <link rel="stylesheet" crossorigin href="../../assets/design-tokens-DmqDiLqq.css">
+  <style>body{background:white!important}.ge-device{width:393px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}.ge-switch{display:none!important}::-webkit-scrollbar{width:0}</style></head>
+  <body>
+    <div id="root"></div>
+  <script src="/review/shared/mealbox-home-entry.js?v=2"></script></body>
+</html>

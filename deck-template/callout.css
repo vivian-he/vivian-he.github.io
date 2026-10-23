@@ -1,0 +1,71 @@
+/* Put .deck-callout-anchor around the phone and its callouts. The anchor's
+   edges are the phone edges, so the leader always stops short of the device. */
+.deck-callout-anchor {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+deck-callout {
+  --deck-callout-leader-length: 86px;
+  --deck-callout-phone-gap: 12px;
+  --deck-callout-label-gap: 10px;
+  --deck-callout-color: #444;
+  box-sizing: border-box;
+  position: absolute;
+  top: var(--deck-callout-y, 50%);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--deck-callout-label-gap);
+  width: max-content;
+  max-width: 250px;
+  color: var(--deck-callout-color);
+  font-family: DeckNorms, Arial, sans-serif;
+  font-size: var(--deck-callout-font-size, 14px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: normal;
+  transform: translateY(-50%);
+}
+
+deck-callout[side="left"] {
+  right: calc(100% + var(--deck-callout-phone-gap));
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+deck-callout:not([side="left"]) {
+  left: calc(100% + var(--deck-callout-phone-gap));
+}
+
+deck-callout .deck-callout-leader {
+  flex: 0 0 var(--deck-callout-leader-length);
+  height: 5px;
+  background: radial-gradient(circle, var(--deck-callout-color) 0.8px, transparent 1px)
+    left center / 5px 5px repeat-x;
+}
+
+deck-callout .deck-callout-caption { max-width: 150px; }
+
+/* A slide canvas stays 1200px wide internally, so its callouts retain the
+   desktop placement when the viewer scales it. Standalone narrow pages stack. */
+@media (max-width: 760px) {
+  .deck-callout-anchor deck-callout {
+    position: relative;
+    inset: auto;
+    display: flex;
+    margin-top: 14px;
+    max-width: 100%;
+    transform: none;
+  }
+  .deck-callout-anchor deck-callout[side="left"] {
+    flex-direction: row;
+    text-align: left;
+  }
+  .deck-callout-anchor deck-callout .deck-callout-leader {
+    flex-basis: min(var(--deck-callout-leader-length), 20vw);
+  }
+}

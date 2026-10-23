@@ -1,0 +1,8 @@
+/* A slide always renders at the viewer's fixed desktop viewport. */
+html,body{width:100%;height:100%;margin:0!important;overflow:hidden!important}
+body.deck-canvas-content{--presentation-sidebar:0px!important;--presentation-offset:0px!important}
+body.deck-canvas-content #workspace{position:relative!important;margin:0!important;padding:0!important;width:100%!important;height:100%!important;min-height:0!important}
+body.deck-canvas-content #workspace>main{min-width:0!important;width:100%!important;max-width:none!important;min-height:100svh!important;height:100svh!important;max-height:100svh!important;margin:0!important;overflow:hidden!important}
+body.deck-canvas-content :is(#outline,.presentation-tools,.presentation-navigation,.presentation-back,#workspace>header,#workspace>footer,#notes,.feedback-panel,.feedback-launch){display:none!important}
+body.deck-canvas-content #consumer-walk{width:100%!important;height:100svh!important;min-height:100svh!important;overflow:hidden!important}
+body.deck-canvas-content #workspace>main[data-live-scene][hidden]{display:none!important}

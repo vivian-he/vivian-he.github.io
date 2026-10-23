@@ -1,0 +1,82 @@
+/* Deck Template typography — role names supplied by Vivian.
+   These are visual styles, independent of HTML heading levels. */
+:root {
+  --deck-type-family: DeckNorms, Arial, sans-serif;
+  --deck-h1-size: 6.5cqw;
+  --deck-h1-line: 1.03;
+  --deck-h1-weight: 700;
+  --deck-h1-tracking: -.23cqw;
+  --deck-big-subtitle-size: 15px;
+  --deck-big-subtitle-line: 1.5;
+  --deck-big-subtitle-weight: 400;
+  --deck-big-subtitle-tracking: normal;
+  --deck-big-subtitle-color: #626870;
+  --deck-small-subtitle-size: 13px;
+  --deck-small-subtitle-line: 1.45;
+  --deck-small-subtitle-weight: 400;
+  --deck-small-subtitle-tracking: normal;
+  --deck-small-subtitle-color: #646a72;
+  --deck-h2-size: 3.9cqw;
+  --deck-h2-line: 1.15;
+  --deck-h2-weight: 700;
+  --deck-h2-tracking: -.035em;
+  --deck-h3-size: clamp(20px, 2vw, 30px);
+  --deck-h3-line: 1.2;
+  --deck-h3-weight: 700;
+  --deck-h3-tracking: -.035em;
+  --deck-phone-title-size: clamp(20px, 2vw, 30px);
+  --deck-phone-title-line: 1.22;
+  --deck-phone-title-weight: 700;
+  --deck-phone-title-tracking: -.04em;
+  --deck-percentage-size: 4.5cqw;
+  --deck-percentage-line: 1;
+  --deck-percentage-weight: 700;
+  --deck-percentage-tracking: -.12cqw;
+  --deck-percentage-sign-scale: .55em;
+  --deck-percentage-color: #525962;
+  --deck-point-title-size: 1.95cqw;
+  --deck-point-title-line: 1.22;
+  --deck-point-title-weight: 700;
+  --deck-point-title-tracking: -.035cqw;
+  --deck-point-numbers-size: 1.65cqw;
+  --deck-point-numbers-line: 1.1;
+  --deck-point-numbers-weight: 650;
+  --deck-point-numbers-tracking: .015em;
+  --deck-point-numbers-color: #9b9fa6;
+}
+[data-deck-type="h1"] {--type-size:var(--deck-h1-size);--type-line:var(--deck-h1-line);--type-weight:var(--deck-h1-weight);--type-tracking:var(--deck-h1-tracking)}
+[data-deck-type="big-subtitle"] {--type-size:var(--deck-big-subtitle-size);--type-line:var(--deck-big-subtitle-line);--type-weight:var(--deck-big-subtitle-weight);--type-tracking:var(--deck-big-subtitle-tracking);color:var(--deck-big-subtitle-color)!important}
+[data-deck-type="small-subtitle"] {--type-size:var(--deck-small-subtitle-size);--type-line:var(--deck-small-subtitle-line);--type-weight:var(--deck-small-subtitle-weight);--type-tracking:var(--deck-small-subtitle-tracking);color:var(--deck-small-subtitle-color)!important}
+[data-deck-type="h2"] {--type-size:var(--deck-h2-size);--type-line:var(--deck-h2-line);--type-weight:var(--deck-h2-weight);--type-tracking:var(--deck-h2-tracking)}
+[data-deck-type="h3"] {--type-size:var(--deck-h3-size);--type-line:var(--deck-h3-line);--type-weight:var(--deck-h3-weight);--type-tracking:var(--deck-h3-tracking)}
+[data-deck-type="phone-title"] {--type-size:var(--deck-phone-title-size);--type-line:var(--deck-phone-title-line);--type-weight:var(--deck-phone-title-weight);--type-tracking:var(--deck-phone-title-tracking)}
+[data-deck-type="percentage"] {--type-size:var(--deck-percentage-size);--type-line:var(--deck-percentage-line);--type-weight:var(--deck-percentage-weight);--type-tracking:var(--deck-percentage-tracking);color:var(--deck-percentage-color)!important}
+[data-deck-type="percentage"] [data-percentage-sign] {font-size:var(--deck-percentage-sign-scale)!important}
+[data-deck-type="point-title"] {--type-size:var(--deck-point-title-size);--type-line:var(--deck-point-title-line);--type-weight:var(--deck-point-title-weight);--type-tracking:var(--deck-point-title-tracking)}
+[data-deck-type="point-numbers"] {--type-size:var(--deck-point-numbers-size);--type-line:var(--deck-point-numbers-line);--type-weight:var(--deck-point-numbers-weight);--type-tracking:var(--deck-point-numbers-tracking);color:var(--deck-point-numbers-color)!important}
+/* Explicit role assignments own typography over the historical slide selectors.
+   Layout, color, alignment and semantic heading levels stay with the slide. */
+[data-deck-type] {
+  font-family:var(--deck-type-family)!important;
+  font-size:var(--type-size)!important;
+  line-height:var(--type-line)!important;
+  font-weight:var(--type-weight)!important;
+  letter-spacing:var(--type-tracking)!important;
+}
+@media(min-width:761px) and (max-width:1100px) {
+  :root {--deck-phone-title-size:clamp(19px,2vw,25px)}
+}
+@media(max-width:760px) {
+  :root {
+    --deck-h1-size:clamp(36px,10vw,52px);--deck-h1-tracking:-.05em;
+    --deck-big-subtitle-size:15px;--deck-big-subtitle-tracking:normal;
+    --deck-small-subtitle-size:13px;--deck-small-subtitle-tracking:normal;
+    --deck-h2-size:36px;
+    --deck-h3-size:clamp(28px,8vw,38px);
+    --deck-phone-title-size:23px;
+    --deck-percentage-size:36px;
+    --deck-point-title-size:clamp(18px,5.2vw,24px);
+    --deck-point-title-tracking:-.025em;
+    --deck-point-numbers-size:18px;
+  }
+}

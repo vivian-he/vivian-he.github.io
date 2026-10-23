@@ -1,0 +1,24 @@
+/* Section-specific Rewards visuals; canonical V3 remains an independent prototype. */
+#rewards-overview .rewards-visual,
+#rewards-mental-model .rewards-visual,
+#rewards-education .rewards-visual { min-width:0; width:100%; }
+#rewards-overview rewards-intro-scene,
+#rewards-mental-model rewards-how-banner,
+#rewards-education rewards-education-comparison { display:block; width:100%; }
+
+.rewards-visual{min-width:0;width:100%}
+#rewards-value,#rewards-map-first{align-items:start}
+#rewards-value .section-copy,#rewards-map-first .section-copy{position:sticky;top:32vh}
+@media(max-width:1000px){#rewards-value .section-copy,#rewards-map-first .section-copy{position:static}}
+
+/* One opening section keeps the outcome beside the live prototype. */
+.rewards-opening{min-height:calc(100svh - 70px)}
+.rewards-opening .eyebrow{font-size:20px;font-weight:600;letter-spacing:-.015em;color:#60656b;margin:0 0 22px}
+.rewards-opening h1{margin:0;font-size:clamp(32px,3.3vw,46px);font-weight:700;letter-spacing:-.045em;line-height:1.12;text-wrap:balance}
+@media(max-width:1000px){.rewards-opening{min-height:auto}.rewards-opening .eyebrow{font-size:18px}.rewards-opening h1{font-size:36px}}
+
+@media(min-width:1100px){#rewards-value{max-width:1280px;grid-template-columns:minmax(0,330fr) minmax(0,760fr)}}
+
+@media(min-width:1100px){#rewards-value{max-width:1168px;grid-template-columns:minmax(0,435fr) minmax(0,629fr)}}
+.rewards-opening h1{font-size:clamp(36px,3.8vw,52px)}
+@media(max-width:850px){.rewards-opening h1{font-size:38px}}

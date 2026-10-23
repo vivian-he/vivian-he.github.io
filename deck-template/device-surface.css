@@ -1,0 +1,40 @@
+/* Canonical presentation device surface, 2026-10-23.
+   Reference: Airbnb en-US-ServicesGrocery.png. Source background sampled #f7f7f7.
+   Device dimensions/placement and app content remain the responsibility of adapters.
+   Frozen interview archives and preserved V2 prototypes do not import this file. */
+:root {
+  --deck-canvas-background: #f7f7f7;
+  --deck-phone-edge: #171717;
+  --deck-phone-border-width: 7px;
+  --deck-phone-radius: 44px;
+  --deck-phone-inner-radius: 37px;
+  --deck-phone-rim: inset 0 0 0 1px #606060, 0 0 0 1px #767676, 0 0 0 2px #c4c4c4, 1px 0 0 3px #a0a0a0;
+  --deck-phone-cast-shadow: 1px 3px 5px -1px #00000016, 7px 12px 18px -5px #0000001c, 12px 24px 32px -9px #00000014;
+  --deck-phone-shadow: var(--deck-phone-rim), var(--deck-phone-cast-shadow);
+  --deck-preview-phone-width: 254px;
+  --deck-preview-phone-aspect: 254 / 534;
+  --deck-preview-pair-gap: 24px;
+}
+.deck-device-canvas { background: var(--deck-canvas-background); }
+.deck-device-surface {
+  box-sizing: border-box;
+  /* Adapters set this to the visible source screen plus its border. */
+  aspect-ratio: var(--deck-screen-aspect, auto);
+  border: var(--deck-phone-border-width) solid var(--deck-phone-edge);
+  border-radius: var(--deck-phone-radius);
+  background: #fff;
+  box-shadow: var(--deck-phone-shadow);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Historical/before captures: screen-only finish, intentionally no hardware rim. */
+.deck-screen-surface,
+.deck-before-screen {
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: var(--deck-phone-cast-shadow);
+  overflow: hidden;
+}

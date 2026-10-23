@@ -53,6 +53,7 @@ body{font-family:DeckNorms,Arial,sans-serif;background:#f6f7f9}
 #slide.op-bets .op-bet-stack{gap:3cqw}
 #slide.op-bets .op-bet-stack article,#slide.op-bets .op-bet-stack article:first-child{padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
 #slide.op-bets .op-bet-stack p{font-size:1.35cqw;line-height:1.45}
+#slide.op-bets .op-bet-stack article:first-child .op-number{color:var(--deck-point-numbers-color,#9b9fa6)!important}
 #workspace #slide.mealbox-divider{background:#fbd6c5!important;color:#352a27}
 #slide.mealbox-divider .mealbox-divider-copy p{color:#87695b}
 #slide.mealbox-divider .supplied-bowls{gap:0;max-width:900px;isolation:isolate;padding-top:2cqw}
@@ -78,3 +79,10 @@ body{font-family:DeckNorms,Arial,sans-serif;background:#f6f7f9}
 @media(max-width:760px){#workspace>main.closing-hub{grid-template-columns:1fr;gap:28px}#workspace>main.closing-hub .hub-heading h2{font-size:30px}.closing-hub .hub-screen-row figcaption{font-size:10px}}
 :is(#workspace,body) :is(.walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,.object.phone,.m-phone,.ops-demo.phone){box-shadow:1px 4px 3px #00000032,3px 12px 10px -5px #00000028,8px 25px 26px -12px #00000020!important;outline:none!important}
 :is(#workspace,body) .phone-bezel-seal{border-color:#242526!important;box-shadow:none!important}
+/* Keep the future screens next to their heading when the deck stacks on phones. */
+@media(max-width:760px){#workspace>main.closing-hub{align-content:start;grid-auto-rows:max-content;row-gap:28px}#workspace>main.closing-hub .hub-heading{padding-top:24px}}
+
+/* Cover breathing room and a compact, wrapping merchant proposition. */
+#slide.op-cover .op-cover-role{margin-top:3cqw}
+#slide.op-collaboration .op-support{max-width:50%}
+#slide.op-collaboration .op-collaboration-copy h2{max-width:50%}

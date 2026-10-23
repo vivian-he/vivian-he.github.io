@@ -1,0 +1,12 @@
+@import url('/deck-template/device-surface.css');
+
+rewards-intro-scene { display:block; width:100%; }
+.rewards-intro { display:flex; flex-direction:column; align-items:center; width:100%; }
+.rewards-intro__phone { --deck-screen-aspect:var(--deck-preview-phone-aspect); position:relative; width:min(100%,var(--deck-preview-phone-width)); aspect-ratio:var(--deck-screen-aspect); flex:none; container-type:inline-size; }
+.rewards-intro__screen { position:absolute; inset:0; border-radius:37px; overflow:hidden; background:#fff; }
+.rewards-intro__frame { position:absolute; top:0; left:0; display:block; width:393px; height:852px; border:0; transform:scale(calc(100cqw / 393px)); transform-origin:top left; }
+.rewards-intro__frame.scene-pending { z-index:2; opacity:0; pointer-events:none; transition:opacity .38s ease; }
+.rewards-intro__frame.scene-on-top { z-index:2; opacity:1; transition:opacity .38s ease; }
+.rewards-intro__island { position:absolute; z-index:4; top:13px; left:50%; width:83px; height:20px; transform:translateX(-50%); border-radius:20px; background:#080808; pointer-events:none; }
+.rewards-intro__status { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media (prefers-reduced-motion:reduce) { .rewards-intro *, .rewards-intro *::before, .rewards-intro *::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }

@@ -1,0 +1,181 @@
+@import url('/deck-template/device-surface.css');
+
+:root{color-scheme:light;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#262724;background:#f5f4f0;font-synthesis:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;background:radial-gradient(ellipse at 25% 0%,#fffffe 0%,transparent 68%),#f5f4f0}
+body::before{position:fixed;inset:0;z-index:10;pointer-events:none;content:"";opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.17'/%3E%3C/svg%3E")}
+.page-shell{width:min(1160px,calc(100% - 88px));margin:0 auto}
+.intro{text-align:center;padding:72px 0 62px}
+.intro-kicker{text-transform:uppercase;font-size:10px;line-height:1.3;letter-spacing:.22em;color:#94958f;font-weight:700}
+h1,h2,h3,p{margin:0}
+.intro h1{margin:18px 0 13px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(50px,5.2vw,74px);font-weight:400;line-height:1;letter-spacing:-.064em}
+.period{color:#d25e47}
+.intro p{color:#777a74;font-size:15px;line-height:1.5;letter-spacing:-.015em}
+.section-line{display:flex;align-items:center;justify-content:space-between;padding:0 3px 15px;color:#747970}
+.section-line h2,.section-line span{font-size:10px;letter-spacing:.19em;text-transform:uppercase;font-weight:700}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.project-card{position:relative;isolation:isolate;display:block;height:550px;overflow:visible;border:1px solid rgba(203,205,199,.8);border-radius:21px;color:inherit;text-decoration:none;background:linear-gradient(125deg,rgba(255,255,255,.76),rgba(244,245,242,.62) 60%,rgba(250,250,247,.78));box-shadow:0 16px 36px -28px rgba(30,34,27,.32),0 2px 4px rgba(25,30,24,.035),inset 0 1px rgba(255,255,255,.95);transition:transform .38s cubic-bezier(.2,.75,.2,1),box-shadow .38s ease,border-color .3s ease}
+.project-card::before{position:absolute;inset:1px;border-radius:19px;pointer-events:none;content:"";border:1px solid rgba(255,255,255,.8);background:linear-gradient(126deg,rgba(255,255,255,.48),transparent 25%,transparent 67%,rgba(197,205,201,.11));z-index:1}
+.project-card::after{position:absolute;inset:-1px;border-radius:21px;pointer-events:none;content:"";box-shadow:inset 1px 1px rgba(255,255,255,.95),inset -1px -1px rgba(143,162,165,.16)}
+.card-surface{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;background:radial-gradient(220px 140px at 85% 4%,rgba(211,223,219,.15),transparent 95%),linear-gradient(115deg,transparent 42%,rgba(255,255,255,.30) 51%,transparent 57%);opacity:.75}
+.project-card:hover{transform:translateY(-5px);border-color:#b5bdb8;box-shadow:0 26px 45px -29px rgba(30,34,27,.42),0 4px 8px rgba(25,30,24,.04),inset 0 1px white}
+.project-card:focus-visible{outline:2px solid #566b62;outline-offset:5px}
+.project-copy{position:relative;z-index:3;text-align:center;padding:36px 30px 0}
+.project-meta{display:flex;justify-content:center;gap:8px;align-items:center;font-size:11px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;color:#70766e}
+.project-meta span+span::before{content:"";display:inline-block;width:3px;height:3px;border-radius:50%;background:#b2b8b0;vertical-align:middle;margin-right:8px}
+.project-copy h3{margin:19px auto 8px;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(29px,2.7vw,40px);letter-spacing:-.055em;line-height:1.1;color:#262a26}
+.project-copy p{margin:auto;max-width:310px;color:#777b74;font-size:13px;line-height:1.5}
+.project-cta{display:inline-flex;gap:13px;align-items:center;margin-top:19px;padding-bottom:3px;border-bottom:1px solid #aeb8b0;color:#545c55;font-size:11px;font-weight:700;letter-spacing:.035em}
+.project-cta span{font-size:14px;font-weight:400;transition:transform .3s}
+.project-card:hover .project-cta span{transform:translate(3px,-3px)}
+.project-visual{position:absolute;inset:0;overflow:hidden;border-radius:20px;z-index:2;pointer-events:none}
+.phone-shell{position:absolute;top:234px;left:50%;width:254px;height:534px;transform:translateX(-50%);padding:7px;border-radius:43px;background:linear-gradient(130deg,#272928,#676b69 8%,#191b1b 27%,#0c0d0e 75%,#666a69 95%,#1f2020);box-shadow:0 17px 22px rgba(19,23,21,.19),0 3px 5px rgba(22,25,23,.26),inset 0 0 0 1px #1b1e1d,inset 0 1px 2px rgba(255,255,255,.55);transition:transform .4s cubic-bezier(.2,.75,.2,1)}
+.project-card:hover .phone-shell{transform:translate(-50%,-6px)}
+.phone-screen{width:240px;height:520px;border-radius:36px;background:#fff;overflow:hidden;position:relative}
+.phone-screen iframe{display:block;width:393px;height:852px;border:0;pointer-events:none;transform:scale(.610687);transform-origin:top left;background:#fff}
+.phone-island{position:absolute;z-index:3;top:17px;left:50%;width:84px;height:21px;border-radius:16px;background:#0b0d0e;transform:translateX(-50%);pointer-events:none}
+.rewards .phone-shell{top:234px}
+portfolio-leaf{position:absolute;inset:0;display:block;z-index:5;pointer-events:none}
+.footer{display:flex;align-items:center;justify-content:center;gap:24px;padding:26px 3px 48px;color:#93968e;font-size:11px;letter-spacing:.08em}
+.footer>span{text-transform:uppercase;font-size:10px;font-weight:700;letter-spacing:.18em}
+.footer nav{display:flex;gap:25px;flex-wrap:wrap}
+.footer a{color:#686e66;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
+.footer a:hover,.footer a:focus-visible{color:#2f4037;border-color:#85998b}
+.footer a span{margin-left:5px}
+@media(max-width:720px){.page-shell{width:min(500px,calc(100% - 32px))}.intro{padding:53px 0 49px}.intro h1{font-size:55px}.intro p{font-size:13px}.project-grid{grid-template-columns:1fr;gap:20px}.project-card{height:520px}.project-copy{padding-top:30px}.project-copy h3{font-size:34px}.phone-shell,.rewards .phone-shell{top:223px}.footer{align-items:flex-start;flex-direction:column;gap:12px;padding-bottom:38px}.footer nav{gap:12px 23px}}
+@media(max-width:390px){.project-card{height:510px}.project-copy{padding-inline:18px}.project-copy h3{font-size:31px}.project-copy p{font-size:12px}.phone-shell,.rewards .phone-shell{top:222px;width:230px;height:484px;border-radius:39px}.phone-screen{width:216px;height:470px;border-radius:32px}.phone-screen iframe{transform:scale(.549618)}.phone-island{top:16px;width:76px;height:19px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-card,.phone-shell,.project-cta span{transition:none}}
+
+/* A narrow optical rim keeps the color in the glass edge. */
+.project-card::after{padding:1px;background:linear-gradient(126deg,rgba(216,232,241,.56),rgba(255,255,255,.96) 22%,rgba(231,222,239,.48) 54%,rgba(216,232,225,.5) 78%,rgba(240,229,210,.55));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+@media(max-width:720px){.footer{align-items:center;text-align:center}.footer nav{justify-content:center}}
+
+.phone-screen img{display:block;width:100%;height:auto}.rewards .phone-island{display:none}
+
+/* Reference-led finish: matte mineral ground and a softly lit glass edge. */
+body{background:radial-gradient(ellipse at 20% 5%,rgba(255,255,254,.9),transparent 64%),radial-gradient(ellipse at 95% 85%,rgba(225,224,215,.18),transparent 58%),#f5f4f0}
+body::before{opacity:.20;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22360%22%20height%3D%22360%22%3E%3Cfilter%20id%3D%22p%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%22.026%20.043%22%20numOctaves%3D%224%22%20seed%3D%2219%22%20stitchTiles%3D%22stitch%22%20result%3D%22n%22%2F%3E%3CfeDiffuseLighting%20in%3D%22n%22%20surfaceScale%3D%221.4%22%20diffuseConstant%3D%22.8%22%20lighting-color%3D%22white%22%3E%3CfeDistantLight%20azimuth%3D%22235%22%20elevation%3D%2255%22%2F%3E%3C%2FfeDiffuseLighting%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23p%29%22%2F%3E%3C%2Fsvg%3E");background-size:360px 360px}
+.project-card{border:1px solid rgba(255,255,255,.86);background:linear-gradient(132deg,rgba(255,255,255,.38),rgba(255,255,255,.16) 52%,rgba(255,255,255,.29));backdrop-filter:blur(9px) saturate(.88);-webkit-backdrop-filter:blur(9px) saturate(.88);box-shadow:0 5px 12px -9px rgba(60,62,53,.22),inset 1px 1px 1px rgba(255,255,255,.98),inset -1px -1px 2px rgba(255,255,255,.8),inset 0 0 18px rgba(255,255,255,.46)}
+.project-card::before{inset:2px;border:1px solid rgba(255,255,255,.4);background:linear-gradient(130deg,rgba(255,255,255,.25),transparent 24%,transparent 75%,rgba(255,255,255,.18));box-shadow:inset 0 0 9px rgba(255,255,255,.42)}
+.project-card::after{padding:1px;background:linear-gradient(125deg,rgba(255,255,255,.98),rgba(230,236,236,.34) 28%,rgba(255,255,255,.6) 58%,rgba(255,255,255,.98) 88%);box-shadow:none}
+.card-surface{background:linear-gradient(112deg,rgba(255,255,255,.16),transparent 33%,rgba(255,255,255,.1) 61%,transparent 80%);opacity:.6}
+.project-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.98);box-shadow:0 8px 17px -12px rgba(60,62,53,.26),inset 1px 1px 1px white,inset -1px -1px 2px rgba(255,255,255,.9),inset 0 0 20px rgba(255,255,255,.56)}
+/* The mineral texture belongs to the ground; glass softly diffuses it. */
+body{position:relative;isolation:isolate}
+body::before{z-index:-1;opacity:.16}
+
+/* A single upper-left light gives the paper and glass lettering physical relief. */
+.intro h1{
+  color:#f7f8f4;
+  -webkit-text-stroke:.45px rgba(119,128,115,.48);
+  text-shadow:
+    -1px -1px 0 rgba(255,255,255,.98),
+    -2px -2px 1px rgba(255,255,255,.9),
+    1px 1px 0 rgba(101,111,98,.52),
+    2px 2px 1px rgba(107,116,103,.36),
+    3px 3px 4px rgba(95,106,93,.16);
+  letter-spacing:-.06em;
+}
+/* Pressed smaller lettering needs a darker face to hold its shape at reading size. */
+.intro p,.footer,.footer a{
+  color:#888f82;
+  text-shadow:
+    -1px -1px .55px rgba(72,82,68,.31),
+    1px 1px 0 rgba(255,255,255,.98),
+    2px 2px 1px rgba(255,255,255,.62);
+}
+.project-copy h3{
+  color:#edf1eb;
+  -webkit-text-stroke:.45px rgba(112,128,112,.6);
+  text-shadow:
+    -1px -1px .4px rgba(93,110,95,.49),
+    1px 1px 0 rgba(255,255,255,.99),
+    2px 2px 1px rgba(255,255,255,.8),
+    -2px -2px 2px rgba(96,109,95,.14);
+}
+.project-copy p,.project-meta{
+  color:#858e81;
+  text-shadow:-.7px -.7px .4px rgba(93,107,92,.25),1px 1px 0 rgba(255,255,255,.98);
+}
+.project-card{border:2px solid rgba(255,255,255,.73);background:linear-gradient(132deg,rgba(255,255,255,.20),rgba(255,255,255,.07) 52%,rgba(255,255,255,.16));backdrop-filter:blur(5px) saturate(.9);-webkit-backdrop-filter:blur(5px) saturate(.9);box-shadow:0 5px 10px -9px rgba(60,62,53,.2),0 0 0 .5px rgba(188,198,187,.26),inset 1px 2px 2px rgba(255,255,255,.98),inset -2px -2px 3px rgba(239,245,236,.85)}
+.project-card::before{inset:3px;border-radius:17px;border:1px solid rgba(255,255,255,.45);background:linear-gradient(130deg,rgba(255,255,255,.12),transparent 38%,rgba(255,255,255,.08));box-shadow:inset 0 0 10px rgba(255,255,255,.25)}
+.project-card::after{inset:-2px;padding:3px;border-radius:23px;background:linear-gradient(132deg,rgba(255,255,255,.99) 5%,rgba(215,228,226,.36) 30%,rgba(255,255,255,.82) 58%,rgba(243,237,221,.4) 72%,rgba(255,255,255,.99) 92%)}
+.project-card:hover{border-color:rgba(255,255,255,.97);box-shadow:0 6px 14px -10px rgba(60,62,53,.24),0 0 0 .5px rgba(188,198,187,.3),inset 1px 2px 2px white,inset -2px -2px 3px rgba(244,248,240,.95)}
+
+/* Leaf paused while the material direction is refined. */
+portfolio-leaf{display:none!important}
+.meals .phone-screen{container-type:inline-size}
+.meals .phone-screen img{position:absolute;max-width:none;width:150.8772%;height:auto;left:-17.7632%;top:-5.9211cqw}
+.meals .phone-island{display:none}
+
+/* A photographed recessed material treatment replaces the simulated type bevel. */
+.intro .carved-name{position:relative;width:min(600px,100%);height:130px;margin:0 auto;overflow:hidden;text-shadow:none;-webkit-text-stroke:0}
+.carved-name>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.carved-name>img{position:absolute;width:100%;height:auto;left:0;top:50%;transform:translateY(-50%);mix-blend-mode:multiply;mask-image:linear-gradient(to right,transparent,black 9%,black 91%,transparent);}
+.intro p{color:#777c72;text-shadow:0 1px 0 #fff}
+@media(max-width:720px){.intro .carved-name{height:95px}.intro{padding-top:32px}}
+
+.intro .carved-name{mask-image:linear-gradient(to bottom,transparent,black 16%,black 84%,transparent)}
+
+/* Modern printed lettering on clear, thick optical glass. */
+.project-copy h3{font-family:DeckNorms,Arial,sans-serif;color:#5f665f;font-weight:500;letter-spacing:-.04em;-webkit-text-stroke:0;text-shadow:none;font-size:clamp(28px,2.7vw,38px)}
+.project-copy p,.project-meta{color:#7e857d;text-shadow:none}
+.project-card{background:linear-gradient(132deg,#ffffff12,#ffffff03 52%,#ffffff0c);backdrop-filter:blur(2px) saturate(.95);-webkit-backdrop-filter:blur(2px) saturate(.95);border:2px solid #ffffff90;box-shadow:0 7px 9px -9px #3c3e3545,1px 3px 0 0 #cbd1cc70,inset 2px 3px 2px #ffffffed,inset -3px -3px 3px #e5eae1a8}
+.project-card::before{inset:4px;border:1px solid #ffffff78;background:linear-gradient(130deg,#ffffff0d,transparent 40%,#ffffff09);box-shadow:inset 0 0 7px #ffffff30}
+.project-card::after{padding:4px;background:linear-gradient(132deg,#fff 2%,#d7e4e642 31%,#ffffffd9 60%,#ece5d65e 74%,#ffffffed 98%)}
+
+.meals .phone-screen img{position:static;width:100%;height:auto;left:auto;top:auto}
+
+/* Modern name and subtitle are carved together in the same material capture. */
+.intro .carved-name{height:170px;width:min(620px,100%);mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent)}
+.carved-name>img{mix-blend-mode:normal;mask-image:linear-gradient(to right,transparent,black 7%,black 93%,transparent)}
+.intro>p{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.footer,.footer a{font-family:DeckNorms,Arial,sans-serif;color:#c0c4bb;text-shadow:0 1px .4px #fff,-.7px -.7px .5px #848c7d;filter:url(#paper-engrave);font-weight:600}
+.footer a{filter:none}
+@media(max-width:720px){.intro .carved-name{height:110px}.intro{padding-bottom:40px}.project-copy h3{font-size:31px}}
+
+.project-copy{padding-top:48px}
+.project-copy p{max-width:300px;text-wrap:balance}
+@media(max-width:720px){.project-copy{padding-top:43px}.project-copy p{max-width:270px}}
+
+.intro{height:330px;padding:0;position:relative}
+.intro .carved-name,.intro>p{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0;padding:0}
+@media(max-width:720px){.intro{height:260px;padding:0}}
+@media(max-width:500px){.intro{height:205px}}
+
+.intro{height:max(300px,calc(22.5vw + 60px))}
+.project-copy h3{font-weight:600;font-size:clamp(31px,2.9vw,41px)}
+.project-copy p{max-width:none;white-space:nowrap;font-size:12px}
+.project-copy h3{margin-top:12px;margin-bottom:9px}
+.project-copy{padding-top:48px}
+@media(max-width:720px){.intro{height:260px}.project-copy h3{font-size:34px}.project-copy p{font-size:11px}.project-copy{padding-top:43px}}
+@media(max-width:500px){.intro{height:205px}}
+
+.phone-shell{box-sizing:border-box;border:var(--deck-phone-border-width) solid var(--deck-phone-edge);padding:0;border-radius:var(--deck-phone-radius);background:#fff;box-shadow:var(--deck-phone-shadow)}
+.phone-screen{width:100%;height:100%;border-radius:var(--deck-phone-inner-radius)}
+
+@media(min-width:721px){.intro{height:330px}}
+.project-card{box-shadow:1px 1px 0 #ffffffd0,2px 3px 0 #bac8c199,3px 4px 0 #f6fff8a8,0 12px 22px -20px #2b3b324d,inset 2px 2px 2px #fffffff0,inset -2px -2px 2px #e2ebe4a0;transition:transform .25s ease,box-shadow .25s ease}
+.card-surface{z-index:1;pointer-events:none;background:radial-gradient(ellipse at var(--light-x,35%) var(--light-y,20%),#ffffff8c,transparent 55%);opacity:.12;transition:opacity .25s ease}
+.project-card:hover,.project-card:focus-visible{transform:translateY(-2px);box-shadow:1px 1px 0 #fff,2px 3px 0 #b5c6bdc0,3px 4px 0 #f6fffbe0,0 15px 25px -20px #2b3b3259,inset 2px 2px 2px #fff,inset -2px -2px 2px #f3fff6b8}
+.project-card:hover .card-surface,.project-card:focus-visible .card-surface{opacity:.85}
+.footer,.footer a{filter:none;font-family:Arial,sans-serif;color:#9aa193;text-shadow:-.6px -.6px .5px #787f6f8c,.8px .8px .4px #fff;font-weight:500}
+@media(prefers-reduced-motion:reduce){.project-card,.card-surface{transition:none}}
+
+.project-copy{padding-top:60px}
+.project-copy p{font-size:13px}
+.project-copy h3{margin-top:10px}
+@media(max-width:720px){.project-copy{padding-top:52px}.project-copy p{font-size:12px}}
+@media(max-width:390px){.project-copy p{font-size:11px}}
+
+/* The footer uses the same photographed recessed lettering as the subtitle. */
+.footer{position:relative;height:100px;padding:0;display:block;isolation:isolate}
+.footer::before{content:'';position:absolute;inset:0;z-index:-1;background:url('/assets/portfolio-home/carved-wordmark/footer-v1.webp') center center / 800px auto no-repeat;filter:grayscale(1) brightness(1.047);mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent),linear-gradient(transparent,black 22%,black 70%,transparent);mask-composite:intersect;-webkit-mask-composite:source-in;pointer-events:none}
+.footer>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.footer nav{display:block;position:absolute;inset:0}
+.footer nav a{position:absolute;top:33px;height:30px;color:transparent;text-shadow:none;border:0;padding:0;font-size:0}
+.footer nav a:first-child{left:calc(50% - 109px);width:121px}
+.footer nav a:last-child{left:calc(50% + 39px);width:207px}
+.footer nav a:hover{box-shadow:0 1px 0 #929989}.footer nav a:focus-visible{outline:2px solid #929989;outline-offset:3px;border-radius:3px}
+@media(max-width:720px){.footer{height:90px}.footer::before{background-size:560px auto}.footer nav a{top:29px;height:26px}.footer nav a:first-child{left:calc(50% - 76px);width:84px}.footer nav a:last-child{left:calc(50% + 28px);width:145px}}

@@ -1,0 +1,95 @@
+{
+  "assetVersion": "2026-10-23",
+  "title": "Final $12 Meal Box email + Reviews v11 merchant portal",
+  "sourceZip": "/Users/vivianhe/Library/Mobile Documents/com~apple~CloudDocs/newnew/Final-Meal-Box-Email.zip",
+  "sourceZipSha256": "da93c18895b65a086276e28c8cc6fcdeb9c5dea38d85bba47ae9d025dc648d6a",
+  "extractedRoot": "/Users/vivianhe/Documents/portfolio/vivian-portfolio-site/assets/project-current/affordable-meals/email/2026-10-23",
+  "files": [
+    {
+      "path": "final-email/index.html",
+      "bytes": 5122,
+      "sha256": "e86f1085ab0f80ed84cb0f9f8f6d088629c56d66d31de28897b876f3f53697fd"
+    },
+    {
+      "path": "final-email/styles.css",
+      "bytes": 15610,
+      "sha256": "bf2059f3e622444dc90cc4c202335c7cad46b6f19148a5a8d147a4d98a177a74"
+    },
+    {
+      "path": "final-email/review-photos.html",
+      "bytes": 1352,
+      "sha256": "80a3dc3e5785426dc6c8689053aae37df5798c0abc053a84040045694f924e2c"
+    },
+    {
+      "path": "final-email/assets/DDNorms-Bold.woff2",
+      "bytes": 72224,
+      "sha256": "56c80db81c093c1f5a6c792f96dac9ec539d685b5af86cfeb2f5ec17e120ccc8"
+    },
+    {
+      "path": "final-email/assets/DDNorms-Regular.woff2",
+      "bytes": 71580,
+      "sha256": "6e5e7ed256c855d44c513ad13cf29fba3a4bbfceeada13db2ee7a2f8bb738f29"
+    },
+    {
+      "path": "final-email/assets/customer-photos/review-1.jpg",
+      "bytes": 1093851,
+      "sha256": "446c2cdfcf03bd0781a606574cea808061c0d00b1ac7804b061be203050f8d06"
+    },
+    {
+      "path": "final-email/assets/customer-photos/review-2.jpg",
+      "bytes": 1857035,
+      "sha256": "6719ad2864ac6b54e50110c6c06f5c5cd460e31c0afb14f591586d0b4c7eb26f"
+    },
+    {
+      "path": "final-email/assets/customer-photos/review-3.jpg",
+      "bytes": 2330512,
+      "sha256": "1ca3aa40a1d161d977feb0b601129951753137e0f56d92c8754615921ed3c2d1"
+    },
+    {
+      "path": "final-email/assets/customer-photos/review-4.jpg",
+      "bytes": 2283889,
+      "sha256": "023e1c299568f35875beb6abb6191b34af18cce5d1999347d18dd83bd593ef64"
+    },
+    {
+      "path": "final-email/assets/doordash-mark.svg",
+      "bytes": 672,
+      "sha256": "b452255ca8acbff71c25f53e04fbb23d5f3277a032b8cca8f5a41f07160a20f5"
+    },
+    {
+      "path": "final-email/assets/julie-placeholder.png",
+      "bytes": 2016250,
+      "sha256": "87f97e8e50d476df0250db8e7a909430897a1d8798e598aeafaa71106f39e0bc"
+    },
+    {
+      "path": "final-email/reference-3x.png",
+      "bytes": 2659463,
+      "sha256": "c39ea44a2f7e65a8c9c62346b806a0f0df14788ef8fd4bd57f03453fca365ca1"
+    },
+    {
+      "path": "final-email/README.txt",
+      "bytes": 955,
+      "sha256": "1d2fd7dde35440e9777d051fce01912fcef3e1b45aeb2748285fc983081c4aba"
+    }
+  ],
+  "emailEntry": "/assets/project-current/affordable-meals/email/2026-10-23/final-email/index.html",
+  "portalEntry": "/review/merchant-portal/prototypes/koji-customer-reviews/insights/?item=ratings-reviews&reviews-brand=doordash&reviews-mealbox=mealbox-only&ia-study=b&ia-layout=table&presentation=clean&reviews-chrome=off&drawer=closed",
+  "portalTitle": "Reviews v11 \u00b7 Internal",
+  "portalIndexSha256": "14e9f70021b32fc64801e4b29682b674d55a301563e3f9bbefd051f1b6cd3f71",
+  "portalBootstrap": "/review/merchant-portal/assets/index-BpvXQDU9.js",
+  "portalBootstrapSha256": "31e0e99361879afd06eceb9b89b795f78219399400490a64da399260b27f6733",
+  "notes": [
+    "Zip entries were checked for path traversal and symlinks before extraction. Extracted files match archive bytes.",
+    "The source email is a visual prototype and retains its report URL placeholder, local photo links, and external scheduling links unchanged. Local portfolio wrappers intercept placeholder and scheduling navigation.",
+    "The merchant portal is a local internal prototype; its displayed values are prototype content, not verified business outcomes."
+  ],
+  "preservedZip": "/Users/vivianhe/Documents/portfolio/vivian-portfolio-site/assets/project-current/affordable-meals/email/2026-10-23/Final-Meal-Box-Email.zip",
+  "preservedZipSha256": "da93c18895b65a086276e28c8cc6fcdeb9c5dea38d85bba47ae9d025dc648d6a",
+  "portalSourceZip": "/Users/vivianhe/Library/Mobile Documents/com~apple~CloudDocs/new/v11-internal.zip",
+  "portalSourceZipSha256": "e4c01045589861c367d1faff4d0a851ad4e4cc595fd16344b343be566eab544d",
+  "portalSourceDistIndexSha256": "c2a4e735348f6dc094b61949abf7d6d96c156a4c100d02d310ade5a1b557d25e",
+  "portalSourceDistBootstrapSha256": "1e5c0d90fff5f5c8a1f71e6e31f79a1f0ad1b0d5639bc2df97561c5be7479e5a",
+  "portalSourceSnapshot": "/assets/project-current/affordable-meals/portal/2026-10-23/source-dist/",
+  "portalDirectEntry": "/review/merchant-portal/prototypes/koji-customer-reviews/insights/?item=ratings-reviews&reviews-brand=doordash&reviews-mealbox=mealbox-only&ia-study=b&ia-layout=table&presentation=clean&reviews-chrome=off&drawer=closed",
+  "portalEmbedMode": "Source export Option C clean Meal Box item view, default single-store scope, prototype host bar hidden.",
+  "portalRouteAudit": "/references/meals-content-2026-10-23/portal-visible-audit.md"
+}

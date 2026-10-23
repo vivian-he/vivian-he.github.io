@@ -1,0 +1,23 @@
+/* Affordable Meals-specific narrative composition. Shared device finish stays in Deck Template. */
+#meals-offering .meal-content-visual,
+#meals-discovery .meal-content-visual,
+#meals-real-market .meal-content-visual { min-width:0; width:100%; }
+#meals-offering meal-offering-art,
+#meals-discovery meal-discovery-story,
+#meals-real-market meal-market-comparison { display:block; width:100%; }
+#meals-discovery.story-section { align-items:start; padding-block:0; }
+#meals-discovery > .section-copy { position:sticky; top:32vh; padding-block:0; }
+#meals-discovery > .meal-content-visual { min-height:1800px; }
+@media(max-width:1000px){
+ #meals-discovery > .section-copy { position:static; }
+ #meals-discovery > .meal-content-visual { min-height:0; }
+}
+
+#meals-merchant-scale.story-section { align-items:start; }
+#meals-merchant-scale > .section-copy {position:sticky;top:32vh;}
+#meals-merchant-scale > .meal-content-visual {min-width:0;width:100%;min-height:1000px;}
+#meals-merchant-scale meal-merchant-story {display:block;width:100%;}
+@media(max-width:1000px){
+ #meals-merchant-scale > .section-copy {position:static;}
+ #meals-merchant-scale > .meal-content-visual {min-height:0;}
+}

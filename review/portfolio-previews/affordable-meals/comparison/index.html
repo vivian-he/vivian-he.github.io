@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Affordable Meals · Marketplace comparison</title>
+  <link rel="stylesheet" href="../../preview.css">
+  <script type="module" src="./component.js"></script>
+  <style>
+    .specimen { min-height: 100svh; display: grid; grid-template-columns: minmax(320px, 40%) minmax(0, 1fr); align-items: center; gap: 2%; padding: clamp(56px, 7vw, 104px) clamp(24px, 6vw, 90px); }
+    .specimen-copy { max-width: 500px; }
+    .specimen-copy h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); letter-spacing: -.04em; line-height: 1.16; }
+    .specimen-copy p { max-width: 31em; margin: 20px 0 0; color: #747b84; font-size: clamp(14px, 1.25vw, 17px); line-height: 1.5; }
+    @media (max-width: 850px) { .specimen { grid-template-columns: 1fr; gap: 40px; } .specimen-copy { max-width: 680px; } }
+  </style>
+</head>
+<body>
+  <main class="specimen">
+    <div class="specimen-copy">
+      <h1>Design for the meals customers actually see, not idealized mockups</h1>
+      <p>Used AI and real market data to validate value, quality, and the customer experience</p>
+    </div>
+    <meal-market-comparison></meal-market-comparison>
+  </main>
+</body>
+</html>

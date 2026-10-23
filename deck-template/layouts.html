@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Deck Template · Numbered points</title>
+  <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="layouts.css">
+  <style>
+    @font-face{font-family:DeckNorms;src:url('/review/affordable-story/picnic-local/fonts/DDNorms-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:DeckNorms;src:url('/review/affordable-story/picnic-local/fonts/DDNorms-Bold.woff2') format('woff2');font-weight:650 900;font-display:swap}
+    *{box-sizing:border-box}
+    body{margin:0;background:#f6f7f9}
+    #workspace{min-height:100svh}
+  </style>
+</head>
+<body>
+  <div id="workspace"><main class="deck-numbered" id="specimen"></main></div>
+  <script src="layouts.js"></script>
+  <script>
+    document.getElementById('specimen').innerHTML = DeckLayouts.numberedPoints({
+      title: 'Three bets\nwe’re testing',
+      points: [
+        { title: 'Restaurant Meal Boxes', body: 'Full-size $12 meals, created with restaurant partners.' },
+        { title: '1P meals', body: 'DoorDash-created meals designed for everyday value.' },
+        { title: 'Prepared meals', body: 'Chef-made meals to heat and enjoy later.' }
+      ]
+    });
+  </script>
+</body>
+</html>

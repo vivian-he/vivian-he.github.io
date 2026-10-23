@@ -1,6 +1,19 @@
 // Presentation-only result chrome; the approved Full UI cards remain owned by v4.
 function installResultsChrome(frame, onSearch) {
  const doc=frame.contentDocument;if(!doc?.body)return;
+ // One local face for both documents: never let a CDN font or a font-loading
+ // race change the query header between the skeleton and the finished results.
+ const headerFonts=`
+ @font-face{font-family:'Portfolio Search';src:url('/review/slide10-hub/assets/DDNorms-Regular-D-klIR14.woff2') format('woff2');font-weight:400;font-display:block}
+ @font-face{font-family:'Portfolio Search';src:url('/review/slide10-hub/assets/DDNorms-Medium-Bt9kTPvr.woff2') format('woff2');font-weight:500;font-display:block}
+ @font-face{font-family:'Portfolio Search';src:url('/review/slide10-hub/assets/DDNorms-Bold-KBv-DJbn.woff2') format('woff2');font-weight:600 800;font-display:block}
+ .deck-query-title,#loading .loading-title span{font:500 17px/22px 'Portfolio Search',sans-serif!important;letter-spacing:0!important}
+ .loading-exact-header,.loading-exact-header *,.gx-search .gxs-tabs,.gx-search .gxs-tabs *,.gx-search .gxs-chip-row,.gx-search .gxs-chip-row *{font-family:'Portfolio Search',sans-serif!important}
+ `;
+ for(const targetDoc of [document,doc]){
+  if(targetDoc.querySelector('#search-header-fonts'))continue;
+  const fonts=targetDoc.createElement('style');fonts.id='search-header-fonts';fonts.textContent=headerFonts;targetDoc.head.append(fonts);
+ }
  const style=doc.createElement('style');style.textContent=`
  .gxs-search-row:has(.gxs-search-pill--filled){position:relative;height:50px;padding:0 12px}
  .gxs-search-pill--filled{visibility:hidden;box-shadow:none!important}
@@ -30,8 +43,9 @@ function installResultsChrome(frame, onSearch) {
   const pieces=['.gxs-status-bar','.gxs-search-row','.gxs-tabs','.gxs-chip-row'].map(sel=>source.querySelector(sel)).filter(Boolean);
   const fragment=document.createDocumentFragment();
   pieces.forEach(original=>{const clone=original.cloneNode(true);const originals=[original,...original.querySelectorAll('*')],copies=[clone,...clone.querySelectorAll('*')];originals.forEach((node,i)=>{const style=doc.defaultView.getComputedStyle(node);for(const name of style)copies[i].style.setProperty(name,style.getPropertyValue(name));});Object.assign(clone.style,{position:'relative',top:'auto',left:'auto',right:'auto',width:'100%',margin:'0',transform:'none'});clone.querySelectorAll('button').forEach(button=>{if(/Back/.test(button.getAttribute('aria-label')||''))button.onclick=onSearch});fragment.append(clone)});
-  header.replaceChildren(fragment);for(const face of doc.fonts){try{document.fonts.add(face)}catch{}}
+  header.replaceChildren(fragment);
  }
  function sync(){syncStars();const row=doc.querySelector('.gxs-search-pill--filled')?.parentElement;let dock=doc.querySelector('#deck-search-dock');if(!row){if(dock)dock.hidden=true;const outer=document.querySelector('#results-search-dock');if(outer)outer.hidden=true;return}if(!row.querySelector('.deck-query-title')){const title=doc.createElement('span');title.className='deck-query-title';title.textContent='"pad thai"';row.append(title)}if(!dock){dock=doc.createElement('button');dock.id='deck-search-dock';dock.setAttribute('aria-label','Edit search: pad thai');dock.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg><span class="dock-query">pad thai</span><span class="dock-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/></svg>Ask</span>';dock.onclick=onSearch;doc.body.append(dock);const outer=document.createElement('button');outer.id='results-search-dock';outer.innerHTML=dock.innerHTML;outer.setAttribute('aria-label','Edit search: pad thai');outer.onclick=onSearch;if(!document.querySelector('#results-search-dock'))document.querySelector('#resultsPanel').append(outer)}dock.style.display='none';const outer=document.querySelector('#results-search-dock');if(outer)outer.hidden=false;syncLoadingHeader();}
  let queued=false;const observer=new MutationObserver(()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;sync()})});observer.observe(doc.body,{childList:true,subtree:true});sync();[200,700].forEach(ms=>setTimeout(syncLoadingHeader,ms));
+ Promise.all([document,doc].flatMap(d=>[400,500,700].map(weight=>d.fonts.load(`${weight} 17px "Portfolio Search"`)))).then(syncLoadingHeader).catch(()=>{});
 }

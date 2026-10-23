@@ -1,0 +1,87 @@
+<!doctype html><meta charset="utf-8"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}iframe{border:0;width:100%;height:100%}</style><iframe id="flow" title="In-store rewards flow"></iframe><script>
+const frame=document.querySelector('#flow');
+const params=new URLSearchParams(location.search);
+const isForYou=params.get('flow')==='for-you';
+const loop=params.get('loop')==='1';
+let generation=0,running=false,requested=false,active=false,complete=false,loopTimer;
+const manualDocs=new WeakSet();
+const status=value=>parent.postMessage({type:'deck-autoplay-status',status:value},location.origin);
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const hidePointers=()=>{const clear=doc=>{doc?.querySelectorAll('.deck-flow-touch').forEach(dot=>dot.style.opacity='0');doc?.querySelectorAll('iframe').forEach(child=>{try{clear(child.contentDocument)}catch{}})};clear(frame.contentDocument)};
+function bindManual(doc){
+ if(!doc||manualDocs.has(doc))return;
+ manualDocs.add(doc);
+ for(const type of ['pointerdown','touchstart','wheel','keydown'])doc.addEventListener(type,event=>{
+  if(!event.isTrusted||!requested)return;
+  requested=false;running=false;clearTimeout(loopTimer);hidePointers();status('Paused · explore freely');
+ },{capture:true,passive:true});
+}
+async function delay(ms,token){let remaining=ms;while(remaining>0){if(token!==generation)throw Error('cancelled');await sleep(100);if(running)remaining-=100}}
+async function find(get,token){for(let n=0;n<240;n++){if(token!==generation)throw Error('cancelled');try{const el=get();if(el)return el}catch{}await delay(100,token)}throw Error('Prototype still loading')}
+async function touch(el,token,click=true){
+ if(!el)throw Error('Prototype step unavailable');
+ const doc=el.ownerDocument;bindManual(doc);
+ let dot=doc.querySelector('.deck-flow-touch');
+ if(!dot){
+  if(!doc.querySelector('link[data-deck-flow-pointer]')){const link=doc.createElement('link');link.rel='stylesheet';link.href='/review/shared/phone-pointer.css?v=pointer44-3';link.dataset.deckFlowPointer='';doc.head.append(link)}
+  dot=doc.createElement('i');dot.className='deck-autoplay-touch deck-flow-touch';dot.setAttribute('aria-hidden','true');dot.style.transition='left 400ms ease,top 400ms ease,opacity 200ms ease';doc.body.append(dot);
+ }
+ const r=el.getBoundingClientRect();dot.style.left=(r.left+r.width/2)+'px';dot.style.top=(r.top+r.height/2)+'px';dot.style.opacity='1';
+ await delay(500,token);if(click)el.click();await delay(300,token);
+}
+async function sequence(token){
+ const doc=frame.contentDocument;bindManual(doc);
+ if(isForYou){
+  const home=await find(()=>doc.querySelector('.after-base')?.contentDocument?.querySelector('#home-frame')?.contentDocument,token);bindManual(home);
+  const entry=await find(()=>[...home.querySelectorAll('button,a,[role="button"]')].find(el=>/in.store\s+rewards/i.test((el.getAttribute('aria-label')||'')+' '+el.textContent)&&el.getBoundingClientRect().width>0),token);
+  await delay(700,token);await touch(entry,token);
+  const title=await find(()=>doc.querySelector('.after-base')?.contentDocument?.querySelector('#go-frame')?.contentDocument?.querySelector('.after-for-you--ready .after-for-you-title'),token);bindManual(title.ownerDocument);
+  await delay(800,token);await touch(title,token,false);await delay(2100,token);
+ }else{
+  const first=await find(()=>doc.querySelector('.after-review .after-highlight'),token);
+  await delay(800,token);await touch(first,token);
+  const second=await find(()=>doc.querySelectorAll('.after-review .after-highlight')[5],token);
+  await delay(600,token);await touch(second,token);
+  await delay(800,token);await touch(await find(()=>doc.querySelector('.after-review-footer button'),token),token);
+  await delay(1500,token);
+ }
+}
+async function play(){
+ requested=true;
+ if(complete){reset();return}
+ running=true;status('Playing');if(active)return;
+ active=true;const token=generation;
+ try{await sequence(token);if(token!==generation)return;complete=true;running=false;hidePointers();status('Complete · explore');if(loop&&requested)loopTimer=setTimeout(()=>{if(token===generation&&requested)reset()},1400)}
+ catch(error){if(token===generation&&error.message!=='cancelled'){running=false;hidePointers();status('Paused · '+error.message)}}
+ finally{if(token===generation)active=false}
+}
+function reset(){
+ generation++;clearTimeout(loopTimer);active=false;complete=false;running=false;hidePointers();loadFlow();
+}
+window.addEventListener('message',event=>{
+ if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='deck-autoplay')return;
+ if(event.data.action==='pause'){requested=false;running=false;clearTimeout(loopTimer);hidePointers();status('Paused')}
+ else if(event.data.action==='reset'){requested=true;reset()}
+ else if(event.data.action==='play')play();
+});
+async function signalWhenReady(token,previousDoc){
+ for(let n=0;n<240;n++){
+  if(token!==generation)return;
+  const doc=frame.contentDocument;
+  if(!doc||doc===previousDoc||doc.URL==='about:blank'){await sleep(100);continue}
+  bindManual(doc);
+  if(isForYou){
+   const home=doc.querySelector('.after-base')?.contentDocument?.querySelector('#home-frame')?.contentDocument;
+   if(home){bindManual(home);const entry=[...home.querySelectorAll('button,a,[role="button"]')].find(el=>/in.store\s+rewards/i.test((el.getAttribute('aria-label')||'')+' '+el.textContent)&&el.getBoundingClientRect().width>0);if(entry){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}}
+  }else if(doc.querySelector('.after-notification')){
+   // The source's review stage is the actual feedback screen; skip its lock-screen prelude here.
+   frame.contentWindow.postMessage({type:'base-after:reset',stage:'review'},location.origin);
+   for(let j=0;j<120&&token===generation;j++){if(doc.querySelector('.after-review .after-highlight')){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}await sleep(100)}
+  }
+  await sleep(100);
+ }
+ status('Paused · prototype unavailable');
+}
+function loadFlow(){const previousDoc=frame.contentDocument;status('Loading prototype');frame.src='../base-after/dist/'+(isForYou?'?flow=for-you':'?flow=review');signalWhenReady(generation,previousDoc)}
+loadFlow();
+</script>

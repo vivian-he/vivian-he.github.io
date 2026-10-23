@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio leaf motion specimen</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 7rem 1.5rem; background: #f5f4ef; font-family: Georgia, serif; color: #3b3d35; }
+    .card { position: relative; overflow: visible; width: min(100%, 640px); min-height: 330px; padding: 44px; border: 1px solid rgb(255 255 255 / .94); border-radius: 30px; background: linear-gradient(145deg, rgb(255 255 255 / .78), rgb(239 240 233 / .55)); box-shadow: 0 16px 58px rgb(91 88 69 / .09), inset 0 1px 1px #fff; }
+    .eyebrow { font: 11px/1.2 system-ui, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #788076; }
+    h1 { max-width: 360px; margin: 74px 0 12px; font-size: clamp(32px, 5vw, 48px); font-weight: 400; line-height: 1.06; letter-spacing: -.04em; }
+    p { margin: 0; font: 14px/1.6 system-ui, sans-serif; color: #747a70; }
+    @media (max-width: 640px) { .card { min-height: 340px; padding: 26px; } h1 { max-width: 210px; margin-top: 102px; } }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <span class="eyebrow">Motion specimen</span>
+    <h1>Selected work, quietly in motion.</h1>
+    <p>A single leaf settles on the card once.</p>
+    <portfolio-leaf></portfolio-leaf>
+  </article>
+  <script type="module" src="./leaf.js"></script>
+</body>
+</html>

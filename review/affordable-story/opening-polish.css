@@ -23,8 +23,8 @@
 #slide.op-bets .op-bet-stack article{display:flex;align-items:flex-start;gap:1.6cqw;padding:2cqw 2.2cqw;background:#fff;border-radius:1.2cqw;border:1px solid #e7e9ed}
 #slide.op-bets .op-bet-stack h3{font-size:1.95cqw}
 #slide.op-bets .op-bet-stack p{font-size:1.2cqw;margin-top:.7cqw}
-#slide.op-bets .op-bet-stack article:first-child{background:#fff6f2;border-color:#f1dfd6}
-#slide.op-bets .op-bet-stack article:first-child .op-number{color:#d64a34}
+#slide.op-bets .op-bet-stack article:first-child{background:#fff;border-color:#e7e9ed}
+#slide.op-bets .op-bet-stack article:first-child .op-number{color:#686e76}
 #workspace #slide.op-chapter{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;background:#292e36!important;color:#fff;padding:7%}
 #slide.op-chapter .op-label{color:#bec2ca;margin:0}
 #slide.op-chapter section{display:flex;align-items:center;gap:4.5cqw}
@@ -41,6 +41,7 @@
 #slide.op-consumer-scope .op-list article:last-child{border:0;padding-bottom:0}
 #slide.op-consumer-scope .op-number{padding:0}
 #slide.op-consumer-scope .op-list h3{font-size:2.1cqw}
+#slide.op-bets .op-number,#slide.op-consumer-scope .op-number{font-size:1.65cqw;font-weight:650;line-height:1.1;color:#686e76;min-width:1.4cqw}
 
 /* Restore context and visual bets; keep a stronger, consistent title weight. */
 #slide.opening-polish h1,#slide.opening-polish h2,#slide.opening-polish h3{font-weight:650}
@@ -65,3 +66,31 @@
 #slide.mealbox-divider h2{font-size:4.3cqw;font-weight:650}
 #slide.mealbox-divider .mealbox-divider-meals{gap:4cqw}
 #slide.mealbox-divider .mealbox-divider-meals figure{width:16cqw;height:16cqw}
+
+/* The larger shared stat copy needs a full readable column on phones. */
+@media(max-width:760px){
+ body.presentation-mode #slide.op-problem .op-context-stats{grid-template-columns:1fr}
+}
+
+/* Role sizes come from Deck Template; these rules only arrange the content. */
+#slide.op-ambition .op-opportunity{margin-top:2cqw}
+#slide.op-ambition .op-list{gap:2.4cqw}
+#slide.op-ambition .op-list p{margin-top:.7cqw}
+#slide.op-bets .op-bet-stack article{padding:1.4cqw 1.8cqw}
+#slide.op-collaboration .op-merchant-photo{height:41cqw;max-height:41cqw}
+#slide.op-collaboration .op-support br{display:none}
+#slide.mealbox-divider .mealbox-divider-copy{max-width:78cqw}
+/* Use a single light direction and a level baseline for the supplied food cutouts. */
+#slide.mealbox-divider .supplied-bowls{gap:2cqw;max-width:none;padding-top:0}
+#slide.mealbox-divider .supplied-bowls figure,
+#slide.mealbox-divider .supplied-bowls .meal-1,
+#slide.mealbox-divider .supplied-bowls .meal-2{width:22cqw;height:24cqw;margin:0;transform:none;filter:drop-shadow(0 .9cqw .7cqw #243d351c)}
+#slide.mealbox-divider .supplied-bowls .meal-0 svg{filter:brightness(1.06) saturate(.94)}
+#slide.mealbox-divider .supplied-bowls .meal-2 svg{filter:brightness(1.03) saturate(.96)}
+@media(max-width:760px){
+ #workspace #slide.op-ambition,#workspace #slide.op-bets,#workspace #slide.op-collaboration{height:auto;min-height:100%;overflow:visible;grid-template-columns:1fr;gap:32px}
+ #slide.op-collaboration .op-merchant-photo{height:70cqw;max-height:none;width:100%}
+ #slide.op-ambition .op-opportunity{margin-top:24px}
+ #slide.op-bets .op-bet-stack article{padding:20px}
+ #slide.mealbox-divider .supplied-bowls figure,#slide.mealbox-divider .supplied-bowls .meal-1,#slide.mealbox-divider .supplied-bowls .meal-2{width:25cqw;height:28cqw}
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Affordable Meals · Offering art specimen</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #f7f7f7; font-family: Arial, sans-serif; }
+    main { width: min(100% - 48px, 560px); }
+  </style>
+  <script src="/review/portfolio-previews/affordable-meals/offering/component.js" defer></script>
+  <script>if (new URLSearchParams(location.search).has('narrow')) document.documentElement.classList.add('narrow');</script>
+  <style>.narrow main { width: min(100% - 32px, 320px); }</style>
+</head>
+<body><main><meal-offering-art></meal-offering-art></main></body>
+</html>

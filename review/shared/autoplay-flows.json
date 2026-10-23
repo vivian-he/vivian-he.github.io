@@ -2,7 +2,7 @@
   "version": 1,
   "flows": [
     {
-      "name": "Open DoorDash \u2192 Home \u2192 Meal Box hub",
+      "name": "Open DoorDash \u2192 Home Meal Box carousel \u2192 hub",
       "walk": [
         "home",
         "introPhone"
@@ -14,31 +14,23 @@
           "delay": 1200
         },
         {
-          "action": "tap",
-          "selector": "[data-mealbox-entry]",
+          "action": "scrollTo",
+          "selector": ".master-mealbox .mbl-rail",
           "document": "slide11-browse/app",
           "delay": 2600
         },
         {
-          "action": "hold",
-          "delay": 2000
+          "action": "scrollHorizontal",
+          "selector": ".master-mealbox .mbl-rail",
+          "document": "slide11-browse/app",
+          "amount": 180
         },
         {
           "action": "tap",
-          "selector": "button[aria-label=\"Back\"]",
-          "document": "mb-hub-v4"
-        },
-        {
-          "action": "scrollTo",
-          "selector": ".mbl-rail",
+          "selector": ".master-mealbox .mbl-seeall button",
+          "text": "See all 200",
           "document": "slide11-browse/app",
           "delay": 1500
-        },
-        {
-          "action": "scrollHorizontal",
-          "selector": ".mbl-rail",
-          "document": "slide11-browse/app",
-          "amount": 180
         },
         {
           "action": "hold",

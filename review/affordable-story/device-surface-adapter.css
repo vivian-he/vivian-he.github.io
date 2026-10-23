@@ -1,0 +1,30 @@
+/* Affordable Meals device scenes consume the shared presentation surface.
+   Keep the authored phone dimensions and embedded screen scaling intact. */
+#workspace > main:not(.food-cover):not(.consumer-divider):has(:is(
+  .walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,
+  .object.phone,.m-phone,.ops-demo.phone,.hub-device
+)),
+#consumer-walk {
+  background: var(--deck-canvas-background) !important;
+}
+
+#workspace :is(
+  .walk-phone,.one-p-phone,.prepared-phone,.homepage-phone,.motion-phone,
+  .object.phone,.m-phone,.ops-demo.phone,.hub-device
+) {
+  border: var(--deck-phone-border-width) solid var(--deck-phone-edge) !important;
+  border-radius: var(--deck-phone-radius) !important;
+  box-shadow: var(--deck-phone-shadow) !important;
+  outline: none !important;
+  overflow: hidden;
+}
+
+#workspace .phone-bezel-seal {
+  border-color: var(--deck-phone-edge) !important;
+  border-radius: var(--deck-phone-inner-radius);
+}
+
+/* The hub's loading state retains the same bezel as its live iframe. */
+#workspace #slide.closing-hub .hub-device:not(.ready) {
+  box-shadow: var(--deck-phone-shadow) !important;
+}

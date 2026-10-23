@@ -1,0 +1,14 @@
+/* The carved header is part of one scrolling material field, not an image patch. */
+body{position:relative;isolation:isolate;background:#f8f8f6 url('/assets/portfolio-home/ground/white-mineral-ground.webp') center top / 1536px 1024px repeat}
+body::before{position:absolute;inset:0 0 auto;height:max(66.6667vw,566.667px);z-index:-1;pointer-events:none;content:'';opacity:1;mix-blend-mode:normal;background:url('/assets/portfolio-home/carved-wordmark/vivian-he-carved-grotesk-v4.webp') center top / max(100vw,850px) auto no-repeat;mask-image:linear-gradient(black 72%,transparent)}
+@media(max-width:500px){body::before{height:426.667px;background-size:640px auto}}
+
+@media(min-width:721px){body::before{inset:0 auto auto 50%;width:min(100%,1200px);height:800px;transform:translateX(-50%);background-size:1200px auto;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent),linear-gradient(black 72%,transparent);mask-composite:intersect;-webkit-mask-composite:source-in}}
+
+html{background:#f8f8f6}
+body{min-height:100svh}
+/* Match the generated carving's paper luminance to the supplied white field. */
+body::before{filter:grayscale(1) brightness(1.047)}
+
+body::before{z-index:-2}
+body::after{content:'';position:absolute;inset:0;z-index:-1;background:rgba(255,237,206,.09);pointer-events:none}

@@ -2,51 +2,52 @@
 (() => {
   if (new URLSearchParams(location.search).get('mode') === 'review') return;
 
+  let initialized=false;
   function init() {
+    if(initialized)return;
     const slide = document.querySelector('#slide');
     const outlineToggle = document.querySelector('#toggle');
     const autoplay = document.querySelector('#deck-autoplay-controls');
     const previous = document.querySelector('#prev');
     const next = document.querySelector('#next');
-    if (!slide || !outlineToggle || !autoplay || !previous || !next) return;
+    if (!window.DeckTemplate || !slide || !outlineToggle || !autoplay || !previous || !next) return;
 
-    document.body.classList.add('presentation-mode', 'no-outline');
-    const back=document.createElement('a');
-    back.className='presentation-back';
-    back.href='/';
-    back.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to portfolio</span>';
-    document.body.append(back);
-
-    const tools = document.createElement('div');
-    tools.className = 'presentation-tools';
-    tools.setAttribute('aria-label', 'Presentation controls');
-    tools.append(outlineToggle, autoplay);
-    document.body.append(tools);
-
-    const replay = autoplay.querySelector('#deck-autoplay-replay');
-    const status = autoplay.querySelector('#deck-autoplay-status');
-    replay.classList.add('contextual-replay');
-    replay.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 3 10l6 5M4 10h9a6 6 0 1 1 0 12" transform="translate(0 -2)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Replay prototype</span>';
-    document.body.append(replay);
+    initialized=true;
+    document.body.classList.add('presentation-mode');
+    document.body.classList.remove('no-outline');
+    const shell=window.DeckTemplate.mountShell({toggle:outlineToggle,autoplay,previous,next,backHref:'/'});
+    const status=autoplay.querySelector('#deck-autoplay-status');
+    const controls=window.DeckTemplate.playbackControls({replay:autoplay.querySelector('#deck-autoplay-replay'),onStop:()=>window.DeckAutoplay?.stopCurrent()});
+    const {replay,playing}=controls;
+    document.body.append(replay,playing);
     let replaySlide='';
     const syncReplay = () => {
       const slideKey=new URL(location.href).searchParams.get('slide');
-      const complete=status?.textContent.includes('Demo complete');
-      replay.hidden=!complete || (replaySlide && replaySlide!==slideKey);
-      if(!complete){replaySlide='';return;}
-      if(replay.hidden)return;
-      replaySlide=slideKey;
+      const complete=/Demo complete|Paused · Replay/.test(status?.textContent||'');
+      const isPlaying=/^Playing/.test(status?.textContent||'');
+      window.DeckTemplate.playbackState(controls,isPlaying?'playing':complete?'complete':'idle');
+      if(replaySlide && replaySlide!==slideKey)replay.hidden=true;
+      if(!complete)replaySlide='';
+      if(!complete&&!isPlaying)return;
+      if(complete&&replay.hidden)return;
+      if(complete)replaySlide=slideKey;
       const walk=document.querySelector('#consumer-walk:not([hidden])');
+      const qualityVisual=slide.matches('.mp-details') && new URL(location.href).searchParams.get('slide')==='merchant-quality'
+        ? slide.querySelector('.unified-visual:has(.quality-photo-wall)') : null;
       const anchor=walk?.querySelector('.walk-heading h2') || slide.querySelector('.unified-expanded,.ops-detail-copy,.copy,.hub-heading');
       const fallback=walk?.querySelector('.walk-phone') || slide.querySelector('iframe');
-      let rect=(anchor || fallback)?.getBoundingClientRect();
+      let rect=(qualityVisual || anchor || fallback)?.getBoundingClientRect();
       if(walk && anchor){const range=document.createRange();range.selectNodeContents(anchor);rect=range.getBoundingClientRect();}
-      if(!walk && rect && slide.querySelector('.unified-timeline'))rect={left:rect.left,width:rect.width,bottom:slide.querySelector('.unified-timeline').getBoundingClientRect().bottom};
-      if(!rect){replay.hidden=true;return;}
-      const width=replay.offsetWidth;
-      const left=walk && innerWidth<=760 ? (innerWidth-width)/2 : rect.left;
-      replay.style.left=Math.max(12,Math.min(innerWidth-width-12,left))+'px';
-      replay.style.top=Math.min(innerHeight-replay.offsetHeight-12,rect.bottom+22)+'px';
+      if(!walk && !qualityVisual && rect && slide.querySelector('.unified-timeline'))rect={left:rect.left,width:rect.width,bottom:slide.querySelector('.unified-timeline').getBoundingClientRect().bottom};
+      if(!rect){replay.hidden=playing.hidden=true;return;}
+      const control=complete?replay:playing;
+      const width=control.offsetWidth;
+      // Both states use the same photo-wall anchor, independent of their label widths.
+      const left=qualityVisual ? rect.right-width-16 : walk && innerWidth<=760 ? (innerWidth-width)/2 : rect.left;
+      control.style.left=Math.max(12,Math.min(innerWidth-width-12,left))+'px';
+      control.style.top=qualityVisual
+        ? Math.max(12,Math.min(innerHeight-control.offsetHeight-12,rect.top+16))+'px'
+        : Math.min(innerHeight-control.offsetHeight-12,rect.bottom+8)+'px';
     };
     syncReplay();
     if(status)new MutationObserver(syncReplay).observe(status, {childList:true,subtree:true,characterData:true});
@@ -55,17 +56,7 @@
     window.addEventListener('scroll',syncReplay,{passive:true});
     new ResizeObserver(syncReplay).observe(document.querySelector('#workspace'));
 
-    const navigation = document.createElement('nav');
-    navigation.className = 'presentation-navigation';
-    navigation.setAttribute('aria-label', 'Slide navigation');
-    previous.setAttribute('aria-label', 'Previous slide');
-    next.setAttribute('aria-label', 'Next slide');
-    // Reuse the product icon paths from the local Prism/Picnic icon set.
-    const arrow = path => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="${path}"/></svg>`;
-    previous.innerHTML = arrow('M9.789 3.793a1 1 0 1 1 1.414 1.414L5.41 11h15.586a1 1 0 0 1 0 2H5.41l5.793 5.793a1 1 0 0 1-1.414 1.414l-6.793-6.793a2 2 0 0 1 0-2.828z');
-    next.innerHTML = arrow('M12.793 3.793a1 1 0 0 1 1.414 0L21 10.586a2 2 0 0 1 0 2.828l-6.793 6.793a1 1 0 1 1-1.414-1.414L18.586 13H3a1 1 0 1 1 0-2h15.586l-5.793-5.793a1 1 0 0 1 0-1.414');
-    navigation.append(previous, next);
-    document.body.append(navigation);
+    const {navigation}=shell;
     document.addEventListener('keydown',event=>{
       if(!['ArrowLeft','ArrowRight','PageUp','PageDown','Home','End',' '].includes(event.key)||event.target.closest('input,textarea,select,[contenteditable="true"]'))return;
       if(navigation.contains(document.activeElement))document.activeElement.blur();
@@ -85,6 +76,6 @@
     new MutationObserver(syncSurface).observe(slide, {attributes:true, attributeFilter:['class']});
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
-  else init();
+  init();
+  if(!initialized){const readiness=new MutationObserver(()=>{init();if(initialized)readiness.disconnect();});readiness.observe(document.body,{childList:true,subtree:true});document.addEventListener('DOMContentLoaded',init,{once:true});}
 })();

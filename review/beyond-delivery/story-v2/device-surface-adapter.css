@@ -1,0 +1,11 @@
+/* Rewards keeps its slide geometry and 393 x 852 screen scaling. */
+#workspace > #slide:has(:is(.phone,.concept-screen)) {
+  background: var(--deck-canvas-background) !important;
+}
+
+#slide :is(.phone,.concept-screen) {
+  border: var(--deck-phone-border-width) solid var(--deck-phone-edge) !important;
+  border-radius: var(--deck-phone-radius) !important;
+  box-shadow: var(--deck-phone-shadow) !important;
+  overflow: hidden;
+}

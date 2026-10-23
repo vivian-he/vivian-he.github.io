@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home Meal Boxes · native source adapter</title><style>
+html,body{margin:0;width:393px;height:852px;position:relative;overflow:hidden;background:#fff}
+iframe{display:block;border:0;width:393px;height:852px;background:#fff}
+ .system-status{position:absolute;z-index:5;top:18px;left:26px;right:26px;display:flex;justify-content:space-between;align-items:center;font:600 14px Arial,sans-serif;pointer-events:none}.system-status img{width:68px;height:auto}.system-island{position:absolute;z-index:5;top:13px;left:155px;width:83px;height:22px;background:#000;border-radius:20px;pointer-events:none}</style></head><body>
+<iframe id="home-source" title="Authored DoorDash Home screen" src="/review/slide11-browse/app/index.html?embed=1&amp;homebase=1&amp;rev=shared-oct7"></iframe>
+<div class="system-status" aria-hidden="true"><span>9:41</span><img src="/review/shared/iphone-signals.svg" alt=""></div><i class="system-island" aria-hidden="true"></i><script>
+// Presentation adapter: preserve the authored Home source and position its native carousel.
+(() => {
+  const frame = document.querySelector('#home-source');
+  let observer;
+  const position = () => {
+    const doc = frame.contentDocument;
+    if (!doc?.body) return false;
+    const root = doc.querySelector('.assistant-nudges-screen--home');
+    const heading = [...doc.querySelectorAll('h2')].find(element => element.textContent?.includes('$12 full size meals'));
+    if (!root || !heading || root.scrollHeight <= root.clientHeight) return false;
+    const target = heading.getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop - 170;
+    root.scrollTop = Math.max(0, target);
+    doc.documentElement.dataset.homeCoverReady = 'true';
+    document.documentElement.dataset.ready = 'true';
+    return true;
+  };
+  const setup = () => {
+    const doc = frame.contentDocument;
+    if (!doc) return;
+    const style = doc.createElement('style');
+    style.textContent = '.demo-pointer,.deck-autoplay-touch,[class*="demo-pointer"],[class*="touch-indicator"]{display:none!important}.assistant-nudges-screen--home{scroll-behavior:auto!important}';
+    doc.head.append(style);
+    if (position()) return;
+    observer = new MutationObserver(() => { if (position()) observer.disconnect(); });
+    observer.observe(doc.documentElement, {subtree:true,childList:true});
+  };
+  frame.addEventListener('load',setup);
+  if(frame.contentDocument?.readyState==='complete' && frame.contentDocument.URL!=='about:blank') setup();
+  let tries=0;const ready=setInterval(()=>{if(position()||++tries>150)clearInterval(ready)},100);
+})();
+</script></body></html>

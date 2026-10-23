@@ -3,8 +3,18 @@ const shimmer=window.ConsumerMotion.createHubSkeleton();shimmer.id='hub-shimmer'
 let busy=false;
 const reduced=()=>matchMedia('(prefers-reduced-motion:reduce)').matches;
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-// A single upward arrival, replayed only when the prototype itself reloads.
-notice.animate([{transform:'translateY(90px)',opacity:0},{transform:'translateY(-5px)',opacity:1,offset:.78},{transform:'translateY(0)',opacity:1}],{duration:reduced()?0:720,delay:reduced()?0:240,easing:'cubic-bezier(.16,.84,.3,1)',fill:'both'});
+// Start the whoosh when the lock screen is actually visible, not while its
+// retained master/deck iframe is still hidden and loading other screens.
+let arrival;
+const arrivalObserver=new IntersectionObserver(entries=>{
+ for(const entry of entries){
+  if(entry.isIntersecting&&!busy&&!lock.hidden){
+   arrival?.cancel();
+   arrival=notice.animate([{transform:'translateY(110px)',opacity:0},{transform:'translateY(-4px)',opacity:1,offset:.82},{transform:'translateY(0)',opacity:1}],{duration:reduced()?0:620,delay:reduced()?0:180,easing:'cubic-bezier(.16,.84,.3,1)',fill:'both'});
+  }else if(!entry.isIntersecting){arrival?.cancel();}
+ }
+});
+arrivalObserver.observe(notice);
 notice.onclick=async()=>{
  if(busy)return;busy=true;notice.disabled=true;document.body.dataset.notificationPhase='opening';
  opening.hidden=false;

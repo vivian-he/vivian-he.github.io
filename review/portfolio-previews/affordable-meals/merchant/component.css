@@ -1,0 +1,27 @@
+:host{display:block;width:100%;min-width:0;justify-self:end;font-family:DeckNorms,Arial,sans-serif;color:#24272b}
+*{box-sizing:border-box}
+.merchant-story{--email-body-height:clamp(700px,63vw,800px);display:grid;gap:54px;width:100%;min-width:0}
+.merchant-screen{min-width:0;scroll-margin-top:24px}
+.screen-window{width:100%;max-width:100%;overflow:hidden;border:1px solid #d9dde1;border-radius:11px;background:#fff;box-shadow:0 12px 30px #17212d12}
+.window-bar{display:flex;align-items:center;gap:5px;height:32px;padding:0 12px;background:#f2f3f4;border-bottom:1px solid #e3e5e7}
+.window-bar i{width:7px;height:7px;flex:none;border-radius:50%;background:#bdc2c7}
+.window-bar span{overflow:hidden;margin:auto;padding-right:21px;white-space:nowrap;text-overflow:ellipsis;color:#72777b;font-size:10px}
+.email-client{display:grid;grid-template-columns:84px minmax(0,1fr);height:var(--email-body-height);min-width:0}
+.email-client-chrome{display:flex;flex-direction:column;min-width:0;background:#f8fafd;border-right:1px solid #e5e9ef;font-family:Arial,sans-serif;color:#62676c}
+.mail-client-brand{display:grid;justify-items:center;gap:4px;padding:17px 4px 14px;font-size:11px;line-height:1.2}
+.mail-client-brand .gmail-logo{width:25px;height:19px}
+.email-client-chrome .tools{display:flex;flex:1;flex-direction:column;align-items:center;gap:5px;padding:6px 0 16px;color:#63686b}
+.email-client-chrome .tools>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%}
+.email-client-chrome .tools>span:hover{background:#e8eef6}
+.email-client-chrome .ui-icon{width:16px;height:16px;display:block}
+.email-client-chrome .tools i{width:28px;height:1px;background:#dde3ea;margin:7px 0}
+.email-client-chrome .tools .more-tools{font-size:20px;line-height:1}
+.email-client-chrome .tools small{margin-top:auto;font-size:9px;color:#888;white-space:nowrap}
+.email-viewport{height:100%;min-width:0;overflow-x:hidden;overflow-y:auto;background:#f5f5f5;scrollbar-width:thin}
+.email-canvas{position:relative;width:100%;min-height:500px}
+.email-canvas iframe{position:absolute;top:0;left:0;display:block;width:680px;height:3000px;border:0;transform-origin:top left;transform:scale(var(--email-scale,1));background:#f5f5f5}
+.portal-viewport{height:var(--portal-body-height,560px);min-height:0;overflow:hidden;background:#fff}
+.portal-canvas{position:relative;min-width:0;width:100%;height:100%}
+.portal-canvas iframe{position:absolute;top:0;left:0;display:block;width:1280px;height:1600px;border:0;transform-origin:top left;transform:scale(var(--portal-scale,.57));background:#fff}
+@media(max-width:850px){.merchant-story{--email-body-height:clamp(620px,78vw,720px);gap:44px}}
+@media(max-width:550px){.merchant-story{--email-body-height:600px;gap:34px}.email-client{grid-template-columns:60px minmax(0,1fr)}.mail-client-brand{font-size:9px}.email-client-chrome .tools>span{width:31px;height:31px}.email-client-chrome .tools small{font-size:8px}}

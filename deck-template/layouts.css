@@ -1,0 +1,82 @@
+/* Apply to the main slide that receives DeckLayouts.numberedPoints() markup. */
+#workspace>main.deck-numbered {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 45% 49%;
+  gap: 6%;
+  align-items: center;
+  width: 100%;
+  min-height: 100svh;
+  padding: 7%;
+  container-type: inline-size;
+  background: #f6f7f9;
+  color: #202124;
+  font-family: DeckNorms, Arial, sans-serif;
+}
+
+#workspace>main.deck-numbered .deck-numbered-title,
+#workspace>main.deck-numbered .deck-numbered-points {
+  min-width: 0;
+}
+
+#workspace>main.deck-numbered .deck-numbered-title h2,
+#workspace>main.deck-numbered .deck-numbered-point h3,
+#workspace>main.deck-numbered .deck-numbered-point p {
+  margin: 0;
+}
+
+#workspace>main.deck-numbered .deck-numbered-points {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4cqw;
+}
+
+#workspace>main.deck-numbered .deck-numbered-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.7cqw;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#workspace>main.deck-numbered .deck-numbered-number {
+  flex: none;
+  padding-top: .35cqw;
+}
+
+#workspace>main.deck-numbered .deck-numbered-copy {
+  min-width: 0;
+}
+
+#workspace>main.deck-numbered .deck-numbered-point p {
+  margin-top: .7cqw;
+  color: #777b81;
+}
+
+@media (max-width: 760px) {
+  #workspace>main.deck-numbered {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    gap: 38px;
+    padding: 76px 24px;
+  }
+
+  #workspace>main.deck-numbered .deck-numbered-points {
+    gap: 28px;
+  }
+
+  #workspace>main.deck-numbered .deck-numbered-point {
+    gap: 16px;
+  }
+
+  #workspace>main.deck-numbered .deck-numbered-number {
+    padding-top: 3px;
+  }
+
+  #workspace>main.deck-numbered .deck-numbered-point p {
+    margin-top: 8px;
+  }
+}

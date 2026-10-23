@@ -19,15 +19,7 @@
       if (token !== generation) return;
       lastIndex = index;
       paint();
-      if (changed && previous >= 0 && !reduced()) {
-        const surface = document.querySelector('#slide');
-        // Consumer captions already have their own continuity animation.
-        if (getComputedStyle(surface).display !== 'none') {
-          surface.getAnimations().forEach(animation => animation.cancel());
-          surface.animate([{opacity:0,translate:'0 8px'},{opacity:1,translate:'0 0'}],
-            {duration:380,easing:'cubic-bezier(.22,1,.36,1)'});
-        }
-      }
+      // Regular slides cut directly. Phone walkthroughs own their in-screen motion.
       if (!veil) return;
       positionVeil();
       const currentVeil = veil;

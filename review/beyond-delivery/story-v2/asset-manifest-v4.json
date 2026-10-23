@@ -1,0 +1,431 @@
+[
+  {
+    "slide": 1,
+    "title": "DoorDash In-Store Rewards",
+    "assets": [
+      {
+        "label": "GO Base October \u00b7 live autoplay",
+        "status": "Interactive prototype",
+        "path": "review/beyond-delivery/story-v2/oct-embed.html?flow=map&autoplay=1",
+        "guideline": "Actual base October prototype, showing map pin and store preview interactions."
+      }
+    ],
+    "notes": "Local assembled journey uses shared Nate foundation and documented additions. It is not historical launch footage."
+  },
+  {
+    "slide": 2,
+    "title": "Membership for the physical world.",
+    "assets": [
+      {
+        "label": "Supplied membership screenshot",
+        "status": "Original quality",
+        "path": "review/beyond-delivery/story-v2/assets/dashpass-membership-source.png",
+        "guideline": "Original supplied asset. Shared 9:41 status overlay conceals recorded time and recording indicator; source retained unchanged."
+      }
+    ],
+    "notes": "Historical May 2025 benefit design. Later 2027 decision-guide ambition can be spoken in notes; preserve the requested 23-slide structure."
+  },
+  {
+    "slide": 3,
+    "title": "Claim. Pay. Earn.",
+    "assets": [
+      {
+        "label": "Claim illustration",
+        "path": "review/beyond-delivery/going-out-base/dist/assets/percent-back-step-1-claim-CrmFAMo_.png",
+        "url": "https://compass.doordash.studio/nate-clinton/cx-in-store-design-guided-onboarding",
+        "status": "shared-prototype-asset",
+        "guideline": "Use as one of three equal visual steps; avoid screenshots of entire onboarding pages."
+      },
+      {
+        "label": "Linked-card illustration",
+        "path": "review/beyond-delivery/going-out-base/dist/assets/percent-back-step-2-card-gTwXeku0.png",
+        "url": "https://compass.doordash.studio/nate-clinton/cx-in-store-design-guided-onboarding",
+        "status": "shared-prototype-asset",
+        "guideline": "Second step: Pay with linked card."
+      },
+      {
+        "label": "Credits illustration",
+        "path": "review/beyond-delivery/going-out-base/dist/assets/percent-back-step-3-credits-B-MCrY_e.png",
+        "url": "https://compass.doordash.studio/nate-clinton/cx-in-store-design-guided-onboarding",
+        "status": "shared-prototype-asset",
+        "guideline": "Third step: Earn credits. Do not promise timing or terms without the historical offer."
+      }
+    ],
+    "missing": "",
+    "notes": ""
+  },
+  {
+    "slide": 4,
+    "title": "Where we started.",
+    "assets": [
+      {
+        "label": "Historical before-state capture target",
+        "path": "",
+        "url": "https://www.figma.com/design/MlcPtTsezjGb1GuFN7tHEN/GO-on-Home-v2---Dec-2025?node-id=2071-8947",
+        "status": "capture-needed",
+        "guideline": "Record 10\u201315 seconds: entry \u2192 initial GO surface \u2192 restaurant/offer. Preserve actual historical version and stop before later redesigns."
+      }
+    ],
+    "missing": "Actual pre-join video is not recovered. Current local reconstruction must not be labeled before.",
+    "notes": "Use a clearly labeled capture placeholder until original footage is available."
+  },
+  {
+    "slide": 5,
+    "title": "My role: discovery.",
+    "assets": [
+      {
+        "label": "Three-lane role diagram",
+        "path": "",
+        "url": "",
+        "status": "editorial-diagram",
+        "guideline": "Three simple lanes: Me \u2014 benefit awareness + discovery; partner \u2014 redemption + merchants + expansion; partner \u2014 reservations. Highlight only my lane."
+      }
+    ],
+    "missing": "Designer names and exact collaboration boundaries to confirm if names are displayed.",
+    "notes": "Use the user-supplied three-designer scope. Original role evidence: research/overnight-evidence/ledger.md; do not imply ownership of all shared product screens."
+  },
+  {
+    "slide": 6,
+    "title": "Three gaps.",
+    "assets": [
+      {
+        "label": "Research and problem evidence",
+        "path": "research/overnight-evidence/go-ia-sprint.png",
+        "url": "https://www.figma.com/slides/oqwFIZMFuQdZKVzFf5XN2d/Scaling-Going-Out-Design-Sprint---Deck?node-id=1-55351",
+        "status": "process-export",
+        "guideline": "Use as small evidence crop or presenter reference. Three sparse problem labels: Going out? / How? / Why me?"
+      }
+    ],
+    "missing": "Exact participant quotes and matching original journey crops.",
+    "notes": "Do not invent quotes, sample sizes, or a research statistic. Show the three user-requested problems; keep receipts in notes."
+  },
+  {
+    "assets": [],
+    "missing": [],
+    "slide": 7,
+    "title": "What didn\u2019t work."
+  },
+  {
+    "slide": 8,
+    "title": "Three early bets.",
+    "assets": [
+      {
+        "label": "Map first",
+        "path": "review/beyond-delivery/story-v2/assets/experiment-map-source.png",
+        "status": "Source-native design reference",
+        "guideline": "No phone bezel. Rounded screenshot and subtle shadow. Confirm historical tested variant before describing as exact experiment screenshot."
+      },
+      {
+        "label": "Guided onboarding",
+        "path": "review/beyond-delivery/story-v2/assets/experiment-education-source.png",
+        "status": "Source-native design reference",
+        "guideline": "No phone bezel. Rounded screenshot and subtle shadow. Confirm historical tested variant before describing as exact experiment screenshot."
+      },
+      {
+        "label": "First-visit $5 boost",
+        "path": "review/beyond-delivery/story-v2/assets/experiment-first-visit-source.png",
+        "status": "Source-native design reference",
+        "guideline": "No phone bezel. Rounded screenshot and subtle shadow. Confirm historical tested variant before describing as exact experiment screenshot."
+      }
+    ],
+    "missing": [
+      "Confirmation that source-native designs match exact historical test variants"
+    ],
+    "notes": "One slide, three screens. User-confirmed worse/unchanged aggregate results; no invented deltas. Education-completer redemption does not establish causality. Homepage experiment: https://docs.google.com/document/d/18CPH30ldL2VXa-PFP6FNShMfsb9EsymD4bdfsLD1n4U/edit"
+  },
+  {
+    "slide": 9,
+    "title": "The right sequence.",
+    "assets": [
+      {
+        "label": "Progressive sequence",
+        "path": "",
+        "url": "",
+        "status": "editorial-diagram",
+        "guideline": "Three oversized beats: Care \u2192 Use \u2192 Repeat. No extra slide per child bullet."
+      }
+    ],
+    "missing": "",
+    "notes": "This is Vivian\u2019s design synthesis. Preserve the latest screenshot\u2019s three-part sequence."
+  },
+  {
+    "slide": 10,
+    "title": "Why should I care?",
+    "assets": [
+      {
+        "label": "Question divider",
+        "path": "",
+        "url": "",
+        "status": "typography",
+        "guideline": "Oversized question only; use the Meal Box reference\u2019s spacing and restrained accent. No phone required."
+      }
+    ],
+    "missing": "",
+    "notes": ""
+  },
+  {
+    "slide": 11,
+    "title": "Meet them naturally.",
+    "assets": [
+      {
+        "label": "Supplied benefits recording",
+        "status": "Original quality",
+        "path": "review/beyond-delivery/story-v2/assets/dashpass-benefits-source.mp4",
+        "guideline": "Original supplied asset. Shared 9:41 status overlay conceals recorded time and recording indicator; source retained unchanged."
+      }
+    ],
+    "notes": "Shared store surface. Vivian\u2019s exact claim-flow ownership is not established; show how discovery meets a familiar store context."
+  },
+  {
+    "slide": 12,
+    "title": "From benefit home.",
+    "assets": [],
+    "missing": [
+      "Benefits-home entry capture; intentionally blank."
+    ],
+    "notes": "Do not fabricate an order-status screen and call it launched. Keep a visible source-needed slot until recovered."
+  },
+  {
+    "slide": 13,
+    "title": "Catch attention with familiarity.",
+    "assets": [
+      {
+        "label": "Go Base October",
+        "path": "review/beyond-delivery/go-base-oct/",
+        "status": "Current interactive prototype",
+        "guideline": "Use this latest source. Centered phone for live walkthroughs; static sheet for element callouts."
+      }
+    ],
+    "missing": [],
+    "notes": "Keep offer, familiar places, and claim action visually legible. Do not mix current $12 collar with historical $5 treatment."
+  },
+  {
+    "assets": [
+      {
+        "label": "Go Base October sheet",
+        "path": "review/beyond-delivery/story-v2/assets/go-sheet-top-source.png",
+        "status": "Current prototype capture",
+        "guideline": "Static rounded screen, numbered highlights: benefit framing, daily deals, trending and national favorites."
+      }
+    ],
+    "missing": [],
+    "slide": 14,
+    "title": "Familiarity, made visible."
+  },
+  {
+    "assets": [],
+    "missing": [],
+    "slide": 15,
+    "title": "Once they\u2019re interested, how does it work?"
+  },
+  {
+    "slide": 16,
+    "title": "Explain when it matters.",
+    "assets": [
+      {
+        "label": "Go Base October",
+        "path": "review/beyond-delivery/go-base-oct/",
+        "status": "Current interactive prototype",
+        "guideline": "Use this latest source. Centered phone for live walkthroughs; static sheet for element callouts."
+      }
+    ],
+    "missing": [],
+    "notes": "Merged PR supports Vivian\u2019s linked-card payment step, carousel wiring, strings, analytics, snapshots, banner alignment; not entire claim-flow authorship."
+  },
+  {
+    "slide": 17,
+    "title": "Where can I use this?",
+    "assets": [
+      {
+        "label": "Question divider",
+        "path": "",
+        "url": "",
+        "status": "typography",
+        "guideline": "Oversized question only. This is the transition into breadth and repeat relevance."
+      }
+    ],
+    "missing": "",
+    "notes": ""
+  },
+  {
+    "slide": 18,
+    "title": "Find a nearby fit.",
+    "assets": [
+      {
+        "label": "Go Base October",
+        "path": "review/beyond-delivery/go-base-oct/",
+        "status": "Current interactive prototype",
+        "guideline": "Use this latest source. Centered phone for live walkthroughs; static sheet for element callouts."
+      }
+    ],
+    "missing": [],
+    "notes": "Shared Nate map foundation and local selected polish. A preview-card step is a local adapter change; not exact canonical core behavior."
+  },
+  {
+    "slide": 19,
+    "title": "Find your kind of place.",
+    "assets": [
+      {
+        "label": "Collection entry",
+        "path": "review/beyond-delivery/research/collection-figma-entry.png",
+        "url": "https://www.figma.com/design/xbCIQfuwZ4cxsdWrka2yri/GO-search?node-id=522-108469",
+        "status": "original-export",
+        "guideline": "Left phone or crop: curated collection entry."
+      },
+      {
+        "label": "Collection detail",
+        "path": "review/beyond-delivery/research/collection-figma-detail.png",
+        "url": "https://www.figma.com/design/xbCIQfuwZ4cxsdWrka2yri/GO-search?node-id=522-109173",
+        "status": "original-export",
+        "guideline": "Right phone: venue hero + list of places + Claim. One concise connector; this is an alternate discovery route."
+      }
+    ],
+    "missing": "",
+    "notes": "Number-over-photo rail is a separate John visual reference, not this Figma collection: https://compass.doordash.studio/john-salaveria/merge-search-ask-home-results/?prototype=m3&page=mission . Do not attribute that rank treatment to Nate."
+  },
+  {
+    "slide": 20,
+    "title": "Say what you\u2019re looking for.",
+    "assets": [
+      {
+        "label": "Original search design",
+        "path": "/review/beyond-delivery/research/original-flow-images/search-regular.png",
+        "status": "Static original design",
+        "guideline": "October search is not wired. Use this original screen; do not imply the October search field works."
+      }
+    ],
+    "missing": [],
+    "notes": "Prefer these recovered GO-search originals to old Unifying GO node 2394:34565, which failed export and exposed unrelated before-claim content."
+  },
+  {
+    "slide": 21,
+    "title": "Bring me back.",
+    "assets": [
+      {
+        "label": "Return divider",
+        "path": "",
+        "url": "",
+        "status": "typography",
+        "guideline": "Oversized phrase only. Optional very small saved/earned-credit motif; no new feature claims."
+      }
+    ],
+    "missing": "",
+    "notes": ""
+  },
+  {
+    "slide": 22,
+    "title": "Make the reward feel real.",
+    "assets": [
+      {
+        "label": "Go Base October celebration",
+        "path": "review/beyond-delivery/go-base-oct/",
+        "status": "Current prototype",
+        "guideline": "Earned-credit celebration triggered through the real prototype notification."
+      }
+    ],
+    "missing": [],
+    "notes": "Go Big celebration is a stub; showcase deliberately uses reverse-trial-v3 scenario 6. research/asset-run/go-review-source.png is a PROPOSAL divider, never the review/celebration hero. Candidate claimed sheet node510:101310; verify before use."
+  },
+  {
+    "slide": 23,
+    "title": "A more personal next visit.",
+    "assets": [
+      {
+        "label": "Original AI For You treatment",
+        "path": "research/overnight-evidence/ai-for-you-treatment.jpg",
+        "url": "https://docs.google.com/document/d/1BLma4Ddjp_mBchrqzzga1uQQTmMCsOfeJluEI0xkg90/edit",
+        "status": "original-experiment-export",
+        "guideline": "Crop tightly to For you carousel and subtitle. Exclude incidental timer and DashPass colors; those were not part of the AI treatment."
+      },
+      {
+        "label": "Control reference",
+        "path": "research/overnight-evidence/ai-for-you-control.png",
+        "url": "https://docs.google.com/document/d/1BLma4Ddjp_mBchrqzzga1uQQTmMCsOfeJluEI0xkg90/edit",
+        "status": "original-experiment-export",
+        "guideline": "Use only if the comparison helps explain one design decision; otherwise leave in notes."
+      }
+    ],
+    "missing": "Final carousel Figma frame and concrete record of Engineering tuning decisions.",
+    "notes": "Vivian design contribution supported; team experiment launched. Local carousel data are scripted, not live AI. Do not invent fine-tuning details or claim production feedback loop without supporting source."
+  },
+  {
+    "slide": 24,
+    "title": "What changed.",
+    "assets": [
+      {
+        "label": "AI For You team result",
+        "path": "",
+        "url": "https://doordash.enterprise.slack.com/archives/C09JCA9M7PY/p1776193017851599",
+        "status": "corroborated-team-result",
+        "guideline": "At most two large figures: +3.1% relative active GO order conversion; +8.7% offer save rate. Label AI For You \u00b7 team experiment \u00b7 April 2026. Keep exact metric names."
+      },
+      {
+        "label": "Direct implementation receipts",
+        "path": "",
+        "url": "https://github.com/doordash/asgard/pull/159430",
+        "status": "merged-contribution",
+        "guideline": "Optional compact Shipped line: payment onboarding + National Favorites polish. Second PR https://github.com/doordash/asgard/pull/158040 ."
+      }
+    ],
+    "missing": "Original experiment analysis if stronger audit certainty is needed; readouts for broader discovery changes.",
+    "notes": "Do not use self-review Daily Deals/card lifts as audited outcomes. Do not use 53M target, 8% survey context, or program growth as individual project impact. Three entry experiments were worse/unchanged aggregate per user; retain limits in presenter notes."
+  },
+  {
+    "slide": 25,
+    "title": "What if discovery started with the map?",
+    "assets": [
+      {
+        "label": "IA sprint artifact",
+        "path": "research/overnight-evidence/go-ia-sprint.png",
+        "url": "https://www.figma.com/slides/oqwFIZMFuQdZKVzFf5XN2d/Scaling-Going-Out-Design-Sprint---Deck?node-id=1-55351",
+        "status": "process-export",
+        "guideline": "Small inset only; one slide contains the sprint and both examples as requested."
+      },
+      {
+        "label": "Original Matcha result",
+        "path": "review/beyond-delivery/research/original-flow-images/matcha-results.png",
+        "url": "https://www.figma.com/design/ImFkdpSq1pSRJff7WwRHqi/Atlas-Sprint---Working-File?node-id=95-111431",
+        "status": "original-concept-export",
+        "guideline": "Large phone: search Matcha \u2192 drink photo pins \u2192 synchronized place card. Optional aesthetic frame96:47943 adds overlapping interior image, not merely a filter."
+      },
+      {
+        "label": "Original OnRoute animation",
+        "path": "review/beyond-delivery/research/original-flow-images/enroute-original.gif",
+        "url": "https://www.figma.com/slides/BXxFsM1JBuCb1qIbnPu9ON/Project-Atlas?node-id=1-16195",
+        "status": "original-concept-animation",
+        "guideline": "Second large phone, 750\u00d71624 original GIF. Work\u2192home route; coffee stop selection updates detour and place card. Prefer original motion over recreating it."
+      },
+      {
+        "label": "Matcha interactive reconstruction",
+        "path": "/review/beyond-delivery/matcha-map/",
+        "url": "https://docs.google.com/document/d/1PKsfRFEZr4MC2AWTpdmzRVr9_soUE2SG-J77qTzJLXI/edit",
+        "status": "illustrative-prototype",
+        "guideline": "Optional play affordance; keep concept status. Authored PRD supports Vivian\u2019s Matcha concept ownership."
+      }
+    ],
+    "missing": "",
+    "notes": "Keep this as ONE slide, despite two examples. EnRoute original GIF has 204 frames; cached audit inspected frames68/136/203. Shared Atlas authorship; Vivian-specific EnRoute ownership unresolved. Node1:15975 is delivery batching and must not substitute for pickup en route. Map-first can fail entry discovery while becoming useful once intent exists."
+  },
+  {
+    "slide": 26,
+    "title": "From discovering a reward to discovering where to go.",
+    "assets": [
+      {
+        "label": "Small visual reprise",
+        "path": "research/overnight-evidence/ai-for-you-treatment.jpg",
+        "url": "",
+        "status": "original-experiment-export",
+        "guideline": "Optional three small crops: reward \u2192 relevant place \u2192 map concept. One closing sentence dominates; no new chapter."
+      },
+      {
+        "label": "Matcha original reprise",
+        "path": "review/beyond-delivery/research/original-flow-images/matcha-selected.png",
+        "url": "https://www.figma.com/design/ImFkdpSq1pSRJff7WwRHqi/Atlas-Sprint---Working-File?node-id=101-61391",
+        "status": "original-concept-export",
+        "guideline": "Keep concept label; do not imply launched roadmap influence without evidence."
+      }
+    ],
+    "missing": "",
+    "notes": "Close on what Vivian shipped, learned, and proposed. Later October 2026 DashOS vision may be spoken as broader team horizon, not causally attributed to this work."
+  }
+]

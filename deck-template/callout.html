@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deck callout specimen</title>
+  <link rel="stylesheet" href="./device-surface.css">
+  <link rel="stylesheet" href="./callout.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f7f7f7; color: #222; font-family: DeckNorms, Arial, sans-serif; }
+    main { min-height: 100vh; display: grid; place-items: center; padding: 72px 240px; }
+    .deck-callout-anchor { width: 300px; }
+    .phone { width: 300px; height: 570px; }
+    .phone-content { padding: 56px 22px 24px; }
+    .phone-content h1 { margin: 0 0 8px; font-size: 22px; line-height: 1.15; }
+    .phone-content p { margin: 0; font-size: 13px; line-height: 1.45; color: #777; }
+    .phone-card { margin-top: 30px; padding: 18px; border-radius: 18px; background: #f6f6f6; }
+    .phone-card strong { display: block; margin-bottom: 6px; font-size: 15px; }
+    .phone-card p { font-size: 12px; }
+    @media (max-width: 760px) { main { display: block; padding: 30px 18px; } .deck-callout-anchor { display: block; margin: auto; } }
+  </style>
+  <script defer src="./callout.js"></script>
+</head>
+<body>
+  <main>
+    <div class="deck-callout-anchor">
+      <div class="deck-device-surface phone">
+        <div class="phone-content">
+          <h1>Recommended</h1>
+          <p>Everyday value, picked for you</p>
+          <div class="phone-card"><strong>Restaurant meal boxes</strong><p>Full-size meals at an accessible price.</p></div>
+          <div class="phone-card"><strong>Prepared meals</strong><p>Chef-made meals, ready when you are.</p></div>
+        </div>
+      </div>
+      <deck-callout side="left" style="--deck-callout-y: 33%">Recommended</deck-callout>
+      <deck-callout side="right" style="--deck-callout-y: 66%" label="Prepared meals"></deck-callout>
+    </div>
+  </main>
+</body>
+</html>

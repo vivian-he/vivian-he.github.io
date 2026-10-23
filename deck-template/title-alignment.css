@@ -1,0 +1,2 @@
+/* Every left-hand H3 shares one anchor inside the fixed slide canvas. */
+.deck-title-slot{translate:var(--deck-title-shift-x,0px) var(--deck-title-shift-y,0px)}

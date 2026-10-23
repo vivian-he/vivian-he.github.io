@@ -2,9 +2,9 @@
 (() => {
   if (window.DeckAutoplay) return;
   const ROOT = '/review/shared/';
-  const MEALS_DECK = /^\/review\/affordable-story\/(?:index\.html)?$/.test(location.pathname);
+  const MEALS_DECK = /^\/review\/affordable-story\/(?:index\.html|content\.html)?$/.test(location.pathname);
   const PREFERENCE_KEY = 'affordable-meals-deck-autoplay';
-  let enabled = false, controller, flows = [], lastKey = '', pausedKey = '', status, toggle, replay;
+  let enabled = false, controller, flows = [], flowsReady = false, explicitChoice = null, lastKey = '', pausedKey = '', status, toggle, replay;
   const bound = new WeakSet(), styled = new WeakSet(), activeDocs = new Set(), originalURLs = new WeakMap();
   const pointers = new Map();
   const abort = () => new DOMException('Autoplay stopped', 'AbortError');
@@ -37,7 +37,7 @@
     return r.bottom > 0 && r.right > 0 && r.top < win.innerHeight && r.left < win.innerWidth;
   }
   function manual(event) {
-    if (!event.isTrusted || event.target.closest?.('#deck-autoplay-controls,#deck-autoplay-replay')) return;
+    if (!event.isTrusted || event.target.closest?.('#deck-autoplay-controls,#deck-autoplay-replay,.contextual-playing')) return;
     if (!enabled) return;
     pausedKey = contextKey(); stop(); status.textContent = 'Paused · manual control';
   }
@@ -126,7 +126,7 @@
     await move(frame,start,signal);perform();
     await move(frame,{x:start.x-(horizontal?r.width*.5*direction:0),y:start.y-(horizontal?0:r.height*.38*direction)},signal,650);
   }
-  async function action(frame, step, signal, key) {
+  async function action(frame, step, signal, key, slowReading = false) {
     // Keep explicit reading holds; trim idle gaps between gestures.
     await wait(step.action === 'hold' ? (step.delay ?? 1400) : (step.delay ?? 1400)*.68,signal); check(signal,key,frame);
     if (step.action === 'hold') return;
@@ -142,12 +142,21 @@
         if(isWebsiteFrame(frame)){
           const r=frame.getBoundingClientRect();
           await move(frame,{x:r.width*.72,y:r.height*.58},signal);
-          scroller.scrollBy({top:step.amount || 320,behavior:reduced ? 'instant' : 'smooth'});
-          await wait(reduced?0:850,signal);
+          if(slowReading && !reduced){
+            // The hub is content to read, so reveal it in short visible increments.
+            for(let part=0;part<5;part++){
+              scroller.scrollBy({top:(step.amount || 320)/5,behavior:'instant'});
+              await wait(380,signal);
+            }
+          } else {
+            scroller.scrollBy({top:step.amount || 320,behavior:reduced ? 'instant' : 'smooth'});
+            await wait(reduced?0:850,signal);
+          }
         } else await swipe(frame,signal,false,()=>scroller.scrollBy({top:step.amount || 320,behavior:reduced ? 'instant' : 'smooth'}),(step.amount||320)<0);
       }
       finally {signal.removeEventListener('abort',cancelScroll);}
       if (Math.abs(scroller.scrollTop - before) < 1) throw new Error('No scroll movement in ' + (step.document || 'preview'));
+      if(slowReading)await wait(1900,signal);
       return;
     }
     const el = await target(frame,step,signal,key);
@@ -159,7 +168,7 @@
       else el.scrollBy({left:step.amount||160,behavior:reduced?'instant':'smooth'});};
       if(isWebsiteFrame(frame)){await move(frame,pointFor(frame,el),signal);perform();}
       else await swipe(frame,signal,step.action==='scrollHorizontal',perform,step.action==='scrollTo'&&el.getBoundingClientRect().top<0);
-      await wait(reduced?0:180,signal);check(signal,key,frame);return;
+      await wait(slowReading ? 1900 : reduced ? 0 : 180,signal);check(signal,key,frame);return;
     }
     el.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
     await wait(80,signal); check(signal,key,frame);
@@ -199,8 +208,9 @@
     delete frame.dataset.preserveAutoplay;
     pointer(frame).layer.classList.remove('is-complete');
     await wait(1000,signal);
+    const slowReading=MEALS_DECK && flow.walk?.includes('notificationHub');
     for (const step of flow.steps) {
-      try {await action(frame,step,signal,key);} catch (error) {
+      try {await action(frame,step,signal,key,slowReading);} catch (error) {
         if (error.name === 'AbortError') throw error;
         if (!step.optional) throw new Error(flow.name + ' · ' + error.message);
       }
@@ -227,9 +237,9 @@
     } catch (error) {if (error.name !== 'AbortError') {status.textContent = 'Autoplay unavailable';stop();}}
   }
   function setEnabled(value) {
-    enabled = !!value; pausedKey = ''; toggle.setAttribute('aria-pressed',String(enabled));toggle.textContent = enabled ? 'Turn Prototype Autoplay Off' : 'Turn Prototype Autoplay On';
+    enabled = !!value; pausedKey = ''; toggle.setAttribute('aria-pressed',String(enabled));toggle.textContent = enabled ? (window.DeckTemplate?.labels.autoplayOn||'Turn Prototype Autoplay Off') : (window.DeckTemplate?.labels.autoplayOff||'Turn Prototype Autoplay On');
     replay.hidden = !enabled;
-    if (enabled) start(contextKey());else {stop();status.textContent = 'Manual';}
+    if (enabled) {if(flowsReady)start(contextKey());}else {stop();status.textContent = 'Manual';}
   }
   async function init() {
     const css = document.createElement('link');css.rel='stylesheet';css.href=ROOT+'deck-autoplay.css';document.head.append(css);
@@ -238,13 +248,13 @@
     const controls = document.createElement('div');controls.id='deck-autoplay-controls';controls.innerHTML='<button type="button" id="deck-autoplay-toggle" aria-pressed="false">Autoplay off</button><button type="button" id="deck-autoplay-replay" hidden>Replay</button><span id="deck-autoplay-status" role="status">Manual</span>';
     (document.querySelector('#workspace > header') || document.body).append(controls);
     toggle=controls.querySelector('#deck-autoplay-toggle');replay=controls.querySelector('#deck-autoplay-replay');status=controls.querySelector('#deck-autoplay-status');
-    toggle.onclick=()=>{setEnabled(!enabled);if(MEALS_DECK)try{sessionStorage.setItem(PREFERENCE_KEY,enabled?'on':'off');}catch{}};replay.onclick=()=>{
+    toggle.onclick=()=>{explicitChoice=!enabled;setEnabled(explicitChoice);if(MEALS_DECK)try{sessionStorage.setItem(PREFERENCE_KEY,enabled?'on':'off');}catch{}};replay.onclick=()=>{
       stop();pausedKey='';
       frames().forEach(frame=>{if(!flowFor(frame))return;const walk=frame.closest('#consumer-walk')?.dataset.step;const entry=window.DECK_PROTOTYPES?.[walk] || originalURLs.get(frame)?.url || frame.getAttribute('src');if(entry)frame.src=entry;});
       start(contextKey());
     };
     document.addEventListener('pointerdown',manual,true);document.addEventListener('keydown',manual,true);document.addEventListener('wheel',manual,{capture:true,passive:true});
-    try {const response=await fetch(ROOT+'autoplay-flows.json');if(!response.ok)throw Error('Flows missing');flows=(await response.json()).flows;} catch {status.textContent='Autoplay unavailable';toggle.disabled=true;return;}
+    try {const response=await fetch(ROOT+'autoplay-flows.json?v=20261018-home-carousel', {cache:'no-store'});if(!response.ok)throw Error('Flows missing');flows=(await response.json()).flows;flowsReady=true;} catch {status.textContent='Autoplay unavailable';toggle.disabled=true;return;}
     lastKey=contextKey();
     setInterval(()=>{
       const key=contextKey();
@@ -252,8 +262,12 @@
       if(enabled&&controller)frames().forEach(documents);
     },150);
     document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();if(enabled){pausedKey=contextKey();status.textContent='Paused · tab hidden';}}});
-    if(MEALS_DECK){let choice;try{choice=sessionStorage.getItem(PREFERENCE_KEY);}catch{}setEnabled(choice!=='off');}
+    if(MEALS_DECK){
+      let choice;try{choice=sessionStorage.getItem(PREFERENCE_KEY);}catch{}
+      const requested=new URLSearchParams(location.search).get('autoplay');
+      setEnabled(explicitChoice??(requested==='1'?true:requested==='0'?false:choice!=='off'));
+    }
   }
-  window.DeckAutoplay={setEnabled, pause:()=>{pausedKey=contextKey();stop();if(status)status.textContent='Paused';}, replay:()=>{pausedKey='';if(enabled)start(contextKey());}, get enabled(){return enabled;}};
+  window.DeckAutoplay={setEnabled, requestEnabled:value=>{explicitChoice=!!value;if(toggle&&enabled!==explicitChoice)setEnabled(explicitChoice);}, pause:()=>{pausedKey=contextKey();stop();if(status)status.textContent='Paused';}, stopCurrent:()=>{pausedKey=contextKey();stop();if(status)status.textContent='Paused · Replay';}, replay:()=>{pausedKey='';if(enabled)start(contextKey());}, get enabled(){return enabled;}};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

@@ -1,5 +1,5 @@
 /* Single reusable iPhone shell. Figma reference 64:24022. */
-.phone-bezel-seal{position:absolute;inset:-1px;z-index:10001;border:1px solid #d9d9dc;border-radius:35px;box-sizing:border-box;pointer-events:none}
+.phone-bezel-seal{position:absolute;inset:-1px;z-index:10001;border:1px solid #d9d9dc;border-radius:var(--deck-phone-inner-radius,35px);box-sizing:border-box;pointer-events:none}
 .shared-system-phone::before,.shared-system-phone::after{display:none!important}
 .device-system-ui{position:absolute;left:0;top:0;width:393px;height:852px;transform:scale(var(--device-scale,1));transform-origin:top left;pointer-events:none;z-index:10000;color:#191919}
 .device-status{position:absolute;top:0;left:0;width:100%;height:59px;box-sizing:border-box;display:grid;grid-template-columns:1fr 125px 1fr;align-items:center;font:600 16px/21px -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-.32px}

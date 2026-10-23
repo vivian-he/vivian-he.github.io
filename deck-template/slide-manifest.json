@@ -1,0 +1,246 @@
+{
+  "affordable-meals": [
+    {
+      "id": "slide-1",
+      "label": "Affordable meals",
+      "group": "Ambition"
+    },
+    {
+      "id": "slide-2",
+      "label": "The affordability problem",
+      "group": "Ambition"
+    },
+    {
+      "id": "slide-3",
+      "label": "The opportunity",
+      "group": "Ambition"
+    },
+    {
+      "id": "initiatives",
+      "label": "Three bets",
+      "group": "Ambition"
+    },
+    {
+      "id": "mealbox-deep-dive",
+      "label": "Restaurant Meal Boxes",
+      "group": "Meal Box scope"
+    },
+    {
+      "id": "mealbox-intro",
+      "label": "The $12 Meal Box",
+      "group": "Meal Box scope"
+    },
+    {
+      "id": "consumer-divider",
+      "label": "Consumer experience",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-7",
+      "label": "Consumer journey",
+      "group": "Customer experience"
+    },
+    {
+      "id": "slide-8",
+      "label": "Meet people where they are",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-9",
+      "label": "Home",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-11",
+      "label": "Browse",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-12",
+      "label": "Search",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-13",
+      "label": "Trusted restaurants",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "consumer-encounter",
+      "label": "Encounter Meal Box",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-14",
+      "label": "Meal details",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-15",
+      "label": "Checkout",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "slide-10",
+      "label": "Browse the selection",
+      "group": "CUSTOMER EXPERIENCE"
+    },
+    {
+      "id": "merchant-divider",
+      "label": "Merchant experience",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "merchant-process",
+      "label": "How merchant work happens",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "merchant-scale",
+      "label": "Scaling the work",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "merchant-enroll",
+      "label": "Enrollment",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "merchant-quality",
+      "label": "Quality review",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "merchant-report",
+      "label": "Report & support",
+      "group": "Merchant & operations"
+    },
+    {
+      "id": "slide-25",
+      "label": "Results",
+      "group": "Learning & vision"
+    },
+    {
+      "id": "slide-27",
+      "label": "What’s next",
+      "group": "Learning & vision"
+    },
+    {
+      "id": "closing-thanks",
+      "label": "Thank you",
+      "group": "Learning & vision"
+    }
+  ],
+  "in-store-rewards": [
+    {
+      "id": "1",
+      "label": "DashPass In-store rewards",
+      "group": "Context & scope"
+    },
+    {
+      "id": "2",
+      "label": "Membership context",
+      "group": "Context & scope"
+    },
+    {
+      "id": "3",
+      "label": "Claim, pay, earn",
+      "group": "Context & scope"
+    },
+    {
+      "id": "4",
+      "label": "Where we started",
+      "group": "Context & scope"
+    },
+    {
+      "id": "6",
+      "label": "Discovery Gaps",
+      "group": "Problem & approach"
+    },
+    {
+      "id": "7",
+      "label": "What didn’t work",
+      "group": "Problem & approach"
+    },
+    {
+      "id": "8",
+      "label": "Consumer mental model",
+      "group": "Problem & approach"
+    },
+    {
+      "id": "9",
+      "label": "How do I know?",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "10",
+      "label": "Familiar restaurants",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "11",
+      "label": "Benefits home",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "12",
+      "label": "Why should I care?",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "13",
+      "label": "Familiarity & relevance",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "14",
+      "label": "How does it work?",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "15",
+      "label": "Timely education",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "16",
+      "label": "Where can I use this?",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "17",
+      "label": "Browse the options",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "18",
+      "label": "Celebrate the reward",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "19",
+      "label": "A personal next visit",
+      "group": "Consumer experience"
+    },
+    {
+      "id": "20",
+      "label": "Results",
+      "group": "Learning & vision"
+    },
+    {
+      "id": "21",
+      "label": "Map-first directions",
+      "group": "Learning & vision"
+    },
+    {
+      "id": "22",
+      "label": "Map use cases",
+      "group": "Learning & vision"
+    },
+    {
+      "id": "23",
+      "label": "Thank you",
+      "group": "Learning & vision"
+    }
+  ]
+}

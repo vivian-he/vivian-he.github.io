@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koji card — smoked glass</title>
+    <style>
+      :root {
+        /* Reference tokens (verbatim) */
+        --glass-bg: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.15) 100%
+        );
+        --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+        --glass-highlight:
+          inset 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 24px 32px rgba(255, 255, 255, 0.15);
+        --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+        /* Smoked-glass (dark) exploration: white text on a neutral
+           black tint. No navy anywhere — all color is borrowed from the
+           FLUX field through the card's backdrop blur + saturation. */
+        --text-main: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.72);
+        --radius-card: 28px;
+        --radius-img: 20px;
+        --radius-pill: 40px;
+        --font-stack:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", sans-serif;
+        /* Koji */
+        --koji-bg-gradient: linear-gradient(90deg, #1c2270 0%, #251f78 50%, #511c80 100%);
+        --koji-tile-fg: #5b21b6;
+        --koji-tile-fg-hover: #3b0764;
+
+        /* ===== Global card surface tokens =====
+           Every card reads these. The fill is a NEUTRAL
+           grayscale tint (0,0,0 = black smoked glass … 255,255,255 =
+           white frosted glass) — color is never baked in; it comes from
+           the FLUX background through --card-blur + --card-saturate. */
+        /* Canonized dark-mode default (tuned live 2026-06-09). */
+        --card-fill: 0, 0, 0; /* rgb triplet — neutral black↔white only */
+        --card-opacity: 0.42; /* fill alpha — main legibility knob */
+        --card-blur: 32px; /* backdrop blur — pulls bg color into the glass */
+        --card-saturate: 145%; /* backdrop saturation — vivid borrowed tint */
+        --card-border-opacity: 0.05; /* white hairline border alpha */
+        --card-shadow-alpha: 0.2; /* drop-shadow darkness (lifts the dark card off the bg) */
+        --card-highlight-alpha: 0; /* inset top highlight alpha (glass sheen) */
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      body {
+        font-family: var(--font-stack);
+        background: var(--koji-bg-gradient);
+        background-attachment: fixed;
+      }
+
+      /* ===== True Koji background: --koji-bg-gradient wash + FLUX shader ===== */
+      #koji-flux {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        opacity: 0.9;
+        pointer-events: none;
+      }
+      #koji-flux canvas {
+        display: block;
+      }
+
+      /* ===== Bands are transparent — the single fixed Koji bg shows through all 5 ===== */
+      .band {
+        width: 100%;
+        padding: 56px 40px 64px;
+        position: relative;
+        z-index: 1;
+        background: transparent !important;
+      }
+      .band-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .band-label {
+        margin-bottom: 22px;
+        color: #f4f4f5;
+      }
+      .band-label h2 {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .band-label span {
+        font-size: 13px;
+        opacity: 0.75;
+      }
+
+      .intro {
+        padding: 44px 40px 8px;
+        max-width: 1240px;
+        margin: 0 auto;
+        color: #f4f4f5;
+        position: relative;
+        z-index: 1;
+      }
+      .intro h1 {
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+      }
+      .intro p {
+        font-size: 14px;
+        color: rgba(244, 244, 245, 0.72);
+        max-width: 720px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+      }
+
+      /* Invented per-band backgrounds removed — all bands now share the true Koji bg. */
+      .orb {
+        display: none;
+      }
+
+      /* ===== Base card — surface driven by global vars (legible on the
+         real Koji background); per-step rules below only change shape,
+         tags, and buttons, NOT the fill. ===== */
+      .glass-card {
+        border: 1px solid rgba(255, 255, 255, var(--card-border-opacity));
+        border-radius: var(--radius-card);
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, var(--card-highlight-alpha)),
+          0 16px 36px rgba(0, 0, 0, var(--card-shadow-alpha));
+        position: relative;
+        /* NO overflow:hidden. A clipped (overflow:hidden + radius) ancestor of
+           a composited raster child is forced to become its own composite/clip
+           layer, which severs the ::before backdrop-filter from the fixed FLUX
+           canvas (card body renders flat-black). The ::before self-clips via
+           border-radius:inherit and the thumbnail self-clips in its own
+           wrapper, so the card never needs to clip — keeping the blur live. */
+      }
+
+      /* Smoked-glass fill + backdrop blur live on a dedicated pseudo-element
+         layer that self-clips via border-radius:inherit. Keeping the card
+         itself free of overflow:hidden (see .glass-card note) means the card
+         is never promoted to a clip layer, so this ::before backdrop-filter
+         keeps sampling the position:fixed FLUX canvas even when the card
+         contains a raster thumbnail. */
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background: rgba(var(--card-fill), var(--card-opacity));
+        backdrop-filter: blur(var(--card-blur)) saturate(var(--card-saturate));
+        -webkit-backdrop-filter: blur(var(--card-blur)) saturate(var(--card-saturate));
+        pointer-events: none;
+      }
+
+      .card-image-wrapper {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: var(--radius-img);
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      /* Raster thumbnail painted as a background-image div. The thumbnail
+         clips itself inside .card-image-wrapper (its own overflow:hidden +
+         radius), so the wrapper — NOT the parent card — owns the clip layer
+         for the composited raster. Because .glass-card no longer sets
+         overflow:hidden (see note on .glass-card), the card itself is never
+         promoted to a clip layer, so its ::before backdrop-filter keeps
+         sampling the position:fixed FLUX canvas behind the card. */
+      .card-image-bg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+      }
+      .img-ph {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #e9efed 0%, #d8e6df 100%);
+      }
+
+      .card-content {
+        padding: 0 12px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        z-index: 2;
+        position: relative;
+      }
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .tag {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-main);
+        background: rgba(255, 255, 255, 0.12);
+        padding: 4px 10px;
+        border-radius: var(--radius-pill);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-main);
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+      .card-desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 24px;
+        flex-grow: 1;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .card-meta {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+      }
+      /* Squared corners to match Pro system buttons (rounded-[min(--radius-md,12px)]) — not pills. */
+      .card-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 36px;
+        padding: 0 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1a1d1c;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        text-decoration: none;
+        transition:
+          background-color 0.16s ease,
+          border-color 0.16s ease,
+          box-shadow 0.16s ease,
+          transform 0.16s ease;
+      }
+      .card-cta svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.16s ease;
+      }
+
+      /* ============ Reference geometry, brand buttons ============ */
+      /* Concentric corners: inner image radius = card radius (24) − card padding (8) = 16. */
+      .s4 .glass-card {
+        --radius-card: 24px;
+        --radius-img: 16px;
+      }
+      /* Pill corners make the tags read as inset vs. the flat-left text below; nudge 1px left to optically align. */
+      .s4 .card-tags {
+        margin-left: -1px;
+      }
+      .s4 .card-image-wrapper {
+        aspect-ratio: 16 / 9;
+      }
+      .s4 .tag {
+        text-transform: none;
+        font-size: 12px;
+        font-weight: 500;
+        height: 24px;
+        padding: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        letter-spacing: 0;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px) saturate(140%);
+        -webkit-backdrop-filter: blur(8px) saturate(140%);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: none;
+        color: var(--text-main);
+        border-radius: 999px;
+      }
+      /* True dark glass: the dark sibling of the light-glass tag (translucent fill + blur, not a flat solid block).
+         Dark border mirrors the light tag's light border. */
+      .s4 .tag.pro {
+        background: rgba(18, 18, 20, 0.6);
+        color: #fff;
+        border-color: rgba(0, 0, 0, 0.35);
+        box-shadow: none;
+      }
+      .s4 .card-cta {
+        border-radius: 12px;
+      }
+      .s4 .card-cta.primary {
+        background: var(--koji-tile-fg);
+        border-color: transparent;
+        color: #fff;
+        box-shadow: none;
+      }
+      /* Primary hover: deepen the brand violet, lift slightly, and nudge the
+         arrow forward to telegraph "go". Active settles it back down. */
+      .s4 .card-cta.primary:hover {
+        background: var(--koji-tile-fg-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+      }
+      .s4 .card-cta.primary:hover svg {
+        transform: translateX(2px);
+      }
+      .s4 .card-cta.primary:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+      }
+      .s4 .card-cta.outline {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-main);
+        box-shadow: none;
+      }
+      /* Outline / overflow hover: fill in faintly and brighten the hairline. */
+      .s4 .card-cta.outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.32);
+      }
+      .s4 .card-cta.outline:active {
+        background: rgba(255, 255, 255, 0.16);
+      }
+      .s4 .overflow.open .overflow-trigger {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.32);
+      }
+      /* Keyboard focus: a clear brand ring on both button kinds. */
+      .s4 .card-cta:focus-visible {
+        outline: none;
+        box-shadow:
+          0 0 0 2px rgba(12, 14, 20, 0.6),
+          0 0 0 4px rgba(124, 58, 237, 0.9);
+      }
+
+      /* Overflow (more-actions) menu — holds Full screen + Clone behind a
+         compact trigger so the row keeps a single primary action. Opens
+         upward so it stays inside the card's overflow:hidden box. */
+      .overflow {
+        position: relative;
+        display: inline-flex;
+      }
+      /* Spread the action row: overflow on the left, primary on the right. */
+      .s4 .actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .s4 .overflow {
+        order: -1;
+      }
+      .overflow-trigger {
+        width: 36px;
+        padding: 0;
+      }
+      .overflow-trigger svg {
+        width: 18px;
+        height: 18px;
+      }
+      .overflow-menu {
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 0;
+        z-index: 5;
+        min-width: 168px;
+        display: none;
+        flex-direction: column;
+        gap: 2px;
+        padding: 6px;
+        border-radius: 14px;
+        background: rgba(20, 18, 44, 0.92);
+        backdrop-filter: blur(20px) saturate(140%);
+        -webkit-backdrop-filter: blur(20px) saturate(140%);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      }
+      .overflow.open .overflow-menu {
+        display: flex;
+      }
+      .overflow.open .overflow-trigger {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .overflow-item {
+        display: flex;
+        align-items: center;
+        height: 34px;
+        padding: 0 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-main);
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .overflow-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="koji-flux" aria-hidden="true"></div>
+
+    <div class="intro">
+      <h1>Smoked-glass cards — neutral black/white tint, color borrowed from the background</h1>
+      <p>
+        Sits on the real Koji backdrop (the <code>--koji-bg-gradient</code> wash + the animated FLUX
+        shader). The card fill is a <strong>neutral grayscale tint</strong> (black by default) — no
+        navy, no baked-in hue. The blur + saturation pull the FLUX color <em>through</em> the glass,
+        so the tint is borrowed, not painted.
+      </p>
+    </div>
+
+    <!-- THE card — Koji dark bg, reference geometry, 3 brand actions -->
+    <section class="band dark s4">
+      <div class="band-inner">
+        <div class="band-label">
+          <h2>Reference geometry, brand buttons</h2>
+          <span
+            >smoked glass + pill buttons, our pills (no uppercase), Stage preview + Full screen +
+            Clone</span
+          >
+        </div>
+        <div class="grid">
+          <article class="glass-card">
+            <div class="card-image-wrapper">
+              <div
+                class="card-image-bg"
+                style="background-image: url(&quot;/_thumbnails/portal-dashboard.png&quot;)"
+              ></div>
+            </div>
+            <div class="card-content">
+              <div class="card-tags">
+                <span class="tag pro">Pro v1.3.0</span><span class="tag">Template</span>
+              </div>
+              <h2 class="card-title">Portal</h2>
+              <p class="card-desc">
+                Unified-app parity — chrome, AI chat, critical alerts, entity and profile pickers.
+              </p>
+              <div class="card-footer">
+                <div class="actions">
+                  <a class="card-cta primary"
+                    >Stage preview<svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" /></svg
+                  ></a>
+                  <div class="overflow">
+                    <button
+                      class="card-cta outline overflow-trigger"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-label="More actions"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <circle cx="5" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="19" cy="12" r="2" />
+                      </svg>
+                    </button>
+                    <div class="overflow-menu" role="menu">
+                      <a class="overflow-item" role="menuitem">Full screen</a
+                      ><a class="overflow-item" role="menuitem">Clone</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="glass-card">
+            <div class="card-image-wrapper"><div class="img-ph"></div></div>
+            <div class="card-content">
+              <div class="card-tags">
+                <span class="tag pro">Pro v1.0.0</span><span class="tag">Legacy</span>
+              </div>
+              <h2 class="card-title">Portal Legacy</h2>
+              <p class="card-desc">
+                Previous Mx Portal home — side rail, topbar, fully responsive across breakpoints.
+              </p>
+              <div class="card-footer">
+                <div class="actions">
+                  <a class="card-cta primary"
+                    >Stage preview<svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" /></svg
+                  ></a>
+                  <div class="overflow">
+                    <button
+                      class="card-cta outline overflow-trigger"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-label="More actions"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <circle cx="5" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="19" cy="12" r="2" />
+                      </svg>
+                    </button>
+                    <div class="overflow-menu" role="menu">
+                      <a class="overflow-item" role="menuitem">Full screen</a
+                      ><a class="overflow-item" role="menuitem">Clone</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="glass-card">
+            <div class="card-image-wrapper"><div class="img-ph"></div></div>
+            <div class="card-content">
+              <div class="card-tags"><span class="tag">@rossoroo</span></div>
+              <h2 class="card-title">Foundry</h2>
+              <p class="card-desc">
+                Foundry for Deliveroo and DoorDash — a field-sales tool that replaces admin work
+                with guided workflows.
+              </p>
+              <div class="card-footer">
+                <div class="actions">
+                  <a class="card-cta primary"
+                    >Stage preview<svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" /></svg
+                  ></a>
+                  <div class="overflow">
+                    <button
+                      class="card-cta outline overflow-trigger"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-label="More actions"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <circle cx="5" cy="12" r="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <circle cx="19" cy="12" r="2" />
+                      </svg>
+                    </button>
+                    <div class="overflow-menu" role="menu">
+                      <a class="overflow-item" role="menuitem">Full screen</a
+                      ><a class="overflow-item" role="menuitem">Clone</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- True Koji background: FLUX shader, lifted verbatim from
+         src/shared/components/lab/FluxShaderBackground.tsx -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      (function () {
+        var container = document.getElementById("koji-flux");
+        if (!container || !window.THREE) return;
+
+        var VERTEX_SHADER = [
+          "varying vec2 vUv;",
+          "void main() {",
+          "  vUv = uv;",
+          "  gl_Position = vec4(position, 1.0);",
+          "}"
+        ].join("\n");
+
+        var FRAGMENT_SHADER = [
+          "uniform float uTime;",
+          "uniform vec2 uResolution;",
+          "varying vec2 vUv;",
+          "vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }",
+          "float snoise(vec2 v){",
+          "  const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);",
+          "  vec2 i  = floor(v + dot(v, C.yy) );",
+          "  vec2 x0 = v -   i + dot(i, C.xx);",
+          "  vec2 i1;",
+          "  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);",
+          "  vec4 x12 = x0.xyxy + C.xxzz;",
+          "  x12.xy -= i1;",
+          "  i = mod(i, 289.0);",
+          "  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));",
+          "  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);",
+          "  m = m*m ; m = m*m ;",
+          "  vec3 x = 2.0 * fract(p * C.www) - 1.0;",
+          "  vec3 h = abs(x) - 0.5;",
+          "  vec3 ox = floor(x + 0.5);",
+          "  vec3 a0 = x - ox;",
+          "  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );",
+          "  vec3 g;",
+          "  g.x  = a0.x  * x0.x  + h.x  * x0.y;",
+          "  g.yz = a0.yz * x12.xz + h.yz * x12.yw;",
+          "  return 130.0 * dot(m, g);",
+          "}",
+          "const int dither[64] = int[64](",
+          "   0, 32,  8, 40,  2, 34, 10, 42, 48, 16, 56, 24, 50, 18, 58, 26,",
+          "  12, 44,  4, 36, 14, 46,  6, 38, 60, 28, 52, 20, 62, 30, 54, 22,",
+          "   3, 35, 11, 43,  1, 33,  9, 41, 51, 19, 59, 27, 49, 17, 57, 25,",
+          "  15, 47,  7, 39, 13, 45,  5, 37, 63, 31, 55, 23, 61, 29, 53, 21",
+          ");",
+          "void main() {",
+          "  int x = int(mod(gl_FragCoord.x, 8.0));",
+          "  int y = int(mod(gl_FragCoord.y, 8.0));",
+          "  float threshold = float(dither[y * 8 + x]) / 64.0;",
+          "  vec2 noiseUV = vUv * 2.0;",
+          "  float n = snoise(noiseUV + vec2(uTime * 0.15, uTime * 0.1));",
+          "  n += 0.5 * snoise(noiseUV * 2.0 - vec2(uTime * 0.2, uTime * 0.05));",
+          "  n = n * 0.5 + 0.5;",
+          "  float rightBias = mix(0.7, 1.25, smoothstep(0.0, 1.0, vUv.x));",
+          "  float waveDensity = n * rightBias;",
+          "  vec3 leftHue   = vec3(0.482, 0.722, 0.957);",
+          "  vec3 centerHue = vec3(0.396, 0.271, 0.886);",
+          "  vec3 rightHue  = vec3(0.835, 0.353, 0.980);",
+          "  vec3 gradient = vUv.x < 0.6",
+          "    ? mix(leftHue, centerHue, smoothstep(0.0, 0.6, vUv.x))",
+          "    : mix(centerHue, rightHue, smoothstep(0.6, 1.0, vUv.x));",
+          "  if (waveDensity > threshold) {",
+          "    gl_FragColor = vec4(gradient, 1.0);",
+          "  } else {",
+          "    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);",
+          "  }",
+          "}"
+        ].join("\n");
+
+        var scene = new THREE.Scene();
+        var camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+        var renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        var geometry = new THREE.PlaneGeometry(2, 2);
+        var material = new THREE.ShaderMaterial({
+          vertexShader: VERTEX_SHADER,
+          fragmentShader: FRAGMENT_SHADER,
+          uniforms: {
+            uTime: { value: 0 },
+            uResolution: { value: new THREE.Vector2(container.clientWidth, container.clientHeight) }
+          },
+          transparent: true
+        });
+        scene.add(new THREE.Mesh(geometry, material));
+
+        var time = 0;
+        function tick() {
+          time += 0.01;
+          material.uniforms.uTime.value = time;
+          renderer.render(scene, camera);
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+
+        window.addEventListener("resize", function () {
+          var w = container.clientWidth,
+            h = container.clientHeight;
+          renderer.setSize(w, h);
+          material.uniforms.uResolution.value.set(w, h);
+        });
+      })();
+    </script>
+
+    <!-- Overflow (more-actions) menu toggle -->
+    <script>
+      (function () {
+        var triggers = Array.prototype.slice.call(document.querySelectorAll(".overflow-trigger"));
+
+        function closeAll(except) {
+          document.querySelectorAll(".overflow.open").forEach(function (o) {
+            if (o === except) return;
+            o.classList.remove("open");
+            var t = o.querySelector(".overflow-trigger");
+            if (t) t.setAttribute("aria-expanded", "false");
+          });
+        }
+
+        triggers.forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var wrap = btn.closest(".overflow");
+            var willOpen = !wrap.classList.contains("open");
+            closeAll(wrap);
+            wrap.classList.toggle("open", willOpen);
+            btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+          });
+        });
+
+        document.addEventListener("click", function () {
+          closeAll(null);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeAll(null);
+        });
+      })();
+    </script>
+  </body>
+</html>

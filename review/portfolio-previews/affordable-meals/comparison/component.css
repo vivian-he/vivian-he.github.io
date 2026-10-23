@@ -1,0 +1,79 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 584px;
+  min-width: 0;
+  justify-self: start;
+  color: #24272b;
+  font-family: DeckNorms, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+.comparison { display: grid; gap: 26px; width: 100%; }
+.snippet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 22px); align-items: start; }
+.comparison-card { min-width: 0; margin: 0; }
+.comparison-card figcaption { margin: 0 0 7px; color: #727983; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.snippet-sheet { min-width: 0; padding: 24px; border-radius: 13px; background: #fff; box-shadow: 0 3px 9px #0000000b, 0 10px 20px #0000000b; }
+.excerpt-sheet { display: grid; gap: 8px; }
+/* Genuine carousel items from the local Meal Box data, with the screenshot's visual grammar. */
+.carousel-sheet h3 { margin: 0 0 10px; font-size: clamp(11px, 1.4vw, 16px); line-height: 1.2; font-weight: 700; letter-spacing: -.025em; }
+.native-carousel { display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; overscroll-behavior-x: contain; }
+.native-carousel::-webkit-scrollbar { display: none; }
+.carousel-page { display: flex; flex: 0 0 100%; min-width: 0; gap: 5px; scroll-snap-align: start; }
+.native-carousel--after .carousel-page { flex-basis: 88%; }
+.meal-item { min-width: 0; flex: 1 1 0; }
+.meal-photo { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1; border-radius: 9px; background: #f1f1f1; }
+.meal-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.add-icon { position: absolute; right: 3px; bottom: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; color: #161616; box-shadow: 0 1px 3px #0003; font-family: Arial,sans-serif; font-size: 19px; font-weight: 400; line-height: 20px; text-align: center; }
+.item-merchant, .item-rating, .item-name, .item-price { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item-merchant { display: flex; align-items: center; gap: 2px; margin-top: 5px; font-size: 9px; font-weight: 700; }
+.dashpass { width: 11px; height: 11px; flex: none; color: #7651e9; }
+.item-rating { margin-top: 2px; color: #666; font-size: 8px; }
+.item-name { margin-top: 5px; font-size: 9px; font-weight: 700; }
+.item-price { margin-top: 4px; color: #e21b00; font-size: 10px; font-weight: 700; }
+.merchant-item { width: 100%; padding: 10px; border: 1px solid #e4e4e4; border-radius: 14px; }
+.merchant-head { position: relative; padding-right: 10px; }
+.merchant-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 11px; font-weight: 700; }
+.merchant-rating { margin-top: 3px; color: #626262; font-size: 9px; }
+.merchant-arrow { position: absolute; top: 0; right: 0; color: #666; font-size: 18px; line-height: 1; }
+.merchant-meals { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; margin-top: 10px; }
+.grouped-meal { min-width: 0; }
+.grouped-price { margin-top: 9px; color: #191919; font-size: 14px; line-height: 1; font-weight: 700; white-space: nowrap; }
+.grouped-price sup { position: relative; top: -.1em; margin-left: 1px; font-size: .6em; line-height: 0; vertical-align: super; }
+.meal-box-tag { display: table; margin-top: 8px; padding: 3px 7px; border-radius: 100px; background: #fff0ed; color: #eb1700; font-size: 9px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
+.grouped-name { margin-top: 6px; min-height: 28px; color: #606060; font-size: 10px; font-weight: 500; line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+/* Bottom excerpts keep their native photographed UI inside one sheet per side. */
+.snippet { position: relative; overflow: hidden; width: 100%; background: #fff; }
+.source-image, .merchant-reframe img { position: absolute; display: block; max-width: none; height: auto; }
+.snippet--all-meals { aspect-ratio: var(--crop-w) / var(--crop-h); --crop-w: 570; }
+.snippet--all-meals .source-image, .merchant-reframe img { width: calc(1578 / var(--crop-w) * 100%); left: calc(-1 * var(--crop-x) / var(--crop-w) * 100%); top: calc(-1 * var(--crop-y) / var(--crop-h) * 100%); }
+.snippet--all-meals.snippet--before { --crop-x: 136; --crop-w: 565; --crop-h: 398; }
+.snippet--all-meals.snippet--before.snippet--tacos { --crop-y: 169; }
+.snippet--all-meals.snippet--before.snippet--sushi { --crop-y: 1014; --crop-h: 394; }
+.snippet--all-meals.snippet--after { --crop-x: 874; --crop-w: 570; --crop-h: 345; }
+.snippet--all-meals.snippet--after.snippet--tacos { --crop-y: 151; }
+.snippet--all-meals.snippet--after.snippet--sushi { --crop-y: 537; }
+.merchant-reframe { position: absolute; top: 0; left: 0; width: 77%; height: 23%; overflow: hidden; background: #fff; }
+.merchant-reframe img { left: calc(-1 * (var(--crop-x) + 87) / var(--crop-w) * 129.87013%); top: calc(-1 * var(--crop-y) / var(--crop-h) * 434.78261%); width: calc(1578 / var(--crop-w) * 129.87013%); }
+@media (max-width: 850px) { :host { justify-self: center; } }
+@media (max-width: 460px) {
+  .comparison { gap: 20px; }
+  .snippet-grid { gap: 10px; }
+  .comparison-card figcaption { font-size: 9px; }
+  .snippet-sheet { padding: 12px; border-radius: 9px; }
+  .excerpt-sheet { gap: 6px; }
+  .carousel-page { gap: 4px; }
+  .native-carousel--before .carousel-page { flex-basis: 130%; }
+  .item-merchant { font-size: 8px; }
+  .item-rating { font-size: 7px; }
+  .item-name { font-size: 8px; }
+  .merchant-item { padding: 7px; }
+  .merchant-name { font-size: 9px; }
+  .merchant-rating { font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) { .native-carousel { scroll-behavior: auto; } }
+
+figcaption,.comparison-card figcaption{display:table;width:auto;max-width:100%;margin:0 auto 12px;padding:5px 10px;border-radius:999px;background:#fff;color:#92979c;font:500 13px/1.35 DeckNorms,Arial,sans-serif;text-transform:none;letter-spacing:0}
+
+figcaption,.comparison-card figcaption{font-family:DeckNorms,Arial,sans-serif;font-size:14px;font-weight:600;line-height:1.35;color:#737980;letter-spacing:.015em;text-transform:none}
+
+figcaption,.comparison-card figcaption{background:transparent;border:0;padding:0;margin-bottom:14px}
