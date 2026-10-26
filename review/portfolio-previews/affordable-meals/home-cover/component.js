@@ -13,7 +13,7 @@
       const shadow = this.attachShadow({mode: 'open'});
       shadow.innerHTML = `
         <link rel="stylesheet" href="/deck-template/device-surface.css">
-        <link rel="stylesheet" href="${base}component.css">
+        <link rel="stylesheet" href="${base}component.css?v=chrome72">
         <figure class="cover" aria-label="DoorDash Home with the $12 full size meals carousel">
           <div class="phone deck-device-surface">
             <div class="screen"><iframe title="DoorDash Home, $12 full size meals carousel" src="${base}native-embed.html" loading="eager"></iframe></div>
