@@ -4,3 +4,6 @@
 .phone { --deck-screen-aspect: 254 / 534; width: min(100%,var(--deck-preview-phone-width,280px)); aspect-ratio: 254 / 534; position: relative; flex: none; }
 .screen { position: absolute; inset: 0; overflow: hidden; border-radius: var(--deck-phone-inner-radius, 37px); background: #fff url("/assets/portfolio-home/screens/meals-home-carousel-native.png") top center / 100% auto no-repeat; }
 .screen iframe { position: absolute; display: block; top: 0; left: 0; width: 393px; height: 852px; border: 0; background: white; transform-origin: top left; }
+
+/* Use the exact homepage chrome for both the loading cover and live prototype. */
+.screen::after { content: ''; position: absolute; z-index: 5; inset: 0 0 auto; aspect-ratio: 393 / 54; background: url('/review/portfolio-home/phone-status.svg?v=1') top left / 100% 100% no-repeat; pointer-events: none; }
