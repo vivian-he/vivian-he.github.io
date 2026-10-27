@@ -22,8 +22,9 @@ class RewardsRelevanceStory extends HTMLElement {
     this.mounted = true;
     addStyles();
     this.classList.add('rewards-future', 'rewards-future--relevance');
+    const feedbackURL=new URL(reviewFlow);if(this.getAttribute('review-start')==='notification')feedbackURL.searchParams.set('start','notification');
     const items = [
-      { label: 'Feedback collection', url: reviewFlow },
+      { label: 'Feedback collection', url: feedbackURL },
       { label: 'Personalized suggestions', url: forYouFlow }
     ];
     this.innerHTML = `<div class="rewards-future__grid rewards-future__grid--pair">${items.map(item => `

@@ -43,4 +43,6 @@ figcaption,.comparison-card figcaption{font-family:DeckNorms,Arial,sans-serif;fo
 
 figcaption,.comparison-card figcaption{background:transparent;border:0;padding:0;margin-bottom:14px}
 
-.dashboard-callout .deck-callout-caption{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.dashboard-callout .deck-callout-caption{display:block;max-width:110px;line-height:1.4;overflow:visible}
+
+:host(:not([data-layout-ready])) .screen-example--after{opacity:0;pointer-events:none}

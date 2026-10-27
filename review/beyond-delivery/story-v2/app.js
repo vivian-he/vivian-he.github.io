@@ -72,7 +72,7 @@ function go(i){
  while(phoneScenes.size>3){const [oldId,oldScene]=phoneScenes.entries().next().value;oldScene.remove();phoneScenes.delete(oldId);}
 
  const url=new URL(location.href);url.searchParams.set('slide',s.id);url.hash=String(current+1);history.replaceState(null,'',url);
- renderOutline();const reviewURL=new URL(location.href);if(review)reviewURL.searchParams.delete('mode');else reviewURL.searchParams.set('mode','review');$('#review-link').href=reviewURL.href;const commentsURL=new URL(location.href);commentsURL.port=query.get('feedback')==='1'?'8002':'8004';commentsURL.searchParams.delete('mode');if(query.get('feedback')==='1'){commentsURL.searchParams.delete('feedback');$('#comments-link').textContent='Presentation version';}else commentsURL.searchParams.set('feedback','1');$('#comments-link').href=commentsURL.href;$('#slide').className=s.layout+(s.resultGroups&&query.get('master')==='1'?' master-results':'');
+ renderOutline();const reviewURL=new URL(location.href);if(review)reviewURL.searchParams.delete('mode');else reviewURL.searchParams.set('mode','review');$('#review-link').href=reviewURL.href;const commentsURL=new URL(location.href);commentsURL.searchParams.delete('mode');if(query.get('feedback')==='1'){commentsURL.searchParams.delete('feedback');$('#comments-link').textContent='Presentation version';}else commentsURL.searchParams.set('feedback','1');$('#comments-link').href=commentsURL.href;$('#slide').className=s.layout+(s.resultGroups&&query.get('master')==='1'?' master-results':'');
  if(!reused){
  $('#slide').innerHTML='<section class="copy"><div class="eyebrow">'+esc(s.chapter)+'</div><h1>'+paragraphs(s.title)+'</h1>'+(s.body?'<p class="body">'+paragraphs(s.body)+'</p>':'')+'</section><section class="stage">'+visual(s)+'</section>';
  const typeRole=s.id==='1'?'h2':s.layout.split(' ').some(name=>['meal-phone','meal-transition'].includes(name))?'phone-title':'h3';
@@ -142,7 +142,7 @@ window.addEventListener('message',e=>{
  }
 });
 window.addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n&&n-1!==current)go(n-1);});
-window.DeckTemplate.mountShell({backHref:'http://127.0.0.1:8001/'});
+window.DeckTemplate.mountShell({backHref:'/'});
 document.body.classList.add(review?'review-mode':'presentation-mode');
 setOutline(innerWidth>760);
 $('#review-link').href=(()=>{const url=new URL(location.href);if(review){url.searchParams.delete('mode');$('#review-link').textContent='Presentation view';}else url.searchParams.set('mode','review');return url.href;})();

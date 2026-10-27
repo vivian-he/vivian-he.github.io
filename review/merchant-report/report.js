@@ -3,6 +3,7 @@
   const $=s=>document.querySelector(s);
   const email=$('#email'),portal=$('#portal'),frame=portal.querySelector('iframe'),emailFrame=$('#email-source'),back=$('#back'),zoom=$('#zoom'),address=$('#address'),scroller=$('#email-scroll'),focusButton=$('#focus-email');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const deckEmail=new URLSearchParams(location.search).get('deck')==='1';document.body.classList.toggle('deck-email',deckEmail);
   let generation=0,portalFocused=false,portalObserver;
   const restore=document.createElement('button');restore.className='return-chrome';restore.textContent='Show Gmail';restore.setAttribute('aria-label','Show Gmail chrome');document.body.append(restore);
   const state=view=>{document.documentElement.dataset.reportView=view;window.dispatchEvent(new CustomEvent('merchant-report-state',{detail:{view}}));};
@@ -43,6 +44,20 @@
     },true);
   }
   emailFrame.addEventListener('load',prepareEmail);
+  // Keep deck callouts attached to their actual email sections as it scrolls.
+  function sendDeckMarkers(){
+    if(!deckEmail||parent===window)return;
+    const doc=emailFrame.contentDocument,fr=emailFrame.getBoundingClientRect(),clip=scroller.getBoundingClientRect();
+    const targets=[['A person to contact',doc?.querySelector('.report-context')],['Show program value',doc?.querySelector('.metrics')],['A practical next step',[...(doc?.querySelectorAll('h3')||[])].find(x=>x.textContent.includes('Keep vegetable'))]];
+    const markers=portal.hidden?targets.filter(([,el])=>el).map(([label,el])=>{const r=el.getBoundingClientRect();const y=fr.top+r.top+r.height/2;return{label,x:fr.left+r.left+r.width*.65,y,visible:y>clip.top+8&&y<clip.bottom-8}}):[];
+    const origin=document.referrer?new URL(document.referrer).origin:location.origin;
+    parent.postMessage({type:'merchant-email-markers',markers},origin);
+  }
+  let markerQueued=false;const scheduleMarkers=()=>{if(!markerQueued){markerQueued=true;requestAnimationFrame(()=>{markerQueued=false;sendDeckMarkers()})}};
+  scroller.addEventListener('scroll',scheduleMarkers,{passive:true});
+  emailFrame.addEventListener('load',()=>{scheduleMarkers();emailFrame.contentDocument?.fonts?.ready.then(scheduleMarkers)});
+  window.addEventListener('resize',scheduleMarkers);window.addEventListener('merchant-report-state',scheduleMarkers);
+
   new ResizeObserver(size).observe(portal);
   function focusEmail(value=true){document.body.classList.toggle('email-focus',Boolean(value));focusButton.textContent=value?'Show Gmail':'Focus email';state(value?'email-focus':'email');return value;}
   function reset(){stop();portal.hidden=true;email.hidden=false;back.hidden=zoom.hidden=true;focusButton.hidden=false;address.textContent='mail.google.com';portalFocused=false;portal.classList.remove('focus');focusEmail(false);scroller.scrollTop=0;const ps=portalScrollElement();if(ps)ps.scrollTop=0;}

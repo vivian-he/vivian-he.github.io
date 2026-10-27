@@ -28,4 +28,4 @@
 .primary,.secondary{height:50px;min-height:50px}
 .order-info{display:flex;flex-direction:column;padding-bottom:22px}
 .order-info>*{flex-shrink:0}
-.order-info>.entry{margin-top:auto}
+.order-info>.entry{margin-top:12px}

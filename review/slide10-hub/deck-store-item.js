@@ -23,4 +23,25 @@
   let queued=false;
   new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;hooks();});}}).observe(document.body,{childList:true,subtree:true});
   hooks();
+
+  // Opt-in presentation entry. Keep the native store and its manual scroll surface.
+  const start=new URLSearchParams(location.search).get('deckstart');
+  const anchor=start==='featured'?'sec-featured':start==='mealbox'?'sec-12-meals':null;
+  if(anchor){
+    const veil=document.createElement('style');
+    veil.textContent='#root{visibility:hidden}';
+    document.head.append(veil);
+    let attempts=0;
+    const reveal=()=>veil.remove();
+    const position=()=>{
+      const section=document.getElementById(anchor);
+      if(!section){if(++attempts<120)requestAnimationFrame(position);else reveal();return}
+      const scroll=(()=>{let el=section.parentElement;while(el&&el!==document.body){const css=getComputedStyle(el);if(/auto|scroll/.test(css.overflowY)&&el.scrollHeight>el.clientHeight+5)return el;el=el.parentElement}return null})();
+      if(!scroll){if(++attempts<120)requestAnimationFrame(position);else reveal();return}
+      const offset=anchor==='sec-featured'?180:130;
+      scroll.scrollTop+=section.getBoundingClientRect().top-scroll.getBoundingClientRect().top-offset;
+      requestAnimationFrame(()=>{scroll.scrollTop+=section.getBoundingClientRect().top-scroll.getBoundingClientRect().top-offset;reveal()});
+    };
+    requestAnimationFrame(position);
+  }
 })();

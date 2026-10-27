@@ -1,0 +1,10 @@
+{
+  "sourceBuild": "/Users/vivian.he/Projects/claude-work/cx-afm-design/dist-brief-v4",
+  "sourceDesign": "/Users/vivian.he/Projects/claude-work/cx-afm-design/prototypes/mb-brief-v4/BeforeAfter.tsx",
+  "byteIdenticalFiles": 316,
+  "totalBytes": 46616166,
+  "hubIframe": "prototypes/mb-hub-v4/index.html?embed=1&world=after&bigimg=1&nodp=1&storefirst=1&allmeals=1",
+  "searchCanvasFullUIIframe": "prototypes/mb-brief-v4/index.html?embed=1&screen=search&q=pad%20thai&searchcase=item&world=after",
+  "searchInitialSuggestionsIframe": "prototypes/mb-brief-v4/index.html?embed=1&screen=search&searchcase=item&world=after",
+  "verification": "All copied files are byte-identical to source build. Hub HTML HTTP 200 and expected title verified locally. Render verification pending root agent browser (subagent IAB visibility unsupported)."
+}

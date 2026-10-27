@@ -26,3 +26,10 @@ html body .searchdock>b{display:none!important}
 
 html body [data-search-inactive],html body [data-search-inactive]:disabled{opacity:1!important;cursor:default!important}
 html body .search-pill[data-search-inactive] .search-pill__label,html body .sp-fab__search-label{text-align:left!important;justify-content:flex-start!important}
+
+/* One graded blur layer. Avoid stacking a second blur on Home's wrapper. */
+html body .app-footer-blur{background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;mask-image:none!important;-webkit-mask-image:none!important}
+html body .shared-search-scrim,html body .sp-fab__backdrop,html body .app-footer-blur .footer-blur{height:132px!important;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.03) 28%,rgba(255,255,255,.15) 52%,rgba(255,255,255,.42) 76%,rgba(255,255,255,.90) 100%)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.03) 20%,rgba(0,0,0,.14) 40%,rgba(0,0,0,.4) 65%,rgba(0,0,0,.75) 85%,#000 100%)!important;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.03) 20%,rgba(0,0,0,.14) 40%,rgba(0,0,0,.4) 65%,rgba(0,0,0,.75) 85%,#000 100%)!important;transform:none!important}
+
+/* Keep the soft fade while leaving meal photos sharp behind the Search dock. */
+html body .shared-search-scrim,html body .sp-fab__backdrop,html body .app-footer-blur .footer-blur{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=740, initial-scale=1">
+  <title>Affordable Meals final Home walkthrough</title>
+  <style>
+    html,body{margin:0;width:740px;height:100vh;overflow:hidden;background:#f7f7f7}
+    body{display:grid;place-items:center}
+    meal-discovery-story{display:block;width:740px;--deck-preview-phone-width:260px;--deck-preview-phone-aspect:393 / 852;--deck-phone-border-width:7px}
+  </style>
+</head>
+<body>
+  <meal-discovery-story showcase="home"></meal-discovery-story>
+  <script type="module">
+    import '/review/portfolio-previews/affordable-meals/discovery/component.js?v=viewport-fit-2';
+    const story=document.querySelector('meal-discovery-story');
+    const style=document.createElement('style');
+    style.textContent=`
+      .discovery-story{display:block!important;width:100%!important}
+      .discovery-moment{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important;height:100vh!important;min-height:0!important;padding:20px 16px!important}
+      .moment-copy{display:none!important}
+      .discovery-phone{width:260px!important;max-height:605px!important;aspect-ratio:393/852!important;border:7px solid #171717!important;border-radius:44px!important;box-shadow:var(--deck-phone-shadow)!important;overflow:hidden!important}
+      .phone-viewport{inset:0!important;border-radius:37px!important;background:#fff!important}
+      .device-status{background:#fff!important}.device-island{display:block!important}
+    `;
+    story.shadowRoot.append(style);
+  </script>
+</body>
+</html>

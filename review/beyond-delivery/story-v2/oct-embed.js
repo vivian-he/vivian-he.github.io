@@ -1,11 +1,11 @@
 /* Drives the real October assembly. No reconstructed product screens. */
 (() => {
   const query = new URLSearchParams(location.search);
-  const flow = ['store','sheet','claim','map','feed','manual','celebration'].includes(query.get('flow')) ? query.get('flow') : 'store';
+  const flow = ['store','sheet','claim','filtered-claim','map','feed','manual','celebration'].includes(query.get('flow')) ? query.get('flow') : 'store';
   const frame = document.querySelector('#prototype');
   const dots=new Map();
   let playing = query.get('autoplay') === '1', generation = 0, running = false, ready = false;
-  const status = value => parent.postMessage({type:'deck-autoplay-status', status:value, flow}, location.origin);
+  const status = value => {document.documentElement.dataset.playbackStatus=value;parent.postMessage({type:'deck-autoplay-status', status:value, flow}, location.origin);};
   const signal = () => parent.postMessage({type:'deck-autoplay-ready',flow}, location.origin);
   const rootDoc = () => frame.contentDocument;
   const home = () => rootDoc()?.querySelector('#home-frame')?.contentDocument;
@@ -87,10 +87,17 @@
       await tap(()=>home()?.querySelector('[data-tour="going-out-tab"]')||byText(home(),'In-Store Rewards','button,[role="button"]')||home()?.querySelector('[aria-label*="In-Store"]'),token,3000);
       const doc=await waitFor(()=>go()?.querySelector('.pedregal-snap-sheet')&&go(),token);install(doc);await waitFor(()=>doc.querySelector('.pedregal-snap-sheet[data-snap="open"]'),token);
       await delay(1800,token);
-    }else if(flow==='claim'){
+    }else if(flow==='claim'||flow==='filtered-claim'){
       const doc=go();doc.defaultView.dispatchEvent(new Event('oct-hub-enter'));await delay(1200,token);
-      const deal=await waitFor(()=>doc.querySelector('.go-deals .go-deal-card'),token);scrollTo(deal);await delay(1800,token);
-      await tap(()=>deal.querySelector('.go-deal-claim'),token,3000);
+      if(flow==='filtered-claim'){
+        await tap(()=>byText(doc,'Open now','.go-filter-pill-btn'),token,2000);
+        await tap(()=>byText(doc,'Italian','.go-filter-pill-btn'),token,2400);
+        await waitFor(()=>doc.querySelector('.go-deal-grid[aria-busy="false"]'),token);
+        await tap(()=>doc.querySelector('.go-deal-grid .go-popular-claim-btn'),token,3000);
+      }else{
+        const deal=await waitFor(()=>doc.querySelector('.go-deals .go-deal-card'),token);scrollTo(deal);await delay(1800,token);
+        await tap(()=>deal.querySelector('.go-deal-claim'),token,3000);
+      }
       await tap(()=>byText(doc,'View detail'),token,3000);
       const rewards=await waitFor(()=>doc.querySelector('.go-store-overlay--open .go-store-section'),token);
       let scroller=rewards.parentElement;
@@ -109,7 +116,7 @@
         scroller.scrollTo({top:scroller.scrollHeight-scroller.clientHeight,behavior:'smooth'});
       }
       await delay(1600,token);
-    }else if(flow==='feed'){
+    }else if(flow==='feed'||flow==='filtered-claim'){
       const doc=go();
       const content=doc.querySelector('.pedregal-snap-sheet__content');
       content.scrollTo({top:240,behavior:'smooth'});await delay(1800,token);
@@ -150,11 +157,11 @@
   async function prepare(token,previousDoc){
     try{
       const doc=await waitFor(()=>{const current=rootDoc();return current!==previousDoc&&current?.URL!=='about:blank'&&current?.head&&current?.querySelector('.phone')&&current;},token,25000);
-      const css=doc.createElement('style');css.textContent='html,body{padding:0!important;margin:0!important;width:100%!important;height:100%!important;overflow:hidden!important}body,main{display:block!important;min-height:0!important}main{padding:0!important;margin:0!important}.intro{display:none!important}.phone{width:100%!important;height:100vh!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}';doc.head.append(css);frame.contentWindow.dispatchEvent(new Event('resize'));
+      const css=doc.createElement('style');css.textContent='html,body{padding:0!important;margin:0!important;width:100%!important;height:100%!important;overflow:hidden!important}body,main{display:block!important;min-height:0!important}main{padding:0!important;margin:0!important}.intro{display:none!important}.phone{width:100%!important;height:100vh!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none!important}';if(query.get('deckchrome')==='clean')css.textContent+='.phone:after{display:none!important}';doc.head.append(css);frame.contentWindow.dispatchEvent(new Event('resize'));
       await waitFor(activeScreen,token,25000);
-      if(flow==='claim'||flow==='feed'){
+      if(flow==='claim'||flow==='feed'||flow==='filtered-claim'){
         go().defaultView.dispatchEvent(new Event('oct-hub-enter'));
-        if(flow==='feed'){
+        if(flow==='feed'||flow==='filtered-claim'){
           const win=go().defaultView;
           await new Promise(resolve=>win.requestAnimationFrame(()=>win.requestAnimationFrame(resolve)));
           if(token!==generation)throw new Error('reset');
@@ -163,12 +170,34 @@
         }
       }
       if(token!==generation)throw new Error('reset');
+      if(['restaurant','home'].includes(query.get('contextual'))){
+        const screen=home();
+        if(query.get('deckchrome')==='clean'){
+          const style=screen.createElement('style');style.textContent='.dynamic-island,div[style*="width: 131px"][style*="height: 40px"],.home-indicator,.reorder-sheet-home-indicator,[data-deck-home-bar]{display:none!important}';screen.head.append(style);
+          for(const node of screen.querySelectorAll('div')){const cs=screen.defaultView.getComputedStyle(node);if(cs.height==='5px'&&['134px','140px'].includes(cs.width)&&cs.position==='absolute')node.dataset.deckHomeBar='true';}
+          const text=[...screen.querySelectorAll('*')].find(el=>!el.childElementCount&&el.textContent.trim()==='Search DoorDash');
+          let footer=text;while(footer&&footer.parentElement){const cs=screen.defaultView.getComputedStyle(footer);if(cs.position==='absolute'&&cs.bottom==='0px'&&cs.zIndex==='100')break;footer=footer.parentElement;}
+        }
+        const heading=[...screen.querySelectorAll('*')].find(el=>el.childElementCount===0&&el.textContent.trim()==='Your past orders');
+        let section=heading?.parentElement;
+        while(section&&section.querySelectorAll('img').length<2)section=section.parentElement;
+        let card=section?.querySelectorAll('img')[1]?.parentElement;
+        while(card&&card.parentElement&&!/auto|scroll/.test(screen.defaultView.getComputedStyle(card.parentElement).overflowX))card=card.parentElement;
+        if(card?.parentElement){
+          const rail=card.parentElement;rail.scrollLeft=Math.max(0,card.offsetLeft-rail.offsetLeft-18);
+          if(query.get('contextual')==='restaurant'){
+            card.click();
+            await waitFor(()=>screen.querySelector('[data-tour="go-usi-deal"]'),token,15000);
+            screen.defaultView.postMessage({type:'storepage-usi:scroll-to-deal'},location.origin);
+          }
+        }
+      }
       install(docFor());
       if(playing)showInitialPointer();
       frame.style.visibility='visible';ready=true;status('Ready');signal();if(playing)run();
     }catch(e){if(token===generation)status('Loading prototype');}
   }
   function load(){const previousDoc=rootDoc();ready=false;frame.style.visibility='hidden';frame.src=`../go-base-oct/?start=${['store','sheet'].includes(flow)?'home':'go'}&runtime=sheet25`;prepare(generation,previousDoc);}
-  addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent)return;const message=event.data;if(message?.type!=='deck-autoplay')return;if(message.action==='pause'){playing=false;clearDots();status('Paused');}else if(message.action==='reset'){generation++;running=false;playing=true;clearDots();dots.clear();load();}else if(message.action==='play'){playing=true;status('Playing');run();}});
+  addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent)return;const message=event.data;if(message?.type!=='deck-autoplay')return;if(query.get('contextual')==='restaurant'&&query.get('autoplay')==='0'&&message.action!=='pause')return;if(message.action==='pause'){playing=false;clearDots();status('Paused');}else if(message.action==='reset'){generation++;running=false;playing=true;clearDots();dots.clear();load();}else if(message.action==='play'){playing=true;status('Playing');run();}});
   load();
 })();

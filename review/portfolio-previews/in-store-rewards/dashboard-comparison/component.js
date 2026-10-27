@@ -2,9 +2,9 @@ import '/deck-template/callout.js';
 
 const ROOT = new URL('./', import.meta.url);
 const CSS = new URL('./component.css', ROOT);
-CSS.search = 'v=final71';
+CSS.search = 'v=final73';
 const BEFORE = new URL('../../../../references/rewards-preview-content-2026-10-23/old-dashboard.svg', ROOT);
-const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&v=spacing-6', ROOT);
+const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&v=spacing-7', ROOT);
 const ADAPTER = new URL('../../../beyond-delivery/go-base-oct/rewards-dashboard.js', ROOT);
 
 let adapterPromise;
@@ -22,12 +22,9 @@ function loadAdapter() {
 
 const callouts = [
   ['Your benefits', '.oct-benefit-eyebrow'],
-  ['Browse cuisines', '.go-filter-row'],
-  ['Big rewards first', '.go-deals .go-deal-card:first-child'],
-  ['Familiar names', '.latest-national h2'],
-  ['Recognize stores', '.go-benefits-card .go-lunch-name'],
-  ['Claim clearly', '.go-benefits-card:nth-child(2) .go-lunch-claim-btn'],
-  ['Highlight credits', '.go-benefits-card:nth-child(3) .go-lunch-promo-tag']
+  ['Lead with big rewards', '.go-deals-title'],
+  ['Explain after they scroll', '.oct-how-it-works'],
+  ['Store names are easier to recognize', '.go-benefits-card .go-lunch-name']
 ];
 
 class RewardsDashboardComparison extends HTMLElement {
@@ -89,11 +86,14 @@ class RewardsDashboardComparison extends HTMLElement {
     const page = doc.querySelector('.go-page');
     const sheet = doc.querySelector('.pedregal-snap-sheet');
     if (!page || !sheet) return;
-    if (!page.style.getPropertyValue('--rewards-comparison-native-top')) {
-      // Preserve the React screen's own resting sheet position above the feed.
+    if (this.hasAttribute('sheet-near-search')) {
+      // Presentation-only expanded landing: retain the native search chrome,
+      // with just a small map strip between search and the long content sheet.
+      const search = doc.querySelector('.go-search-bar');
+      const searchBottom = search ? search.getBoundingClientRect().bottom - page.getBoundingClientRect().top : 109;
+      page.style.setProperty('--rewards-comparison-native-top', `${Math.round(searchBottom + 12)}px`);
+    } else if (!page.style.getPropertyValue('--rewards-comparison-native-top')) {
       const nativeTop = sheet.getBoundingClientRect().top - page.getBoundingClientRect().top;
-      // Keep the phone's opening map visible even if the outer preview iframe
-      // is taller than the original phone viewport during first render.
       page.style.setProperty('--rewards-comparison-native-top', `${Math.min(320, Math.max(180, Math.round(nativeTop)))}px`);
     }
     if (!doc.getElementById('rewards-comparison-expanded')) {
@@ -106,12 +106,13 @@ class RewardsDashboardComparison extends HTMLElement {
         .goe2e-root, .goe2e-layer--go, .go-frame { position:relative!important; width:393px!important; height:auto!important; min-height:0!important; overflow:visible!important; }
         .go-page { position:relative!important; top:auto!important; left:auto!important; width:393px!important; height:auto!important; min-height:0!important; padding-top:var(--rewards-comparison-native-top)!important; overflow:visible!important; }
         .go-page > .go-map-container { top:0!important; bottom:auto!important; width:393px!important; height:875px!important; }
-        .pedregal-snap-sheet { position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important; transform:none!important; width:393px!important; height:auto!important; max-height:none!important; border-radius:0!important; box-shadow:none!important; overflow:visible!important; }
+        .pedregal-snap-sheet { position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important; transform:none!important; width:393px!important; height:auto!important; max-height:none!important; border-radius:24px 24px 0 0!important; box-shadow:none!important; overflow:hidden!important; }
         .pedregal-snap-sheet__content { height:auto!important; max-height:none!important; overflow:visible!important; }
         .go-filter-row { position:relative!important; top:auto!important; }
       `;
       doc.head.append(style);
     }
+    await doc.fonts.ready;
     this.setAttribute('data-ready', '');
     this.measure();
     this.refreshNativeMap();
@@ -138,6 +139,7 @@ class RewardsDashboardComparison extends HTMLElement {
     if (fullHeight < 900) return;
     const width = this.surface.clientWidth;
     const scale = width / 393;
+    this.setAttribute('data-layout-ready','');
     this.frame.style.height = `${fullHeight}px`;
     this.frame.style.transform = `scale(${scale})`;
     this.surface.style.height = `${Math.round(fullHeight * scale)}px`;
@@ -168,7 +170,7 @@ class RewardsDashboardComparison extends HTMLElement {
       if (!target) return;
       const node = nodes[index];
       const halfHeight = node.getBoundingClientRect().height / 2;
-      const labelCenter = target.y;
+      const labelCenter = Math.max(target.y, previousBottom + halfHeight + 18);
       node.style.setProperty('--deck-callout-y', `${labelCenter}px`);
       previousBottom = labelCenter + halfHeight;
     });
@@ -179,7 +181,7 @@ class RewardsDashboardComparison extends HTMLElement {
       const captionRect = caption.getBoundingClientRect();
       const x2 = captionRect.left - anchorRect.left - 5;
       const y2 = captionRect.top + captionRect.height / 2 - anchorRect.top;
-      return [{x1:width + 7, y1:target.y, x2, y2:target.y}];
+      return [{x1:width + 7, y1:target.y, x2, y2}];
     });
     const leaderWidth = Math.ceil(Math.max(width, ...lines.map(line => line.x2 + 2)));
     this.leaders.setAttribute('width', String(leaderWidth));

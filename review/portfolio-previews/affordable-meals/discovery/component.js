@@ -33,7 +33,7 @@
   class MealDiscoveryStory extends HTMLElement {
     connectedCallback() {
       if (this.shadowRoot) {
-        this.shadowRoot.querySelectorAll('.discovery-phone').forEach(phone => this._resize?.observe(phone));
+        this.shadowRoot.querySelectorAll('.discovery-phone').forEach(phone => this._resize?.observe(phone.querySelector('.phone-viewport')));
         this.shadowRoot.querySelectorAll('.discovery-moment').forEach(moment => this._observer?.observe(moment));
         document.addEventListener('visibilitychange',this._visibility);
         window.addEventListener('message',this._message);
@@ -62,7 +62,8 @@
       const story = document.createElement('div');
       story.className = 'discovery-story deck-device-canvas';
       story.setAttribute('aria-label', 'Three ways to discover a $12 Meal Box');
-      moments.forEach(({lines, walk, state, title}, index) => {
+      const activeMoments=this.getAttribute('showcase')==='home'?[{lines:[],walk:'home',state:'home',title:'Final Meal Box Home to hub walkthrough'}]:moments;
+      activeMoments.forEach(({lines, walk, state, title}, index) => {
         const moment = document.createElement('article');
         moment.className = 'discovery-moment';
         moment.dataset.state = state;
@@ -99,14 +100,17 @@
 
       const resize = new ResizeObserver(entries => {
         for (const entry of entries) {
-          const phone = entry.target;
-          const viewport = phone.querySelector('.phone-viewport');
+          const viewport = entry.target;
+          const phone = viewport.closest('.discovery-phone');
           const scale = viewport.clientWidth / 393;
           viewport.style.setProperty('--phone-scale', scale);
+          // Fit the actual inner screen: a bezel changes its aspect ratio.
+          const frame = viewport.querySelector('iframe');
+          if (frame && scale > 0) frame.style.height = `${viewport.clientHeight / scale}px`;
           phone.style.setProperty('--phone-scale', scale);
         }
       });
-      story.querySelectorAll('.discovery-phone').forEach(phone => resize.observe(phone));
+      story.querySelectorAll('.discovery-phone').forEach(phone => resize.observe(phone.querySelector('.phone-viewport')));
       this._resize = resize;
 
       this._ratios=new Map(); this._played=new WeakSet(); this._manual=new WeakSet(); this._boundDocs=new WeakSet();
@@ -232,6 +236,7 @@
         const flow=flows.find(recipe=>recipe.walk?.includes(walk));
         if(!flow)throw Error('Original '+walk+' recipe unavailable');
         for(const step of flow.steps){
+          if(this.getAttribute('showcase')==='home'&&step.selector==='#launch')continue;
           if(signal.aborted||document.hidden||scene!==this._active)throw new DOMException('Stopped','AbortError');
           await this._step(scene,step,signal);
         }

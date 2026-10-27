@@ -38,6 +38,12 @@ async function sequence(token){
   const title=await find(()=>doc.querySelector('.after-base')?.contentDocument?.querySelector('#go-frame')?.contentDocument?.querySelector('.after-for-you--ready .after-for-you-title'),token);bindManual(title.ownerDocument);
   await delay(800,token);await touch(title,token,false);await delay(2100,token);
  }else{
+  if(params.get('start')==='notification'){
+   const notification=await find(()=>doc.querySelector('.after-notification'),token);
+   await delay(2200,token);await touch(notification,token);await delay(600,token);
+   const reaction=await find(()=>doc.querySelector('.after-prompt button[aria-label="Loved it!"]'),token);
+   await delay(1100,token);await touch(reaction,token);
+  }
   const first=await find(()=>doc.querySelector('.after-review .after-highlight'),token);
   await delay(800,token);await touch(first,token);
   const second=await find(()=>doc.querySelectorAll('.after-review .after-highlight')[5],token);
@@ -72,8 +78,19 @@ async function signalWhenReady(token,previousDoc){
   bindManual(doc);
   if(isForYou){
    const home=doc.querySelector('.after-base')?.contentDocument?.querySelector('#home-frame')?.contentDocument;
-   if(home){bindManual(home);const entry=[...home.querySelectorAll('button,a,[role="button"]')].find(el=>/in.store\s+rewards/i.test((el.getAttribute('aria-label')||'')+' '+el.textContent)&&el.getBoundingClientRect().width>0);if(entry){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}}
+   if(home){bindManual(home);const entry=[...home.querySelectorAll('button,a,[role="button"]')].find(el=>/in.store\s+rewards/i.test((el.getAttribute('aria-label')||'')+' '+el.textContent)&&el.getBoundingClientRect().width>0);if(entry){
+ if(params.get('showcase')==='1'){
+  entry.click();
+  for(let j=0;j<180&&token===generation;j++){
+   const go=doc.querySelector('.after-base')?.contentDocument?.querySelector('#go-frame')?.contentDocument;
+   if(go?.querySelector('.after-for-you--ready')){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}
+   await sleep(100);
+  }
+ }
+ parent.postMessage({type:'deck-autoplay-ready'},location.origin);return
+}}
   }else if(doc.querySelector('.after-notification')){
+   if(params.get('start')==='notification'){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}
    // The source's review stage is the actual feedback screen; skip its lock-screen prelude here.
    frame.contentWindow.postMessage({type:'base-after:reset',stage:'review'},location.origin);
    for(let j=0;j<120&&token===generation;j++){if(doc.querySelector('.after-review .after-highlight')){parent.postMessage({type:'deck-autoplay-ready'},location.origin);return}await sleep(100)}

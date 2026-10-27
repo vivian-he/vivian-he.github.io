@@ -6,8 +6,8 @@
   --deck-canvas-background: #f7f7f7;
   --deck-phone-edge: #171717;
   --deck-phone-border-width: 7px;
-  --deck-phone-radius: 44px;
-  --deck-phone-inner-radius: 37px;
+  --deck-phone-radius: 17.322835% / 8.2397%;
+  --deck-phone-inner-radius: 15.416667% / 7.115385%;
   --deck-phone-rim: inset 0 0 0 1px #606060, 0 0 0 1px #767676, 0 0 0 2px #c4c4c4, 1px 0 0 3px #a0a0a0;
   --deck-phone-cast-shadow: 1px 3px 5px -1px #00000016, 7px 12px 18px -5px #0000001c, 12px 24px 32px -9px #00000014;
   --deck-phone-shadow: var(--deck-phone-rim), var(--deck-phone-cast-shadow);

@@ -8,3 +8,10 @@
 .source-bridge button{background:#570000;color:#fff;border-radius:999px;font-weight:700;padding:12px 20px}
 .source-bridge button:hover{background:#760b0b}
 @media(max-width:650px){.email-paper,.email-focus .email-paper{width:100%}}
+
+/* Presentation-only compact chrome, with the full email independently scrollable. */
+.deck-email .gmail,.deck-email .mail-layout>aside,.deck-email #focus-email,.deck-email .return-chrome{display:none!important}
+.deck-email .mail-layout{height:calc(100vh - 38px);grid-template-columns:1fr;padding-right:0}
+.deck-email .mail-layout>article{border-radius:0}
+.deck-email .scroll{padding:20px 28px 40px}
+.deck-email .email-paper{width:min(100%,680px)}

@@ -1,5 +1,8 @@
 // Canonical consumer screen sources. Slide wrappers own transitions, never screen copies.
 window.CONSUMER_SCREENS=Object.freeze({
+ feedback:'/review/mealbox-review/index.html?rev=review-bottom-3&flowScreen=form',
+ browse:'/review/consumer-prototype/index.html?state=suggestions&embed=1',
+ searchResults:'/review/slide12-search/index.html?flowScreen=results&autoplay=0',
  home:'/review/slide11-browse/app/index.html?embed=1&homebase=1&rev=shared-oct7',
  store:'/review/slide10-hub/prototypes/mb-brief-v4/index.html?embed=1&world=after&screen=store&storeexp=subtitle&deckdemo=1&rev=shared-oct7',
  item:'/review/slide10-hub/prototypes/mb-brief-v4/index.html?embed=1&world=after&screen=item&itemexp=o3&usiexp=c&deckdemo=1&rev=shared-oct7',

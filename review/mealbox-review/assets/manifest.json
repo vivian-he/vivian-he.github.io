@@ -1,0 +1,87 @@
+{
+  "burrito.png": {
+    "url": "https://www.figma.com/api/mcp/asset/9fe56662-21f4-4deb-9ce7-237fa35b3792.png",
+    "context": "gntso14p",
+    "slot": "imgItemImage"
+  },
+  "thumb-down.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/d0d741cb-c02f-4d85-bc4a-1de9b7b7575e.svg",
+    "context": "gntso14p",
+    "slot": "img24ThumbsDownLine"
+  },
+  "thumb-up.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/6809e011-33cc-4003-87f6-cd1d0b9b06cd.svg",
+    "context": "gntso14p",
+    "slot": "img24ThumbsUpLine"
+  },
+  "photo-bad.png": {
+    "url": "https://www.figma.com/api/mcp/asset/6373a6c0-d85c-4894-a167-dd566f27213a.png",
+    "context": "n9na_n0q",
+    "slot": "imgFrame2025787595"
+  },
+  "photo-good.png": {
+    "url": "https://www.figma.com/api/mcp/asset/6834b104-0edd-4de6-a58d-9a6152a183bf.png",
+    "context": "n9na_n0q",
+    "slot": "imgFrame2025787596"
+  },
+  "utensil.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/f47e07d5-f7e5-4b98-8788-21e61bbd98b6.svg",
+    "context": "n9na_n0q",
+    "slot": "img24FoodLine"
+  },
+  "bowl.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/ec5f8b5f-cdd6-4d4a-a48a-19e21f59b9d4.svg",
+    "context": "n9na_n0q",
+    "slot": "img24FoodBowlLine"
+  },
+  "light.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/3d320519-b769-46a7-9692-53c78c893ddb.svg",
+    "context": "n9na_n0q",
+    "slot": "imgBlob24BlobAvoblob"
+  },
+  "camera-meal.png": {
+    "url": "https://www.figma.com/api/mcp/asset/5b6bbbf7-2da5-49c7-abf4-99f4a46ba5a7.png",
+    "context": "vffs1ikl",
+    "slot": "img4Lr2Bagb2Hbwg3Lvntcxsp451"
+  },
+  "focus.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/4f618328-a7c0-45e3-bf87-a68cf6df456a.svg",
+    "context": "vffs1ikl",
+    "slot": "imgFocusArea"
+  },
+  "shutter.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/2111024a-dd35-49ac-b3ef-5aca1cf84c93.svg",
+    "context": "vffs1ikl",
+    "slot": "imgButton"
+  },
+  "close-white.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/40279f9c-9bc2-478a-815c-6e884f1eb3e4.svg",
+    "context": "vffs1ikl",
+    "slot": "imgClose24Close"
+  },
+  "flash.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/e2eddeda-6ed6-4046-a34f-44744c510252.svg",
+    "context": "vffs1ikl",
+    "slot": "img24FlashlightEnabledFill"
+  },
+  "credit.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/d143add0-c142-4683-807e-604bc881b358.svg",
+    "context": "6hmhk498",
+    "slot": "imgArtwork"
+  },
+  "map.png": {
+    "url": "https://www.figma.com/api/mcp/asset/370eac8f-a0ad-44c2-9b46-efd5a6b7b3dc.png",
+    "context": "3bjixr3f",
+    "slot": "imgScreenshot20230223At11491"
+  },
+  "dasher.png": {
+    "url": "https://www.figma.com/api/mcp/asset/15523804-10c8-4308-bf8f-27b42b7668be.png",
+    "context": "3bjixr3f",
+    "slot": "imgClayElliotMpDv4XaFp8CUnsplash1"
+  },
+  "credit-badge.svg": {
+    "url": "https://www.figma.com/api/mcp/asset/6958868e-bddb-4960-9b9a-f35ff4d6e272.svg",
+    "context": "3bjixr3f",
+    "slot": "imgArtwork"
+  }
+}

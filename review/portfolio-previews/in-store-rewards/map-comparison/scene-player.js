@@ -37,6 +37,7 @@ export class RewardsMapPlayer {
       @media(prefers-reduced-motion:reduce){.rewards-story-card-recede .map-preview-pager{transition:none}}
     `;
     doc.head.append(style);
+    doc.defaultView.requestAnimationFrame(()=>doc.defaultView.requestAnimationFrame(()=>doc.defaultView.dispatchEvent(new doc.defaultView.Event('resize'))));
     this.pointer = doc.createElement('i');
     this.pointer.className = 'deck-autoplay-touch rewards-story-pointer';
     this.pointer.setAttribute('aria-hidden','true');

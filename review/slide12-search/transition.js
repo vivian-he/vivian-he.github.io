@@ -27,6 +27,11 @@ function bindHome(){const doc=home.contentDocument;if(!doc)return;doc.addEventLi
 home.addEventListener('load',bindHome);if(home.contentDocument?.readyState==='complete')bindHome();
 
 const resultsFrame=document.querySelector('#search');
+// Comparisons share the final search chrome while retaining current result content.
+if(new URLSearchParams(location.search).get('comparison')==='current'){
+ resultsFrame.src='../cart-checkout/app/prototypes/mb-brief-v4/current-search.html?embed=1&screen=search&q=pad%20thai&searchcase=item&nomb=1&world=before';
+ resultsFrame.title='Current search results';
+}
 function mountResultChrome(){installResultsChrome(resultsFrame,()=>{reset();query.value='pad thai';entry.classList.add('typing');update()})}
 resultsFrame.addEventListener('load',mountResultChrome);if(resultsFrame.contentDocument?.readyState==='complete')mountResultChrome();
 
@@ -36,7 +41,7 @@ if(flowScreen==='cold'||flowScreen==='autocomplete'){
  openSearch();
  if(flowScreen==='autocomplete'){query.value='thai';update()}
 }
-if(flowScreen==='results'){query.value='pad thai';openResults()}
+if(flowScreen==='results'){query.value='pad thai';entry.hidden=true;panel.inert=false;panel.removeAttribute('aria-hidden');panel.style.transform='translateX(0)';loading.hidden=true;home.style.transform='translateX(-25%)'}
 
 if(flowScreen==='loading'){
  query.value='pad thai';entry.hidden=true;panel.inert=false;panel.removeAttribute('aria-hidden');panel.style.transform='translateX(0)';loading.hidden=false;

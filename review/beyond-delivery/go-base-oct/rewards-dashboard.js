@@ -16,7 +16,7 @@
     ['Fogo de Chão', 5]
   ]);
   const css = `
-    .go-page { --oct-rewards-section-space: 12px; }
+    .go-page { --oct-rewards-section-space: 24px; }
     .go-page .oct-feed-content > .go-header { padding-bottom: 14px; }
     .go-page .oct-feed-content > .go-filter-row {
       padding-top: 10px;
