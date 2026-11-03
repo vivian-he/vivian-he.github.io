@@ -748,7 +748,8 @@ body.outline-open:not(.presenting):not(.long-preview-slide) #slide-wrap{transfor
 #slide .why-amazon-slide .ai-process-overview li{max-width:450px!important;white-space:pre-line!important;}
 </style><style>
 /* Slide 15: the long screen scrolls to the display edge, with no bottom mask. */
-body.presenting.long-preview-slide #viewport{margin-bottom:0!important;height:calc(100svh - var(--presentation-padding,5vmin))!important;}
+/* Let the scrolling comparison reach the screen edge before it clips. */
+body.presenting.long-preview-slide #viewport{margin-block:0!important;height:100svh!important;}
 </style><style>
 /* Screen-only previews: soft depth without a hard rim or iframe edge seam. */
 
