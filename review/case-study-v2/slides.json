@@ -129,7 +129,7 @@
   {
     "id": "project-1-divider",
     "project": "In-Store Rewards",
-    "title": "Project 1 · In-Store Rewards",
+    "title": "Project 1 · In-store rewards",
     "subtitle": "",
     "layout": "section-divider project-divider",
     "visual": null,
@@ -640,7 +640,7 @@
     "id": "rewards-personalization",
     "project": "In-Store Rewards",
     "eyebrow": "",
-    "title": "Build the Foundation for Personalization",
+    "title": "Build the foundation for personalization",
     "subtitle": "Feedback signals and taste profiles",
     "visual": {
       "kind": "shared-relevance",
@@ -790,7 +790,7 @@
   {
     "id": "project-2-divider",
     "project": "Affordable Meals",
-    "title": "Project 2 · Affordable Meals",
+    "title": "Project 2 · Affordable meals",
     "subtitle": "",
     "layout": "section-divider project-divider",
     "visual": null,
