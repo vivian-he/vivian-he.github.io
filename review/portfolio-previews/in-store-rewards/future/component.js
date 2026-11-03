@@ -1,6 +1,6 @@
 const base = new URL('./', import.meta.url);
 const css = new URL('./component.css', base);
-css.search = 'v=final71';
+css.search = 'v=deck-relevance2';
 const reviewFlow = new URL('../../../beyond-delivery/story-v2/after-embed.html?flow=review&loop=1', base);
 const forYouFlow = new URL('../../../beyond-delivery/story-v2/after-embed.html?flow=for-you&loop=1', base);
 const sourceMedia = new URL('../../../beyond-delivery/story-v2/assets/slide-25-figma/', base);
@@ -27,7 +27,7 @@ class RewardsRelevanceStory extends HTMLElement {
       { label: 'Feedback collection', url: feedbackURL },
       { label: 'Personalized suggestions', url: forYouFlow }
     ];
-    for(const item of items){item.url=new URL(item.url);item.url.searchParams.set('manual','1');item.url.searchParams.set('manualRev','20261030-final');item.url.searchParams.set('autoplay','0');item.url.searchParams.set('loop','0');}
+    for(const item of items){item.url=new URL(item.url);item.url.searchParams.set('manual',this.hasAttribute('deck-autoplay')?'0':'1');item.url.searchParams.set('manualRev','20261030-final');item.url.searchParams.set('autoplay','0');item.url.searchParams.set('loop','0');}
     this.innerHTML = `<div class="rewards-future__grid rewards-future__grid--pair">${items.map(item => `
       <figure class="rewards-future__figure">
         <div class="rewards-future__phone deck-device-surface">
@@ -53,7 +53,16 @@ class RewardsRelevanceStory extends HTMLElement {
     }), { threshold: .35 });
     this.frames.forEach(frame => {
       this.observer.observe(frame);
-      frame.addEventListener('load', () => { frame.dataset.ready = ''; this.fit(frame); });
+      frame.addEventListener('load', () => { frame.dataset.ready = ''; this.fit(frame);
+        if (this.hasAttribute('deck-autoplay')) {
+          const doc = frame.contentDocument;
+          if (doc?.head) {
+            const chrome = doc.createElement('script');
+            chrome.src = '/review/shared/screen-only-chrome.js?v=initial-home-fix';
+            doc.head.append(chrome);
+          }
+        }
+      });
     });
     this.resizer = new ResizeObserver(() => this.frames.forEach(frame => this.fit(frame)));
     this.resizer.observe(this);
@@ -78,7 +87,7 @@ class RewardsRelevanceStory extends HTMLElement {
     const viewport = frame.parentElement;
     if (viewport) frame.style.transform = `scale(${viewport.clientWidth / 393})`;
   }
-  message(frame, action) { if (action === 'play') return; if (frame?.src) frame.contentWindow?.postMessage({ type: 'deck-autoplay', action }, location.origin); }
+  message(frame, action) { if (action === 'play' && !this.hasAttribute('deck-autoplay')) return; if (frame?.src) frame.contentWindow?.postMessage({ type: 'deck-autoplay', action }, location.origin); }
   disconnectedCallback() {
     this.observer?.disconnect();
     this.resizer?.disconnect();

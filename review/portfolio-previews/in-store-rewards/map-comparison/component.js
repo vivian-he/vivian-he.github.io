@@ -1,5 +1,6 @@
-import {RewardsMapPlayer,REWARDS_SOURCE} from './scene-player.js';
+import {RewardsMapPlayer,REWARDS_SOURCE as BASE_REWARDS_SOURCE} from './scene-player.js?v=basemap4';
 
+const REWARDS_SOURCE = BASE_REWARDS_SOURCE + '&liveMapOnly=1';
 const ROOT=new URL('./',import.meta.url);
 const FRAMES=new URL('./audit-frames.json',ROOT);
 
@@ -55,14 +56,23 @@ class RewardsMapComparison extends HTMLElement {
       if(!this.isConnected||frame!==this.frame)return;
       const doc=frame.contentDocument;
       if(doc?.querySelector('.pedregal-snap-sheet[data-snap="rest"]')&&doc.querySelectorAll('.go-pin').length>4){
-        if(this.manualAfter){
-          const clean=doc.createElement('script');clean.src='/review/shared/touch-interactions.js?v=consistent-6';doc.head.append(clean);
-        }
+        this.applyDeckChrome(doc);
         frame.classList.remove('scene-pending');frame.classList.add('scene-on-top');this.dataset.phase='dashboard';
         this.swapTimer=setTimeout(()=>{if(this.canPlayAfter())player.play();},550);
       }else if(++attempts<180)this.swapTimer=setTimeout(check,100);
       else this.setStatus('V3 map unavailable');
     };check();
+  }
+  applyDeckChrome(doc){
+    if(!this.manualAfter&&!this.hasAttribute('deck-chrome'))return;
+    const chrome=doc.createElement('style');
+    chrome.textContent='[data-deck-hidden-homebar]{display:none!important}.dynamic-island,[class*="__island"],[class$="-island"],div[style*="width: 131px"][style*="height: 40px"]{visibility:hidden!important}.phone:after{display:none!important}.home-indicator,.home-bar,.homeIndicator,[class*="home-indicator"],[class*="homeIndicator"],[class*="home-bar"],.after-home-indicator,.reorder-sheet-home-indicator,div[style*="width: 134px"][style*="height: 5px"],div[style*="width: 140px"][style*="height: 5px"]{display:none!important}';
+    doc.head.append(chrome);
+    if(this.manualAfter){
+      const clean=doc.createElement('script');
+      clean.src='/review/shared/touch-interactions.js?v=consistent-6';
+      doc.head.append(clean);
+    }
   }
   bufferedRestart(){
     if(this.pendingFrame||!this.canPlayAfter())return;
@@ -77,6 +87,7 @@ class RewardsMapComparison extends HTMLElement {
       if(!this.isConnected||frame!==this.pendingFrame)return;
       const doc=frame.contentDocument;
       if(doc?.querySelector('.pedregal-snap-sheet[data-snap="rest"]')&&doc.querySelectorAll('.go-pin').length>4){
+        this.applyDeckChrome(doc);
         const previous=this.frame,oldPlayer=this.player;
         this.frame=frame;this.player=player;this.pendingFrame=null;this.pendingPlayer=null;
         frame.classList.remove('scene-pending');frame.classList.add('scene-on-top');

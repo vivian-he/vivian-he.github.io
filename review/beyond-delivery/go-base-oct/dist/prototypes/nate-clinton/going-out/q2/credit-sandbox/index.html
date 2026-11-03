@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>DoorDash — Going Out End to End</title>
-    <script type="module" crossorigin src="../../../../../assets/nate-clinton/going-out/q2/credit-sandbox-B8iJ09Ff.js?v=sheet-polish-6"></script>
+    <script type="module" crossorigin src="../../../../../assets/nate-clinton/going-out/q2/credit-sandbox-B8iJ09Ff-mapfix.js?v=bundled-map-4"></script>
     <link rel="stylesheet" crossorigin href="../../../../../assets/credit-sandbox-CTGnqy4F.css">
+  <script>if (new URLSearchParams(location.search).has('liveMapOnly')) document.documentElement.classList.add('live-map-only');</script>
+    <style>
+      html:not(.live-map-only) .go-map-container { background: #eceeea url('/review/shared/rewards-map/basemap-fallback.png') center top / cover no-repeat !important; }
+      html:not(.live-map-only) .go-map-container:not(.bundled-map-ready) canvas { opacity: 0; }
+    </style>
   </head>
   <body>
     <div id="annotations-panel"></div>

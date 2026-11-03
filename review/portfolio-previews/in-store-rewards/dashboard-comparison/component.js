@@ -4,7 +4,7 @@ const ROOT = new URL('./', import.meta.url);
 const CSS = new URL('./component.css', ROOT);
 CSS.search = 'v=final73';
 const BEFORE = new URL('../../../../references/rewards-preview-content-2026-10-23/old-dashboard.svg', ROOT);
-const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&v=store-polish-3', ROOT);
+const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&basemap=4&v=store-polish-3', ROOT);
 const ADAPTER = new URL('../../../beyond-delivery/go-base-oct/rewards-dashboard.js', ROOT);
 
 let adapterPromise;
@@ -54,6 +54,14 @@ class RewardsDashboardComparison extends HTMLElement {
     this.anchor = root.querySelector('.after-anchor');
     this.surface = root.querySelector('.after-surface');
     this.leaders = root.querySelector('.dashboard-leaders');
+    if (this.hasAttribute('deck-still')) {
+      const still = document.createElement('img');
+      still.src = '/review/shared/rewards-map/deck-landing-full.png?v=3x';
+      still.alt = 'Final In-Store Rewards dashboard from the Rewards Value slide';
+      still.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+      this.frame.style.visibility = 'hidden';
+      this.surface.append(still);
+    }
     this.frame.addEventListener('load', () => this.prepareFrame());
     this.frame.src = AFTER.href;
     this.resizeObserver = new ResizeObserver(() => this.measure());
@@ -109,6 +117,8 @@ class RewardsDashboardComparison extends HTMLElement {
         .pedregal-snap-sheet { position:relative!important; top:auto!important; left:auto!important; right:auto!important; bottom:auto!important; transform:none!important; width:393px!important; height:auto!important; max-height:none!important; border-radius:24px 24px 0 0!important; box-shadow:none!important; overflow:hidden!important; }
         .pedregal-snap-sheet__content { height:auto!important; max-height:none!important; overflow:visible!important; }
         .go-filter-row { position:relative!important; top:auto!important; }
+
+
       `;
       doc.head.append(style);
     }
@@ -143,7 +153,7 @@ class RewardsDashboardComparison extends HTMLElement {
     this.setAttribute('data-layout-ready','');
     this.frame.style.height = `${fullHeight}px`;
     this.frame.style.transform = `scale(${scale})`;
-    this.surface.style.height = `${Math.round(fullHeight * scale)}px`;
+    this.surface.style.height = `${Math.round(this.hasAttribute('deck-still') ? width * 1077 / 296 : fullHeight * scale)}px`;
     const positions = callouts.map(([label, selector]) => {
       const target = doc.querySelector(selector);
       if (!target) return {label, target: null};
@@ -186,8 +196,8 @@ class RewardsDashboardComparison extends HTMLElement {
     });
     const leaderWidth = Math.ceil(Math.max(width, ...lines.map(line => line.x2 + 2)));
     this.leaders.setAttribute('width', String(leaderWidth));
-    this.leaders.setAttribute('height', String(Math.round(fullHeight * scale)));
-    this.leaders.setAttribute('viewBox', `0 0 ${leaderWidth} ${Math.round(fullHeight * scale)}`);
+    this.leaders.setAttribute('height', String(Math.round(this.hasAttribute('deck-still') ? width * 1077 / 296 : fullHeight * scale)));
+    this.leaders.setAttribute('viewBox', `0 0 ${leaderWidth} ${Math.round(this.hasAttribute('deck-still') ? width * 1077 / 296 : fullHeight * scale)}`);
     this.leaders.replaceChildren(...lines.map(({x1,y1,x2,y2}) => {
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('x1', String(x1));

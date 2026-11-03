@@ -14,7 +14,6 @@ rewards-map-explorations { display: block; width: 100%; min-width: 0; }
 .rewards-future__screen { position: absolute; inset: 0; overflow: hidden; border-radius: var(--deck-phone-inner-radius); }
 .rewards-future__screen iframe { display: block; width: 393px; height: 852px; border: 0; transform-origin: top left; }
 .rewards-future__island { position: absolute; top: 9px; left: 50%; width: 30%; height: 22px; transform: translateX(-50%); border-radius: 999px; background: #151515; pointer-events: none; }
-.rewards-future--relevance .rewards-future__island { display: none; }
 .rewards-future__video-phone { padding: 0; text-align: center; }
 .rewards-future__video-phone video { display: block; width: 100%; height: 100%; object-fit: cover; background: #fff; }
 .rewards-future figcaption { width: min(100%, var(--deck-preview-phone-width)); margin-top: 16px; text-align: center; color:#737980; font-size: 14px; line-height: 1.35; }

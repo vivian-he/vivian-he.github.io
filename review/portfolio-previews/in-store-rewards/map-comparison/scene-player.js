@@ -1,6 +1,6 @@
 import '/review/beyond-delivery/go-base-oct/rewards-dashboard.js?v=round61-spacing';
 
-export const REWARDS_SOURCE = '/review/beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0';
+export const REWARDS_SOURCE = '/review/beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&basemap=4';
 
 /* One choreography for the intro and the Before/After map scene. Every state
    change goes through controls owned by the embedded final V3 runtime. */

@@ -1,4 +1,6 @@
-import {RewardsMapPlayer,REWARDS_SOURCE} from '../map-comparison/scene-player.js';
+import {RewardsMapPlayer,REWARDS_SOURCE as BASE_REWARDS_SOURCE} from '../map-comparison/scene-player.js?v=basemap4';
+
+const REWARDS_SOURCE = BASE_REWARDS_SOURCE + '&liveMapOnly=1&intro=2';
 
 class RewardsIntroScene extends HTMLElement {
   connectedCallback(){
