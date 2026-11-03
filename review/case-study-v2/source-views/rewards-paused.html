@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Final In-Store Rewards · manual preview</title><style>html,body{margin:0;width:393px;height:852px;overflow:hidden;background:white}iframe{display:block;width:393px;height:852px;border:0;visibility:hidden}.island{display:none!important;position:absolute;top:11px;left:134px;width:125px;height:37px;border-radius:24px;background:#000;z-index:1000;pointer-events:none}</style></head><body><iframe id="screen" title="Interactive final In-Store Rewards"></iframe><span class="island" aria-hidden="true"></span><script type="module">
+import {RewardsMapPlayer,REWARDS_SOURCE} from '/review/portfolio-previews/in-store-rewards/map-comparison/scene-player.js';
+const frame=document.querySelector('#screen'),state=new URLSearchParams(location.search).get('state')||'dashboard';
+if(new URLSearchParams(location.search).get('chrome')==='clean')document.querySelector('.island').hidden=true;
+const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function until(find){for(let i=0;i<240;i++){const value=find();if(value)return value;await delay(80)}throw Error('Prototype not ready')}
+const player=new RewardsMapPlayer(frame,{onReady:async()=>{
+ try{
+ const doc=frame.contentDocument;const css=doc.createElement('style');css.textContent='.dynamic-island,div[style*="width: 131px"][style*="height: 40px"]{visibility:hidden!important}.go-search-bar{top:76px!important}.deck-autoplay-touch{display:none!important}';doc.head.append(css);if(state!=='store'){const still=doc.createElement('style');still.textContent='.go-user-pulse,.maplibregl-user-location-dot:before{animation:none!important;opacity:0!important}';doc.head.append(still)}
+ await until(()=>doc.querySelector('.pedregal-snap-sheet[data-snap="rest"]')&&doc.querySelectorAll('.go-pin').length>4);
+ if(state==='landing'){doc.defaultView.dispatchEvent(new doc.defaultView.Event('oct-hub-enter'));await until(()=>doc.querySelector('.pedregal-snap-sheet[data-snap="open"]'));await delay(450);}
+ if(state==='store'){
+   const card=await until(()=>doc.querySelector('.go-deal-card'));card.click();
+   await until(()=>doc.querySelector('.go-store-overlay--open'));await delay(450);
+ }
+ await doc.fonts.ready;player.pause();
+ const touch=doc.createElement('script');touch.src='/review/shared/touch-interactions.js?v=consistent-6';doc.head.append(touch);
+frame.style.visibility='visible';document.documentElement.dataset.ready='true';document.documentElement.dataset.startState=state;
+ }catch(error){document.documentElement.dataset.error=error.message;frame.style.visibility='visible'}
+}});
+frame.addEventListener('load',()=>player.attach());frame.src=REWARDS_SOURCE+'&assets=phone-clean-6';
+</script></body></html>

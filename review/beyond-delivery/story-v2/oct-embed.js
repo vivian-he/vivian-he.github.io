@@ -19,7 +19,7 @@
     if(!doc || doc.documentElement.dataset.deckOctWired)return;
     doc.documentElement.dataset.deckOctWired='true';
     const css=doc.createElement('style');css.textContent="/* Functional tap marker, matched to references/iphone-tap-dot.png. */\n.deck-autoplay-touch,.phone-tap-cursor {\n  position:fixed;\n  z-index:2147483647;\n  width:84px;\n  height:84px;\n  box-sizing:border-box;\n  margin:-42px 0 0 -42px;\n  border:1px solid rgba(0,0,0,.12);\n  border-radius:50%;\n  background:rgba(255,255,255,.58);\n  box-shadow:0 1px 7px rgba(0,0,0,.22);\n  pointer-events:none;\n}\n.phone-tap-cursor[hidden]{display:none!important}\n.phone-pointer-active,.phone-pointer-active *{cursor:none!important}\n.deck-autoplay-running .phone-tap-cursor{display:none!important}\n.deck-pointer-layer{position:fixed;z-index:2147483646;overflow:hidden;pointer-events:none;border-radius:20px}\n.deck-pointer-layer .deck-autoplay-touch{position:absolute;animation:none!important;opacity:1!important;display:block!important}\n";doc.head.append(css);
-    const script=doc.createElement('script');script.src='/review/mailbox-story/runtime/review/shared/touch-interactions.js';doc.head.append(script);
+    const script=doc.createElement('script');script.src='/review/shared/touch-interactions.js?v=manual-cursor-1';doc.head.append(script);
     for(const type of ['pointerdown','touchstart','wheel','keydown'])doc.addEventListener(type,e=>{if(e.isTrusted&&playing){playing=false;clearDots();status('Paused · explore freely');}},{capture:true,passive:true});
   }
   function clearDots(){for(const [doc,dot] of dots){dot.hidden=true;doc.documentElement.classList.remove('deck-autoplay-running');}}
@@ -148,6 +148,7 @@
       const screen=home();
       if(!screen||screen.URL==='about:blank')return null;
       if(flow==='sheet')return screen.querySelector('[data-tour="going-out-tab"]')||byText(screen,'In-Store Rewards')||screen.querySelector('[aria-label*="In-Store"]');
+      if(query.get('contextual')==='restaurant')return screen.querySelector('.oct-fulfillment');
       return [...screen.querySelectorAll('*')].find(el=>el.childElementCount===0&&el.textContent.trim()==='Your past orders');
     }
     if(doc.querySelector('#go-frame')?.getAttribute('aria-hidden')!=='false')return null;
@@ -185,19 +186,20 @@
         while(card&&card.parentElement&&!/auto|scroll/.test(screen.defaultView.getComputedStyle(card.parentElement).overflowX))card=card.parentElement;
         if(card?.parentElement){
           const rail=card.parentElement;rail.scrollLeft=Math.max(0,card.offsetLeft-rail.offsetLeft-18);
-          if(query.get('contextual')==='restaurant'){
-            card.click();
-            await waitFor(()=>screen.querySelector('[data-tour="go-usi-deal"]'),token,15000);
-            screen.defaultView.postMessage({type:'storepage-usi:scroll-to-deal'},location.origin);
-          }
+
         }
+      }
+      if(query.get('contextual')==='restaurant'){
+        const screen=home();
+        await waitFor(()=>screen.querySelector('.oct-fulfillment__segment--selected'),token,15000);
+        screen.defaultView.postMessage({type:'storepage-usi:reset'},location.origin);
       }
       install(docFor());
       if(playing)showInitialPointer();
       frame.style.visibility='visible';ready=true;status('Ready');signal();if(playing)run();
     }catch(e){if(token===generation)status('Loading prototype');}
   }
-  function load(){const previousDoc=rootDoc();ready=false;frame.style.visibility='hidden';frame.src=`../go-base-oct/?start=${['store','sheet'].includes(flow)?'home':'go'}&runtime=sheet25`;prepare(generation,previousDoc);}
+  function load(){const previousDoc=rootDoc();ready=false;frame.style.visibility='hidden';frame.src=`../go-base-oct/?start=${['store','sheet'].includes(flow)?'home':'go'}&runtime=sheet25&assets=home-rewards-19${query.get('contextual')==='restaurant'?'&startStore=delivery':''}`;prepare(generation,previousDoc);}
   addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent)return;const message=event.data;if(message?.type!=='deck-autoplay')return;if(query.get('contextual')==='restaurant'&&query.get('autoplay')==='0'&&message.action!=='pause')return;if(message.action==='pause'){playing=false;clearDots();status('Paused');}else if(message.action==='reset'){generation++;running=false;playing=true;clearDots();dots.clear();load();}else if(message.action==='play'){playing=true;status('Playing');run();}});
   load();
 })();

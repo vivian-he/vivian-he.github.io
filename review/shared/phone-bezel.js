@@ -34,7 +34,7 @@
   if(!phone.querySelector(':scope > .device-system-ui')){
    phone.classList.add('shared-system-phone');phone.dataset.chromeTone='dark';
    const edge=document.createElement('span');edge.className='phone-bezel-seal';edge.setAttribute('aria-hidden','true');phone.append(edge);
-   const chrome=document.createElement('div');chrome.className='device-system-ui';chrome.setAttribute('aria-hidden','true');chrome.innerHTML='<div class="device-status"><b>9:41</b>'+signals+'</div><i class="device-island"></i><i class="device-home-bar"></i>';phone.append(chrome);
+   const chrome=document.createElement('div');chrome.className='device-system-ui';chrome.setAttribute('aria-hidden','true');chrome.innerHTML='<div class="device-status"><b>9:40</b>'+signals+'</div><i class="device-island"></i><i class="device-home-bar"></i>';phone.append(chrome);
    new ResizeObserver(()=>chrome.style.setProperty('--device-scale',phone.clientWidth/393)).observe(phone);
   }
   phone.querySelectorAll(':scope > iframe').forEach(f=>attach(f,phone));

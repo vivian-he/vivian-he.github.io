@@ -15,3 +15,43 @@
 .deck-email .mail-layout>article{border-radius:0}
 .deck-email .scroll{padding:20px 28px 40px}
 .deck-email .email-paper{width:min(100%,680px)}
+
+body.deck-email .browser{border:0;border-radius:0}body.deck-email .browser-bar{display:none!important}
+
+body.email-only :is(.browser-bar,.gmail,.tools,.sender,.scroll>h1,.return-chrome){display:none!important}
+body.email-only .browser,body.email-only #email,body.email-only .mail-layout,body.email-only .scroll{height:100vh!important}
+body.email-only .scroll{padding:0!important}
+body.email-only .email-paper{width:100%!important}
+
+/* Stable compact inbox chrome, without counters or focus/resize animation. */
+body.mail-sidebar *,body.mail-sidebar *::before,body.mail-sidebar *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+body.mail-sidebar .browser{border:0!important;border-radius:0!important}
+body.mail-sidebar :is(.browser-bar,.tools,.return-chrome,#focus-email,.source-bridge){display:none!important}
+body.mail-sidebar .gmail{display:flex!important;height:58px!important;padding:0 16px!important;gap:14px!important}
+body.mail-sidebar .gmail>b{min-width:105px!important;font-size:20px}
+body.mail-sidebar .gmail .mail-help{display:none}
+body.mail-sidebar .mail-layout{height:calc(100vh - 58px)!important;grid-template-columns:144px minmax(0,1fr)!important;padding-right:0!important}
+body.mail-sidebar .mail-layout>aside{display:block!important;opacity:1!important;transform:none!important;padding-top:14px!important}
+body.mail-sidebar aside .compose{padding:13px 12px!important;margin:0 8px 14px!important;font-size:12px}
+body.mail-sidebar aside .folder{gap:9px!important;padding-left:18px!important;font-size:12px}
+body.mail-sidebar aside small{display:none}
+body.mail-sidebar .scroll{height:100%!important;padding:16px 16px 24px!important;overflow:auto!important;overscroll-behavior:contain}
+body.mail-sidebar .scroll>h1{font-size:16px!important;margin-bottom:16px!important}
+body.mail-sidebar .sender{margin-bottom:18px!important}
+body.mail-sidebar .email-paper{width:100%!important}
+
+/* Cohesive inbox chrome, aligned to the 144px sidebar and message content. */
+body.mail-sidebar .gmail{display:grid!important;grid-template-columns:20px 84px minmax(0,1fr) 32px!important;gap:12px!important;padding:0 16px!important;height:64px!important;}
+body.mail-sidebar .gmail>b{min-width:0!important;gap:7px!important;white-space:nowrap;}
+body.mail-sidebar .gmail-logo{width:26px;height:20px;flex:none;}
+body.mail-sidebar .menu-icon{margin:0;display:grid;place-items:center;}
+body.mail-sidebar .gmail .ui-icon{width:20px;height:20px;}
+body.mail-sidebar .mail-search{width:100%!important;height:44px;padding:0 16px;gap:12px;border-radius:24px;font:400 15px/20px Arial,Helvetica,sans-serif;}
+body.mail-sidebar .search-options{display:flex;align-items:center;margin-left:auto;}
+body.mail-sidebar .avatar{margin:0;width:32px;height:32px;}
+body.mail-sidebar .mail-layout{height:calc(100vh - 64px)!important;}
+body.mail-sidebar aside .folder{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:12px!important;align-items:center;height:34px;padding:0 12px 0 20px!important;line-height:20px;}
+body.mail-sidebar .folder .ui-icon{width:20px;height:20px;color:#444746;}
+body.mail-sidebar .folder.selected{border-radius:0 17px 17px 0;}
+body.mail-sidebar aside .compose{gap:12px!important;align-items:center;}
+body.mail-sidebar .email-paper,body.mail-sidebar .email-paper iframe{background:#fff!important;}

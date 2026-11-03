@@ -56,8 +56,7 @@ class RewardsMapComparison extends HTMLElement {
       const doc=frame.contentDocument;
       if(doc?.querySelector('.pedregal-snap-sheet[data-snap="rest"]')&&doc.querySelectorAll('.go-pin').length>4){
         if(this.manualAfter){
-          const clean=doc.createElement('style');clean.textContent='.dynamic-island,div[style*="width: 131px"][style*="height: 40px"]{visibility:hidden!important}html,body,body *{cursor:none!important}.deck-manual-pointer{position:fixed;z-index:2147483647;width:84px;height:84px;margin:-42px 0 0 -42px;border:1px solid #0003;border-radius:50%;background:#ffffff94;box-shadow:0 1px 7px #0004;pointer-events:none}.deck-manual-pointer[hidden]{display:none!important}';doc.head.append(clean);
-          const cursor=doc.createElement('i');cursor.className='deck-manual-pointer';cursor.hidden=true;doc.body.append(cursor);doc.addEventListener('pointermove',e=>{cursor.hidden=false;cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});doc.addEventListener('pointerleave',()=>cursor.hidden=true);
+          const clean=doc.createElement('script');clean.src='/review/shared/touch-interactions.js?v=consistent-6';doc.head.append(clean);
         }
         frame.classList.remove('scene-pending');frame.classList.add('scene-on-top');this.dataset.phase='dashboard';
         this.swapTimer=setTimeout(()=>{if(this.canPlayAfter())player.play();},550);

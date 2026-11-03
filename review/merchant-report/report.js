@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const email=$('#email'),portal=$('#portal'),frame=portal.querySelector('iframe'),emailFrame=$('#email-source'),back=$('#back'),zoom=$('#zoom'),address=$('#address'),scroller=$('#email-scroll'),focusButton=$('#focus-email');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const deckEmail=new URLSearchParams(location.search).get('deck')==='1';document.body.classList.toggle('deck-email',deckEmail);
+  const deckEmail=new URLSearchParams(location.search).get('deck')==='1';document.body.classList.toggle('deck-email',deckEmail);document.body.classList.toggle('email-only',new URLSearchParams(location.search).get('emailOnly')==='1');document.body.classList.toggle('mail-sidebar',new URLSearchParams(location.search).get('mailSidebar')==='1');
   let generation=0,portalFocused=false,portalObserver;
   const restore=document.createElement('button');restore.className='return-chrome';restore.textContent='Show Gmail';restore.setAttribute('aria-label','Show Gmail chrome');document.body.append(restore);
   const state=view=>{document.documentElement.dataset.reportView=view;window.dispatchEvent(new CustomEvent('merchant-report-state',{detail:{view}}));};
@@ -28,6 +28,7 @@
   function prepareEmail(){
     const doc=emailFrame.contentDocument;
     if(!doc)return;
+    if(document.body.classList.contains('mail-sidebar')&&!doc.querySelector('#inbox-email-edge-cleanup')){const clean=doc.createElement('style');clean.id='inbox-email-edge-cleanup';clean.textContent='html,body{background:#fff!important}.page{max-width:none!important;margin:0!important;padding:0!important}.email{border:0!important;border-radius:0!important;box-shadow:none!important}';doc.head.append(clean);}
     const measure=()=>{const view=doc.defaultView;const bottom=Math.max(0,...Array.from(doc.body.children).map(el=>el.getBoundingClientRect().bottom+(view?.scrollY||0)+(parseFloat(view.getComputedStyle(el).marginBottom)||0)));emailFrame.style.height=(Math.ceil(bottom+(parseFloat(view.getComputedStyle(doc.body).paddingBottom)||0))||doc.body.scrollHeight)+'px';};
     measure();
     doc.fonts?.ready.then(measure);

@@ -63,4 +63,8 @@ if(new URLSearchParams(location.search).get('flowScreen')==='suggestion'){
  (async()=>{const card=await waitFor('[data-demo-store="sushi"]');card.click();const back=await waitFor('.assistant-nudges-store-top-nav button[aria-label="Back"]');setTimeout(()=>back.click(),500)})().catch(console.warn);
 }
 
-window.addEventListener('consumer:navigate',e=>{let w=window;while(w!==w.parent){w=w.parent;if(w.ConsumerFlow)return}location.assign('/review/consumer-prototype/?state='+e.detail.state)});
+window.addEventListener('consumer:navigate',e=>{let w=window;while(w!==w.parent){w=w.parent;if(w.ConsumerFlow&&w.ConsumerFlow.world===window.CONSUMER_EXPERIENCE)return}location.assign('/review/consumer-prototype/index.html?state='+e.detail.state+'&world='+(window.CONSUMER_EXPERIENCE||'after')+'&routes=experience-1')});
+
+// In the presentation browse demo, any real click on the inline store returns Home.
+(()=>{let w=window,enabled=false;for(let i=0;i<6;i++){try{if(new URLSearchParams(w.location.search).get('storeClickBack')==='1'){enabled=true;break}if(w===w.parent)break;w=w.parent}catch{break}}if(!enabled)return;
+window.addEventListener('click',event=>{if(!event.isTrusted)return;const back=document.querySelector('.assistant-nudges-store-top-nav button[aria-label="Back"]');if(!back||!back.getBoundingClientRect().width)return;event.preventDefault();event.stopImmediatePropagation();back.click();},true);})();

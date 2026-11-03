@@ -5,7 +5,7 @@
   style.textContent='#slide :is(h1,h2,h3),.page-shell :is(h1,h2,h3){text-wrap:balance}#slide :is(p,li,figcaption),.page-shell p{text-wrap:pretty}';
   document.head.append(style);
   function tidy(el){
-    if(el.closest('[contenteditable=true]')||el.querySelector('input,textarea,iframe'))return;
+    if(el.closest('.meal-offering-grid figcaption')||el.closest('[contenteditable=true]')||el.querySelector('input,textarea,iframe'))return;
     const text=el.textContent,words=[...text.matchAll(/\S+/gu)];
     if(words.length<2)return;
     const before=words.at(-2),last=words.at(-1),start=before.index+before[0].length,end=last.index;

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head><script>const ce=console.error;console.error=(...a)=>ce(...a.map(x=>x instanceof Error?x.message:x))</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Koji card — smoked glass</title>
@@ -613,7 +613,7 @@
 
     <!-- True Koji background: FLUX shader, lifted verbatim from
          src/shared/components/lab/FluxShaderBackground.tsx -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js?offline=2"></script>
     <script>
       (function () {
         var container = document.getElementById("koji-flux");

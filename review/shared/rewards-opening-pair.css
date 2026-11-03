@@ -1,0 +1,8 @@
+/* Native 393 × 852 screens inside the shared framed phones. */
+.rewards-opening-pair .canonical-phone.deck-device-surface {
+  aspect-ratio:auto!important;
+  height:calc((270px - 14px) * 852 / 393 + 14px)!important;
+}
+
+/* Keep the conversion result together on the second line. */
+#slide .slide-layout.rewards-opening-pair .slide-copy > [data-copy="subtitle"]{white-space:pre-line!important;hyphens:none!important;}

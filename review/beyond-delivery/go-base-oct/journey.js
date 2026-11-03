@@ -1,5 +1,6 @@
 const homeFrame = document.getElementById('home-frame');
 const goFrame = document.getElementById('go-frame');
+if(new URLSearchParams(location.search).get('startStore')==='delivery'){const u=new URL(homeFrame.src,location.href);u.searchParams.set('startStore','delivery');homeFrame.src=u.href}
 const phone = document.querySelector('.phone');
 const start = new URLSearchParams(location.search).get('start') === 'go' ? 'go' : 'home';
 let active = start;

@@ -82,7 +82,7 @@
         frame.loading = index === 0 ? 'eager' : 'lazy';
         frame.referrerPolicy = 'same-origin';
         frame.setAttribute('allow', 'autoplay');
-        frame.dataset.src = prototype + encodeURIComponent(state);
+        frame.dataset.src = prototype + encodeURIComponent(state)+(this.hasAttribute('manual')&&walk==='suggest'?'&storeClickBack=1&rev=return-home-2':'');
         const chrome = document.createElement('div');
         chrome.className = 'device-system-ui';
         chrome.setAttribute('aria-hidden', 'true');
@@ -149,6 +149,7 @@
       frame.src=frame.dataset.src;
       this._played.add(next);
       if(next.dataset.walk==='store')next.querySelector('.moment-copy h2').innerHTML='22% go to a<br>specific store'.replace('22%','<span class="phone-percentage">22%</span>');
+      if(this.hasAttribute('manual'))return;
       const controller=new AbortController();this._controller=controller;
       this._play(next,controller.signal).catch(error=>{
         if(error.name!=='AbortError')console.info('[Meal discovery autoplay]',error.message);

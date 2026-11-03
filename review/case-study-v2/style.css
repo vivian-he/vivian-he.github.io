@@ -1,0 +1,814 @@
+:root{--paper:#f6f7f9;--ink:#202124;--muted:#747980;--line:#dfe2e6;--accent:#d7422b;--deck-h2-size:46px;--deck-h2-line:1.08;--deck-h2-tracking:-.038em;--deck-big-subtitle-size:15px;--deck-big-subtitle-line:1.5;--deck-big-subtitle-color:#626870}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:400 14px/1.45 DeckNorms,Arial,sans-serif}button,a,textarea{font:inherit}button,a{color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible,[contenteditable=true]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button{border:1px solid var(--line);border-radius:8px;padding:7px 11px;background:#ffffffb8}button[aria-pressed=true]{background:#202124;color:white}.toolbar{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid var(--line);background:#f6f7f9f5;gap:16px}.identity,.tools{display:flex;align-items:center;gap:10px}.identity strong{font-size:17px;letter-spacing:-.03em}.identity>span{color:var(--muted);font-size:12px}.tools{font-size:12px}.tools a{text-decoration:none;padding:7px 10px}.tools a:hover{text-decoration:underline}#viewport{height:calc(100svh - 64px - 58px - var(--review-height,195px));min-height:200px;position:relative;overflow:hidden}body.notes-closed #viewport{--review-height:0px}#slide-wrap{position:absolute;left:50%;top:50%;width:1200px;height:675px;transform:translate(-50%,-50%) scale(var(--scale,1));transform-origin:center}.slide{position:relative;width:1200px;height:675px;container-type:inline-size;background:var(--paper);overflow:hidden}.slide .brand{position:absolute;left:68px;top:46px;display:flex;align-items:center;gap:13px;font-size:15px;color:#747980}.brand b{color:#eb1700;font-weight:700}.brand .separator{width:1px;height:15px;background:#c9cdd1}.slide-copy{position:absolute;left:68px;top:50%;transform:translateY(-50%);width:450px}.slide-copy h1{margin:0 0 28px;white-space:pre-line}.slide-copy p{margin:0;max-width:430px}.slide-copy [contenteditable=true]{outline:1px dashed #bcc2ca;outline-offset:8px;border-radius:2px}.slide-visual{position:absolute;left:565px;top:80px;width:575px;height:535px;display:flex;align-items:center;justify-content:center;gap:20px;min-width:0}.slide-number{position:absolute;left:68px;bottom:34px;font-size:11px;color:#a1a6ad}.visual-label{font-size:12px;color:#7a8088;text-align:center;margin-top:14px;line-height:1.3}.visual-figure{margin:0;display:flex;flex-direction:column;align-items:center;max-width:100%;min-width:0;flex:1}.visual-figure img{display:block;max-width:100%;max-height:488px;object-fit:contain}.visual-figure.phone img{border-radius:27px;box-shadow:4px 9px 24px #00000012;max-height:480px}.visual-figure.plain img{border-radius:12px}.visual-figure video{height:480px;max-width:100%;border-radius:25px;background:#fff}.visual-pair{display:flex;width:100%;height:100%;gap:22px;align-items:center;justify-content:center}.visual-pair>.visual-figure{max-width:calc(50% - 11px)}.scene-frame{border:0;width:575px;height:535px;background:transparent}.visual-pair .scene-frame{width:260px;height:500px}.artifact{width:100%;padding:10px 14px}.artifact>p{margin:0 0 25px;color:#949aa2;font-size:13px}.artifact-item{padding:20px 0;border-top:1px solid #d8dce1}.artifact-item h3{font-size:23px;font-weight:500;letter-spacing:-.025em;line-height:1.2;margin:0 0 9px}.artifact-item p{font-size:16px;color:#80868e;line-height:1.4;margin:0;max-width:460px}.artifact-item .needed{font-size:11px;color:#aa755b;margin-bottom:8px}.roadmap{width:100%;padding:10px 8px}.roadmap .row{padding:28px 0;border-top:1px solid #d8dce1}.roadmap h3{font-size:13px;color:#8e949b;font-weight:400;margin:0 0 14px}.roadmap ul{list-style:none;padding:0;margin:0;font-size:23px;line-height:1.6;letter-spacing:-.02em}.roadmap .new{color:#262b31}.roadmap .old{color:#9399a1}.roadmap .reconstruction{font-size:11px;color:#aa755b;margin-top:15px}.phone-live{width:228px;height:493px;border:7px solid #191919;border-radius:36px;position:relative;overflow:hidden;background:white;box-shadow:4px 12px 24px #0002}.phone-live iframe{border:0;width:393px;height:852px;transform:scale(.5445);transform-origin:top left}.phone-live::after{content:'';position:absolute;top:7px;left:50%;width:74px;height:20px;background:#080808;border-radius:20px;transform:translateX(-50%)}.crop{position:relative;overflow:hidden;width:228px;height:473px;border-radius:24px}.crop img{position:absolute;width:528px;max-width:none;max-height:none;left:-151px;top:-136px}.crop.dashboard{height:510px;width:238px}.crop.dashboard img{width:968px;left:-506px;top:-15px}.visual-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.visual-fallback img{max-width:100%;max-height:490px;object-fit:contain}.navigation{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);gap:12px}.navigation>div{display:flex;align-items:center;gap:8px}.navigation button{padding:6px 15px;font-size:18px}.navigation #count{margin-left:8px;font-variant-numeric:tabular-nums}#review{border-top:1px solid var(--line);padding:15px 28px 14px;max-height:195px;overflow:auto;background:#fff9}#review[hidden]{display:none}.review-top{display:grid;grid-template-columns:1fr 1.4fr;gap:36px}.review-label{font-size:9px;letter-spacing:.1em;color:#91969f}#checks,#proof{font-size:12px;margin:5px 0 8px}.review-proof p{color:#656d77}details summary{color:#8b6f59;cursor:pointer;font-size:11px}#sourceNotes{font-size:12px;line-height:1.5;max-width:1000px;color:#656b73}.feedback-label{display:block;font-size:11px;margin:10px 0 5px}.feedback-label span{color:#9ba1a9;font-size:10px;margin-left:8px}textarea{resize:vertical;border:1px solid #e1e3e7;border-radius:6px;padding:7px 9px;width:100%;background:#fff;font-size:12px;min-height:40px}#outline{position:fixed;top:64px;bottom:58px;left:0;z-index:8;width:295px;overflow:auto;background:#fbfbfc;border-right:1px solid var(--line);box-shadow:10px 0 30px #0001;padding:22px 14px}#outline h2{font-size:16px;margin:0 10px 20px}#outline h3{font-size:11px;color:#9a9fa6;margin:20px 10px 8px}#outline nav button{border:0;display:flex;gap:10px;width:100%;background:transparent;padding:9px 10px;font-size:12px;text-align:left;line-height:1.35;color:#6d747e}#outline nav button.active{background:#e9ecef;color:#202124}#outline nav button span{font-size:10px;min-width:18px;color:#aaa}#outline>p{font-size:11px;line-height:1.7;color:#a1a6ad;margin:25px 10px}#printDeck{display:none}@media(max-width:850px){.toolbar{padding:0 12px}.identity>span{display:none}.tools{gap:4px}.tools button,.tools a{font-size:10px;padding:7px}.tools #print{display:none}.review-top{display:block}.review-proof{display:none}.navigation{padding:0 12px}.navigation #saveState{display:none}#review{padding:12px 16px}#viewport{--review-height:195px}}@media(max-width:480px){.identity strong{font-size:13px}.tools #export{display:none}.tools a{max-width:75px;text-align:center;line-height:1.1}.toolbar{gap:5px}.tools button{padding:6px}.navigation #projectLabel{font-size:10px}#outline{width:85vw}}@media print{@page{size:landscape;margin:0}body{background:var(--paper)}.toolbar,#viewport,#review,.navigation,#outline{display:none!important}#printDeck{display:block}.print-page{width:100vw;height:100vh;page-break-after:always;position:relative;overflow:hidden}.print-page>.slide{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);transform-origin:center}.slide-visual iframe{display:none}.print-page:last-child{page-break-after:auto}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.live-preview{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0}.live-preview>.visual-figure{flex:0 1 auto;max-height:490px}.live-preview .visual-figure img{max-height:450px}.live-button{font-size:11px;color:#737980;background:transparent;border-color:#dce0e5;padding:5px 10px}.visual-pair>.live-preview{width:calc(50% - 11px)}
+
+.visual-pair>.artifact{width:50%;flex:1;padding:0 6px}.visual-pair>.artifact .artifact-item h3{font-size:20px}.visual-pair>.artifact .artifact-item p{font-size:15px}.visual-pair>.artifact>p{font-size:12px}
+
+.slide-eyebrow{margin:0 0 22px;color:#a16d5c;font-size:12px;font-weight:700;letter-spacing:.14em;line-height:1.3;text-transform:uppercase}.slide-scope{margin-top:30px;padding-top:18px;border-top:1px solid #dce0e4;display:grid;gap:12px;max-width:430px}.slide-scope>div{display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:baseline}.slide-scope span{color:#969ba2;font-size:11px;letter-spacing:.04em;text-transform:uppercase}.slide-scope p{color:#70767e;font-size:13px;line-height:1.35;max-width:none}
+.structured-list{width:100%;max-width:550px;align-self:center}.structured-row{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:25px 6px;border-top:1px solid #d9dde2;align-items:start}.structured-row:last-of-type{border-bottom:1px solid #d9dde2}.structured-marker{font-size:16px;line-height:1.15;color:#b9bdc4;letter-spacing:-.03em}.structured-row h3{margin:0 0 7px;font-size:23px;line-height:1.15;font-weight:600;letter-spacing:-.025em}.structured-row p{margin:0;color:#7b8189;font-size:16px;line-height:1.38}.structured-footer,.gallery-footer,.board-footer{margin:18px 6px 0;color:#989da5;font-size:11px;line-height:1.35}.pillars .structured-marker{color:#df563e;font-weight:700}
+.visual-gallery{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.gallery-items{width:100%;display:flex;align-items:center;justify-content:center;gap:20px;min-height:0}.gallery-items figure{margin:0;flex:0 1 260px;min-width:0;display:flex;flex-direction:column;align-items:center}.gallery-items img{display:block;max-width:100%;max-height:455px;object-fit:contain;border-radius:24px;box-shadow:4px 9px 24px #00000012}.visual-gallery.count-3 .gallery-items{gap:14px}.visual-gallery.count-3 .gallery-items figure{flex-basis:175px}.gallery-items figcaption,.board-image figcaption{margin-top:12px;text-align:center;color:#858b93;font-size:11px;line-height:1.25}.gallery-footer{text-align:center;margin-top:17px}
+.visual-board{width:100%;display:grid;grid-template-columns:235px minmax(0,1fr);gap:26px;align-items:center}.board-image{margin:0;width:235px;display:flex;flex-direction:column;align-items:center}.board-image img{display:block;max-width:235px;max-height:455px;object-fit:contain;border-radius:24px;box-shadow:4px 9px 24px #00000012}.board-image.plain img{border-radius:10px;box-shadow:none}.board-content{min-width:0}.board-item{padding:15px 0;border-top:1px solid #d9dde2}.board-item:last-of-type{border-bottom:1px solid #d9dde2}.board-item h3{margin:0 0 6px;font-size:18px;line-height:1.2;font-weight:600;letter-spacing:-.02em}.board-item p{margin:0;color:#7b8189;font-size:13px;line-height:1.4}.board-footer{margin-left:0}.source-preview .visual-figure{flex:0 1 auto}.source-preview .visual-figure img{max-height:450px}
+
+/* Presentation is the default route. Author controls live at ?edit=1. */
+body:not(.edit-mode){background:var(--paper)}
+body:not(.edit-mode) .toolbar,body:not(.edit-mode) #review,body:not(.edit-mode) #outline{display:none!important}
+body:not(.edit-mode) #viewport{width:100vw;height:100svh;min-height:0}
+body:not(.edit-mode) .navigation{position:fixed;inset:0;z-index:9;height:auto;padding:0;border:0;pointer-events:none;background:transparent}
+body:not(.edit-mode) .navigation>div{display:contents}
+body:not(.edit-mode) .navigation #count,body:not(.edit-mode) .navigation #projectLabel,body:not(.edit-mode) .navigation #saveState{display:none}
+body:not(.edit-mode) .navigation button{position:fixed;top:50%;width:36px;height:82px;transform:translateY(-50%);padding:0;border:0;border-radius:0;background:#2021241a;color:#293039;font-size:20px;opacity:0;pointer-events:auto;transition:opacity .18s}
+body:not(.edit-mode) .navigation #prev{left:0;border-radius:0 10px 10px 0}
+body:not(.edit-mode) .navigation #next{right:0;border-radius:10px 0 0 10px}
+body:not(.edit-mode) .navigation button:hover,body:not(.edit-mode) .navigation button:focus-visible{opacity:1}
+body:not(.edit-mode) .navigation button:disabled{pointer-events:none}
+.slide-layout{width:100%;height:100%}
+.rewards-slide .slide-copy{top:50%}
+.slide-layout.statement .slide-copy{left:90px;top:50%;width:1020px;max-width:1020px}
+.slide-layout.statement .slide-copy h1{font-size:64px!important;line-height:1.08!important;letter-spacing:-.045em!important;max-width:1000px;margin-bottom:26px}
+.slide-layout.statement .slide-copy>p{max-width:850px;font-size:25px!important;line-height:1.34!important}
+.slide-layout.statement .slide-visual{display:none}
+.slide-layout.statement .slide-scope{max-width:860px;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px}
+.slide-layout.statement .slide-scope>div{grid-template-columns:100px 1fr}
+.visual-stats{width:100%;text-align:center;align-self:center;color:#525962}
+.visual-stats .stat-value{--deck-percentage-size:112px;--deck-percentage-tracking:-.065em;white-space:nowrap;margin-bottom:20px}
+.visual-stats h3{font-size:23px;line-height:1.18;letter-spacing:-.025em;margin:0 0 12px}
+.visual-stats p{font-size:15px;line-height:1.4;color:#81878f;margin:0 auto;max-width:440px}
+.map-options{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;align-items:start}
+.map-option{min-width:0}
+.map-option h3{font-size:15px;line-height:1.2;min-height:36px;margin:0 0 10px;letter-spacing:-.02em}
+.map-option-media{height:257px;display:flex;align-items:center;justify-content:center;background:#edf0f2;border-radius:12px;overflow:hidden}
+.map-option-media img,.map-option-media video{display:block;width:100%;height:100%;object-fit:contain}
+.option-notes{border-top:1px solid #d9dde2;margin-top:13px;padding-top:8px}
+.option-notes strong{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#9399a1}
+.option-notes ul{list-style:none;margin:5px 0 0;padding:0;font-size:11px;line-height:1.34;color:#5f6770}
+.option-notes li+li{margin-top:3px}
+.visual-figure.illustration img{max-width:575px;max-height:500px;border:0;border-radius:0;box-shadow:none;object-fit:contain}
+@media print{body:not(.edit-mode) .navigation{display:none!important}}
+
+/* Presentation control requested by Vivian: outline toggle only. */
+#outlineToggle{position:fixed;left:18px;top:18px;z-index:30;width:36px;height:34px;padding:0;background:#ffffffab;border-color:#e0e3e6;color:#747980}
+body.edit-mode .toolbar{padding-left:68px}
+body:not(.edit-mode) .navigation{display:none!important}
+body:not(.edit-mode) #outline:not([hidden]){display:block!important;top:0;bottom:0;padding-top:72px;z-index:20}
+body:not(.edit-mode) #outline>p{display:none}
+.roadmap{display:grid;grid-template-columns:1fr 1fr;gap:42px;position:relative;padding:0}
+.roadmap:after{content:'→';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:23px;color:#a6acb4}
+.roadmap .row{padding:22px 0}.roadmap ul{font-size:18px;line-height:1.5}.roadmap li+li{margin-top:14px}
+@media print{#outlineToggle{display:none!important}}
+
+.support-points{margin:22px 0 0;padding-left:21px;color:#71767d;font-size:16px;line-height:1.35}.support-points li{padding-left:5px;margin-top:12px}.support-points strong{display:block;color:#33383f;font-weight:500;font-size:18px;margin-bottom:3px}.support-points span{display:block}
+
+.slide-layout.section-divider .slide-copy{left:68px;top:50%;width:1064px}.slide-layout.section-divider .slide-copy h1{font-size:30px!important;line-height:1.25!important;letter-spacing:-.025em!important;font-weight:500!important;margin:0}.slide-layout.section-divider .slide-copy>p{display:none}
+
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 32px;width:100%}.stats-grid>div{padding-top:20px;border-top:1px solid #d8dce1}.stats-grid strong{font-size:65px;letter-spacing:-.04em;font-weight:500;color:#525962}.stats-grid h3{font-size:18px;font-weight:500;margin:8px 0;color:#626870}.stats-grid p{font-size:13px;color:#92979d;margin:0}
+
+.reference-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;width:100%;align-items:start}.screen-placeholder{height:300px;border:1px solid #d8dce1;border-radius:18px;padding:20px 14px;background:#fafbfc;display:flex;flex-direction:column;gap:16px}.screen-placeholder span{font-size:13px;color:#777e87;min-height:34px}.screen-placeholder i{display:block;height:45px;border-radius:6px;background:#e8ebef}.screen-placeholder small{color:#a0a6af;font-size:12px;line-height:1.4;margin-top:auto}.reference-panels h3{font-size:16px;line-height:1.25;font-weight:500;margin:17px 0 9px}.reference-panels p{font-size:14px;color:#7d838c;line-height:1.4;margin:0}
+
+.slide-layout.project-divider{background:#000;color:#fff}.slide-layout.project-divider .slide-copy h1{color:#fff!important}
+
+.reference-panels:has(>section:nth-child(2):last-child){grid-template-columns:1fr 1fr;gap:30px}
+
+/* Review workspace: panels reserve space, the complete slide always fits. */
+body{--outline-space:0px;--comments-space:0px;--review-bottom:0px}
+body.outline-open{--outline-space:260px}
+body.feedback-mode:not(.feedback-closed){--comments-space:320px}
+body .toolbar,body:not(.edit-mode) .toolbar{display:flex!important;position:fixed;inset:0 0 auto;height:48px;padding:0 18px 0 66px;z-index:40;background:#fafbfc;border-bottom:1px solid #dfe2e6}
+.toolbar .identity strong{font-size:14px}.toolbar .identity>span{font-size:11px}
+body:not(.edit-mode) .toolbar .tools{display:none}
+body #outlineToggle{top:8px;left:14px;z-index:45}
+body #viewport,body:not(.edit-mode) #viewport{position:fixed!important;top:48px!important;bottom:var(--review-bottom)!important;left:var(--outline-space)!important;right:var(--comments-space)!important;width:auto!important;height:auto!important;min-height:0!important}
+body #outline,body:not(.edit-mode) #outline:not([hidden]){top:48px!important;bottom:0!important;width:260px!important;padding:20px 12px!important;z-index:30!important}
+body #outline[hidden]{display:none!important}
+body .feedback-panel{top:48px;bottom:0;width:320px;box-shadow:none;z-index:30}
+body .feedback-launch{top:8px;bottom:auto;right:14px;padding:9px 12px;z-index:45;background:white;box-shadow:none}
+body .feedback-head{min-height:76px;padding-top:18px}
+body .feedback-form textarea{min-height:65px;max-height:140px}
+@media(max-width:760px){
+ body.feedback-mode:not(.feedback-closed){--comments-space:0px;--review-bottom:45svh}
+ body .feedback-panel{top:auto;bottom:0;left:0;width:100%;height:45svh}
+ body.outline-open{--outline-space:180px}
+ body #outline,body:not(.edit-mode) #outline:not([hidden]){display:block!important;width:180px!important;bottom:var(--review-bottom)!important}
+ .toolbar .identity>span{display:none}
+ body .feedback-head{min-height:48px;padding:8px 14px}.feedback-head h2{font-size:18px;margin:4px 0}
+ body .feedback-slide{display:none}.feedback-list{padding:8px 14px;min-height:50px}
+ body .feedback-form{grid-template-columns:1fr auto;padding:8px 14px}.feedback-form label[for=feedback-name],.feedback-form input{display:none}.feedback-form label[for=feedback-body]{grid-column:1/-1}.feedback-form textarea{grid-column:1}.feedback-form button{grid-column:2}.feedback-foot{padding:0 14px 6px}
+}
+@media print{.toolbar,.feedback-panel,.feedback-launch,#outlineToggle{display:none!important}}
+
+.process-storyboard{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:24px 22px;align-items:start}.process-snapshot{height:142px;background:#fafbfc;border:1px solid #dce0e5;border-radius:10px;padding:12px 14px}.process-snapshot>span{font-size:10px;color:#9a9fa6;letter-spacing:.08em}.process-snapshot>p{font-size:12px;color:#9a9fa6;line-height:1.3;margin:9px 0 13px;max-width:175px}.process-snapshot>i{display:block;height:10px;background:#e9ecf0;border-radius:3px;margin-top:8px}.process-snapshot>i:last-child{width:65%}.process-storyboard h3{font-size:17px;font-weight:500;line-height:1.2;margin:11px 0 7px;letter-spacing:-.02em}.process-storyboard section>p{font-size:13px;line-height:1.35;color:#7d838c;margin:0}
+
+/* Outline V3 visuals: preserve fixed slide typography. */
+.ecosystem-hero{display:flex;gap:24px;align-items:center;width:100%;height:500px}.ecosystem-hero figure{margin:0;min-width:0}.ecosystem-hero .consumer{flex:0 0 210px}.ecosystem-hero .consumer img{width:100%;max-height:460px;object-fit:contain;border-radius:26px}.ecosystem-hero .merchant-surfaces{flex:1;display:grid;gap:20px}.ecosystem-hero .merchant-surfaces img{display:block;width:100%;height:auto}.portal-excerpt{height:170px;overflow:hidden;border-radius:9px;border:1px solid #e4e7eb}.email-excerpt{height:200px;overflow:hidden;border-radius:9px;border:1px solid #e4e7eb}.ecosystem-hero figcaption,.market-evidence figcaption,.pr-proof figcaption{font-size:11px;color:#8a9098;text-align:center;margin-top:10px}.market-evidence{width:100%}.market-crops{display:flex;gap:18px}.market-crops figure{margin:0;width:50%}.market-crop{height:390px;overflow:hidden;border-radius:16px;border:1px solid #e1e4e9;background:white}.market-crop img{width:100%;display:block}.market-findings{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}.market-findings span{padding:8px 12px;background:#eceff3;border-radius:18px;font-size:13px;color:#656c75}.control-evidence{display:flex;gap:25px;align-items:center;width:100%}.control-evidence>img{width:245px;max-height:490px;object-fit:contain;border-radius:24px}.control-evidence>div{flex:1}.control-evidence section{padding:20px 0;border-top:1px solid #dadfe5}.control-evidence h3{margin:0 0 8px;font-size:20px;line-height:1.15}.control-evidence p{font-size:15px;line-height:1.35;color:#7c838c;margin:0}.pr-proof{width:100%;margin:0}.pr-proof>div{height:450px;overflow:hidden;border:1px solid #dde1e6;border-radius:12px;background:white}.pr-proof img{display:block;width:100%;height:auto}.process-snapshot{position:relative;overflow:hidden}.process-snapshot .process-real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top}.process-snapshot:has(.process-real)>p,.process-snapshot:has(.process-real)>i{display:none}.process-snapshot:has(.process-real)>span{position:relative;background:#fff;padding:3px 5px;border-radius:4px}.visual-pair video{display:block;width:100%;max-height:480px;object-fit:contain;background:#eef0f3;border-radius:12px}.visual-pair .visual-figure{width:100%}.visual-pair{align-items:center}.slide-copy h1{overflow-wrap:normal}
+
+/* Presentation polish: distinct, readable talk track with reserved slide space. */
+body{--speaker-space:0px}body.speaker-open{--speaker-space:210px}
+body #viewport,body:not(.edit-mode) #viewport{bottom:calc(var(--review-bottom) + var(--speaker-space))!important}
+#speakerToggle{position:fixed;top:8px;right:147px;z-index:46;background:white;border:1px solid #dfe2e6;border-radius:8px;padding:8px 12px;font-size:12px;line-height:18px}
+#speakerToggle[aria-expanded="true"]{background:#25282c;color:white;border-color:#25282c}
+#speakerPanel{position:fixed;left:var(--outline-space);right:var(--comments-space);bottom:var(--review-bottom);height:var(--speaker-space);z-index:25;background:#fff;border-top:1px solid #dfe2e6;padding:15px 26px;overflow:auto;color:#444b54}
+#speakerPanel[hidden]{display:none!important}#speakerPanel header{display:flex;justify-content:space-between;align-items:center}#speakerPanel header strong{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#92979e}#speakerPanel header button{background:none;border:0;font-size:20px;color:#92979e;line-height:18px}#speakerPanel h2{font-size:14px;line-height:1.35;color:#25282c;margin:5px 0 10px}#speakerPanel .speaker-talk{max-width:1000px}#speakerPanel p{font-size:15px;line-height:1.5;margin:0 0 10px;white-space:pre-line}
+.consumer-merchant-pair{display:flex;gap:26px;align-items:center;width:100%;height:470px}.consumer-merchant-pair figure{margin:0;min-width:0}.consumer-merchant-pair figure:first-child{flex:0 0 195px}.consumer-merchant-pair figure:last-child{flex:1}.consumer-merchant-pair img{display:block;width:100%;max-height:440px;object-fit:contain;border-radius:14px}.consumer-merchant-pair figcaption{font-size:12px;color:#858b93;text-align:center;margin-top:12px}.impact-block{margin-top:27px;display:flex;flex-direction:column;align-items:flex-start;gap:3px}.impact-block strong{font-size:48px;line-height:1.05;letter-spacing:-.04em}.impact-block span{font-size:16px;color:#616873}.impact-block small{font-size:11px;color:#969ca4}.support-points li>span:empty{display:none}
+@media(max-width:760px){body.speaker-open{--speaker-space:175px}#speakerPanel{padding:12px 15px}#speakerPanel p{font-size:14px}#speakerToggle{right:137px;padding:8px;font-size:11px}.toolbar .identity strong{max-width:90px;overflow:hidden;white-space:nowrap}}
+@media(prefers-reduced-motion:no-preference){.consumer-merchant-pair figure{animation:pair-enter .55s ease both}.consumer-merchant-pair figure:last-child{animation-delay:.12s}@keyframes pair-enter{from{opacity:.3;transform:translateY(10px)}to{opacity:1;transform:none}}}
+@media print{#speakerPanel,#speakerToggle{display:none!important}}
+
+.slide-layout.section-divider.contextual-divider .slide-copy>p{display:block;font-size:25px;line-height:1.4;max-width:700px;margin:18px 0 0;color:#777e87}
+
+/* Succinct narration-first slides. */
+.slide-copy>p:empty,.slide-eyebrow:empty{display:none!important}.artifact-item>p:empty,.reference-panels section>p:empty,.control-evidence section>p:empty,.process-storyboard section>p:empty{display:none}
+
+/* Gallery polish 2026-10-25: slide titles use the next smaller template role (h3). */
+.slide-copy h1[data-deck-type],
+.slide-layout.statement .slide-copy h1[data-deck-type]{
+  font-size:min(30px,var(--deck-h3-size))!important;
+  line-height:var(--deck-h3-line)!important;
+  font-weight:var(--deck-h3-weight)!important;
+  letter-spacing:var(--deck-h3-tracking)!important;
+}
+.slide-layout.section-divider .slide-copy h1[data-deck-type]{
+  font-size:min(30px,var(--deck-h3-size))!important;
+  line-height:1.25!important;
+  font-weight:500!important;
+  letter-spacing:-.025em!important;
+}
+
+/* Meals final polish, 2026-10-26. Real source pixels with sparse labels. */
+.slide-layout.context-build .slide-copy{top:170px;left:115px;width:990px;transform:none}.context-build .slide-copy>h1,.context-build .slide-copy>p,.context-build .slide-eyebrow{display:none!important}.context-build-line{font-family:inherit;font-size:30px;font-weight:500;line-height:1.3;letter-spacing:-.025em;margin:0 0 38px;max-width:950px}.context-build-line.prior{color:#7f858c}.context-formats{display:flex;gap:18px;margin-top:-17px}.context-formats span{font-size:17px;color:#6c737c;border-top:1px solid #dce0e4;padding-top:12px;min-width:175px}
+.slide-layout.visual-focus .slide-copy{width:300px;left:60px}.slide-layout.visual-focus .slide-visual{left:405px;top:55px;width:740px;height:565px}.behavior-stat{font-size:68px;line-height:1.05;font-weight:600;letter-spacing:-.055em;margin:0 0 16px}.visual-focus .visual-gallery,.visual-focus .gallery-items{height:565px}.visual-focus .visual-gallery img{max-height:515px;object-fit:contain}.visual-focus .visual-figure{height:565px}.visual-focus .visual-figure>img{max-height:565px;max-width:100%;object-fit:contain}.annotated-comparison{height:565px;display:grid;grid-template-columns:245px 245px;gap:54px;padding-right:155px;align-items:center}.annotated-comparison figure{margin:0;min-width:0}.annotated-comparison figcaption{font-size:12px;text-align:center;color:#878e97;margin-bottom:13px}.comparison-screen{position:relative;width:245px}.comparison-screen img{display:block;width:245px;max-height:525px;object-fit:contain;object-position:top;border-radius:9px}.pixel-callout{position:absolute;left:var(--x);top:var(--y);height:1px;width:calc(100% - var(--x) + 15px);border-top:2px dotted #ed593c;z-index:2}.pixel-callout i{position:absolute;left:-4px;top:-5px;width:8px;height:8px;border-radius:50%;background:#ed593c;box-shadow:0 0 0 3px #fff}.pixel-callout span{position:absolute;left:100%;top:-10px;width:112px;padding:3px 5px;background:#fff;color:#585e66;font-size:12px;line-height:1.2}.browse-sequence{height:550px;display:flex;flex-direction:column;align-items:center;margin:0}.browse-sequence figcaption{font-size:14px;color:#7c838b;margin:0 0 15px}.browse-sequence img{height:490px;max-width:650px;object-fit:contain}.browse-sequence p{font-size:12px;color:#777;margin:12px 0}.visual-focus .gallery-items figure{min-width:0}.visual-focus .gallery-items figure img{width:100%;height:515px;object-fit:contain}
+
+/* Keep comparison captions aligned despite different source aspect ratios. */
+.annotated-comparison{align-items:start;padding-top:7px}.annotated-comparison .comparison-screen{height:auto}.annotated-comparison .comparison-screen img{object-position:top}
+
+.browse-live{width:250px;height:542px;overflow:hidden;border-radius:26px;margin:8px auto}.browse-live iframe{width:393px;height:852px;border:0;transform:scale(.636);transform-origin:top left}
+
+/* Rewards final polish: sparse narration and visual-first interaction work. */
+.bottom-phrases{display:flex;gap:38px;margin-top:58px;font-size:18px;line-height:1.35;color:#7c838b}.slide-layout.visual-only .slide-copy{display:none}.slide-layout.visual-only .slide-visual{left:90px;top:55px;width:1020px;height:565px}.visual-only .visual-figure{height:565px}.visual-only .visual-figure>img{max-height:565px;max-width:1020px;object-fit:contain}.visual-only .visual-gallery,.visual-only .gallery-items{height:565px}.visual-only .gallery-items figure img{height:515px;max-height:515px;object-fit:contain}.map-exploration .map-options{gap:48px}.map-exploration .map-option h3{font-size:16px;min-height:24px}.map-exploration .map-option-media{height:385px;background:transparent}.map-exploration .option-notes{display:inline-block;width:49%;vertical-align:top;margin-top:10px}.map-exploration .option-notes ul{font-size:12px}.slide-layout.impact-recap .slide-copy{top:96px;left:90px;width:1000px;transform:none}.slide-layout.impact-recap .slide-visual{left:90px;top:238px;width:1020px;height:350px}.impact-recap-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.impact-recap-grid section{border-top:1px solid #dce0e4;padding-top:24px}.recap-project{font-size:15px;color:#858c94;margin:0 0 24px}.impact-recap-grid h2{font-size:30px;line-height:1.25;font-weight:500;letter-spacing:-.025em;white-space:pre-line;margin:0 0 24px}.recap-detail{font-size:18px;color:#626973}.impact-recap-grid small{grid-column:1/-1;font-size:11px;color:#979da4;margin-top:-35px}
+
+.impact-recap-grid{width:100%;align-content:start}
+
+/* Canonical Deck Template roles: next-smaller H3 headlines and percentage signs. */
+.slide-layout.section-divider .slide-copy h1[data-deck-type]{font-family:var(--deck-type-family)!important;font-weight:var(--deck-h3-weight)!important;line-height:var(--deck-h3-line)!important;letter-spacing:var(--deck-h3-tracking)!important}.slide-layout.visual-focus .slide-copy{left:68px}.context-build-line[data-deck-type]{font-size:min(30px,var(--deck-h3-size))!important}.context-build .slide-copy{left:68px}.behavior-stat[data-deck-type]{--deck-percentage-size:68px;--deck-percentage-tracking:-.055em;--deck-percentage-color:var(--ink)}.impact-recap-grid h2[data-deck-type]{font-size:min(30px,var(--deck-h3-size))!important}.slide-layout .slide-copy>p{max-width:440px}
+
+/* Section orientation: quiet legend on content, fuller map on dividers. */
+.chapter-legend{position:absolute;left:68px;right:68px;bottom:18px;display:flex;align-items:center;gap:26px;font-family:var(--deck-type-family);font-size:10px;line-height:1.3;color:#a5aab1;white-space:nowrap}.chapter-legend span{display:flex;gap:6px;align-items:center}.chapter-legend i{font-size:9px;font-style:normal;opacity:.65}.chapter-legend .current{color:#202124;font-weight:700}.chapter-legend .current:before{content:"";display:block;width:4px;height:4px;border-radius:50%;background:#e65b3b;margin-right:1px}.section-divider.has-section-map .slide-copy{width:480px}.chapter-map{position:absolute;left:690px;top:170px;width:400px;display:flex;flex-direction:column;gap:22px;font-family:var(--deck-type-family);font-size:20px;line-height:1.25;color:#a6acb3}.chapter-map span{display:flex;align-items:baseline;gap:24px}.chapter-map i{font-style:normal;font-size:13px;min-width:20px;opacity:.7}.chapter-map .current{color:#202124;font-weight:700}.chapter-map .current i{color:#e65b3b;opacity:1}.project-divider .chapter-map{color:#74777b}.project-divider .chapter-map .current{color:white}.project-divider .chapter-map .current i{color:#ef6a45}.project-divider .chapter-map{top:170px}
+/* Canonical presentation device surface, 2026-10-23.
+   Reference: Airbnb en-US-ServicesGrocery.png. Source background sampled #f7f7f7.
+   Device dimensions/placement and app content remain the responsibility of adapters.
+   Frozen interview archives and preserved V2 prototypes do not import this file. */
+:root {
+  --deck-canvas-background: #f7f7f7;
+  --deck-phone-edge: #171717;
+  --deck-phone-border-width: 7px;
+  --deck-phone-radius: 17.322835% / 8.2397%;
+  --deck-phone-inner-radius: 15.416667% / 7.115385%;
+  --deck-phone-rim: inset 0 0 0 1px #606060, 0 0 0 1px #767676, 0 0 0 2px #c4c4c4, 1px 0 0 3px #a0a0a0;
+  --deck-phone-cast-shadow: 1px 3px 5px -1px #00000016, 7px 12px 18px -5px #0000001c, 12px 24px 32px -9px #00000014;
+  --deck-phone-shadow: var(--deck-phone-rim), var(--deck-phone-cast-shadow);
+  --deck-preview-phone-width: 254px;
+  --deck-preview-phone-aspect: 254 / 534;
+  --deck-preview-pair-gap: 24px;
+}
+.deck-device-canvas { background: var(--deck-canvas-background); }
+.deck-device-surface {
+  box-sizing: border-box;
+  /* Adapters set this to the visible source screen plus its border. */
+  aspect-ratio: var(--deck-screen-aspect, auto);
+  border: var(--deck-phone-border-width) solid var(--deck-phone-edge);
+  border-radius: var(--deck-phone-radius);
+  background: #fff;
+  box-shadow: var(--deck-phone-shadow);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Historical/before captures: screen-only finish, intentionally no hardware rim. */
+.deck-screen-surface,
+.deck-before-screen {
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: var(--deck-phone-cast-shadow);
+  overflow: hidden;
+}
+
+/* Put .deck-callout-anchor around the phone and its callouts. The anchor's
+   edges are the phone edges, so the leader always stops short of the device. */
+.deck-callout-anchor {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+deck-callout {
+  --deck-callout-leader-length: 86px;
+  --deck-callout-phone-gap: 12px;
+  --deck-callout-label-gap: 10px;
+  --deck-callout-color: #444;
+  box-sizing: border-box;
+  position: absolute;
+  top: var(--deck-callout-y, 50%);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--deck-callout-label-gap);
+  width: max-content;
+  max-width: 250px;
+  color: var(--deck-callout-color);
+  font-family: DeckNorms, Arial, sans-serif;
+  font-size: var(--deck-callout-font-size, 14px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-align: left;
+  white-space: normal;
+  transform: translateY(-50%);
+}
+
+deck-callout[side="left"] {
+  right: calc(100% + var(--deck-callout-phone-gap));
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+deck-callout:not([side="left"]) {
+  left: calc(100% + var(--deck-callout-phone-gap));
+}
+
+deck-callout .deck-callout-leader {
+  flex: 0 0 var(--deck-callout-leader-length);
+  height: 5px;
+  background: radial-gradient(circle, var(--deck-callout-color) 0.8px, transparent 1px)
+    left center / 5px 5px repeat-x;
+}
+
+deck-callout .deck-callout-caption { max-width: 150px; }
+
+/* A slide canvas stays 1200px wide internally, so its callouts retain the
+   desktop placement when the viewer scales it. Standalone narrow pages stack. */
+@media (max-width: 760px) {
+  .deck-callout-anchor deck-callout {
+    position: relative;
+    inset: auto;
+    display: flex;
+    margin-top: 14px;
+    max-width: 100%;
+    transform: none;
+  }
+  .deck-callout-anchor deck-callout[side="left"] {
+    flex-direction: row;
+    text-align: left;
+  }
+  .deck-callout-anchor deck-callout .deck-callout-leader {
+    flex-basis: min(var(--deck-callout-leader-length), 20vw);
+  }
+}
+
+/* Exact canonical portfolio device system. Content adapters only own dimensions. */
+:root{--paper:var(--deck-canvas-background)}
+.canonical-anchor{display:block;width:254px;max-width:100%;position:relative;flex:none;isolation:isolate}.canonical-phone{position:relative;width:100%;aspect-ratio:var(--deck-preview-phone-aspect);flex:none}.canonical-phone-content{position:absolute;inset:0;border-radius:var(--deck-phone-inner-radius);overflow:hidden;background:#fff}.canonical-phone-content>img{display:block!important;width:100%!important;height:100%!important;max-height:none!important;max-width:none!important;object-fit:cover!important;object-position:top!important;border:0!important;box-shadow:none!important;border-radius:0!important}.deck-before-screen .canonical-phone-content{border-radius:32px}.canonical-status{position:absolute;inset:0 0 auto;width:100%;height:auto;pointer-events:none}.canonical-screen-leaders{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}.canonical-screen-leaders line{stroke:#666;stroke-width:1.1;stroke-dasharray:.1 4.5;stroke-linecap:round;vector-effect:non-scaling-stroke}.canonical-anchor .canonical-screen-callout{--deck-callout-phone-gap:40px;--deck-callout-font-size:12px;--deck-callout-color:#666;z-index:3}.canonical-anchor .canonical-screen-callout .deck-callout-leader{display:none}.canonical-screen-callout .deck-callout-caption{max-width:105px}.canonical-comparison{display:grid;grid-template-columns:254px 254px;align-items:start;gap:32px;width:100%;height:565px;justify-content:start;padding:0 150px 0 0}.canonical-comparison figure{margin:0}.canonical-comparison figcaption,.canonical-device-gallery figcaption{font-family:DeckNorms,Arial,sans-serif;font-size:14px;font-weight:600;line-height:1.35;color:#737980;letter-spacing:.015em;text-align:center;margin:0 0 14px}.canonical-comparison.no-callouts{justify-content:center;gap:58px;padding-right:0}.canonical-device-gallery{display:flex;gap:140px;align-items:start;justify-content:center;width:100%;height:565px;padding-right:110px}.canonical-device-gallery figure{margin:0;width:254px;flex:none}.visual-gallery .gallery-items figure{display:flex;flex-direction:column;align-items:center;min-width:0}.visual-gallery .gallery-items .canonical-anchor{width:240px}.visual-focus .gallery-items .canonical-anchor{width:240px}.visual-gallery.count-3 .gallery-items .canonical-anchor{width:214px}.visual-only .visual-gallery.count-3 .gallery-items .canonical-anchor{width:254px}.canonical-phone .canonical-phone-content img{box-shadow:none}.consumer-merchant-pair figure:first-child{flex:0 0 225px}.consumer-merchant-pair .canonical-anchor{width:225px}.consumer-merchant-pair figure:last-child img{border-radius:12px;box-shadow:var(--deck-phone-cast-shadow)}.canonical-quality{display:flex;align-items:center;justify-content:center;gap:28px;width:100%;height:565px}.canonical-quality .meal-photos{height:480px;width:170px;object-fit:contain}.canonical-existing{height:490px;border-radius:36px;box-shadow:var(--deck-phone-cast-shadow);overflow:hidden}.canonical-existing>img{display:block;height:490px;width:auto;object-fit:contain}.map-option-media.deck-device-surface{aspect-ratio:var(--deck-preview-phone-aspect);height:385px;width:184px;margin:auto;background:#fff;border-radius:var(--deck-phone-radius);overflow:hidden;box-shadow:var(--deck-phone-shadow)}.map-exploration .map-option-media.deck-device-surface{height:385px;width:184px}.map-option-media.deck-device-surface video,.map-option-media.deck-device-surface img{width:100%;height:100%;object-fit:cover;border-radius:var(--deck-phone-inner-radius)}
+/* Fixed presentation canvas retains the same callout placement on every viewer size. */
+.canonical-anchor .canonical-screen-callout{position:absolute!important;left:calc(100% + 40px)!important;right:auto!important;top:var(--deck-callout-y)!important;transform:translateY(-50%)!important;margin:0!important;display:inline-flex!important}
+
+.canonical-quality .canonical-phone-content>img{object-fit:contain!important}
+
+.canonical-video{position:relative;flex:none;width:245px;height:515px;aspect-ratio:var(--deck-preview-phone-aspect);background:#fff}.canonical-video>video{display:block!important;width:100%!important;height:100%!important;max-height:none!important;border:0!important;border-radius:var(--deck-phone-inner-radius)!important;box-shadow:none!important;object-fit:cover!important}.browse-live{border-radius:var(--deck-phone-radius);box-shadow:var(--deck-phone-shadow)}
+
+/* Meals hierarchy: reveal journey details only within Consumer journey. */
+.chapter-group{display:flex;flex-direction:column;gap:12px}.chapter-map .chapter-subsections{display:flex;flex-direction:column;gap:14px;padding-left:44px;font-size:14px}.chapter-map .chapter-subsections span{gap:12px}.chapter-map .chapter-subsections i{font-size:10px;min-width:20px}.chapter-legend{align-items:flex-start;gap:40px}.chapter-legend .chapter-group{gap:7px}.chapter-legend .chapter-subsections{display:flex;gap:16px;padding-left:20px;font-size:9px}.chapter-legend .chapter-subsections span{gap:5px}.chapter-legend .chapter-subsections .current:before{display:none}.chapter-legend .chapter-subsections i{font-size:8px}.chapter-map.has-subsections{top:132px}
+
+/* Section dividers use one left-aligned section list, without a duplicate title. */
+.section-divider.has-section-map .slide-copy{display:none}.section-divider.has-section-map .chapter-map{left:68px;right:68px;top:50%;width:auto;transform:translateY(-50%)}
+
+/* Default presentation treatment: screen pixels, rounded corners, soft shadow. */
+.canonical-phone.deck-screen-surface .canonical-phone-content{border-radius:inherit}.canonical-video.deck-screen-surface>video{border-radius:inherit!important}.map-option-media.deck-screen-surface{aspect-ratio:var(--deck-preview-phone-aspect);height:385px;width:184px;margin:auto;background:#fff;border-radius:23px;overflow:hidden;box-shadow:var(--deck-phone-cast-shadow)}.map-exploration .map-option-media.deck-screen-surface{height:385px;width:184px}.map-option-media.deck-screen-surface video,.map-option-media.deck-screen-surface img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}.phone-live{border:0;border-radius:32px;box-shadow:var(--deck-phone-cast-shadow);height:494px}.phone-live:after{display:none}.phone-live iframe{transform:scale(.58015)}.browse-live{border-radius:32px;box-shadow:var(--deck-phone-cast-shadow)}
+
+/* Live slide13 screens keep the authored393×852 viewport within rounded screen surfaces. */
+.canonical-phone-content iframe[data-live-screen]{display:block;position:absolute;left:0;top:0;width:393px;height:852px;border:0;background:#fff;transform-origin:top left;pointer-events:auto}
+
+.canonical-phone:has(iframe[data-live-screen]){aspect-ratio:393/852}
+
+/* Screen-only corners use the same native32px radius at393px width, at every size. */
+:root{--deck-screen-radius:8.142494% / 3.755869%}.deck-screen-surface,.deck-before-screen,.canonical-existing,.phone-live,.browse-live,.map-option-media.deck-screen-surface{border-radius:var(--deck-screen-radius)}.canonical-phone .canonical-phone-content{border-radius:inherit}.canonical-phone-content>iframe{border-radius:0}.visual-figure.phone img{border-radius:var(--deck-screen-radius)}
+/* Slide13 gives three live screens the full slide width. */
+.discovery-live-showcase .slide-copy{left:68px;top:52px;width:1064px;transform:none}.discovery-live-showcase .slide-copy h1{margin:0}.discovery-live-showcase .slide-visual{left:68px;top:120px;width:1064px;height:510px}.discovery-live-showcase .visual-gallery{width:100%}.discovery-live-showcase .gallery-items{display:flex;justify-content:center;gap:48px}.discovery-live-showcase .gallery-items figure{flex:0 0 226px}.discovery-live-showcase .gallery-items .canonical-anchor{width:226px!important}.discovery-live-showcase .gallery-items figcaption{margin-top:12px}
+
+.slide-layout.visual-focus.discovery-live-showcase .slide-copy{left:68px;top:52px;width:1064px;transform:none}.slide-layout.visual-focus.discovery-live-showcase .slide-visual{left:68px;top:120px;width:1064px;height:510px}.discovery-live-showcase .visual-gallery,.discovery-live-showcase .visual-gallery.count-3 .gallery-items{height:510px;gap:48px}.discovery-live-showcase .visual-gallery.count-3 .gallery-items figure{flex:0 0 226px;width:226px}.discovery-live-showcase .visual-gallery.count-3 .gallery-items .canonical-anchor{width:226px!important}
+
+/* Slide15 reuses the exact V1 phone-title typography, positioned at left. */
+.home-comparison-v1 .slide-copy h1[data-deck-type]{font-family:DeckNorms,Arial,sans-serif!important;font-size:24px!important;font-weight:700!important;line-height:29.28px!important;letter-spacing:-.96px!important;color:#202124!important;white-space:pre-line}.home-comparison-v1 .canonical-comparison{height:auto;align-items:start}.home-comparison-v1 .canonical-comparison.labels-below figure{display:flex;flex-direction:column;align-items:center}.home-comparison-v1 .canonical-comparison.labels-below figcaption{margin:14px 0 0}.home-comparison-v1 .canonical-comparison.labels-below{gap:40px;justify-content:center;padding:0}
+
+/* Vivian:32px screen corners; title centered at left and a compact live gallery at right. */
+:root{--deck-screen-radius:32px}.slide-layout.visual-focus.discovery-live-showcase .slide-copy{left:68px;top:50%;width:290px;transform:translateY(-50%)}.slide-layout.visual-focus.discovery-live-showcase .slide-visual{left:405px;top:70px;width:727px;height:535px}.discovery-live-showcase .visual-gallery,.discovery-live-showcase .visual-gallery.count-3 .gallery-items{height:535px;gap:20px}.discovery-live-showcase .visual-gallery.count-3 .gallery-items figure{flex:0 0 226px;width:226px}
+
+/* Percentage emphasis matches the original case study; only the numeral is dimmed. */
+.slide-copy .phone-percentage{color:#969da5;font-weight:inherit}.single-screen-visual{width:100%;height:565px;display:flex;align-items:center;justify-content:center}.single-screen-visual .canonical-anchor{width:254px}
+
+/* Comparison captions stay below live screens, including hub craft slides. */
+.canonical-comparison.labels-below figure{display:flex;flex-direction:column;align-items:center}
+.canonical-comparison.labels-below figcaption{margin:14px 0 0}
+
+/* Plain step numbers use My Deck point-number typography, with no rules. */
+.structured-list.steps .structured-row{border:0;padding:25px 6px;align-items:center}
+.structured-list.steps .structured-row p:empty{display:none}
+.structured-list.steps .structured-row h3{margin-bottom:0}
+
+/* Original V1 review form and source photo wall, with shared screen treatment. */
+.review-photo-collection{position:relative;isolation:isolate;width:100%;height:565px;display:flex;align-items:center}
+.review-photo-collection>.canonical-anchor{width:254px;z-index:2;flex:none}
+.review-photo-wall{position:absolute;left:195px;top:50%;width:430px;height:780px;transform:translateY(-50%);display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:100px;gap:10px;align-content:start;overflow:hidden;z-index:1;mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
+.review-photo-wall figure{margin:0;border-radius:12px;overflow:hidden;background:#e7e9ed}
+.review-photo-wall img{display:block;width:100%;height:100%;object-fit:cover;opacity:.5}
+
+.merchant-portal-showcase .visual-figure.illustration img{max-width:740px;max-height:565px;border-radius:12px;box-shadow:0 12px 30px #17212d12;object-fit:contain}
+
+.merchant-email-visual{position:relative;width:740px;height:565px}
+.merchant-email-browser{width:580px;height:565px;overflow:hidden;border-radius:10px;box-shadow:0 12px 30px #17212d12;background:#fff}
+.merchant-email-browser iframe{display:block;width:820px;height:799px;border:0;transform-origin:top left}
+.merchant-email-callouts{position:absolute;inset:0;pointer-events:none}
+.merchant-email-callouts svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.merchant-email-callouts line{stroke:#666;stroke-width:1.1;stroke-dasharray:.1 4.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.merchant-email-callouts>span{position:absolute;left:620px;width:116px;transform:translateY(-50%);font:400 12px/1.35 DeckNorms,Arial,sans-serif;color:#666}
+
+.hover-map-comparison{width:1020px;height:565px;overflow:visible}.hover-map-comparison iframe{position:absolute;left:0;top:0;width:1020px;border:0;transform-origin:top left}
+
+.map-comparison-showcase .slide-visual{top:25px!important;height:625px!important}.hover-map-comparison{height:625px}.relevance-showcase .slide-visual{top:25px!important;height:625px!important}.canonical-device-gallery:has(iframe){gap:40px;padding-right:0}
+
+.relevance-showcase .slide-visual{top:15px!important;height:645px!important}
+
+.roadmap-full .slide-visual{left:68px!important;top:135px!important;width:1064px!important;height:405px!important;align-items:center}.roadmap-full .roadmap{display:grid;grid-template-columns:1fr 1fr;gap:80px;width:100%;align-items:start;padding:0}.roadmap-full .roadmap .row{display:block;padding:0;border:0!important}.roadmap-full .roadmap h3{font-family:DeckNorms,Arial,sans-serif;font-size:28px!important;line-height:1.2!important;letter-spacing:-.035em!important;font-weight:700!important;text-transform:none!important;margin:0 0 32px}.roadmap-full .roadmap ul{display:flex;flex-direction:column;gap:24px;list-style:none;margin:0;padding:0}.roadmap-full .roadmap li{font-family:DeckNorms,Arial,sans-serif;font-size:25px!important;line-height:1.3!important;letter-spacing:-.025em!important;margin:0;padding:0;border:0!important}.roadmap-full .roadmap .old,.roadmap-full .roadmap .old h3,.roadmap-full .roadmap .old li{color:#92979c!important;opacity:1;text-decoration:none!important}.roadmap-full .roadmap .new h3,.roadmap-full .roadmap .new li{color:#202124!important}.roadmap-full .roadmap .new li{font-weight:600}
+
+.roadmap-full .roadmap:after{display:none!important}
+
+.research-quotes{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px}.research-quote{position:relative;margin:0;width:530px;max-width:100%;padding:72px 42px 44px;background:#fff;border:0;border-radius:20px;box-shadow:0 8px 28px #17212d09}.research-quote-mark{position:absolute;left:38px;top:15px;font-family:Georgia,serif;font-size:72px;line-height:1;color:#b6bbc1}.research-quote p{margin:0;color:#202124;font-family:DeckNorms,Arial,sans-serif;font-size:31px;line-height:1.3;letter-spacing:-.035em;font-weight:500}
+
+.canonical-device-gallery.labels-below figcaption{margin:14px 0 0}.landing-showcase .slide-visual{top:25px!important;height:625px!important}
+
+.map-exploration .slide-visual{top:40px!important;height:600px!important}.map-exploration .map-options{gap:30px;align-items:start}.map-exploration .map-option-media.deck-screen-surface{position:relative;width:228px;height:494px;border-radius:32px!important;margin:auto}.map-exploration .map-option-media video,.map-exploration .map-option-media img{border-radius:inherit!important}.map-exploration .map-option h3{min-height:0!important;margin:14px 0 0!important;text-align:center;font-family:DeckNorms,Arial,sans-serif;font-size:14px!important;font-weight:600;line-height:1.35;color:#737980;letter-spacing:.015em}.concept-tradeoffs{text-align:center;font-family:DeckNorms,Arial,sans-serif;font-size:13px;line-height:1.4;font-weight:600;margin:16px -8px 0;white-space:nowrap}.concept-pro{color:#81b96b}.concept-con{color:#e76b6b}.concept-separator{color:#8c9298;font-weight:400}.concept-island-mask{position:absolute;top:.85%;left:33%;width:34%;height:4.9%;border-radius:0;background:linear-gradient(#f0f5f7,#edf3f6);pointer-events:none}
+
+.finished-journey-phones .slide-visual{top:32px!important;height:610px!important}.finished-journey-phones .gallery-items{display:flex!important;justify-content:center!important;align-items:start!important;gap:100px!important}.finished-journey-phones .gallery-items figure{flex:0 0 260px!important;width:260px!important}.finished-journey-phones .gallery-items .canonical-anchor{width:260px!important}.finished-journey-phones .canonical-phone{border-radius:32px!important}.finished-journey-phones .canonical-phone-content{border-radius:25px!important}.finished-journey-phones .gallery-items figcaption{font-family:DeckNorms,Arial,sans-serif;font-size:14px!important;font-weight:600;line-height:1.35;color:#737980;letter-spacing:.015em;margin-top:16px!important}
+
+.finished-journey-phones .canonical-phone{aspect-ratio:393 / 852!important}
+
+.concept-tradeoffs{display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:228px;margin:16px auto 0;font-size:12px;line-height:1.35;font-weight:400;white-space:normal;text-align:left}.concept-pro,.concept-con{display:flex;align-items:flex-start;gap:8px;color:#7c838b}.concept-pro:before,.concept-con:before{content:"";display:block;flex:0 0 7px;width:7px;height:7px;border-radius:50%;margin-top:4px;background:#81b96b}.concept-con:before{background:#e76b6b}.concept-separator{display:none}
+
+.chapter-subsections i{font-size:14px!important;min-width:12px!important;width:12px!important;letter-spacing:0!important}.future-use-cases .slide-copy{left:68px!important;top:50%!important;width:335px!important;transform:translateY(-50%)!important}.future-use-cases .slide-visual{left:440px!important;top:40px!important;width:692px!important;height:600px!important}.future-use-cases .map-options{grid-template-columns:repeat(2,1fr);gap:55px}.future-use-cases .concept-tradeoffs{display:none}.closing-phrase .slide-copy{left:90px!important;top:50%!important;width:1020px!important;transform:translateY(-50%)!important;text-align:center}.closing-phrase h1{max-width:none!important}.closing-phrase .slide-eyebrow,.closing-phrase p{display:none}
+
+.ai-process-slide .slide-copy{left:68px!important;top:72px!important;width:1064px!important;transform:none!important}.ai-process-slide .slide-visual{left:68px!important;top:205px!important;width:1064px!important;height:395px!important;align-items:start!important}.ai-process-overview{display:grid;grid-template-columns:1fr 1fr .88fr;gap:58px;width:100%;font-family:DeckNorms,Arial,sans-serif}.ai-process-overview section{min-width:0}.ai-process-overview h2{font-size:23px;line-height:1.25;font-weight:600;letter-spacing:-.025em;color:#242629;margin:0 0 28px}.ai-process-overview ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:22px}.ai-process-overview li{font-size:18px;line-height:1.4;font-weight:400;letter-spacing:-.012em;color:#7c838b;margin:0;padding:0}
+
+.meal-format-stack .context-formats{flex-direction:column;gap:14px;margin-top:-12px;align-items:flex-start}.meal-format-stack .context-formats span{border:0!important;padding:0!important;min-width:0;font-size:17px;line-height:1.4}
+
+.concept-tradeoffs{align-items:center;text-align:center}.concept-pro,.concept-con{justify-content:center;max-width:100%}
+
+.ai-process-slide .slide-copy{left:68px!important;top:50%!important;width:335px!important;transform:translateY(-50%)!important}.ai-process-slide .slide-visual{left:440px!important;top:110px!important;width:692px!important;height:470px!important;align-items:center!important}.ai-process-overview{display:flex;flex-direction:column;gap:34px}.ai-process-overview h2{font-size:22px;margin:0 0 12px}.ai-process-overview ul{gap:7px}.ai-process-overview li{font-size:18px;line-height:1.4}.combined-intro .slide-copy{width:900px!important}.combined-intro h1{white-space:pre-line!important}.combined-intro .slide-copy>p{margin-top:24px!important}.closing-with-photos .slide-copy{left:68px;top:50%;width:360px;transform:translateY(-50%)}.closing-with-photos .slide-eyebrow{display:block!important;font-size:16px!important;color:#858c94!important;letter-spacing:0!important;text-transform:none!important;margin-bottom:24px!important}.closing-with-photos .slide-visual{left:470px;top:180px;width:650px;height:330px}.closing-photo-grid{display:flex;gap:26px;width:100%;align-items:center}.closing-photo-grid figure{width:300px;margin:0;padding:8px;background:white;border-radius:8px;box-shadow:0 12px 30px -10px #20212435;transform:rotate(-3deg)}.closing-photo-grid figure+figure{transform:rotate(3deg);margin-top:70px}.closing-photo-grid img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:3px}.research-quote{padding:68px 44px 48px;border:1px solid #e8ebee;border-radius:18px;box-shadow:0 12px 36px -10px #252e3d16}.research-quote-mark{font-size:88px;color:#c1c6cc;top:12px;left:35px}.research-quote p{font-size:33px;line-height:1.3;letter-spacing:-.02em;font-weight:400;font-style:italic}.long-preview-slide #viewport{overflow-y:auto!important;overflow-x:hidden!important}.long-preview-slide #viewport:after{content:"";display:block;height:calc(var(--open-slide-height,1150px)*var(--scale,1) + 40px);pointer-events:none}.long-preview-slide #slide-wrap{top:20px!important;height:var(--open-slide-height,1150px)!important;transform:translateX(-50%) scale(var(--scale,1))!important;transform-origin:top center!important}.long-preview-slide .slide{height:var(--open-slide-height,1150px)!important;overflow:visible!important}.long-preview-slide .landing-showcase .slide-copy{top:335px!important}.long-preview-slide .landing-showcase .slide-visual{height:auto!important}
+
+.paired-phones .slide-copy{left:68px!important;width:310px!important}.paired-phones .slide-visual{left:405px!important;top:25px!important;width:740px!important;height:625px!important}.paired-phones .canonical-comparison,.paired-phones .canonical-device-gallery{display:flex!important;gap:44px!important;justify-content:center!important;align-items:flex-start!important;padding:0!important;height:625px!important}.paired-phones .canonical-comparison>figure,.paired-phones .canonical-device-gallery>figure{width:270px!important;flex:0 0 270px!important}.paired-phones .canonical-anchor{width:270px!important}.paired-phones .canonical-phone{aspect-ratio:393 / 852!important}.paired-phones .canonical-comparison figcaption,.paired-phones .canonical-device-gallery figcaption{margin:14px 0 0!important;font-size:14px!important}.paired-phones .gallery-items{display:flex!important;justify-content:center!important;align-items:flex-start!important;gap:44px!important}.paired-phones .gallery-items>figure{width:270px!important;flex:0 0 270px!important}.paired-phones .gallery-items .canonical-anchor{width:270px!important}.paired-phones .gallery-items figcaption{font-size:14px!important;line-height:1.35;margin-top:14px!important;color:#737980}.long-preview-slide .paired-phones .slide-visual{height:auto!important}
+
+/* Slide 23: give the Check meals supporting count room below its heading. */
+.meals-quality-spacing .structured-list.steps .structured-row:first-child h3{margin-bottom:17px}
+.meals-quality-spacing .structured-list.steps .structured-row:first-child p{line-height:1.45}
+
+/* Exact public education three-step SVG crop, without its heading whitespace */
+.how-it-works-card{position:relative;width:620px;aspect-ratio:343 / 118;margin:auto;border-radius:20px;background:#fff;box-shadow:0 5px 18px #00000018,0 1px 4px #00000012;overflow:hidden}
+.how-it-works-card img{position:absolute;top:-47.4576%;left:-4.6647%;width:109.3294%;height:auto;aspect-ratio:375 / 190}
+
+/* Keep left copy vertically centered across showcase layouts */
+.slide-layout:not(.section-divider):not(.visual-only):not(.impact-recap) .slide-copy{top:50%;transform:translateY(-50%)}
+.slide-layout.context-build .slide-copy{top:50%;transform:translateY(-50%)}
+
+/* Larger subsection bullets and top-aligned quality step numbers */
+.chapter-map .chapter-subsections i{font-size:21px!important;line-height:1!important;width:16px!important;min-width:16px!important}
+.meals-quality-spacing .structured-list.steps .structured-row{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start;padding:25px 0}
+.meals-quality-spacing .structured-marker{align-self:start;line-height:1!important;margin:0;padding-top:1px}
+.meals-quality-spacing .structured-list.steps .structured-row h3{margin-top:0;margin-bottom:17px}
+.meals-quality-spacing .structured-list.steps .structured-row p{margin-top:0;line-height:1.45}
+
+.chapter-map .chapter-subsections i{font-size:0!important;position:relative;align-self:center;height:7px;line-height:0!important}.chapter-map .chapter-subsections i:before{content:"";display:block;width:7px;height:7px;border-radius:50%;background:currentColor}
+
+/* Interview polish: stable progressive-copy anchor and clearer quote */
+.slide-layout.context-build .slide-copy{top:170px!important;transform:none!important}
+.research-quote{padding:78px 44px 42px!important;border-radius:20px!important;border:1px solid #e5e7e9!important;box-shadow:0 14px 40px -20px #20212426!important}
+.research-quote-mark{top:18px!important;left:36px!important;font-size:76px!important;line-height:1!important;color:#b8bec5!important}
+.research-quote p{margin:0!important;font-size:29px!important;line-height:1.4!important;font-style:normal!important;letter-spacing:-.02em!important}
+.meals-quality-spacing .structured-marker{line-height:1.15!important;padding-top:0!important}
+.meals-quality-spacing .structured-list.steps .structured-row{grid-template-columns:28px 1fr!important;gap:18px!important}
+
+/* Make the full statement readable, instead of inheriting nowrap */
+.ambition-wrap .slide-copy h1{white-space:normal!important;max-width:100%;overflow-wrap:normal;line-height:1.18}
+.ambition-wrap .slide-copy{width:600px!important}
+/* 260px outer phone, 7px hardware border: inner source stays exactly 393/852 */
+.finished-journey-phones .canonical-phone.deck-device-surface{aspect-ratio:auto!important;height:calc((260px - 14px) * 852 / 393 + 14px)!important}
+
+/* Research quote: quiet editorial treatment */
+.research-quote{padding:76px 42px 46px!important;background:#fff!important;border:0!important;border-radius:16px!important;box-shadow:0 10px 32px -18px #30384424!important}
+.research-quote-mark{top:17px!important;left:34px!important;color:#c6ccd1!important;font-family:Georgia,serif!important;font-size:82px!important}
+.research-quote p{color:#727b84!important;font-family:Georgia,serif!important;font-size:29px!important;font-weight:400!important;font-style:italic!important;line-height:1.5!important;letter-spacing:-.025em!important}
+
+#presentDeck{position:fixed;top:8px;right:310px;z-index:48;font-size:12px;padding:8px 12px;background:#fff}
+body.presenting{overflow:hidden!important;background:var(--paper)!important}
+body.presenting .toolbar,body.presenting .navigation,body.presenting #speakerToggle,body.presenting #speakerPanel,body.presenting #outlineToggle,body.presenting #outline,body.presenting #review,body.presenting #presentDeck,body.presenting .feedback-panel,body.presenting #feedback-panel,body.presenting .feedback-launch{display:none!important}
+body.presenting #viewport{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;overflow:hidden!important}
+body.presenting #viewport:after{display:none!important}
+body.presenting #slide-wrap{top:50%!important;left:50%!important;height:675px!important;transform:translate(-50%,-50%) scale(var(--scale,1))!important;transform-origin:center!important}
+body.presenting .slide{height:675px!important;overflow:hidden!important}
+body.presenting .landing-showcase .slide-copy{top:337.5px!important}
+body.presenting .landing-showcase .slide-visual{top:-95px!important}
+
+body.presenting .slide{overflow:clip!important}
+
+.outcome-summary .stats-grid>div{border:0;padding-top:0}.outcome-summary .stats-grid{gap:64px 44px}.outcome-summary .stats-grid strong{font-size:65px;font-weight:700}.outcome-summary .stats-grid h3{font-size:19px;line-height:1.45;max-width:230px}
+
+body.presenting:has(#slide > .project-divider),body.presenting:has(#slide > .project-divider) #viewport,body.presenting:has(#slide > .project-divider) .slide{background:#000!important}
+
+.how-it-works-card{width:550px;border:0;outline:0;box-shadow:0 6px 20px #00000014}
+
+.canonical-phone-content:has(img[src*="where-we-started/mx-detail.png"]):after{content:"";position:absolute;bottom:0;left:0;right:0;height:18px;background:white;pointer-events:none;z-index:2}
+
+.research-quote{width:430px!important;padding:58px 32px 32px!important;box-shadow:none!important;border:0!important}
+.research-quote p{font-family:var(--deck-type-family),Arial,sans-serif!important;font-size:24px!important;font-style:normal!important;line-height:1.4!important}
+.research-quote-mark{font-size:60px!important;left:28px!important;top:12px!important}
+.slide-layout:has(.research-quotes) .slide-copy{width:430px!important}
+.slide-layout:has(.research-quotes) .slide-copy h1{font-size:32px!important;white-space:pre-line!important}
+
+.landing-showcase .slide-copy,body.presenting .landing-showcase .slide-copy{top:337.5px!important;transform:translateY(-50%)!important}.landing-showcase .slide-visual,body.presenting .landing-showcase .slide-visual{top:30px!important;height:625px!important}
+
+.outcome-summary .stats-grid strong{font-size:54px!important;line-height:1!important;letter-spacing:-1.44px!important}.outcome-summary .stat-unit{font-size:.55em!important}.outcome-summary .stats-grid h3{font-size:18px!important;font-weight:400!important;line-height:1.5!important;margin-top:12px!important;letter-spacing:normal!important}
+
+body.presenting.long-preview-slide #viewport{overflow-y:auto!important}
+body.presenting.long-preview-slide #viewport:after{display:block!important}
+body.presenting.long-preview-slide #slide-wrap{top:20px!important;height:var(--open-slide-height,1150px)!important;transform:translateX(-50%) scale(var(--scale,1))!important;transform-origin:top center!important}
+body.presenting.long-preview-slide .slide{height:var(--open-slide-height,1150px)!important;overflow:visible!important}
+.long-preview-slide .landing-showcase .slide-visual,body.presenting.long-preview-slide .landing-showcase .slide-visual{top:30px!important;height:auto!important}
+
+/* Presentation final polish */
+.pr-proof>div{border:6px solid #fff;box-shadow:none}
+.merchant-overview-centered .slide-visual{top:50%!important;transform:translateY(-50%)!important;height:645px!important}
+.merchant-overview-centered .slide-copy{top:50%!important;transform:translateY(-50%)!important}
+
+/* Equal presentation safe area on every edge, including large monitors */
+body.presenting{--presentation-padding:5vmin}
+body.presenting #viewport{position:relative!important;margin:var(--presentation-padding)!important;width:calc(100% - 2 * var(--presentation-padding))!important;height:calc(100svh - 2 * var(--presentation-padding))!important;min-height:0!important}
+
+/* Shared merchant browser presentation */
+.slide-visual:has(.review-photo-collection){left:auto!important;right:0!important;width:795px!important}
+.review-photo-collection{width:795px!important}
+.review-photo-collection>.canonical-anchor{margin-left:80px}
+.review-photo-wall{left:auto!important;right:0!important;width:500px!important;height:850px!important;mask-image:none!important;-webkit-mask-image:none!important;overflow:visible!important}
+.merchant-shared-frame,.merchant-email-visual{width:700px!important;height:565px!important;border:1px solid #dfe2e5;border-radius:12px;overflow:hidden;background:white;box-shadow:none!important}
+.merchant-window-bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 15px;background:#f1f2f4;border-bottom:1px solid #e0e2e5}
+.merchant-window-bar i{display:block;width:9px;height:9px;background:#bcc1c7;border-radius:50%}
+.merchant-window-content,.merchant-email-browser{position:relative;width:100%!important;height:529px!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
+.merchant-window-content iframe{width:1440px;border:0;transform-origin:top left}
+.merchant-email-callouts{display:none!important}
+
+/* Compact quality scale subtitle */
+.meals-quality-spacing .slide-copy > p{white-space:pre-line;max-width:620px;margin:20px 0 0!important}
+
+/* Use template subtitle typography consistently across slide copy */
+#slide .slide-layout .slide-copy > [data-copy="subtitle"]{font-family:var(--deck-type-family)!important;font-size:var(--deck-big-subtitle-size)!important;font-weight:var(--deck-big-subtitle-weight)!important;line-height:var(--deck-big-subtitle-line)!important;letter-spacing:var(--deck-big-subtitle-tracking)!important;color:var(--deck-big-subtitle-color)!important}
+
+/* All product screen captions share the same light type treatment. */
+.slide .slide-visual :is(figcaption,.visual-label){font-family:DeckNorms,Arial,sans-serif!important;font-size:14px!important;font-weight:400!important;line-height:1.35!important;color:#737980!important;letter-spacing:0!important}
+
+/* Findings use the same 4px filled circle as agenda markers. */
+.research-methods-slide .support-points{list-style:none;padding-left:21px}
+.research-methods-slide .support-points li{position:relative}
+.research-methods-slide .support-points li::before{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:currentColor;left:-15px;top:10px}
+
+/* Outline view has a modestly smaller canvas; clean presentation keeps its existing fit. */
+body.outline-open:not(.presenting):not(.long-preview-slide) #slide-wrap{transform:translate(-50%,-50%) scale(calc(var(--scale,1) * .94))!important}
+
+/* Shared left-copy/right-screen grid for product walkthrough slides. */
+.slide-layout:not(.visual-only):not(.discovery-live-showcase):has(.canonical-anchor,.canonical-comparison) .slide-copy{left:68px!important;width:310px!important;top:50%!important;transform:translateY(-50%)!important}
+.slide-layout:not(.visual-only):not(.discovery-live-showcase):has(.canonical-anchor,.canonical-comparison) .slide-visual{left:405px!important;top:25px!important;width:740px!important;height:625px!important;align-items:flex-start!important}
+.slide-layout:not(.visual-only):not(.discovery-live-showcase):has(.canonical-anchor,.canonical-comparison) .gallery-items{align-items:flex-start!important}
+/* Research findings match the shared subtitle typography, without list markers. */
+.research-methods-slide .support-points{padding:0!important;margin:24px 0 0!important;list-style:none!important}
+.research-methods-slide .support-points li{padding:0!important;margin:0 0 22px!important}
+.research-methods-slide .support-points li::before{display:none!important}
+.research-methods-slide .support-points strong{font-family:var(--deck-type-family)!important;font-size:var(--deck-big-subtitle-size)!important;font-weight:var(--deck-big-subtitle-weight,400)!important;line-height:var(--deck-big-subtitle-line)!important;letter-spacing:var(--deck-big-subtitle-tracking,normal)!important;color:var(--deck-big-subtitle-color)!important;margin:0!important}
+
+/* Long comparison screens share one top edge, including the pinned Before view. */
+.landing-showcase .slide-visual{align-items:flex-start!important;justify-content:flex-start!important}
+.landing-showcase iframe[data-open-preview]{top:0!important;left:0!important}
+
+/* Product phones sit slightly farther right on the shared walkthrough grid. */
+.slide-layout:not(.visual-only):not(.discovery-live-showcase):not(.review-collection-showcase):has(.canonical-anchor,.canonical-comparison) .slide-visual{left:425px!important;width:720px!important}
+/* Photo wall bleeds to the display edge; only the slide boundary clips it. */
+#slide .review-collection-showcase .slide-visual{left:auto!important;right:0!important;top:0!important;width:775px!important;height:675px!important;align-items:center!important}
+#slide .review-collection-showcase .review-photo-collection{width:775px!important;height:675px!important}
+#slide .review-collection-showcase .review-photo-collection>.canonical-anchor{margin-left:100px!important}
+#slide .review-collection-showcase .review-photo-wall{left:260px!important;right:0!important;top:-60px!important;width:auto!important;height:auto!important;transform:none!important;overflow:visible!important;grid-auto-rows:110px!important;mask-image:none!important;-webkit-mask-image:none!important}
+
+/* One regular slide headline scale. Intro and divider typography remain distinct. */
+#slide .slide-layout:not(.section-divider):not(.project-divider):not(.closing-phrase) .slide-copy>h1[data-deck-type]{font-family:DeckNorms,Arial,sans-serif!important;font-size:30px!important;font-weight:700!important;line-height:1.22!important;letter-spacing:-.03em!important}
+/* The shared top offset must not combine with the former centered transform. */
+#slide .education-three-screens .slide-visual{left:425px!important;top:25px!important;width:720px!important;height:625px!important;transform:none!important;align-items:flex-start!important}
+#slide .education-three-screens .visual-gallery,#slide .education-three-screens .gallery-items{height:auto!important;align-items:flex-start!important}
+
+/* Headlines start at one fixed anchor, independent of line count. */
+#slide .slide-layout:not(.visual-only):not(.discovery-live-showcase):has(.canonical-anchor,.canonical-comparison) .slide-copy,#slide .landing-showcase .slide-copy{top:260px!important;transform:none!important}
+#slide .landing-showcase .slide-visual{left:425px!important;top:25px!important;width:720px!important}
+
+/* Use the named template subtitle presets rather than per-slide approximations. */
+#slide .research-methods-slide .slide-copy>[data-copy="subtitle"]{font-family:var(--deck-type-family)!important;font-size:var(--deck-small-subtitle-size)!important;line-height:var(--deck-small-subtitle-line)!important;font-weight:var(--deck-small-subtitle-weight)!important;letter-spacing:var(--deck-small-subtitle-tracking)!important;color:var(--deck-small-subtitle-color)!important}
+#slide :is(.research-methods-slide .support-points strong,.roadmap li,.stats-grid h3,.visual-stats h3,.context-formats span,.research-quote p){font-family:var(--deck-type-family)!important;font-size:var(--deck-big-subtitle-size)!important;font-weight:var(--deck-big-subtitle-weight)!important;line-height:var(--deck-big-subtitle-line)!important;letter-spacing:var(--deck-big-subtitle-tracking)!important;color:var(--deck-big-subtitle-color)!important}
+#slide .research-methods-slide .support-points li{margin-bottom:12px!important}
+#slide .roadmap .row h3{font-family:DeckNorms,Arial,sans-serif!important;font-size:22px!important;font-weight:700!important;line-height:1.25!important}
+#slide .roadmap .old li{color:#92979c!important}
+#slide .research-quote p{font-style:normal!important}
+
+/* Merchant examples sit farther right, with one clean email and a companion list. */
+#slide :is(.merchant-portal-showcase,.merchant-email-showcase) .slide-visual{left:445px!important;width:700px!important}
+#slide .merchant-email-visual{width:700px!important;height:565px!important}
+#slide .merchant-email-browser{width:490px!important;height:565px!important;border-radius:10px;overflow:hidden}
+#slide .merchant-email-callouts{display:none!important}
+.merchant-email-notes{position:absolute;left:520px;top:80px;right:0;display:flex;flex-direction:column;gap:54px}
+.merchant-email-notes h3{font:500 15px/1.5 DeckNorms,Arial,sans-serif;color:#626870;margin:0 0 6px}
+.merchant-email-notes p{font:400 13px/1.45 DeckNorms,Arial,sans-serif;color:#858b92;margin:0}
+
+/* Center the closing as one composition, with photographs on a shared baseline. */
+#slide .closing-with-photos .slide-copy{left:100px!important;top:120px!important;width:1000px!important;transform:none!important;text-align:center}
+#slide .closing-with-photos .slide-copy h1{margin:0 auto!important;max-width:none!important}
+#slide .closing-with-photos .slide-eyebrow{margin-bottom:18px!important}
+#slide .closing-with-photos .slide-visual{left:270px!important;top:270px!important;width:660px!important;height:280px!important}
+#slide .closing-photo-grid{justify-content:center;align-items:flex-start;gap:30px}
+#slide .closing-photo-grid figure{width:300px;flex:0 0 300px;transform:none!important;margin:0!important}
+
+/* A centered closing with the warmth of two lightly tilted photo prints. */
+#slide .closing-with-photos .slide-copy{top:108px!important}
+#slide .closing-with-photos .slide-eyebrow{font-size:14px!important;font-weight:400!important;letter-spacing:.02em!important;margin-bottom:16px!important;color:#858b92!important}
+#slide .closing-with-photos .slide-copy h1{white-space:pre-line!important;line-height:1.18!important}
+#slide .closing-with-photos .slide-visual{left:220px!important;top:292px!important;width:760px!important;height:290px!important}
+#slide .closing-photo-grid{gap:48px;align-items:center}
+#slide .closing-photo-grid figure{width:330px!important;flex-basis:330px!important;padding:9px 9px 16px!important;border-radius:7px;box-shadow:0 18px 30px -15px #20212440,0 3px 8px #2021240d;transform-origin:center}
+#slide .closing-photo-grid figure:first-child{transform:rotate(-3deg)!important}
+#slide .closing-photo-grid figure+figure{transform:rotate(3deg)!important}
+
+/* Compact vertical rhythm in both roadmap sections. */
+#slide .roadmap-full .roadmap ul{gap:18px!important}
+#slide .roadmap-full .roadmap h3{margin-bottom:24px!important}
+
+#slide .meals-quality-spacing .slide-copy h1[data-deck-type]{font-size:26px!important}
+/* Merchant email is the sole visual, with no annotation points. */
+#slide .merchant-email-notes{display:none!important}
+#slide .merchant-email-browser{width:700px!important}
+
+#slide .slide-layout:not(.section-divider):not(.project-divider):not(.closing-phrase).meals-quality-spacing .slide-copy>h1[data-deck-type]{font-size:26px!important}
+
+/* Slide 10: bring the revised roadmap closer to the starting direction. */
+#slide .roadmap-full .roadmap .row.new{transform:translateX(-120px);}
+
+/* Slide 45: coverage sits on its own line below review-photo volume. */
+#slide .slide-layout.review-collection-showcase .slide-copy > [data-copy="subtitle"]{white-space:pre-line!important;}
+
+/* Closing subtitle stays centered directly beneath Thank you. */
+#slide .closing-with-photos .slide-copy > [data-copy="subtitle"]{width:100%!important;max-width:none!important;text-align:center!important;margin:14px auto 0!important;}
+
+/* Closing: bring the centered text closer to the photo pair. */
+#slide .closing-with-photos .slide-copy{top:165px!important;}
+#slide .closing-with-photos .slide-copy > [data-copy="subtitle"]{font-size:var(--deck-big-subtitle-size,15px)!important;font-weight:var(--deck-big-subtitle-weight,400)!important;line-height:var(--deck-big-subtitle-line,1.5)!important;}
+
+/* Why Amazon: keep supporting points concise and within a readable measure. */
+#slide .why-amazon-slide .ai-process-overview li{max-width:510px!important;}
+
+/* Why Amazon: narrower two-line supporting points, without sentence punctuation. */
+#slide .why-amazon-slide .ai-process-overview li{max-width:450px!important;white-space:pre-line!important;}
+
+/* Slide 15: the long screen scrolls to the display edge, with no bottom mask. */
+body.presenting.long-preview-slide #viewport{margin-bottom:0!important;height:calc(100svh - var(--presentation-padding,5vmin))!important;}
+
+/* Screen-only previews: soft depth without a hard rim or iframe edge seam. */
+
+#slide .canonical-phone.deck-screen-surface .canonical-phone-content{border:0!important;outline:none!important;}
+#slide .canonical-phone.deck-screen-surface iframe[data-live-screen]{border:0!important;outline:none!important;clip-path:inset(1px);}
+
+/* Explicit outer clipping prevents a fractional iframe seam on rounded previews. */
+
+
+/* Paint over the embedded viewport hairline inside the rounded screen mask. */
+#slide .canonical-phone.deck-screen-surface .canonical-phone-content::before{content:"";position:absolute;inset:0;box-sizing:border-box;border:2px solid #fff;border-radius:inherit;z-index:30;pointer-events:none;}
+
+/* Borderless comparison screens: clip the composited frame edge as one layer. */
+
+
+
+/* Composite the rounded live-screen mask as a single layer to avoid edge bleed. */
+#slide .canonical-phone.deck-screen-surface .canonical-phone-content{-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate;}
+
+/* Keep screen clipping inside; the outer preview owns the soft drop shadow. */
+:root{--deck-screen-drop-shadow:0 12px 26px -7px #00000024,0 3px 8px #00000008;}
+#slide .canonical-phone.deck-screen-surface{border:0!important;outline:none!important;box-shadow:var(--deck-screen-drop-shadow)!important;clip-path:none!important;overflow:visible!important;}
+#slide .canonical-comparison.no-callouts .canonical-anchor:has(>.deck-screen-surface){clip-path:none!important;overflow:visible!important;}
+#slide :is(.canonical-existing,.phone-live,.browse-live,.map-option-media.deck-screen-surface,.merchant-shared-frame,.merchant-email-visual,.production-proof-grid .proof-window){box-shadow:var(--deck-screen-drop-shadow)!important;}
+
+/* Supplied artwork stays full bleed, with its exact original composition. */
+#slide .slide-layout.artwork-full-bleed .slide-copy{display:none!important}
+#slide .slide-layout.artwork-full-bleed .slide-visual{position:absolute!important;inset:0!important;width:1200px!important;height:675px!important;display:block!important}
+#slide .artwork-full-bleed .visual-figure{margin:0!important;padding:0!important;width:100%!important;height:100%!important;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+#slide .artwork-full-bleed .visual-figure img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+
+/* Text-free editorial spread: work on the left, selling and making on the right. */
+#slide .art-editorial-slide .slide-copy{display:none!important}
+#slide .slide-layout.art-editorial-slide .slide-visual{position:absolute!important;inset:0!important;width:1200px!important;height:675px!important;display:block!important}
+.art-editorial-gallery{position:relative;width:1200px;height:675px;background:#f7f6f2}
+#slide .art-editorial-gallery .art-piece{position:absolute;margin:0;padding:0;border:0;border-radius:0;box-shadow:none;overflow:hidden}
+#slide .art-editorial-gallery img{display:block;width:100%;height:100%;object-fit:contain;border-radius:0;box-shadow:none}
+.art-piece-1{left:54px;top:62px;width:250px;height:335px}
+.art-piece-2{left:54px;top:427px;width:250px;height:166px}
+.art-piece-3{left:338px;top:76px;width:250px;height:300px;background:#000}
+.art-piece-4{left:338px;top:406px;width:280px;height:210px}
+.art-piece-5{left:652px;top:121px;width:494px;height:494px}
+
+/* Art-only slides use the complete display rather than the deck's presentation margins. */
+body.art-fullscreen #viewport{position:relative!important;margin:0!important;width:100vw!important;height:100svh!important;min-height:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+body.art-fullscreen #slide{border-radius:0!important}
+#slide .artwork-full-bleed .art-collage-gallery{position:relative;width:1200px;height:675px;background:#fff}
+#slide .art-collage-gallery img{position:absolute;display:block;object-fit:cover;border-radius:0;box-shadow:none}
+.collage-piece-1{left:0;top:0;width:1200px;height:290px;object-position:50% 50%}
+.collage-piece-2{left:0;top:290px;width:400px;height:385px;object-position:50% 48%}
+.collage-piece-3{left:400px;top:290px;width:400px;height:385px;object-position:50% 42%}
+.collage-piece-4{left:800px;top:290px;width:400px;height:385px;object-position:50% 52%}
+#slide .art-editorial-gallery{display:grid;grid-template-columns:420px 1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;padding:24px;width:1200px;height:675px;box-sizing:border-box}
+#slide .art-editorial-gallery .art-piece{position:relative;left:auto;top:auto;width:auto;height:auto;overflow:hidden}
+#slide .art-editorial-gallery .art-piece-1{grid-column:1;grid-row:1 / 3}
+#slide .art-editorial-gallery .art-piece-4{grid-column:2;grid-row:1}
+#slide .art-editorial-gallery .art-piece-3{grid-column:3;grid-row:1}
+#slide .art-editorial-gallery .art-piece-2{grid-column:2;grid-row:2;background:#080808}
+#slide .art-editorial-gallery .art-piece-5{grid-column:3;grid-row:2}
+#slide .art-editorial-gallery .art-piece-4 img{object-fit:cover;object-position:center}
+#slide .art-editorial-gallery .art-piece-5 img{object-fit:cover;object-position:50% 55%}
+
+/* Match the supplied ordering: sculpture / painting above paper / auction, with the market photo large on the right. */
+#slide .art-editorial-gallery{display:grid;grid-template-columns:25% 25% 50%;grid-template-rows:50% 50%;gap:0;padding:0;background:#000}
+#slide .art-editorial-gallery .art-piece{margin:0;padding:0;border:0}
+#slide .art-editorial-gallery .art-piece-3{grid-column:1;grid-row:1}
+#slide .art-editorial-gallery .art-piece-1{grid-column:2;grid-row:1}
+#slide .art-editorial-gallery .art-piece-2{grid-column:1;grid-row:2}
+#slide .art-editorial-gallery .art-piece-4{grid-column:2;grid-row:2}
+#slide .art-editorial-gallery .art-piece-5{grid-column:3;grid-row:1 / 3}
+#slide .art-editorial-gallery .art-piece img{object-fit:cover;object-position:center}
+#slide .art-editorial-gallery .art-piece-3 img{object-fit:contain;background:#000}
+#slide .art-editorial-gallery .art-piece-5 img{object-position:50% 50%}
+
+/* More room for the top sculpture; overlap tile edges to avoid fractional-pixel seams. */
+#slide .art-collage-gallery .collage-piece-1{left:0;top:0;width:1200px;height:341px;object-position:50% 0%;border:0;outline:0}
+#slide .art-collage-gallery .collage-piece-2{left:0;top:340px;width:401px;height:336px;border:0;outline:0}
+#slide .art-collage-gallery .collage-piece-3{left:400px;top:340px;width:401px;height:336px;border:0;outline:0}
+#slide .art-collage-gallery .collage-piece-4{left:800px;top:340px;width:401px;height:336px;border:0;outline:0}
+
+/* The charcoal source contains a pale left-edge strip; crop it inside the overlapping tile. */
+#slide .art-collage-gallery .collage-piece-3{left:398px;width:404px;clip-path:inset(0 1px 0 2px)}
+
+/* Slightly smaller market image, with fine gutters and subtly rounded photographs. */
+#slide .art-editorial-gallery{grid-template-columns:1.1fr 1.1fr 1.8fr;gap:2px;background:#f7f6f2}
+#slide .art-editorial-gallery .art-piece{border-radius:4px;overflow:hidden}
+#slide .art-editorial-gallery .art-piece img{border-radius:4px}
+
+/* Education screens use their original map-backed status area, without a white bezel. */
+#slide .education-three-screens .canonical-phone.deck-screen-surface .canonical-phone-content::before{display:none!important;border:0!important}
+#slide .education-three-screens .canonical-phone.deck-screen-surface iframe[data-live-screen]{clip-path:none!important;border:0!important}
+#slide .education-three-screens .canonical-phone,#slide .education-three-screens .canonical-phone-content{border:0!important;outline:0!important;padding:0!important}
+
+/* Consistent screen previews: no added white rim; retain the outer drop shadow and rounded content mask. */
+#slide .canonical-phone.deck-screen-surface .canonical-phone-content::before{display:none!important;border:0!important}
+#slide .canonical-phone.deck-screen-surface iframe[data-live-screen]{clip-path:none!important;border:0!important;outline:0!important}
+
+/* Match slide 51's white card edge, caption scale, and flat treatment. */
+#slide .production-proof-grid .proof-window{border:4.66px solid #fff!important;border-radius:9.32px!important;box-shadow:none!important;filter:none!important}
+#slide .production-proof-grid figcaption{font-size:10.88px!important;margin-top:6.22px!important}
+#slide .production-proof-grid .proof-title-mask{position:absolute;inset:0 0 auto;height:38px;background:#fff;z-index:2;overflow:hidden}
+#slide .production-proof-grid .proof-title-crop{position:relative;height:25px;overflow:hidden;background:#fff}
+#slide .production-proof-grid .proof-title-crop img{clip-path:none!important}
+#slide .production-proof-grid figure:nth-child(1) .proof-title-crop img{top:.89px!important}
+#slide .production-proof-grid figure:nth-child(2) .proof-title-crop img{top:-44.8px!important}
+#slide .production-proof-grid figure:nth-child(3) .proof-title-crop img{top:-.88px!important}
+#slide .production-proof-grid figure:nth-child(4) .proof-title-crop img{top:-4px!important}
+
+/* Initial vision uses the same stationary three-screen composition as the education slide. */
+#slide .vision-three-screens .slide-copy{left:68px!important;width:310px!important}
+#slide .vision-three-screens .slide-visual{left:450px!important;top:50%!important;transform:translateY(-50%)!important;width:682px!important;height:535px!important}
+#slide .vision-three-screens .visual-gallery,#slide .vision-three-screens .gallery-items{height:535px!important;gap:26px!important;align-items:center!important}
+#slide .vision-three-screens .gallery-items>figure{flex:0 0 210px!important;width:210px!important;animation:none!important;transition:none!important}
+#slide .vision-three-screens .gallery-items .canonical-anchor{width:210px!important}
+#slide .vision-three-screens .canonical-phone{aspect-ratio:393 / 852!important;border-radius:20px!important}
+#slide .vision-three-screens .canonical-phone-content{border-radius:inherit!important}
+#slide .vision-three-screens .canonical-phone-content>img{object-fit:cover!important;object-position:center top!important}
+#slide .vision-three-screens figcaption{display:none!important}
+/* Normalize PR title baseline and size independently of variable original title wrapping. */
+#slide .production-proof-grid .proof-title-crop{height:22px}
+#slide .production-proof-grid figure:nth-child(1) .proof-title-crop img{top:2.89px!important}
+#slide .production-proof-grid figure:nth-child(2) .proof-title-crop img{width:494.08px!important;left:-38.4px!important;top:-32.11px!important}
+#slide .production-proof-grid figure:nth-child(3) .proof-title-crop img{top:-.665px!important}
+#slide .production-proof-grid figure:nth-child(4) .proof-title-crop img{top:-3.05px!important}
+
+#slide .production-proof-grid .proof-title-mask{height:42px}
+
+/* Two supplied chat screens, in the requested order, on the same centered baseline. */
+#slide .vision-two-screens .gallery-items{justify-content:center!important;gap:44px!important}
+#slide .vision-two-screens .gallery-items>figure{flex:0 0 240px!important;width:240px!important}
+#slide .vision-two-screens .gallery-items .canonical-anchor{width:240px!important}
+
+#slide .roadmap-continuity .slide-copy{width:420px}
+#slide .roadmap-continuity .slide-copy>p{max-width:360px}
+#slide .roadmap-continuity .structured-list{width:100%;display:flex;flex-direction:column;gap:48px}
+#slide .roadmap-continuity .structured-row{padding:0;border:0}
+#slide .roadmap-continuity .structured-row h3{font-size:26px;line-height:1.25;font-weight:500;max-width:400px}
+#slide .roadmap-continuity .structured-row p:empty{display:none}
+
+/* Original roadmap-concept recordings, shown as two equal hover-to-play previews. */
+#slide .roadmap-continuity .slide-visual{left:565px;width:575px;height:600px;top:50%;transform:translateY(-50%)}
+#slide .roadmap-continuity .map-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:start}
+#slide .roadmap-continuity .map-option-media{width:240px;height:520px;border:0;border-radius:20px;box-shadow:var(--deck-screen-drop-shadow)}
+#slide .roadmap-continuity .map-option h3{font-size:14px;font-weight:400;line-height:1.4;margin:14px 0 0;color:#747980;text-align:center}
+#slide .roadmap-continuity .concept-tradeoffs:empty{display:none}
+
+/* Match the art slides' fine white gutters and small rounded corners. */
+#slide .art-editorial-gallery{grid-template-columns:1.2fr 1.2fr 1.6fr}
+#slide .artwork-full-bleed .art-collage-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:340px 1fr;gap:2px;background:#f7f6f2}
+#slide .art-collage-gallery .collage-piece{position:relative;left:auto;top:auto;width:100%;height:100%;min-width:0;min-height:0;border-radius:4px;object-fit:cover;outline:0;border:0}
+#slide .art-collage-gallery .collage-piece-1{grid-column:1 / 4;grid-row:1;object-position:50% 0%}
+#slide .art-collage-gallery .collage-piece-2{grid-column:1;grid-row:2}
+#slide .art-collage-gallery .collage-piece-3{grid-column:2;grid-row:2;width:calc(100% + 2px);transform:translateX(-2px);clip-path:inset(0 0 0 2px round 4px)}
+#slide .art-collage-gallery .collage-piece-4{grid-column:3;grid-row:2}
+
+/* Leave the complete rounded Merged pills visible below the normalized title band. */
+#slide .production-proof-grid .proof-title-mask{height:38px}
+#slide .production-proof-grid .proof-title-crop::after{content:"";position:absolute;left:0;right:0;top:21px;bottom:0;background:#fff;z-index:3;pointer-events:none}
+#slide .production-grid-slide .slide-copy h1{margin:0 0 24px!important}
+#slide .production-grid-slide .slide-copy>p{max-width:310px!important;line-height:1.5!important}
+
+/* Hide the exported repository-header hairline above the UI-fix title. */
+#slide .production-proof-grid .proof-title-crop::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:#fff;z-index:3;pointer-events:none}
+
+/* Compact reflection takeaways, with controlled reading width. */
+#slide .reflections-slide .slide-visual{justify-content:flex-start!important}
+#slide .reflections-slide .ai-process-overview{max-width:470px!important;gap:38px!important}
+#slide .reflections-slide .ai-process-overview h2{max-width:450px!important}
+#slide .reflections-slide .ai-process-overview li{max-width:420px!important}
+
+/* Presentation cleanup: frame corners, static screen pointer and clean home indicators. */
+#slide .canonical-phone.deck-device-surface .canonical-phone-content{border-radius:var(--deck-phone-inner-radius)!important;background:#171717}
+#slide .canonical-phone-content>img,#slide .map-option-media>img{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%220%22%20stdDeviation%3D%223%22%20flood-color%3D%22black%22%20flood-opacity%3D%22.14%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2241.5%22%20fill%3D%22white%22%20fill-opacity%3D%22.58%22%20stroke%3D%22black%22%20stroke-opacity%3D%22.07%22%20stroke-width%3D%221%22%20filter%3D%22url(%23s)%22%2F%3E%3C%2Fsvg%3E") 50 50, auto!important}
+#slide:has(img[src*="where-we-started/landing.png"]) .canonical-phone-content:after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:#fff;z-index:20;pointer-events:none}
+
+#slide .canonical-phone-content:has(>img[src*="fefc32e2b84d3c813936.png"])::after,#slide .canonical-phone-content:has(>img[src*="4f71bc9ac23c679ee39e.png"])::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:white;z-index:20;pointer-events:none}
+
+/* Cursor coverage includes phone padding and the fixed before-screen overlay. */
+.canonical-phone,.canonical-phone-content,[data-static-phone-screen] img{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%223.5%22%2F%3E%3CfeOffset%20dy%3D%221%22%2F%3E%3C%2Ffilter%3E%3Cmask%20id%3D%22outside%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22white%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2241.5%22%20fill%3D%22black%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cg%20mask%3D%22url(%23outside)%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2241.5%22%20fill%3D%22black%22%20fill-opacity%3D%22.22%22%20filter%3D%22url(%23s)%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2241.5%22%20fill%3D%22white%22%20fill-opacity%3D%22.58%22%2F%3E%3C%2Fsvg%3E") 50 50, auto!important}
+[data-static-phone-screen] img{pointer-events:auto!important}
+
+/* One 270 x 585.34 screen size and a true vertical center for paired screens. */
+#slide .slide-layout:not(.closing-with-photos):not(.artwork-full-bleed):not(.art-editorial-slide)>.slide-copy{top:50%!important;transform:translateY(-50%)!important}
+#slide .slide-layout.paired-phones>.slide-visual{top:0!important;transform:none!important;height:675px!important;align-items:center!important}
+#slide .slide-layout.paired-phones :is(.canonical-comparison,.canonical-device-gallery,.visual-gallery,.gallery-items){height:585.3435px!important;align-items:center!important}
+#slide .slide-layout.paired-phones :is(.canonical-comparison,.canonical-device-gallery,.gallery-items){display:flex!important;gap:44px!important;justify-content:center!important}
+#slide .slide-layout.paired-phones :is(.canonical-comparison,.canonical-device-gallery,.gallery-items)>figure{position:relative!important;width:270px!important;flex:0 0 270px!important;height:585.3435px!important;margin:0!important;display:block!important}
+#slide .slide-layout.paired-phones .canonical-anchor{width:270px!important;height:585.3435px!important}
+#slide .slide-layout.paired-phones .canonical-phone{width:270px!important;height:585.3435px!important;aspect-ratio:393 / 852!important}
+#slide .slide-layout.paired-phones :is(.canonical-comparison,.canonical-device-gallery,.gallery-items)>figure>figcaption{display:block!important;position:absolute!important;top:calc(100% + 14px)!important;left:0!important;width:100%!important;margin:0!important;text-align:center!important}
+
+#slide .paired-phones .slide-visual:has(>[style]>iframe[data-live-browser])>[style]{height:675px!important}
+#slide .roadmap-continuity .map-option-media{width:270px!important;height:585.3435px!important}
+
+#slide .paired-phones .slide-visual:has(>[style]>iframe[data-live-browser])>[style]{width:740px!important}
+#slide .slide-copy>h1:has(+p:empty){margin-bottom:0!important}
+
+#slide .slide-layout:not(.paired-phones):not(.education-three-screens):has(.canonical-phone)>.slide-visual{top:50%!important;transform:translateY(-50%)!important;align-items:center!important}
+#slide .slide-layout.education-three-screens>.slide-visual{top:0!important;height:675px!important;transform:none!important;align-items:center!important}
+#slide .slide-layout.education-three-screens :is(.visual-gallery,.gallery-items){height:auto!important;align-items:center!important}
+#slide .education-three-screens .gallery-items>figure{position:relative!important}
+#slide .education-three-screens .gallery-items>figure>figcaption{position:absolute!important;top:calc(100% + 14px)!important;left:0;width:100%;margin:0!important}
+
+#slide .roadmap-continuity .map-options{height:585.3435px!important}#slide .roadmap-continuity .map-option{position:relative;height:585.3435px}#slide .roadmap-continuity .map-option h3{position:absolute;top:calc(100% + 14px);left:0;width:100%;margin:0!important}#slide .roadmap-continuity .concept-tradeoffs:empty{display:none}
+
+#slide .map-comparison-showcase>.slide-visual{top:0!important;height:675px!important;transform:none!important}#slide .map-comparison-showcase .hover-map-comparison{height:675px!important}
+
+/* Slide 11 uses the same clean screen-only corners as slide 12. */
+#slide .vision-two-screens .canonical-phone,#slide .vision-two-screens .canonical-phone-content{border:0!important;outline:0!important;border-radius:32px!important}
+#slide .vision-two-screens .canonical-phone{box-shadow:var(--deck-phone-cast-shadow)!important}
+#slide .vision-two-screens .canonical-phone-content::before,#slide .vision-two-screens .canonical-phone-content::after{display:none!important;border:0!important;box-shadow:none!important}
+
+/* Landing craft comparison intentionally shows the extended feed and dotted callouts. */
+#slide .landing-showcase.paired-phones>.slide-visual{top:25px!important;height:var(--landing-preview-height,625px)!important;transform:none!important;align-items:flex-start!important}
+#slide .landing-showcase.paired-phones .slide-visual>[style]{height:var(--landing-preview-height,625px)!important;width:720px!important}
+#slide .landing-showcase>.slide-copy{top:260px!important;transform:none!important}
+
+/* Keep cumulative context statements anchored while the next lines appear. */
+#slide .slide-layout.context-build>.slide-copy{top:170px!important;transform:none!important}
+
+/* Exact published rewards-value layout, exempt from fixed-height paired-phone rules. */
+#slide .slide-layout.landing-showcase.landing-showcase.landing-showcase.landing-showcase>.slide-copy{top:337.5px!important;transform:translateY(-50%)!important}
+#slide .slide-layout.landing-showcase.landing-showcase.landing-showcase>.slide-visual{left:405px!important;top:30px!important;width:740px!important;height:var(--landing-preview-height,625px)!important;transform:none!important;align-items:flex-start!important}
+#slide .slide-layout.landing-showcase.landing-showcase.landing-showcase .slide-visual>[style]{width:740px!important;height:var(--landing-preview-height,625px)!important}
+/* Context build: each line keeps the same coordinate as it has in the complete slide. */
+#slide .slide-layout.context-build.context-build.context-build.context-build>.slide-copy{top:170px!important;transform:none!important}
+
+#slide .slide-layout.landing-showcase.landing-showcase.landing-showcase.landing-showcase>.slide-copy>h1{font-size:25.6px!important;line-height:30.72px!important;font-weight:700!important;letter-spacing:-.03em!important;margin-bottom:28px!important}
+
+/* Keep the review phone 20px farther right without moving the photo wall. */
+#slide .review-collection-showcase .review-photo-collection>.canonical-anchor{margin-left:120px!important}
+
+/* Slide 21: lower both map screens together slightly. */
+#slide .map-comparison-showcase .hover-map-comparison{transform:translateY(8px)!important}

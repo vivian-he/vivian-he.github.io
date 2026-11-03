@@ -3,6 +3,9 @@
 (()=>{
  const S=window.CONSUMER_SCREENS, q=new URLSearchParams(location.search), host=document.querySelector('#screens');
  const routes={appSplash:'/review/slide9-opening/index.html?embed=1&previewPhase=splash',homeLoading:'/review/slide9-opening/index.html?embed=1&previewPhase=loading',searchLoading:'/review/slide12-search/index.html?flowScreen=loading',hubLoading:'/review/notification-hub/index.html?previewPhase=loading',notificationSplash:'/review/notification-hub/index.html?previewPhase=splash',opening:'/review/slide9-opening/index.html?embed=1&rev=faster-15',home:S.home,suggestions:S.home.replace('homebase=1','homebase=0'),suggestion:S.home.replace('homebase=1','homebase=0')+'&flowScreen=suggestion',search:'/review/slide12-search/index.html?flowScreen=cold',autocomplete:'/review/slide12-search/index.html?flowScreen=autocomplete',results:'/review/slide12-search/index.html?flowScreen=results',merchantSearch:'/review/slide13-merchant-search/index.html',store:S.store,item:S.item,hub:S.hub,cart:S.cart,checkout:S.checkout,processing:S.processing,notification:'/review/notification-hub/index.html',tracking:S.review+'tracking',review:S.review+'form',guidance:S.review+'guidance',camera:S.review+'camera',photo:S.review+'preview',thanks:S.review+'thanks'};
+ if(q.get('availability')==='closed'&&window.CONSUMER_EXPERIENCE==='before')routes.hub=window.CONSUMER_SCENARIOS.before.hubClosed;
+ if(q.get('availability')==='closed'&&window.CONSUMER_EXPERIENCE==='after')routes.hub=window.CONSUMER_SCENARIOS.after.hubClosed;
+ const world=window.CONSUMER_EXPERIENCE||'after';Object.keys(routes).forEach(key=>{const u=new URL(routes[key],location.origin);u.searchParams.set('world',world);routes[key]=u.pathname+u.search});
  const frames=new Map(), stack=[];let active=null;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  function announce(state){document.documentElement.dataset.state=state;const u=new URL(location.href);u.searchParams.set('state',state);history.replaceState(null,'',u);}
@@ -42,7 +45,9 @@
  }
  function back(){const previous=stack.pop();if(!previous){show('home',{back:true});return}show(previous.state,{back:true});}
  function navigate(state){show(state)}
- function bind(doc){if(!doc?.documentElement||doc.__masterBound)return;doc.__masterBound=true;
+ function bind(doc){
+  if(doc?.defaultView&&!doc.__storeClickBackBound&&q.get('storeClickBack')==='1')doc.defaultView.addEventListener('click',e=>{if(active?.state!=='store')return;e.preventDefault();e.stopImmediatePropagation();back();parent.postMessage({type:'consumer:state',state:active?.state},location.origin);},true);if(doc)doc.__storeClickBackBound=true;if(!doc?.documentElement||doc.__masterBound||doc.defaultView.CONSUMER_EXPERIENCE&&doc.defaultView.CONSUMER_EXPERIENCE!==world)return;doc.__masterBound=true;
+  if(q.get('storeClickBack')==='1'&&!doc.querySelector('script[data-browse-stable-pointer]')){const pointer=doc.createElement('script');pointer.src='/review/shared/touch-interactions.js?v=rim-shadow-5';pointer.dataset.browseStablePointer='';doc.head.append(pointer);}
   const clean=()=>{if(!doc.head||doc.querySelector('#master-status-clean'))return;const style=doc.createElement('style');style.id='master-status-clean';style.textContent='.status,.gxc-status-bar,.scroll-header__status-bar,.gxk-status-bar,.gxs-status-bar,.status-bar,.ios-status-bar,.p1-status-bar,.mbt-status,#fixed-phone-status,.lock-signals,.island,.dynamic-island,.home-indicator,.mbt-home-indicator,.ge-home-indicator{visibility:hidden!important}';doc.head.append(style)};clean();doc.addEventListener('DOMContentLoaded',clean,{once:true});
   doc.defaultView.addEventListener('consumer:navigate',e=>show(e.detail.state));
   doc.addEventListener('click',e=>{
@@ -65,7 +70,7 @@
   doc.addEventListener('input',e=>{if(e.target.id==='query'&&/^naya$/i.test(e.target.value)&&doc.location.pathname.includes('slide12-search'))show('merchantSearch')});
   function children(){doc.querySelectorAll('iframe').forEach(f=>{if(!f.__masterWatch){f.__masterWatch=true;f.addEventListener('load',()=>bind(f.contentDocument))}try{bind(f.contentDocument)}catch{}})}children();new MutationObserver(children).observe(doc.documentElement,{subtree:true,childList:true});
  }
- window.ConsumerFlow={navigate,back,bind,get state(){return active?.state},routes};
+ window.ConsumerFlow={navigate,back,bind,world,get state(){return active?.state},routes};
  window.addEventListener('message',e=>{if(e.origin!==location.origin)return;if(e.data?.type==='consumer:entry')show(e.data.state,{animate:false});});
  show(q.get('state')||'opening',{animate:false});
 })();

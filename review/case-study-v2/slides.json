@@ -1,0 +1,1673 @@
+[
+  {
+    "id": "intro-vivian",
+    "project": "Introduction",
+    "eyebrow": "",
+    "title": "Hi 👋\nI’m Vivian",
+    "subtitle": "",
+    "scope": [],
+    "visual": null,
+    "brand": false,
+    "layout": "about-me",
+    "introScreen": "greeting",
+    "speakerSeconds": 20
+  },
+  {
+    "id": "intro-personal",
+    "title": "A little outside work",
+    "introScreen": "personal",
+    "project": "Introduction",
+    "subtitle": "",
+    "eyebrow": "",
+    "brand": false,
+    "layout": "about-me",
+    "visual": null,
+    "speakerSeconds": 20
+  },
+  {
+    "id": "intro-art",
+    "project": "Introduction",
+    "eyebrow": "",
+    "title": "Artwork",
+    "subtitle": "",
+    "brand": false,
+    "layout": "artwork-full-bleed",
+    "visual": {
+      "kind": "art-collage",
+      "items": [
+        {
+          "src": "/assets/about-me-2026-10-29/art-sculpture.png",
+          "alt": "Ink and paper sculpture"
+        },
+        {
+          "src": "/assets/about-me-2026-10-29/art-painting.png",
+          "alt": "Flower painting"
+        },
+        {
+          "src": "/assets/about-me-2026-10-29/art-drawing.png",
+          "alt": "Charcoal drawing"
+        },
+        {
+          "src": "/assets/about-me-2026-10-29/art-paper.png",
+          "alt": "Cut-paper artwork"
+        }
+      ]
+    },
+    "speakerSeconds": 10
+  },
+  {
+    "id": "intro-art-practice",
+    "project": "Introduction",
+    "eyebrow": "",
+    "title": "Art across media",
+    "subtitle": "",
+    "brand": false,
+    "layout": "art-editorial-slide",
+    "visual": {
+      "kind": "art-editorial",
+      "items": [
+        {
+          "src": "/assets/art-editorial/ink-painting.jpg",
+          "alt": "Ink painting"
+        },
+        {
+          "src": "/assets/art-editorial/paper-sculpture.jpg",
+          "alt": "Paper sculpture"
+        },
+        {
+          "src": "/assets/art-editorial/digital-sculpture.png",
+          "alt": "Digital sculpture"
+        },
+        {
+          "src": "/assets/art-editorial/art-auction.jpg",
+          "alt": "Artwork offered at a silent auction"
+        },
+        {
+          "src": "/assets/art-editorial/art-market.jpg",
+          "alt": "Selling hand-painted ornaments and scarves at an art market"
+        }
+      ]
+    },
+    "speakerSeconds": 20
+  },
+  {
+    "id": "master-ai-workflow",
+    "project": "Introduction",
+    "eyebrow": "",
+    "title": "My AI process",
+    "subtitle": "",
+    "brand": false,
+    "visual": {
+      "kind": "ai-process-overview",
+      "items": [
+        {
+          "title": "Planning",
+          "points": [
+            "Track roadmap & delivery",
+            "Synthesize research, find issues & shape PRDs"
+          ]
+        },
+        {
+          "title": "Prototyping",
+          "points": [
+            "Explore five directions with real data",
+            "Reuse components, iterate in parallel & track progress"
+          ]
+        },
+        {
+          "title": "Shipping",
+          "points": [
+            "Hand off code-based specs",
+            "Ship production code with engineers"
+          ]
+        }
+      ]
+    },
+    "layout": "ai-process-slide",
+    "speakerSeconds": 45
+  },
+  {
+    "id": "project-1-divider",
+    "project": "In-Store Rewards",
+    "title": "Project 1 · In-Store Rewards",
+    "subtitle": "",
+    "layout": "section-divider project-divider",
+    "visual": null,
+    "brand": false,
+    "eyebrow": "",
+    "speakerSeconds": 5
+  },
+  {
+    "id": "rewards-context-divider",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Context",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 3
+  },
+  {
+    "id": "rewards-preview-opening",
+    "project": "In-Store Rewards",
+    "title": "Earn DoorDash credits in-person",
+    "subtitle": "I reframed the roadmap and increased\nfirst-time conversion by 6x",
+    "eyebrow": "",
+    "brand": false,
+    "layout": "standard rewards-opening-pair",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "assets/final-rewards-landing-poster.png",
+          "label": "",
+          "alt": "Half-open In-Store Rewards dashboard over the map",
+          "device": true,
+          "deviceFrame": true,
+          "liveSrc": "/review/case-study-v2/source-views/rewards-paused.html?state=dashboard&v=phone-clean-6"
+        },
+        {
+          "src": "assets/canonical-store-badge.svg",
+          "label": "",
+          "alt": "Final dine-out restaurant store page",
+          "device": true,
+          "deviceFrame": true,
+          "liveSrc": "/review/case-study-v2/source-views/rewards-paused.html?state=store&v=phone-clean-6"
+        }
+      ]
+    },
+    "speakerSeconds": 60
+  },
+  {
+    "id": "rewards-direction-divider",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Reset the roadmap",
+    "subtitle": "",
+    "brand": false,
+    "layout": "section-divider",
+    "visual": null,
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 1,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "rewards-ambition",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Our initial vision:\nan opinionated recommender",
+    "subtitle": "With support for complex search queries",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "/assets/rewards-vision/chat.svg?v=no-home-indicator-1",
+          "label": "Complex search",
+          "device": true,
+          "before": true,
+          "alt": "Chat concept"
+        },
+        {
+          "src": "/assets/rewards-vision/chat-1.svg?v=no-home-indicator-1",
+          "label": "Opinionated recs",
+          "device": true,
+          "before": true,
+          "alt": "Chat recommendation results"
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "standard vision-three-screens vision-two-screens",
+    "scope": [],
+    "bottomPhrases": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 1,
+    "speakerSeconds": 30
+  },
+  {
+    "id": "rewards-starting-experience",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "My research challenged the vision",
+    "subtitle": "100 surveys · 12 user chats · App data",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "/review/beyond-delivery/story-v2/assets/where-we-started/landing.png",
+          "label": "Landing page (old)",
+          "device": true,
+          "before": true
+        },
+        {
+          "src": "/review/beyond-delivery/story-v2/assets/where-we-started/mx-detail.png",
+          "label": "Store page (old)",
+          "device": true,
+          "before": true
+        }
+      ]
+    },
+    "brand": false,
+    "supportPoints": [
+      {
+        "title": "Low trust in DoorDash’s recommendations",
+        "body": ""
+      },
+      {
+        "title": "Simple search was enough",
+        "body": ""
+      },
+      {
+        "title": "Delivery ≠ dine-out preferences",
+        "body": ""
+      }
+    ],
+    "layout": "visual-focus research-methods-slide",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 1,
+    "speakerSeconds": 60
+  },
+  {
+    "id": "rewards-roadmap",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "I refocused the roadmap on immediate value",
+    "subtitle": "",
+    "visual": {
+      "kind": "roadmap",
+      "before": [
+        "Opinionated recommendations",
+        "Agentic search",
+        "Personalization-led discovery"
+      ],
+      "after": [
+        "A · First-time conversion",
+        "B · Filters and map exploration",
+        "C · Personalization foundation"
+      ],
+      "afterLabel": "Revised roadmap"
+    },
+    "brand": false,
+    "layout": "visual-only roadmap-full",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 1,
+    "speakerSeconds": 35
+  },
+  {
+    "id": "rewards-section-a",
+    "project": "In-Store Rewards",
+    "title": "The real way to capture new users",
+    "subtitle": "",
+    "layout": "section-divider",
+    "visual": null,
+    "brand": false,
+    "eyebrow": "",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "rewards-education-setup",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "We thought understanding\nwas the main blocker",
+    "subtitle": "",
+    "brand": false,
+    "visual": {
+      "kind": "research-quotes",
+      "items": [
+        {
+          "text": "Oh, I thought these were delivery promos",
+          "attribution": "17/20 users"
+        }
+      ]
+    },
+    "layout": "visual-focus research-quote-compact",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 25
+  },
+  {
+    "id": "rewards-education-hypothesis",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "People won’t learn what they don’t care about",
+    "subtitle": "",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "/review/case-study-v2/assets/rewards-how-first-restored.png",
+          "label": "− First-time metrics\n+ High intent",
+          "device": true,
+          "before": true,
+          "liveSrc": "/review/case-study-v2/source-views/rewards-education-first.html?v=chrome-940"
+        },
+        {
+          "src": "/review/case-study-v2/assets/rewards-education-guided-static.png",
+          "label": "− First-time metrics\n+ High intent",
+          "device": true,
+          "before": true,
+          "alt": "Guided education experiment, gallery screen 56"
+        },
+        {
+          "src": "/review/beyond-delivery/story-v2/assets/experiment-first-visit-source.png",
+          "label": "no stat sig change",
+          "device": true,
+          "before": true,
+          "alt": "First-visit reward experiment, gallery screen 57",
+          "liveSrc": "/review/case-study-v2/source-views/rewards-education-old-first-visit.html?v=static-1"
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "standard education-three-screens",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 45
+  },
+  {
+    "id": "rewards-value",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Give people a reason to care",
+    "subtitle": "",
+    "visual": {
+      "kind": "shared-landing-comparison",
+      "before": "/references/rewards-preview-content-2026-10-23/old-dashboard.svg",
+      "after": "assets/final-rewards-landing-poster.png",
+      "callouts": [],
+      "afterLiveSrc": "/review/case-study-v2/source-views/rewards-landing.html",
+      "labelsBelow": true,
+      "screenName": "Rewards dashboard",
+      "src": "/review/case-study-v2/source-views/rewards-landing-comparison.html?v=full-content-2"
+    },
+    "brand": false,
+    "layout": "visual-focus landing-showcase",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 95
+  },
+  {
+    "id": "rewards-once-hooked",
+    "project": "In-Store Rewards",
+    "title": "Once hooked, show how it works",
+    "subtitle": "",
+    "eyebrow": "",
+    "brand": false,
+    "layout": "standard",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "/review/case-study-v2/assets/final-rewards-landing-poster.png",
+          "label": "First time instruction",
+          "device": true,
+          "liveSrc": "/review/case-study-v2/source-views/rewards-paused.html?state=landing&chrome=clean&v=status-940"
+        },
+        {
+          "src": "/review/case-study-v2/assets/canonical-store-badge.svg",
+          "label": "Store page",
+          "device": true,
+          "liveSrc": "/review/case-study-v2/source-views/rewards-paused.html?state=store&chrome=clean&v=status-940"
+        }
+      ]
+    },
+    "speakerSeconds": 30
+  },
+  {
+    "id": "rewards-distribution",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Sprinkle education across the journey",
+    "subtitle": "",
+    "visual": {
+      "kind": "device-gallery",
+      "items": [
+        {
+          "src": "assets/canonical-home-badge.svg",
+          "label": "Home Page",
+          "callouts": [],
+          "liveSrc": "/review/beyond-delivery/story-v2/oct-embed.html?flow=store&autoplay=0&contextual=home&deckchrome=clean&assets=home-rewards-19"
+        },
+        {
+          "src": "assets/canonical-store-badge.svg",
+          "label": "Store Page",
+          "callouts": [],
+          "liveSrc": "/review/beyond-delivery/go-base-oct/home-dist/?startStore=delivery&deckchrome=clean&rev=ready19"
+        }
+      ],
+      "labelsBelow": true
+    },
+    "brand": false,
+    "layout": "visual-focus",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 25
+  },
+  {
+    "id": "rewards-section-b",
+    "project": "In-Store Rewards",
+    "title": "Make exploration feel effortless",
+    "subtitle": "",
+    "layout": "section-divider",
+    "visual": null,
+    "brand": false,
+    "eyebrow": "",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 3,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "rewards-map-model",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Explore without losing context",
+    "subtitle": "",
+    "visual": {
+      "kind": "hover-map-comparison",
+      "src": "/review/case-study-v2/source-views/rewards-map-hover.html?autoplay=1",
+      "poster": "assets/final-map-comparison-poster.png"
+    },
+    "brand": false,
+    "layout": "visual-only map-comparison-showcase",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 3,
+    "speakerSeconds": 60
+  },
+  {
+    "id": "rewards-map-options",
+    "project": "In-Store Rewards",
+    "brand": false,
+    "eyebrow": "",
+    "title": "Three models, different trade-offs",
+    "subtitle": "",
+    "visual": {
+      "kind": "map-options",
+      "items": [
+        {
+          "title": "Contextual maps",
+          "src": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-435/model-a-contextual-maps.mp4",
+          "poster": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-435/poster.jpg",
+          "pros": [
+            "Task context"
+          ],
+          "cons": [
+            "Less exploration space"
+          ]
+        },
+        {
+          "title": "Map / list toggle",
+          "src": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-453/model-b-map-list-toggle.mp4",
+          "poster": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-453/poster.jpg",
+          "pros": [
+            "More room per view"
+          ],
+          "cons": [
+            "Switching loses context"
+          ]
+        },
+        {
+          "title": "Location first",
+          "src": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-473/model-c-location-foundation.mp4",
+          "poster": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-473/poster.jpg",
+          "pros": [
+            "Location-led browsing"
+          ],
+          "cons": [
+            "Larger navigation change"
+          ],
+          "hideDynamicIsland": true
+        }
+      ],
+      "autoplay": false,
+      "hoverPlay": true
+    },
+    "layout": "visual-only map-exploration",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 3,
+    "speakerSeconds": 45
+  },
+  {
+    "id": "rewards-section-c",
+    "project": "In-Store Rewards",
+    "title": "Build toward the future",
+    "subtitle": "",
+    "layout": "section-divider",
+    "visual": null,
+    "brand": false,
+    "eyebrow": "",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 4,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "rewards-personalization",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Build the Foundation for Personalization",
+    "subtitle": "Feedback signals and taste profiles",
+    "visual": {
+      "kind": "shared-relevance",
+      "src": "/review/case-study-v2/source-views/rewards-relevance.html?manual=1&rev=20261030-final",
+      "poster": "assets/final-relevance-poster.png"
+    },
+    "brand": false,
+    "layout": "standard relevance-showcase",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 4,
+    "speakerSeconds": 60
+  },
+  {
+    "id": "rewards-production",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "I shipped production code",
+    "subtitle": "My complex build inspired engineers to create a scoping skill: fit for non-engineers, difficulty, and dependencies",
+    "visual": {
+      "kind": "pr-grid",
+      "items": [
+        {
+          "src": "/assets/portfolio-workflow/production-onboarding.png",
+          "label": "Small feature"
+        },
+        {
+          "src": "/variants/selected-work/assets/merged-pr.png",
+          "label": "UI fix"
+        },
+        {
+          "src": "/assets/portfolio-workflow/production-map-pin.png",
+          "label": "UI fix"
+        },
+        {
+          "src": "/assets/portfolio-workflow/production-components.png",
+          "label": "Component work"
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "standard production-grid-slide",
+    "chapterLabels": [
+      "Context",
+      "Reset the roadmap",
+      "The real way to capture new users",
+      "Make exploration feel effortless",
+      "Build toward the future"
+    ],
+    "chapterIndex": 4,
+    "speakerSeconds": 65
+  },
+  {
+    "id": "rewards-results",
+    "project": "In-Store Rewards",
+    "brand": false,
+    "eyebrow": "",
+    "subtitle": "",
+    "title": "Impact",
+    "layout": "standard outcome-summary",
+    "visual": {
+      "kind": "stats-grid",
+      "items": [
+        {
+          "value": "6×",
+          "label": "First-time conversion",
+          "detail": ""
+        },
+        {
+          "value": "+30%",
+          "label": "Returning-user conversion",
+          "detail": ""
+        },
+        {
+          "value": "8.3×",
+          "label": "Monthly active users",
+          "detail": ""
+        },
+        {
+          "value": "4.9×",
+          "label": "Weekly active orders",
+          "detail": ""
+        }
+      ]
+    },
+    "speakerSeconds": 35
+  },
+  {
+    "id": "rewards-roadmap-continuity",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "The team is still executing\non my roadmap",
+    "subtitle": "Taste profiles, reasons to trust personalization, and new map use cases",
+    "brand": false,
+    "layout": "standard roadmap-continuity",
+    "visual": {
+      "kind": "map-options",
+      "hoverPlay": true,
+      "autoplay": false,
+      "items": [
+        {
+          "title": "Visual search on the map",
+          "src": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-513/matcha-map.mp4",
+          "poster": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-513/poster.jpg"
+        },
+        {
+          "title": "On-route discovery",
+          "src": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-559/en-route.mp4",
+          "poster": "/review/beyond-delivery/story-v2/assets/slide-25-figma/44-559/poster.jpg"
+        }
+      ]
+    },
+    "speakerSeconds": 35
+  },
+  {
+    "id": "rewards-reflections",
+    "project": "In-Store Rewards",
+    "eyebrow": "",
+    "title": "Reflections",
+    "subtitle": "",
+    "brand": false,
+    "layout": "ai-process-slide reflections-slide",
+    "visual": {
+      "kind": "ai-process-overview",
+      "items": [
+        {
+          "title": "A real problem isn’t the whole problem",
+          "points": [
+            "Explore the full journey to find what’s missing"
+          ]
+        },
+        {
+          "title": "Personalization needs tuning",
+          "points": [
+            "Balance relevance, trust, user control, and model performance"
+          ]
+        }
+      ]
+    },
+    "speakerSeconds": 55
+  },
+  {
+    "id": "project-2-divider",
+    "project": "Affordable Meals",
+    "title": "Project 2 · Affordable Meals",
+    "subtitle": "",
+    "layout": "section-divider project-divider",
+    "visual": null,
+    "brand": false,
+    "eyebrow": "",
+    "speakerSeconds": 5
+  },
+  {
+    "id": "meals-context-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Context",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 3
+  },
+  {
+    "id": "meals-context",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "DoorDash feels too expensive",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "context-build",
+    "scope": [],
+    "contextBuild": [
+      "DoorDash feels too expensive"
+    ],
+    "formats": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 20
+  },
+  {
+    "id": "meals-promos",
+    "project": "Affordable Meals",
+    "brand": false,
+    "title": "Promos aren’t sustainable",
+    "subtitle": "",
+    "eyebrow": "",
+    "visual": null,
+    "layout": "context-build",
+    "scope": [],
+    "contextBuild": [
+      "DoorDash feels too expensive",
+      "Promos aren’t sustainable"
+    ],
+    "formats": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 15
+  },
+  {
+    "id": "meals-program-overview",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Explore new meal formats",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "context-build meal-format-stack",
+    "scope": [],
+    "contextBuild": [
+      "DoorDash feels too expensive",
+      "Promos aren’t sustainable",
+      "Explore new meal formats"
+    ],
+    "formats": [
+      "Sole designer across business pods",
+      "End-to-end consumer and merchant experiences",
+      "Influencing business strategy"
+    ],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 25
+  },
+  {
+    "id": "meals-value",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "We co-created $12 Meal Boxes\nwith restaurants",
+    "subtitle": "",
+    "visual": {
+      "kind": "meal-offering-grid",
+      "items": [
+        {
+          "src": "/assets/portable-remote/988d323ee72fd35a9b7e3767.jpg",
+          "name": "PB Crispy Meal",
+          "price": "$12.00"
+        },
+        {
+          "src": "/assets/portable-remote/a8e4c7ced9ee9a4184eb0b7f.jpg",
+          "name": "Build Your Own Bibimbap",
+          "price": "$12.00"
+        },
+        {
+          "src": "/assets/portable-remote/c3faf7d57fcbfcb829a0fd88.jpg",
+          "name": "Chicken Achiote",
+          "price": "$12.00"
+        },
+        {
+          "src": "/assets/portable-remote/1ff6932b0672810215ffb9a5.png",
+          "name": "Beef Kafta Wrap",
+          "price": "$12.00"
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "standard meal-offering-grid",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 0,
+    "speakerSeconds": 40
+  },
+  {
+    "id": "meals-consumer-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Consumer journey",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": null,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "meals-find-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Discover it",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 0,
+    "speakerSeconds": 3
+  },
+  {
+    "id": "meals-discovery-baseline",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Meal Boxes were hard to find",
+    "subtitle": "",
+    "brand": false,
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "assets/final-home-before.png",
+          "label": "Home",
+          "device": true,
+          "liveSrc": "/review/slide11-browse/app/current-home.html?embed=1&homebase=1&world=before&routes=experience-1&metadata=exact-2"
+        },
+        {
+          "src": "assets/final-search-before.png",
+          "label": "Search",
+          "device": true,
+          "liveSrc": "/review/cart-checkout/app/prototypes/mb-brief-v4/current-search.html?embed=1&screen=search&q=pad%20thai&searchcase=item&nomb=1&world=before&metadata=exact-2"
+        },
+        {
+          "src": "/review/prototype-gallery/captures/meals-store.png",
+          "label": "Store",
+          "device": true,
+          "liveSrc": "/review/cart-checkout/app/prototypes/mb-brief-v4/?embed=1&screen=store&nosub=1&world=before&metadata=exact-2"
+        }
+      ]
+    },
+    "layout": "visual-focus discovery-live-showcase",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 0,
+    "speakerSeconds": 35
+  },
+  {
+    "id": "meals-discovery",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Bring Meal Boxes where people already browse",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "standard",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 0,
+    "speakerSeconds": 20
+  },
+  {
+    "id": "meals-search-craft",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "45%\nSearch broadly",
+    "subtitle": "",
+    "visual": {
+      "kind": "annotated-comparison",
+      "before": "assets/final-search-before.png",
+      "after": "assets/portfolio-search-full-native.png",
+      "callouts": [],
+      "beforeLiveSrc": "/review/slide12-search/index.html?flowScreen=results&autoplay=0&comparison=current&metadata=exact-2&rev=search-type-exact-3",
+      "labelsBelow": true,
+      "screenName": "Search",
+      "afterScreen": "searchResults",
+      "afterParams": {
+        "rev": "search-type-exact-3"
+      }
+    },
+    "brand": false,
+    "scope": [],
+    "layout": "visual-focus home-comparison-v1",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 0,
+    "titleType": "phone-title",
+    "speakerSeconds": 50
+  },
+  {
+    "id": "meals-home-craft",
+    "project": "Affordable Meals",
+    "brand": false,
+    "title": "33%\nBrowse openly",
+    "subtitle": "",
+    "eyebrow": "",
+    "visual": {
+      "kind": "annotated-comparison",
+      "before": "assets/final-home-before.png",
+      "after": "assets/portfolio-home-full-native.png",
+      "callouts": [],
+      "beforeLiveSrc": "/review/slide11-browse/app/current-home.html?embed=1&homebase=1&focus=mealbox&world=before&routes=experience-1&manual=1&autoplay=0&metadata=exact-2",
+      "labelsBelow": true,
+      "afterScreen": "home",
+      "afterParams": {
+        "focus": "mealbox",
+        "autoplay": "0",
+        "manual": "1",
+        "hideMealMeta": "1"
+      }
+    },
+    "layout": "visual-focus home-comparison-v1",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 0,
+    "titleType": "phone-title",
+    "speakerSeconds": 35
+  },
+  {
+    "id": "meals-want-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Want to try it",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 1,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "meals-real-selection",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "What consumers actually see",
+    "subtitle": "",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "src": "assets/slide19-current-hub.png",
+          "label": "Current hub",
+          "device": true,
+          "liveSrc": "/review/slide10-hub/prototypes/mb-hub-sept/index.html?embed=1&world=before&assortment=repetition&routes=experience-1&metadata=exact-2"
+        },
+        {
+          "src": "assets/slide19-value-conflict-store.png",
+          "label": "Store page",
+          "device": true,
+          "liveSrc": "/review/slide10-hub/prototypes/mb-brief-v4/index.html?embed=1&world=before&screen=store&nosub=1&deckdemo=1&storecase=value-conflict&metadata=exact-2"
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "visual-focus",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 1,
+    "speakerSeconds": 45
+  },
+  {
+    "id": "meals-real-data-prototype",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Make the hub easier to browse",
+    "subtitle": "",
+    "visual": {
+      "kind": "annotated-comparison",
+      "before": "assets/slide19-current-hub.png",
+      "after": "assets/canonical-hub-after.svg",
+      "beforeLiveSrc": "/review/slide10-hub/prototypes/mb-hub-sept/index.html?embed=1&world=before&assortment=repetition&routes=experience-1&metadata=exact-2",
+      "afterScreen": "hub",
+      "afterParams": {
+        "focus": "storefirst"
+      },
+      "screenName": "hub",
+      "labelsBelow": true,
+      "callouts": []
+    },
+    "brand": false,
+    "layout": "visual-focus",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 1,
+    "speakerSeconds": 55
+  },
+  {
+    "id": "meals-price-craft",
+    "project": "Affordable Meals",
+    "brand": false,
+    "title": "Choose merchants where the price point stands out",
+    "subtitle": "",
+    "eyebrow": "",
+    "visual": {
+      "kind": "annotated-comparison",
+      "before": "assets/final-store-before.png",
+      "after": "assets/final-store-after.png",
+      "callouts": [],
+      "afterScreen": "store",
+      "beforeLiveSrc": "/review/slide10-hub/prototypes/mb-brief-v4/index.html?embed=1&world=before&screen=store&nosub=1&deckdemo=1&storecase=value-conflict&deckstart=featured&metadata=exact-2",
+      "afterLiveSrc": "/review/slide10-hub/prototypes/mb-brief-v4/index.html?embed=1&world=after&screen=store&nosub=1&deckdemo=1&storecase=price-comparison&deckstart=featured&metadata=exact-2",
+      "screenName": "Store",
+      "labelsBelow": true,
+      "afterParams": {
+        "storecase": "price-comparison",
+        "deckstart": "featured",
+        "autoplay": "0"
+      }
+    },
+    "layout": "visual-focus",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 1,
+    "speakerSeconds": 35
+  },
+  {
+    "id": "meals-outside-hours",
+    "project": "Affordable Meals",
+    "brand": false,
+    "title": "Discoverability beyond opening hours",
+    "subtitle": "",
+    "eyebrow": "",
+    "layout": "standard",
+    "visual": {
+      "kind": "gallery",
+      "items": [
+        {
+          "kind": "single-screen",
+          "src": "/assets/mealbox-closed-hours/hub-before.png",
+          "liveSrc": "/review/slide10-hub/prototypes/mb-hub-sept/index.html?embed=1&world=before&availability=closed&scenario=20261029",
+          "label": "Before",
+          "device": true,
+          "deviceFrame": false
+        },
+        {
+          "src": "/assets/mealbox-closed-hours/hub-before.png",
+          "liveSrc": "/review/slide10-hub/prototypes/mb-hub-v4/index.html?embed=1&world=after&bigimg=1&nodp=1&storefirst=1&allmeals=1&availability=closed",
+          "label": "After",
+          "device": true,
+          "deviceFrame": false
+        }
+      ]
+    },
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 2,
+    "speakerSeconds": 25
+  },
+  {
+    "id": "meals-enjoy-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Enjoy the actual meal",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 2,
+    "speakerSeconds": 5
+  },
+  {
+    "id": "meals-quality-challenge",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Keep quality consistent at scale",
+    "subtitle": "22,000+ meals\n900+ merchants in largest market",
+    "brand": false,
+    "visual": null,
+    "layout": "statement meals-quality-spacing",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 2,
+    "speakerSeconds": 30
+  },
+  {
+    "id": "meals-quality-merchants-divider",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Scale across markets",
+    "subtitle": "",
+    "visual": null,
+    "brand": false,
+    "layout": "section-divider",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 5
+  },
+  {
+    "project": "Affordable Meals",
+    "brand": false,
+    "id": "meals-merchant-quality",
+    "eyebrow": "",
+    "title": "Scale customer feedback",
+    "subtitle": "3,000+ review photos a week\n68% of live Meal Boxes assessed",
+    "visual": {
+      "kind": "review-photo-collection",
+      "src": "assets/canonical-quality-screen.svg",
+      "screen": "feedback",
+      "photos": [
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-01.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-02.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-03.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-04.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-05.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-06.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-07.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-08.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-09.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-10.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-12.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-13.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-14.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-15.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/taste-test-sheet-taste-test-16.jpg",
+          "alt": "Taste-test spreadsheet meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-01.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-02.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-03.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-04.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-05.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-06.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-01.jpg",
+          "alt": "SKU quality exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-07.jpg",
+          "alt": "In-app review exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-08.jpg",
+          "alt": "In-app review exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-09.jpg",
+          "alt": "In-app review exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-10.jpg",
+          "alt": "In-app review exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-11.jpg",
+          "alt": "In-app review exercise meal photograph"
+        },
+        {
+          "src": "/assets/deck-final/affordable-meals/customer-reviews/offsite-review-links-offsite-drive-12.jpg",
+          "alt": "In-app review exercise meal photograph"
+        }
+      ],
+      "screenParams": {
+        "flowScreen": "tracking"
+      }
+    },
+    "scope": [],
+    "layout": "visual-focus review-collection-showcase",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 1,
+    "chapterSubLabels": [
+      "Discover it",
+      "Want to try it",
+      "Enjoy the actual meal"
+    ],
+    "chapterSubIndex": 2,
+    "speakerSeconds": 40
+  },
+  {
+    "project": "Affordable Meals",
+    "brand": false,
+    "id": "meals-merchant-process",
+    "eyebrow": "",
+    "title": "Useful, but rarely visited",
+    "subtitle": "",
+    "visual": {
+      "kind": "merchant-live-portal",
+      "src": "/review/merchant-portal/prototypes/koji-customer-reviews/insights/?item=ratings-reviews&reviews-brand=doordash&reviews-mealbox=mealbox-only&ia-study=b&ia-layout=table&presentation=clean&reviews-chrome=off&drawer=closed"
+    },
+    "layout": "visual-focus merchant-portal-showcase",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 40
+  },
+  {
+    "project": "Affordable Meals",
+    "brand": false,
+    "id": "meals-merchant-report",
+    "eyebrow": "",
+    "title": "Make it easier to access and act on",
+    "subtitle": "86% of identified failing items addressed",
+    "visual": {
+      "kind": "merchant-email",
+      "src": "/review/merchant-report/index.html?deck=1&autoplay=0&mailSidebar=1&v=inbox-polish-3",
+      "poster": "assets/final-quality-email-annotated.svg"
+    },
+    "layout": "visual-focus merchant-email-showcase",
+    "scope": [],
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 55
+  },
+  {
+    "id": "meals-merchant-ai-process",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Use AI to explore merchant\nexperiences faster",
+    "subtitle": "Weeks instead of months",
+    "scope": [],
+    "visual": {
+      "kind": "project-preview-live",
+      "src": "/review/case-study-v2/source-views/merchant-work-overview.html?v=email-caption-3",
+      "poster": "assets/merchant-ratings-reviews-latest.png"
+    },
+    "brand": false,
+    "layout": "standard merchant-overview-centered",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 45
+  },
+  {
+    "id": "meals-impact",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "More value\non both sides",
+    "subtitle": "",
+    "visual": {
+      "kind": "stats-grid",
+      "items": [
+        {
+          "value": "10×",
+          "label": "Weekly orders",
+          "detail": ""
+        },
+        {
+          "value": "~2×",
+          "label": "Monthly new Meal Box customers",
+          "detail": ""
+        },
+        {
+          "value": "69%",
+          "label": "Weekly customers were returning",
+          "detail": ""
+        },
+        {
+          "value": "20%",
+          "label": "Above Q2 merchant activation target",
+          "detail": ""
+        }
+      ]
+    },
+    "brand": false,
+    "layout": "standard outcome-summary",
+    "chapterLabels": [
+      "Context",
+      "Consumer journey",
+      "Scale across markets"
+    ],
+    "chapterIndex": 2,
+    "speakerSeconds": 35
+  },
+  {
+    "id": "meals-reflections",
+    "project": "Affordable Meals",
+    "eyebrow": "",
+    "title": "Reflections",
+    "subtitle": "",
+    "brand": false,
+    "layout": "ai-process-slide reflections-slide",
+    "visual": {
+      "kind": "ai-process-overview",
+      "items": [
+        {
+          "title": "The promise depends on the system",
+          "points": [
+            "Design for merchant economics, operations, and lasting quality"
+          ]
+        },
+        {
+          "title": "Choose where to go deep",
+          "points": [
+            "Focus judgment on key decisions; reuse patterns elsewhere"
+          ]
+        }
+      ]
+    },
+    "speakerSeconds": 50
+  },
+  {
+    "id": "closing-impact-recap",
+    "project": "Closing",
+    "title": "Thank you",
+    "subtitle": "Excited to build what’s next with AI!",
+    "eyebrow": "",
+    "brand": false,
+    "layout": "closing-with-photos",
+    "visual": {
+      "kind": "closing-photos",
+      "items": [
+        {
+          "src": "/review/affordable-story/assets/closing/merchant-visit-02.jpeg",
+          "alt": "Merchant visit at Wow Tikka"
+        },
+        {
+          "src": "/review/affordable-story/assets/closing/merchant-visit-01.jpeg",
+          "alt": "Merchant visit at Dirty Water Pizza"
+        }
+      ]
+    },
+    "scope": [],
+    "speakerSeconds": 15
+  }
+]

@@ -1,0 +1,32 @@
+/* Actual Meal Box dishes with name and menu price only. */
+#slide .meal-offering-grid .slide-copy{left:68px!important;width:310px!important}
+#slide .meal-offering-grid .slide-visual{left:435px!important;top:42px!important;width:660px!important;height:585px!important}
+#slide .meal-offering-grid .visual-gallery{width:100%!important;height:100%!important}
+#slide .meal-offering-grid .gallery-items{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px!important;width:100%!important;height:100%!important;align-content:center}
+#slide .meal-offering-grid .gallery-items>figure{margin:0!important;width:auto!important;min-width:0;max-width:none!important}
+#slide .meal-offering-grid .gallery-items>figure>img{display:block;width:100%!important;height:210px!important;object-fit:cover!important;border-radius:14px!important;box-shadow:none!important;background:#fff}
+#slide .meal-offering-grid .gallery-items figcaption{margin-top:10px!important;text-align:left!important;white-space:pre-line;font:500 17px/24px DeckNorms,sans-serif!important;color:#202124!important}
+
+#slide .meal-offering-grid .gallery-items{align-items:start!important}
+#slide .meal-offering-grid .gallery-items>figure{display:block!important}
+#slide .meal-offering-grid .gallery-items figcaption{min-height:48px;text-align:left!important}
+
+/* Compact, padded product collection using the new hub's dish and price scale. */
+#slide .meal-offering-grid .slide-visual{left:565px!important;top:45px!important;width:500px!important;height:580px!important}
+#slide .meal-offering-grid .gallery-items{box-sizing:border-box;padding:20px!important;background:#fff;border-radius:20px;gap:24px!important;align-content:start!important;height:auto!important}
+#slide .meal-offering-grid .gallery-items>figure>img{height:auto!important;aspect-ratio:1/1!important;width:100%!important;object-fit:cover!important;border-radius:8px!important}
+.meal-product-name{margin-top:8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:700 14px/20px DeckNorms,Arial,sans-serif;color:#191919}
+.meal-product-price{display:flex;align-items:flex-start;margin-top:2px;font:700 14px/20px DeckNorms,Arial,sans-serif;color:#eb1700}
+.meal-product-price sup{position:static;margin:2px 0 0 2px;font:700 10px/14px DeckNorms,Arial,sans-serif}
+
+/* Four separate padded cards, rather than one backing sheet. */
+#slide .meal-offering-grid .slide-visual{left:585px!important;top:55px!important;width:460px!important;height:560px!important}
+#slide .meal-offering-grid .gallery-items{padding:0!important;background:transparent!important;border-radius:0!important;gap:20px!important}
+#slide .meal-offering-grid .gallery-items>figure{box-sizing:border-box;background:#fff;padding:14px!important;border-radius:20px!important}
+#slide .meal-offering-grid .gallery-items>figure>img{border-radius:14px!important}
+
+/* Slide 29: two-line title and tighter cards with lighter product names. */
+#slide .meal-offering-grid .slide-copy{width:460px!important;}
+#slide .meal-offering-grid .slide-copy h1{white-space:pre-line!important;}
+#slide .meal-offering-grid .gallery-items{gap:12px!important;}
+#slide .meal-offering-grid .meal-product-name{font-size:15px!important;font-weight:500!important;line-height:21px!important;}

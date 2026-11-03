@@ -1,0 +1,22 @@
+.education-three-screens .slide-copy{left:68px!important;width:310px!important}
+.education-three-screens .slide-visual{left:450px!important;top:50%!important;transform:translateY(-50%);width:682px!important;height:535px!important}
+.education-three-screens .visual-gallery,
+.education-three-screens .visual-gallery .gallery-items{height:535px;gap:26px;align-items:center}
+.education-three-screens .visual-gallery.count-3 .gallery-items > figure{flex:0 0 210px;width:210px}
+.education-three-screens .visual-gallery.count-3 .gallery-items .canonical-anchor{width:210px!important}
+.education-three-screens .canonical-phone{aspect-ratio:393 / 852!important;border-radius:20px!important}
+.education-three-screens .canonical-phone-content{border-radius:inherit!important}
+.education-three-screens .canonical-phone-content > img{object-fit:contain!important}
+
+.education-three-screens .gallery-items figure:nth-child(3) .canonical-phone-content>img{height:calc(100% + 4px)!important;object-fit:cover!important;object-position:center top!important}
+
+/* Slide 13: center the stationary screen group vertically. */
+#slide .slide-layout.education-three-screens .slide-visual{top:50%!important;height:535px!important;transform:translateY(-50%)!important;align-items:center!important}
+#slide .slide-layout.education-three-screens .visual-gallery,#slide .slide-layout.education-three-screens .gallery-items{height:535px!important;align-items:center!important}
+#slide .education-three-screens .gallery-items figure{animation:none!important;transition:none!important}
+
+/* Screenshot capture includes a 4/3 canvas; crop its unused white margin. */
+#slide .education-three-screens .gallery-items figure:nth-child(2) .canonical-phone-content > img{width:133.333333%!important;height:133.333333%!important;max-width:none!important;max-height:none!important;object-fit:fill!important;object-position:left top!important;}
+
+/* Slide 13: shared captions under each experiment screen. */
+#slide .education-three-screens .gallery-items figure figcaption{display:block!important;white-space:pre-line!important;text-align:center!important;font-size:13px!important;line-height:1.5!important;margin-top:14px!important;color:#747980!important;min-height:39px;}

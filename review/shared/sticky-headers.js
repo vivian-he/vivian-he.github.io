@@ -6,7 +6,7 @@
    if(root.dataset.stickyReady)return;
    const row=root.querySelector('.gxs-search-row'),tabs=root.querySelector('.gxs-tabs'),chips=root.querySelector('.gxs-chip-row');if(!row||!tabs||!chips)return;
    root.dataset.stickyReady='true';const scroller=root.parentElement;scroller.tabIndex=0;scroller.setAttribute('aria-label','Search results');
-   const measure=()=>{root.style.setProperty('--sticky-tabs-top',(59+row.offsetHeight)+'px');root.style.setProperty('--sticky-filters-top',(59+row.offsetHeight+tabs.offsetHeight)+'px')};measure();const sizing=new ResizeObserver(measure);sizing.observe(row);sizing.observe(tabs);
+   const measure=()=>{root.style.setProperty('--sticky-tabs-top',((root.querySelector('.gxs-status-bar')?.offsetHeight||0)+row.offsetHeight)+'px');root.style.setProperty('--sticky-filters-top',((root.querySelector('.gxs-status-bar')?.offsetHeight||0)+row.offsetHeight+tabs.offsetHeight)+'px')};measure();const sizing=new ResizeObserver(measure);sizing.observe(row);sizing.observe(tabs);const status=root.querySelector('.gxs-status-bar');if(status)sizing.observe(status);
    watch(scroller,()=>root.classList.toggle('is-scrolled',scroller.scrollTop>2));
   });
 

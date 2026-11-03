@@ -1,0 +1,40 @@
+/* Match agenda letterforms and metrics; emphasize the current section gently. */
+.chapter-map,
+.chapter-map .chapter-group > span,
+.chapter-map .chapter-subsections > span {
+  font-family:DeckNorms,Arial,sans-serif!important;
+  font-weight:500;
+  letter-spacing:normal;
+  font-synthesis:none;
+}
+.chapter-map .chapter-group > span {
+  font-size:20px;
+  line-height:1.25;
+}
+.chapter-map .chapter-subsections > span {
+  font-size:14px;
+  line-height:1.25;
+}
+.chapter-map .chapter-group > .current,
+.chapter-map .chapter-subsections > .current {
+  font-weight:600;
+}
+.chapter-map i {font-family:inherit;font-weight:inherit}
+/* Current section stays bold; numbers occupy one consistent alignment column. */
+.chapter-map .chapter-group > span {
+  display:grid;
+  grid-template-columns:24px minmax(0,1fr);
+  column-gap:24px;
+  align-items:baseline;
+}
+.chapter-map .chapter-group > .current,
+.chapter-map .chapter-subsections > .current {
+  font-weight:700!important;
+}
+.chapter-map .chapter-group > span > i {
+  display:block;
+  width:24px;
+  min-width:24px;
+  text-align:left;
+  font-variant-numeric:tabular-nums;
+}

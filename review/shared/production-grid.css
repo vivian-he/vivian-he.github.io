@@ -1,0 +1,29 @@
+/* Reuse the merchant overview's left title and four-screen grid treatment. */
+.production-grid-slide .slide-copy{left:68px!important;top:50%!important;transform:translateY(-50%)!important;width:310px!important}
+.production-grid-slide .slide-copy h1{margin:0!important}
+.production-grid-slide .slide-visual{left:405px!important;top:50%!important;transform:translateY(-50%)!important;width:727px!important;height:645px!important;align-items:stretch}
+.production-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;width:100%;height:100%;padding:40px 18px;align-content:center}
+.production-proof-grid figure{margin:0;min-width:0;display:flex;flex-direction:column}
+.production-proof-grid .proof-window{height:230px;overflow:hidden;background:#fff;border:6px solid #fff;border-radius:12px;box-shadow:none}
+.production-proof-grid img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.production-proof-grid figcaption{text-align:center;font-size:14px;line-height:1.3;color:#747980;margin-top:8px}
+
+.production-proof-grid img{object-fit:contain!important;object-position:center center!important}
+
+/* Slide 22: consistent PR scale and avatar/comment-header anchors. */
+#slide .production-grid-slide .slide-visual{left:390px!important;width:780px!important;}
+#slide .production-proof-grid{gap:22px;padding:24px 0;}
+#slide .production-proof-grid .proof-window{position:relative;height:245px;border:0;border-radius:10px;}
+#slide .production-proof-grid .proof-window img{position:absolute!important;max-width:none!important;max-height:none!important;object-fit:fill!important;height:auto!important;}
+#slide .production-proof-grid figure:nth-child(1) img{width:530.667px!important;left:-9.11px;top:2.89px;}
+#slide .production-proof-grid figure:nth-child(2) img{width:617.6px!important;left:-51.6px;top:-28.8px;}
+#slide .production-proof-grid figure:nth-child(3) img{width:525.33px!important;left:-3.16px;top:15.12px;}
+#slide .production-proof-grid figure:nth-child(4) img{width:539px!important;left:-6px;top:11px;}
+
+/* Remove the remaining repository toolbar above the UI-fix title. */
+#slide .production-proof-grid figure:nth-child(2) img{clip-path:inset(42px 0 0 0);}
+
+/* Match the merchant overview four-preview grid while preserving PR crop zoom. */
+#slide .production-grid-slide .slide-visual{left:565px!important;width:575px!important;height:645px!important;}
+#slide .production-proof-grid{gap:18.65px;padding:31px 14px;}
+#slide .production-proof-grid .proof-window{height:178.7px;}

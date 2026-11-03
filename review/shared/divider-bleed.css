@@ -1,0 +1,13 @@
+/* Extend existing black project dividers through the viewport's safe area. */
+html:has(#slide > .project-divider),
+body:has(#slide > .project-divider),
+body:has(#slide > .project-divider) #viewport,
+body:has(#slide > .project-divider) #slide {
+  background:#000!important;
+}
+body:has(#slide > .project-divider) {
+  min-height:100svh;
+}
+body:has(#slide > .project-divider) #slide-wrap {
+  box-shadow:none!important;
+}

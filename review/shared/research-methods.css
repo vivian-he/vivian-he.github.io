@@ -1,0 +1,35 @@
+/* Quiet research-methods line under the findings headline. */
+.research-methods-slide .slide-copy > [data-copy="subtitle"] {
+  font-size:13px!important;
+  line-height:1.5!important;
+  font-weight:400!important;
+  letter-spacing:normal!important;
+  white-space:nowrap;
+  margin-top:-10px!important;
+  margin-bottom:24px!important;
+  color:#858b92!important;
+}
+/* Historical screenshots share their original 375 × 812 screen proportions. */
+.research-methods-slide .canonical-phone {
+  aspect-ratio:375 / 812!important;
+  border-radius:26px!important;
+}
+.research-methods-slide .canonical-phone-content {
+  border-radius:inherit!important;
+}
+.research-methods-slide .canonical-phone-content > img {
+  object-fit:contain!important;
+}
+.research-methods-slide .canonical-phone-content::before {
+  content:""!important;
+  display:block!important;
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:18px;
+  background:#fff;
+  z-index:5;
+  pointer-events:none;
+}
+
+/* Slide 9: give the research sample line a little more emphasis. */
+#slide .slide-layout.research-methods-slide .slide-copy > [data-copy="subtitle"]{font-weight:500!important;}

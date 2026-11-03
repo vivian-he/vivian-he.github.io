@@ -1,0 +1,16 @@
+.research-quote-close{display:none}
+.research-quote-compact .research-quotes{align-items:flex-end;padding-right:18px;padding-left:0}
+.research-quote-compact .research-quote{width:370px!important;padding:30px!important}
+.research-quote-compact .research-quote p{
+ font-family:DeckNorms,Arial,sans-serif!important;
+ font-size:20px!important;font-weight:500!important;
+ font-style:normal!important;line-height:1.35!important;letter-spacing:-.01em!important;
+}
+.research-quote-compact .research-quote-mark,
+.research-quote-compact .research-quote-close{display:none!important}
+.research-quote-compact .research-quote p::before{content:"“"}
+.research-quote-compact .research-quote p::after{content:"”"}
+.research-quote-compact .research-quote footer{margin-top:20px;color:#858b92;font:400 13px/1.45 DeckNorms,Arial,sans-serif}
+
+/* Slide 12: bring the customer quote closer to the headline. */
+#slide .research-quote-compact .slide-visual{transform:translateX(-70px)!important;}

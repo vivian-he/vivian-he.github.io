@@ -4,7 +4,7 @@ const ROOT = new URL('./', import.meta.url);
 const CSS = new URL('./component.css', ROOT);
 CSS.search = 'v=final73';
 const BEFORE = new URL('../../../../references/rewards-preview-content-2026-10-23/old-dashboard.svg', ROOT);
-const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&v=spacing-7', ROOT);
+const AFTER = new URL('../../../beyond-delivery/go-base-oct/dist/prototypes/nate-clinton/going-out/q2/credit-sandbox/?embed=1&view=go&header=isr&au=0&v=store-polish-3', ROOT);
 const ADAPTER = new URL('../../../beyond-delivery/go-base-oct/rewards-dashboard.js', ROOT);
 
 let adapterPromise;
@@ -112,6 +112,7 @@ class RewardsDashboardComparison extends HTMLElement {
       `;
       doc.head.append(style);
     }
+    if(!doc.querySelector('script[src*="touch-interactions.js"]')){const touch=doc.createElement('script');touch.src='/review/shared/touch-interactions.js?v=manual-cursor-1';doc.head.append(touch);}
     await doc.fonts.ready;
     this.setAttribute('data-ready', '');
     this.measure();
@@ -135,7 +136,7 @@ class RewardsDashboardComparison extends HTMLElement {
     if (!feed || !fourth) return;
     const screen = doc.querySelector('.go-page')?.getBoundingClientRect();
     if (!screen) return;
-    const fullHeight = Math.ceil(fourth.getBoundingClientRect().top - screen.top);
+    const fullHeight = Math.ceil(this.hasAttribute('full-content') ? feed.getBoundingClientRect().bottom - screen.top : fourth.getBoundingClientRect().top - screen.top);
     if (fullHeight < 900) return;
     const width = this.surface.clientWidth;
     const scale = width / 393;

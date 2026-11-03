@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><script>const ce=console.error;console.error=(...a)=>ce(...a.map(x=>x instanceof Error?x.message:x))</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>In-Store Rewards · Future previews</title>
@@ -22,6 +22,6 @@
     <section><h2>From what’s nearby to what’s relevant to you</h2><rewards-relevance-story></rewards-relevance-story></section>
     <section><h2>What if all of DoorDash were map-first?</h2><rewards-map-explorations></rewards-map-explorations></section>
   </main>
-  <script type="module" src="./component.js"></script>
+  <script type="module" src="./component.js?offline=2"></script>
 </body>
 </html>

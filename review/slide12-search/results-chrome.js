@@ -15,6 +15,12 @@ function installResultsChrome(frame, onSearch) {
   const fonts=targetDoc.createElement('style');fonts.id='search-header-fonts';fonts.textContent=headerFonts;targetDoc.head.append(fonts);
  }
  const style=doc.createElement('style');style.textContent=`
+
+/* Search results start at the query row: no empty status spacer or tab/filter rule. */
+html:root:root:root body .gx-search>.gxs-status-bar{display:none!important;height:0!important;min-height:0!important;padding:0!important;border:0!important}
+html:root:root:root body .gx-search>.gxs-search-row{top:0!important;height:62px!important;padding-top:12px!important;box-sizing:border-box!important;border-top:0!important;box-shadow:none!important}
+html:root:root:root body .gx-search>.gxs-tabs{top:62px!important;border-bottom:0!important;box-shadow:none!important}
+html:root:root:root body .gx-search>.gxs-chip-row{top:111px!important;border-top:0!important;box-shadow:none!important}
  .gxs-search-row:has(.gxs-search-pill--filled){position:relative;height:50px;padding:0 12px}
  .gxs-search-pill--filled{visibility:hidden;box-shadow:none!important}
  .deck-query-title{position:absolute;left:54px;right:54px;text-align:center;font:500 17px/22px 'DD Norms',sans-serif;letter-spacing:0;pointer-events:none;color:#191919}

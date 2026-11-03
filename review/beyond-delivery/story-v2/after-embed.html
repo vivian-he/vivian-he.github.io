@@ -2,6 +2,7 @@
 const frame=document.querySelector('#flow');
 const params=new URLSearchParams(location.search);
 const isForYou=params.get('flow')==='for-you';
+const manualMode=params.get('manual')==='1';
 const loop=params.get('loop')==='1';
 let generation=0,running=false,requested=false,active=false,complete=false,loopTimer;
 const manualDocs=new WeakSet();
@@ -11,6 +12,14 @@ const hidePointers=()=>{const clear=doc=>{doc?.querySelectorAll('.deck-flow-touc
 function bindManual(doc){
  if(!doc||manualDocs.has(doc))return;
  manualDocs.add(doc);
+ if(!isForYou){const still=doc.createElement('style');still.dataset.reviewBackdropStill='';still.textContent='.pedregal-snap-sheet,.pedregal-snap-sheet--snapping,.oct-sheet-entering{animation:none!important;transition:none!important;transform:none!important}.oct-entry-skeleton{display:none!important}.go-page .pedregal-snap-sheet.pedregal-snap-sheet{top:255px!important;animation:none!important;transition:none!important;transform:none!important}';doc.head.append(still);}
+
+ if(manualMode){
+  if(!doc.querySelector('script[data-manual-phone-pointer]')){const script=doc.createElement('script');script.src='/review/shared/touch-interactions.js';script.dataset.manualPhonePointer='';doc.head.append(script);}
+  const wire=()=>doc.querySelectorAll('iframe').forEach(child=>{if(!child.dataset.manualPointerBound){child.dataset.manualPointerBound='true';child.addEventListener('load',()=>{try{bindManual(child.contentDocument)}catch{}})}try{bindManual(child.contentDocument)}catch{}});
+  wire();new MutationObserver(wire).observe(doc.documentElement,{childList:true,subtree:true});
+ }
+
  for(const type of ['pointerdown','touchstart','wheel','keydown'])doc.addEventListener(type,event=>{
   if(!event.isTrusted||!requested)return;
   requested=false;running=false;clearTimeout(loopTimer);hidePointers();status('Paused · explore freely');
@@ -53,6 +62,7 @@ async function sequence(token){
  }
 }
 async function play(){
+ if(manualMode)return;
  requested=true;
  if(complete){reset();return}
  running=true;status('Playing');if(active)return;
@@ -66,6 +76,7 @@ function reset(){
 }
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='deck-autoplay')return;
+ if(manualMode&&['play','reset'].includes(event.data.action))return;
  if(event.data.action==='pause'){requested=false;running=false;clearTimeout(loopTimer);hidePointers();status('Paused')}
  else if(event.data.action==='reset'){requested=true;reset()}
  else if(event.data.action==='play')play();

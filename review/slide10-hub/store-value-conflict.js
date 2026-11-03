@@ -5,7 +5,7 @@ const style=document.createElement('style');
 style.textContent=`
  [data-value-conflict-bogo-price]{color:#eb1700!important}
  [data-value-conflict-bogo-price]>*{display:none!important}
- [data-value-conflict-bogo-price]::before{content:'2 for $14';font-size:18px;line-height:22px;font-weight:700}
+ [data-value-conflict-bogo-price]::before{content:'2 for $14.00';font-size:18px;line-height:22px;font-weight:700}
  .featured-card__meta>.nv-item-card__deal-tag{display:table;align-self:flex-start;margin-top:4px}
 `;
 document.head.append(style);
@@ -37,3 +37,11 @@ function sync(){formatOffer();const root=document.querySelector('.rxi-root');if(
 }
 let queued=false;new MutationObserver(()=>{if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;sync()})}}).observe(document.documentElement,{childList:true,subtree:true});sync();
 })();
+
+// Presentation price comparison: badge follows the price on its own line.
+(()=>{const q=new URLSearchParams(location.search);if(q.get('storecase')!=='price-comparison')return;
+const style=document.createElement('style');style.textContent=`
+html:root:root:root body .featured-card__meta,html:root:root:root body .h-item-card__meta{display:flex!important;flex-direction:column!important;align-items:flex-start!important;}
+html:root:root:root body .featured-card__meta>.featured-card__price-row,html:root:root:root body .h-item-card__meta>.h-item-card__price-row{order:4!important;margin-top:10px!important;}
+html:root:root:root body .featured-card__meta>.mb-offer-applied-row,html:root:root:root body .h-item-card__meta>.mb-offer-applied-row{order:5!important;margin:4px 0 0!important;align-self:flex-start!important;}
+`;document.head.append(style);})();

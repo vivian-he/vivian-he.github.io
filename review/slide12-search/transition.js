@@ -29,7 +29,7 @@ home.addEventListener('load',bindHome);if(home.contentDocument?.readyState==='co
 const resultsFrame=document.querySelector('#search');
 // Comparisons share the final search chrome while retaining current result content.
 if(new URLSearchParams(location.search).get('comparison')==='current'){
- resultsFrame.src='../cart-checkout/app/prototypes/mb-brief-v4/current-search.html?embed=1&screen=search&q=pad%20thai&searchcase=item&nomb=1&world=before';
+ resultsFrame.src='../cart-checkout/app/prototypes/mb-brief-v4/current-search.html?embed=1&screen=search&q=pad%20thai&searchcase=item&nomb=1&world=before&rev=search-type-exact-3';
  resultsFrame.title='Current search results';
 }
 function mountResultChrome(){installResultsChrome(resultsFrame,()=>{reset();query.value='pad thai';entry.classList.add('typing');update()})}

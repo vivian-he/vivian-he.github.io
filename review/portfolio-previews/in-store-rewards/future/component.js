@@ -27,6 +27,7 @@ class RewardsRelevanceStory extends HTMLElement {
       { label: 'Feedback collection', url: feedbackURL },
       { label: 'Personalized suggestions', url: forYouFlow }
     ];
+    for(const item of items){item.url=new URL(item.url);item.url.searchParams.set('manual','1');item.url.searchParams.set('manualRev','20261030-final');item.url.searchParams.set('autoplay','0');item.url.searchParams.set('loop','0');}
     this.innerHTML = `<div class="rewards-future__grid rewards-future__grid--pair">${items.map(item => `
       <figure class="rewards-future__figure">
         <div class="rewards-future__phone deck-device-surface">
@@ -77,7 +78,7 @@ class RewardsRelevanceStory extends HTMLElement {
     const viewport = frame.parentElement;
     if (viewport) frame.style.transform = `scale(${viewport.clientWidth / 393})`;
   }
-  message(frame, action) { if (frame?.src) frame.contentWindow?.postMessage({ type: 'deck-autoplay', action }, location.origin); }
+  message(frame, action) { if (action === 'play') return; if (frame?.src) frame.contentWindow?.postMessage({ type: 'deck-autoplay', action }, location.origin); }
   disconnectedCallback() {
     this.observer?.disconnect();
     this.resizer?.disconnect();
