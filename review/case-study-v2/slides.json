@@ -1057,12 +1057,13 @@
       "before": "assets/final-search-before.png",
       "after": "assets/portfolio-search-full-native.png",
       "callouts": [],
-      "beforeLiveSrc": "/review/slide12-search/index.html?flowScreen=results&autoplay=0&comparison=current&metadata=exact-2&rev=search-type-exact-3",
+      "beforeLiveSrc": "/review/slide12-search/index.html?flowScreen=results&autoplay=0&comparison=current&metadata=exact-2&rev=search-type-exact-3&restoreSearchTop=1",
       "labelsBelow": true,
       "screenName": "Search",
       "afterScreen": "searchResults",
       "afterParams": {
-        "rev": "search-type-exact-3"
+        "rev": "search-type-exact-3",
+        "restoreSearchTop": "1"
       }
     },
     "brand": false,

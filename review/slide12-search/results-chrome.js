@@ -34,7 +34,17 @@ html:root:root:root body .gx-search>.gxs-chip-row{top:111px!important;border-top
  .gxs-results:last-child{padding-bottom:100px!important}
  .gxs-mb-card__meta .deck-prism-star{display:inline-block;width:16px;height:16px;flex:0 0 16px;vertical-align:-2px;color:#606060}
  .gxs-mb-section{scroll-margin-top:16px}
- `;doc.head.append(style);
+ `;
+ // Preserve the full top-of-screen context in the portfolio search comparison.
+ if(new URLSearchParams(location.search).get('restoreSearchTop')==='1')style.textContent+=`
+ html:root:root:root body .gx-search>.gxs-status-bar{display:flex!important;height:59px!important;min-height:59px!important;visibility:visible!important;opacity:1!important;padding:0!important}
+ html:root:root:root body .gx-search>.gxs-status-bar>.gxs-status-side,html:root:root:root body .gx-search>.gxs-status-bar>.gxs-status-side *{visibility:visible!important}
+ html:root:root:root body .gx-search>.gxs-status-bar>.gxs-island-wrap{visibility:hidden!important}
+ html:root:root:root body .gx-search>.gxs-search-row{top:59px!important}
+ html:root:root:root body .gx-search>.gxs-tabs{top:121px!important}
+ html:root:root:root body .gx-search>.gxs-chip-row{top:170px!important}
+ `;
+ doc.head.append(style);
  // Exact Prism StarFill16 geometry from the local Picnic source snapshot.
  function syncStars(){doc.querySelectorAll('.gxs-mb-card__meta').forEach(meta=>{
   [...meta.childNodes].filter(node=>node.nodeType===3&&node.textContent.includes('★')).forEach(node=>{
